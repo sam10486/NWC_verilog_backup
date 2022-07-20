@@ -4,6 +4,6 @@
 *.history
 *.rc
 
-INCA_libs
-bulid
+INCA_libs/
+build/
 
