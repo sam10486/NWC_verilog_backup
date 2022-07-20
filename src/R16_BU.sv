@@ -434,7 +434,7 @@ module R16_BU (
     BU2_NWC stage0_BU0(
         .in1(x0),
         .in2(x8),
-        .twiddle(twiddle_8),
+        .twiddle(twiddle_1),
         .modulus(modulus),
         .rst(rst),
         .clk(clk),
@@ -448,7 +448,7 @@ module R16_BU (
     BU2_NWC stage0_BU1(
         .in1(x1),
         .in2(x9),
-        .twiddle(twiddle_8),
+        .twiddle(twiddle_1),
         .modulus(modulus),
         .rst(rst),
         .clk(clk),
@@ -462,7 +462,7 @@ module R16_BU (
     BU2_NWC stage0_BU2(
         .in1(x2),
         .in2(x10),
-        .twiddle(twiddle_8),
+        .twiddle(twiddle_1),
         .modulus(modulus),
         .rst(rst),
         .clk(clk),
@@ -476,7 +476,7 @@ module R16_BU (
     BU2_NWC stage0_BU3(
         .in1(x3),
         .in2(x11),
-        .twiddle(twiddle_8),
+        .twiddle(twiddle_1),
         .modulus(modulus),
         .rst(rst),
         .clk(clk),
@@ -490,7 +490,7 @@ module R16_BU (
     BU2_NWC stage0_BU4(
         .in1(x4),
         .in2(x12),
-        .twiddle(twiddle_8),
+        .twiddle(twiddle_1),
         .modulus(modulus),
         .rst(rst),
         .clk(clk),
@@ -504,7 +504,7 @@ module R16_BU (
     BU2_NWC stage0_BU5(
         .in1(x5),
         .in2(x13),
-        .twiddle(twiddle_8),
+        .twiddle(twiddle_1),
         .modulus(modulus),
         .rst(rst),
         .clk(clk),
@@ -518,7 +518,7 @@ module R16_BU (
     BU2_NWC stage0_BU6(
         .in1(x6),
         .in2(x14),
-        .twiddle(twiddle_8),
+        .twiddle(twiddle_1),
         .modulus(modulus),
         .rst(rst),
         .clk(clk),
@@ -532,7 +532,7 @@ module R16_BU (
     BU2_NWC stage0_BU7(
         .in1(x7),
         .in2(x15),
-        .twiddle(twiddle_8),
+        .twiddle(twiddle_1),
         .modulus(modulus),
         .rst(rst),
         .clk(clk),
@@ -594,7 +594,7 @@ module R16_BU (
     BU2_NWC stage1_BU0(
         .in1(pip0_fft_a0),
         .in2(pip0_fft_a4),
-        .twiddle(pip0_twiddle_4),
+        .twiddle(pip0_twiddle_2),
         .modulus(pip0_modulus),
         .rst(rst),
         .clk(clk),
@@ -608,7 +608,7 @@ module R16_BU (
     BU2_NWC stage1_BU1(
         .in1(pip0_fft_a1),
         .in2(pip0_fft_a5),
-        .twiddle(pip0_twiddle_4),
+        .twiddle(pip0_twiddle_2),
         .modulus(pip0_modulus),
         .rst(rst),
         .clk(clk),
@@ -621,7 +621,7 @@ module R16_BU (
     BU2_NWC stage1_BU2(
         .in1(pip0_fft_a2),
         .in2(pip0_fft_a6),
-        .twiddle(pip0_twiddle_4),
+        .twiddle(pip0_twiddle_2),
         .modulus(pip0_modulus),
         .rst(rst),
         .clk(clk),
@@ -634,7 +634,7 @@ module R16_BU (
     BU2_NWC stage1_BU3(
         .in1(pip0_fft_a3),
         .in2(pip0_fft_a7),
-        .twiddle(pip0_twiddle_4),
+        .twiddle(pip0_twiddle_2),
         .modulus(pip0_modulus),
         .rst(rst),
         .clk(clk),
@@ -647,7 +647,7 @@ module R16_BU (
     BU2_NWC stage1_BU4(
         .in1(pip0_fft_b0),
         .in2(pip0_fft_b4),
-        .twiddle(pip0_twiddle_12),
+        .twiddle(pip0_twiddle_3),
         .modulus(pip0_modulus),
         .rst(rst),
         .clk(clk),
@@ -660,7 +660,7 @@ module R16_BU (
     BU2_NWC stage1_BU5(
         .in1(pip0_fft_b1),
         .in2(pip0_fft_b5),
-        .twiddle(pip0_twiddle_12),
+        .twiddle(pip0_twiddle_3),
         .modulus(pip0_modulus),
         .rst(rst),
         .clk(clk),
@@ -673,7 +673,7 @@ module R16_BU (
     BU2_NWC stage1_BU6(
         .in1(pip0_fft_b2),
         .in2(pip0_fft_b6),
-        .twiddle(pip0_twiddle_12),
+        .twiddle(pip0_twiddle_3),
         .modulus(pip0_modulus),
         .rst(rst),
         .clk(clk),
@@ -686,7 +686,7 @@ module R16_BU (
     BU2_NWC stage1_BU7(
         .in1(pip0_fft_b3),
         .in2(pip0_fft_b7),
-        .twiddle(pip0_twiddle_12),
+        .twiddle(pip0_twiddle_3),
         .modulus(pip0_modulus),
         .rst(rst),
         .clk(clk),
@@ -745,7 +745,7 @@ module R16_BU (
     BU2_NWC stage2_BU0(
         .in1(pip1_fft_a0),
         .in2(pip1_fft_a2),
-        .twiddle(pip1_twiddle_2),
+        .twiddle(pip1_twiddle_4),
         .modulus(pip1_modulus),
         .rst(rst),
         .clk(clk),
@@ -758,7 +758,7 @@ module R16_BU (
     BU2_NWC stage2_BU1(
         .in1(pip1_fft_a1),
         .in2(pip1_fft_a3),
-        .twiddle(pip1_twiddle_2),
+        .twiddle(pip1_twiddle_4),
         .modulus(pip1_modulus),
         .rst(rst),
         .clk(clk),
@@ -771,7 +771,7 @@ module R16_BU (
     BU2_NWC stage2_BU2(
         .in1(pip1_fft_b0),
         .in2(pip1_fft_b2),
-        .twiddle(pip1_twiddle_10),
+        .twiddle(pip1_twiddle_5),
         .modulus(pip1_modulus),
         .rst(rst),
         .clk(clk),
@@ -784,7 +784,7 @@ module R16_BU (
     BU2_NWC stage2_BU3(
         .in1(pip1_fft_b1),
         .in2(pip1_fft_b3),
-        .twiddle(pip1_twiddle_10),
+        .twiddle(pip1_twiddle_5),
         .modulus(pip1_modulus),
         .rst(rst),
         .clk(clk),
@@ -823,7 +823,7 @@ module R16_BU (
     BU2_NWC stage2_BU6(
         .in1(pip1_fft_b4),
         .in2(pip1_fft_b6),
-        .twiddle(pip1_twiddle_14),
+        .twiddle(pip1_twiddle_7),
         .modulus(pip1_modulus),
         .rst(rst),
         .clk(clk),
@@ -836,7 +836,7 @@ module R16_BU (
     BU2_NWC stage2_BU7(
         .in1(pip1_fft_b5),
         .in2(pip1_fft_b7),
-        .twiddle(pip1_twiddle_14),
+        .twiddle(pip1_twiddle_7),
         .modulus(pip1_modulus),
         .rst(rst),
         .clk(clk),
@@ -894,7 +894,7 @@ module R16_BU (
     BU2_NWC stage3_BU0(
         .in1(pip2_fft_a0),
         .in2(pip2_fft_a1),
-        .twiddle(pip2_twiddle_1),
+        .twiddle(pip2_twiddle_8),
         .modulus(pip2_modulus),
         .rst(rst),
         .clk(clk),
@@ -920,7 +920,7 @@ module R16_BU (
     BU2_NWC stage3_BU2(
         .in1(pip2_fft_a2),
         .in2(pip2_fft_a3),
-        .twiddle(pip2_twiddle_5),
+        .twiddle(pip2_twiddle_10),
         .modulus(pip2_modulus),
         .rst(rst),
         .clk(clk),
@@ -933,7 +933,7 @@ module R16_BU (
     BU2_NWC stage3_BU3(
         .in1(pip2_fft_b2),
         .in2(pip2_fft_b3),
-        .twiddle(pip2_twiddle_13),
+        .twiddle(pip2_twiddle_11),
         .modulus(pip2_modulus),
         .rst(rst),
         .clk(clk),
@@ -946,7 +946,7 @@ module R16_BU (
     BU2_NWC stage3_BU4(
         .in1(pip2_fft_a4),
         .in2(pip2_fft_a5),
-        .twiddle(pip2_twiddle_3),
+        .twiddle(pip2_twiddle_12),
         .modulus(pip2_modulus),
         .rst(rst),
         .clk(clk),
@@ -959,7 +959,7 @@ module R16_BU (
     BU2_NWC stage3_BU5(
         .in1(pip2_fft_b4),
         .in2(pip2_fft_b5),
-        .twiddle(pip2_twiddle_11),
+        .twiddle(pip2_twiddle_13),
         .modulus(pip2_modulus),
         .rst(rst),
         .clk(clk),
@@ -972,7 +972,7 @@ module R16_BU (
     BU2_NWC stage3_BU6(
         .in1(pip2_fft_a6),
         .in2(pip2_fft_a7),
-        .twiddle(pip2_twiddle_7),
+        .twiddle(pip2_twiddle_14),
         .modulus(pip2_modulus),
         .rst(rst),
         .clk(clk),

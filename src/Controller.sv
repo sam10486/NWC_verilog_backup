@@ -32,7 +32,7 @@ module Controller (
     output logic ntt_enable
 );
     
-    enum {RESET, IDLE, NTT_ite1, NTT_ite2, NTT_ite3
+    enum {RESET, IDLE, NTT_ite0, NTT_ite1, NTT_ite2, NTT_buffer_0
             , Fin_state} cs, ns;
 
     parameter bank_num = `bank_num;
@@ -54,6 +54,10 @@ module Controller (
     logic [`D_width-1:0] TF_base_l;
     logic [`D_width-1:0] TF_base_i;
     logic [`D_width-1:0] TF_const_i;
+
+    logic [`D_width-1:0] buffer_0_cnt;
+    logic buffer_0_flag;
+    parameter buffer_0_cnt_bound = 11;
 
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
@@ -116,7 +120,7 @@ module Controller (
         end else begin
             if (r_enable) begin
                 case (cs)
-                    NTT_ite1: begin
+                    NTT_ite0: begin
                         if (BU_cnt == ite_0-1) begin
                             BU_cnt <= 'd0;
                         end else begin
@@ -127,7 +131,7 @@ module Controller (
                             end
                         end
                     end
-                    NTT_ite2: begin
+                    NTT_ite1: begin
                         if (BU_cnt == ite_1-1) begin
                             BU_cnt <= 'd0;
                         end else begin
@@ -138,7 +142,7 @@ module Controller (
                             end 
                         end
                     end
-                    NTT_ite3: begin
+                    NTT_ite2: begin
                         if (BU_cnt == ite_2-1) begin
                             BU_cnt <= 'd0;
                         end else begin
@@ -156,6 +160,21 @@ module Controller (
             end
         end
     end
+
+    always_ff @( posedge clk or posedge rst ) begin
+        if (rst) begin
+            buffer_0_cnt <= 'd0;
+        end else begin
+            if (cs == NTT_buffer_0) begin
+                if (buffer_0_cnt == buffer_0_cnt_bound) begin
+                    buffer_0_cnt <= buffer_0_cnt;
+                end else begin
+                    buffer_0_cnt <= buffer_0_cnt + 'd1;
+                end
+            end
+        end
+    end
+    assign buffer_0_flag = (buffer_0_cnt == buffer_0_cnt_bound) ? 'd1 : 'd0;
 
     //--------signal machine-------------
 
@@ -184,26 +203,16 @@ module Controller (
                 w_enable = 'd0;
                 ntt_enable = 'd0;
             end 
-            NTT_ite1: begin
+            NTT_ite0: begin
                 if (BN_MA_out_en) begin
                     r_enable <= 'd1;
-                    if (BU_cnt == ite_0-1) begin
-                        TF_init_base = 'd0;
-                        TF_ren = 'd0;
-                        TF_wen = 'd1;
-                        TF_init_const = 'd0;
-                        it_depth_cnt = ite_stage;
-                    end else begin
-                        TF_init_base = 'd0;
-                        TF_ren = 'd1;
-                        TF_wen = 'd0;
-                        TF_init_const = 'd0;
-                        it_depth_cnt = ite_stage;
-                    end
+                    TF_init_base = 'd0;
                     TF_ren = 'd1;
+                    TF_wen = 'd0;
+                    TF_init_const = 'd0;
+                    it_depth_cnt = ite_stage;
                 end else begin
                     r_enable = 'd0;
-                    TF_ren = 'd0;
                 end
                 if (ntt_done) begin
                     w_enable = 'd1;
@@ -217,6 +226,45 @@ module Controller (
                 end
                 compute_complete = 'd0;
                 AGU_enable = 'd1;
+            end
+            NTT_buffer_0: begin
+                TF_init_base = 'd0;
+                TF_ren = 'd1;
+                TF_wen = 'd0;
+                TF_init_const = 'd0;
+                it_depth_cnt = it_depth_cnt;
+                compute_complete = 'd0;
+                AGU_enable = 'd0;
+                r_enable = 'd0;
+                w_enable = 'd1; 
+                ntt_enable = 'd1; 
+            end
+            NTT_ite1: begin
+                if (BN_MA_out_en) begin
+                    r_enable <= 'd1;
+                    TF_init_base = 'd0;
+                    TF_ren = 'd1;
+                    TF_wen = 'd0;
+                    TF_init_const = 'd0;
+                    it_depth_cnt = ite_stage;
+                end else begin
+                    r_enable = 'd0;
+                end
+                if (ntt_done) begin
+                    w_enable = 'd1;
+                end else begin
+                    w_enable = 'd0;
+                end
+                if (r_enable_out) begin
+                    ntt_enable = 'd1;
+                end else begin
+                    ntt_enable = 'd0;
+                end
+                compute_complete = 'd0;
+                AGU_enable = 'd1;
+            end
+            NTT_ite2: begin
+                
             end
             default: begin
                 TF_init_base = 'd0;
@@ -242,20 +290,35 @@ module Controller (
             end
             IDLE: begin //1
                 if (init_done) begin
-                    ns <= NTT_ite1;
+                    ns <= NTT_ite0;
                 end else begin
                     ns <= cs;
                 end
             end 
-            NTT_ite1: begin //2
+            NTT_ite0: begin //2
                 if (BN_MA_out_en && BU_cnt == ite_0-1) begin
-                    ns <= cs;
+                    ns <= NTT_buffer_0;
                 end else begin
                     ns <= cs;
                 end          
             end
-            NTT_ite2: begin
+            NTT_buffer_0: begin
+                if (buffer_0_flag) begin
+                    ns <= NTT_ite1;
+                end else begin
+                   ns <= cs; 
+                end
+            end
+            NTT_ite1: begin
+                if (BN_MA_out_en && BU_cnt == ite_1-1) begin
+                    ns <= NTT_ite2;
+                end else begin
+                   ns <= cs; 
+                end
                 
+            end
+            NTT_ite2: begin
+                ns <= cs;
             end
             default: begin
             end
