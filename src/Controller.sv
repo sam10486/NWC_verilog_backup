@@ -56,7 +56,6 @@ module Controller (
     logic [`D_width-1:0] TF_const_i;
 
     logic [`D_width-1:0] buffer_0_cnt;
-    logic buffer_0_flag;
     parameter buffer_0_cnt_bound = 11;
 
     always_ff @( posedge clk or posedge rst ) begin
@@ -174,7 +173,6 @@ module Controller (
             end
         end
     end
-    assign buffer_0_flag = (buffer_0_cnt == buffer_0_cnt_bound) ? 'd1 : 'd0;
 
     //--------signal machine-------------
 
@@ -237,7 +235,7 @@ module Controller (
                 AGU_enable = 'd0;
                 r_enable = 'd0;
                 w_enable = 'd1; 
-                ntt_enable = 'd1; 
+                ntt_enable = 'd0; 
             end
             NTT_ite1: begin
                 if (BN_MA_out_en) begin
@@ -303,10 +301,10 @@ module Controller (
                 end          
             end
             NTT_buffer_0: begin
-                if (buffer_0_flag) begin
+                if (buffer_0_cnt == buffer_0_cnt_bound) begin
                     ns <= NTT_ite1;
                 end else begin
-                   ns <= cs; 
+                    ns <= cs; 
                 end
             end
             NTT_ite1: begin
