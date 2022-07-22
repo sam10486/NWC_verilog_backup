@@ -47,6 +47,7 @@ module Controller (
     logic [`D_width-1:0] ite_stage;
     logic [`D_width-1:0] ite_sw_cnt;
     logic [`D_width-1:0] BU_cnt;
+    logic [`D_width-1:0] BU_group_cnt;
     logic [`D_width-1:0] delay_cnt;
     logic delay_flag;
     logic compute_complete;
@@ -118,6 +119,7 @@ module Controller (
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
             BU_cnt <= 'd0;
+            BU_group_cnt <= 'd0;
         end else begin
             if (r_enable) begin
                 case (cs)
@@ -131,31 +133,45 @@ module Controller (
                                 BU_cnt <= BU_cnt;
                             end
                         end
+                        BU_group_cnt <= 'd0;
                     end
                     NTT_ite1: begin
                         if (BU_cnt == ite_1-1) begin
                             BU_cnt <= 'd0;
+                            if (BU_group_cnt == 'd15) begin
+                                BU_group_cnt <= BU_group_cnt;
+                            end else begin
+                                BU_group_cnt <= BU_group_cnt + 'd1;
+                            end
                         end else begin
                             if (TF_ren) begin
                                 BU_cnt <= BU_cnt + 'd1;
                             end else begin
                                 BU_cnt <= BU_cnt;
                             end 
+                            BU_group_cnt <= BU_group_cnt;
                         end
                     end
                     NTT_ite2: begin
                         if (BU_cnt == ite_2-1) begin
                             BU_cnt <= 'd0;
+                            if (BU_group_cnt == 'd255) begin
+                                BU_group_cnt <= BU_group_cnt;
+                            end else begin
+                                BU_group_cnt <= BU_group_cnt + 'd1;
+                            end
                         end else begin
                             if (TF_ren) begin
                                 BU_cnt <= BU_cnt + 'd1;
                             end else begin
                                 BU_cnt <= BU_cnt;
                             end
+                            BU_group_cnt <= 'd0;
                         end
                     end 
                     default: begin
                         BU_cnt <= 'd0;
+                        BU_group_cnt <= 'd0;
                     end
                 endcase
             end
@@ -360,7 +376,7 @@ module Controller (
                 end
             end
             NTT_ite1: begin
-                if (BU_cnt == ite_1-1) begin
+                if (BU_cnt == ite_1-1 && BU_group_cnt == 'd15) begin
                     ns <= NTT_ite2;
                 end else begin
                    ns <= cs; 
