@@ -154,7 +154,7 @@ module TF_gen(
 		end
 	end
 	
-	always_comb begin
+	always_ff@(posedge clk) begin
 		case({TF_init_base, TF_init_const, TF_ren, TF_wen})
 			'b1000: begin
 				TF_base_array[it_depth_cnt][0] <= TF_base_in0;

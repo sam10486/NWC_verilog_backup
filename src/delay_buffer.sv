@@ -253,11 +253,11 @@ module delay_buffer (
     assign R16_BN7_idx_pip_out  = R16_BN7_idx_pip   [12];
     assign R16_BN8_idx_pip_out  = R16_BN8_idx_pip   [12];
     assign R16_BN9_idx_pip_out  = R16_BN9_idx_pip   [12];
-    assign R16_BN10_idx__pip_out = R16_BN10_idx_pip  [12];
-    assign R16_BN11_idx__pip_out = R16_BN11_idx_pip  [12];
-    assign R16_BN12_idx__pip_out = R16_BN12_idx_pip  [12];
-    assign R16_BN13_idx__pip_out = R16_BN13_idx_pip  [12];
-    assign R16_BN14_idx__pip_out = R16_BN14_idx_pip  [12];
+    assign R16_BN10_idx_pip_out = R16_BN10_idx_pip  [12];
+    assign R16_BN11_idx_pip_out = R16_BN11_idx_pip  [12];
+    assign R16_BN12_idx_pip_out = R16_BN12_idx_pip  [12];
+    assign R16_BN13_idx_pip_out = R16_BN13_idx_pip  [12];
+    assign R16_BN14_idx_pip_out = R16_BN14_idx_pip  [12];
     assign R16_BN15_idx_pip_out = R16_BN15_idx_pip  [12];
 
     assign ntt_done_pip_out      = ntt_enable_pip    [12];

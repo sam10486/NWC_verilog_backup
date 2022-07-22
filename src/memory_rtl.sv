@@ -161,17 +161,187 @@ module memory_rtl(
         end 
     end
     
-    logic [`D_width-1:0] test, test1, test2;
+    logic [`D_width-1:0] test0_0, test0_1, test0_2, test1_0, test1_1, test1_2;
 
-    assign test = memory_array[2][32];
-    assign test1 = memory_array[4][64];
-    assign test2 = memory_array[6][96];
+    assign test0_0 = memory_array[0][0];
+    assign test0_1 = memory_array[2][32];
+    assign test0_2 = memory_array[4][64];
 
-    always_comb begin
+    assign test1_0 = R16_w_BN0_idx;
+    assign test1_1 = R16_w_MA0_idx;
+    assign test1_2 = memory_array[5][0];
+
+/*
+    logic [`D_width-1:0] data_in0_tmp;
+    logic [`D_width-1:0] data_in1_tmp;
+    logic [`D_width-1:0] data_in2_tmp;
+    logic [`D_width-1:0] data_in3_tmp;
+    logic [`D_width-1:0] data_in4_tmp;
+    logic [`D_width-1:0] data_in5_tmp;
+    logic [`D_width-1:0] data_in6_tmp;
+    logic [`D_width-1:0] data_in7_tmp;
+    logic [`D_width-1:0] data_in8_tmp;
+    logic [`D_width-1:0] data_in9_tmp;
+    logic [`D_width-1:0] data_in10_tmp;
+    logic [`D_width-1:0] data_in11_tmp;
+    logic [`D_width-1:0] data_in12_tmp;
+    logic [`D_width-1:0] data_in13_tmp;
+    logic [`D_width-1:0] data_in14_tmp;
+    logic [`D_width-1:0] data_in15_tmp;
+
+    logic [`D_width-1:0] R16_w_MA0_idx_tmp;
+    logic [`D_width-1:0] R16_w_MA1_idx_tmp;
+    logic [`D_width-1:0] R16_w_MA2_idx_tmp;
+    logic [`D_width-1:0] R16_w_MA3_idx_tmp;
+    logic [`D_width-1:0] R16_w_MA4_idx_tmp;
+    logic [`D_width-1:0] R16_w_MA5_idx_tmp;
+    logic [`D_width-1:0] R16_w_MA6_idx_tmp;
+    logic [`D_width-1:0] R16_w_MA7_idx_tmp;
+    logic [`D_width-1:0] R16_w_MA8_idx_tmp;
+    logic [`D_width-1:0] R16_w_MA9_idx_tmp;
+    logic [`D_width-1:0] R16_w_MA10_idx_tmp;
+    logic [`D_width-1:0] R16_w_MA11_idx_tmp;
+    logic [`D_width-1:0] R16_w_MA12_idx_tmp;
+    logic [`D_width-1:0] R16_w_MA13_idx_tmp;
+    logic [`D_width-1:0] R16_w_MA14_idx_tmp;
+    logic [`D_width-1:0] R16_w_MA15_idx_tmp;
+
+    logic [`D_width-1:0] R16_w_BN0_idx_tmp;
+    logic [`D_width-1:0] R16_w_BN1_idx_tmp;
+    logic [`D_width-1:0] R16_w_BN2_idx_tmp;
+    logic [`D_width-1:0] R16_w_BN3_idx_tmp;
+    logic [`D_width-1:0] R16_w_BN4_idx_tmp;
+    logic [`D_width-1:0] R16_w_BN5_idx_tmp;
+    logic [`D_width-1:0] R16_w_BN6_idx_tmp;
+    logic [`D_width-1:0] R16_w_BN7_idx_tmp;
+    logic [`D_width-1:0] R16_w_BN8_idx_tmp;
+    logic [`D_width-1:0] R16_w_BN9_idx_tmp;
+    logic [`D_width-1:0] R16_w_BN10_idx_tmp;
+    logic [`D_width-1:0] R16_w_BN11_idx_tmp;
+    logic [`D_width-1:0] R16_w_BN12_idx_tmp;
+    logic [`D_width-1:0] R16_w_BN13_idx_tmp;
+    logic [`D_width-1:0] R16_w_BN14_idx_tmp;
+    logic [`D_width-1:0] R16_w_BN15_idx_tmp;
+
+    logic r_enable_tmp;
+    logic w_enable_tmp;
+
+
+    always_ff @( posedge clk or posedge rst ) begin
+        if (rst) begin
+            data_in0_tmp    <=  'd0   ;
+            data_in1_tmp    <=  'd0   ;
+            data_in2_tmp    <=  'd0   ;
+            data_in3_tmp    <=  'd0   ;
+            data_in4_tmp    <=  'd0   ;
+            data_in5_tmp    <=  'd0   ;
+            data_in6_tmp    <=  'd0   ;
+            data_in7_tmp    <=  'd0   ;
+            data_in8_tmp    <=  'd0   ;
+            data_in9_tmp    <=  'd0   ;
+            data_in10_tmp   <=  'd0   ; 
+            data_in11_tmp   <=  'd0   ; 
+            data_in12_tmp   <=  'd0   ; 
+            data_in13_tmp   <=  'd0   ; 
+            data_in14_tmp   <=  'd0   ; 
+            data_in15_tmp   <=  'd0   ; 
+
+            R16_w_MA0_idx_tmp   <=  'd0  ;
+            R16_w_MA1_idx_tmp   <=  'd0  ;
+            R16_w_MA2_idx_tmp   <=  'd0  ;
+            R16_w_MA3_idx_tmp   <=  'd0  ;
+            R16_w_MA4_idx_tmp   <=  'd0  ;
+            R16_w_MA5_idx_tmp   <=  'd0  ;
+            R16_w_MA6_idx_tmp   <=  'd0  ;
+            R16_w_MA7_idx_tmp   <=  'd0  ;
+            R16_w_MA8_idx_tmp   <=  'd0  ;
+            R16_w_MA9_idx_tmp   <=  'd0  ;
+            R16_w_MA10_idx_tmp  <=  'd0  ;
+            R16_w_MA11_idx_tmp  <=  'd0  ;
+            R16_w_MA12_idx_tmp  <=  'd0  ;
+            R16_w_MA13_idx_tmp  <=  'd0  ;
+            R16_w_MA14_idx_tmp  <=  'd0  ;
+            R16_w_MA15_idx_tmp  <=  'd0  ;
+
+            R16_w_BN0_idx_tmp   <=  'd0  ;
+            R16_w_BN1_idx_tmp   <=  'd0  ;
+            R16_w_BN2_idx_tmp   <=  'd0  ;
+            R16_w_BN3_idx_tmp   <=  'd0  ;
+            R16_w_BN4_idx_tmp   <=  'd0  ;
+            R16_w_BN5_idx_tmp   <=  'd0  ;
+            R16_w_BN6_idx_tmp   <=  'd0  ;
+            R16_w_BN7_idx_tmp   <=  'd0  ;
+            R16_w_BN8_idx_tmp   <=  'd0  ;
+            R16_w_BN9_idx_tmp   <=  'd0  ;
+            R16_w_BN10_idx_tmp  <=  'd0  ; 
+            R16_w_BN11_idx_tmp  <=  'd0  ; 
+            R16_w_BN12_idx_tmp  <=  'd0  ; 
+            R16_w_BN13_idx_tmp  <=  'd0  ; 
+            R16_w_BN14_idx_tmp  <=  'd0  ; 
+            R16_w_BN15_idx_tmp  <=  'd0  ; 
+            r_enable_tmp <= 'd0;
+            w_enable_tmp <= 'd0;
+        end else begin
+            data_in0_tmp    <=  data_in0    ;
+            data_in1_tmp    <=  data_in1    ;
+            data_in2_tmp    <=  data_in2    ;
+            data_in3_tmp    <=  data_in3    ;
+            data_in4_tmp    <=  data_in4    ;
+            data_in5_tmp    <=  data_in5    ;
+            data_in6_tmp    <=  data_in6    ;
+            data_in7_tmp    <=  data_in7    ;
+            data_in8_tmp    <=  data_in8    ;
+            data_in9_tmp    <=  data_in9    ;
+            data_in10_tmp   <=  data_in10   ; 
+            data_in11_tmp   <=  data_in11   ; 
+            data_in12_tmp   <=  data_in12   ; 
+            data_in13_tmp   <=  data_in13   ; 
+            data_in14_tmp   <=  data_in14   ; 
+            data_in15_tmp   <=  data_in15   ; 
+
+            R16_w_MA0_idx_tmp   <=  R16_w_MA0_idx   ;
+            R16_w_MA1_idx_tmp   <=  R16_w_MA1_idx   ;
+            R16_w_MA2_idx_tmp   <=  R16_w_MA2_idx   ;
+            R16_w_MA3_idx_tmp   <=  R16_w_MA3_idx   ;
+            R16_w_MA4_idx_tmp   <=  R16_w_MA4_idx   ;
+            R16_w_MA5_idx_tmp   <=  R16_w_MA5_idx   ;
+            R16_w_MA6_idx_tmp   <=  R16_w_MA6_idx   ;
+            R16_w_MA7_idx_tmp   <=  R16_w_MA7_idx   ;
+            R16_w_MA8_idx_tmp   <=  R16_w_MA8_idx   ;
+            R16_w_MA9_idx_tmp   <=  R16_w_MA9_idx   ;
+            R16_w_MA10_idx_tmp  <=  R16_w_MA10_idx  ;
+            R16_w_MA11_idx_tmp  <=  R16_w_MA11_idx  ;
+            R16_w_MA12_idx_tmp  <=  R16_w_MA12_idx  ;
+            R16_w_MA13_idx_tmp  <=  R16_w_MA13_idx  ;
+            R16_w_MA14_idx_tmp  <=  R16_w_MA14_idx  ;
+            R16_w_MA15_idx_tmp  <=  R16_w_MA15_idx  ;
+
+            R16_w_BN0_idx_tmp   <=  R16_w_BN0_idx   ;
+            R16_w_BN1_idx_tmp   <=  R16_w_BN1_idx   ;
+            R16_w_BN2_idx_tmp   <=  R16_w_BN2_idx   ;
+            R16_w_BN3_idx_tmp   <=  R16_w_BN3_idx   ;
+            R16_w_BN4_idx_tmp   <=  R16_w_BN4_idx   ;
+            R16_w_BN5_idx_tmp   <=  R16_w_BN5_idx   ;
+            R16_w_BN6_idx_tmp   <=  R16_w_BN6_idx   ;
+            R16_w_BN7_idx_tmp   <=  R16_w_BN7_idx   ;
+            R16_w_BN8_idx_tmp   <=  R16_w_BN8_idx   ;
+            R16_w_BN9_idx_tmp   <=  R16_w_BN9_idx   ;
+            R16_w_BN10_idx_tmp  <=  R16_w_BN10_idx  ; 
+            R16_w_BN11_idx_tmp  <=  R16_w_BN11_idx  ; 
+            R16_w_BN12_idx_tmp  <=  R16_w_BN12_idx  ; 
+            R16_w_BN13_idx_tmp  <=  R16_w_BN13_idx  ; 
+            R16_w_BN14_idx_tmp  <=  R16_w_BN14_idx  ; 
+            R16_w_BN15_idx_tmp  <=  R16_w_BN15_idx  ; 
+
+            r_enable_tmp <= r_enable;
+            w_enable_tmp <= w_enable;
+        end
+    end
+*/
+    always_ff@(posedge clk) begin
         case({r_enable, w_enable})
             'b10: begin
                 memory_b0       = memory_array[BN0_idx][MA0_idx];
-                //memory_b0       = 'd111111;
                 memory_b1       = memory_array[BN1_idx][MA1_idx];
                 memory_b2       = memory_array[BN2_idx][MA2_idx];
                 memory_b3       = memory_array[BN3_idx][MA3_idx];
@@ -219,26 +389,25 @@ module memory_rtl(
                 BN13_idx_out    = BN13_idx;
                 BN14_idx_out    = BN14_idx;
                 BN15_idx_out    = BN15_idx;
-        
             end
-            'b01: begin
-                memory_array[BN0_idx][MA0_idx]      = data_in0;
-                memory_array[BN1_idx][MA1_idx]      = data_in1;
-                memory_array[BN2_idx][MA2_idx]      = data_in2;
-                memory_array[BN3_idx][MA3_idx]      = data_in3;
-                memory_array[BN4_idx][MA4_idx]      = data_in4;
-                memory_array[BN5_idx][MA5_idx]      = data_in5;
-                memory_array[BN6_idx][MA6_idx]      = data_in6;
-                memory_array[BN7_idx][MA7_idx]      = data_in7;
-                memory_array[BN8_idx][MA8_idx]      = data_in8;
-                memory_array[BN9_idx][MA9_idx]      = data_in9;
-                memory_array[BN10_idx][MA10_idx]    = data_in10;
-                memory_array[BN11_idx][MA11_idx]    = data_in11;
-                memory_array[BN12_idx][MA12_idx]    = data_in12;
-                memory_array[BN13_idx][MA13_idx]    = data_in13;
-                memory_array[BN14_idx][MA14_idx]    = data_in14;
-                memory_array[BN15_idx][MA15_idx]    = data_in15;
-            end
+            /*'b01: begin
+                memory_array[R16_w_BN0_idx][R16_w_MA0_idx]      = data_in0;
+                memory_array[R16_w_BN1_idx][R16_w_MA1_idx]      = data_in1;
+                memory_array[R16_w_BN2_idx][R16_w_MA2_idx]      = data_in2;
+                memory_array[R16_w_BN3_idx][R16_w_MA3_idx]      = data_in3;
+                memory_array[R16_w_BN4_idx][R16_w_MA4_idx]      = data_in4;
+                memory_array[R16_w_BN5_idx][R16_w_MA5_idx]      = data_in5;
+                memory_array[R16_w_BN6_idx][R16_w_MA6_idx]      = data_in6;
+                memory_array[R16_w_BN7_idx][R16_w_MA7_idx]      = data_in7;
+                memory_array[R16_w_BN8_idx][R16_w_MA8_idx]      = data_in8;
+                memory_array[R16_w_BN9_idx][R16_w_MA9_idx]      = data_in9;
+                memory_array[R16_w_BN10_idx][R16_w_MA10_idx]    = data_in10;
+                memory_array[R16_w_BN11_idx][R16_w_MA11_idx]    = data_in11;
+                memory_array[R16_w_BN12_idx][R16_w_MA12_idx]    = data_in12;
+                memory_array[R16_w_BN13_idx][R16_w_MA13_idx]    = data_in13;
+                memory_array[R16_w_BN14_idx][R16_w_MA14_idx]    = data_in14;
+                memory_array[R16_w_BN15_idx][R16_w_MA15_idx]    = data_in15;
+            end*/
             'b11: begin
                 memory_b0   = memory_array[BN0_idx][MA0_idx];
                 memory_b1   = memory_array[BN1_idx][MA1_idx];

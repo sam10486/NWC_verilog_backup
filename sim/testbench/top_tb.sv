@@ -35,7 +35,7 @@ module Testbench ();
     logic [`D_width-1:0] data_in15;
 
     logic [`D_width-1:0] TF_based_in [0:k1_ite*bank_num-1]; 
-    logic [`D_width-1:0] TF_const_in [0:bank_num-1]; 
+    logic [`D_width-1:0] TF_const_in [0:bank_num-2]; 
     logic [`D_width-1:0] mem_data_in [0:`degree-1];
     logic [`D_width-1:0] mem_data_golden [0:`degree-1]; 
 

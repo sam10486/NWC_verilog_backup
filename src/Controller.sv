@@ -56,7 +56,9 @@ module Controller (
     logic [`D_width-1:0] TF_const_i;
 
     logic [`D_width-1:0] buffer_0_cnt;
-    parameter buffer_0_cnt_bound = 11;
+    parameter buffer_0_cnt_bound = 12;
+
+    logic [`D_width-1:0] AGU_en_cnt;
 
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
@@ -160,6 +162,8 @@ module Controller (
         end
     end
 
+    //---------buffer_0_cnt-------------------------
+
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
             buffer_0_cnt <= 'd0;
@@ -171,6 +175,40 @@ module Controller (
                     buffer_0_cnt <= buffer_0_cnt + 'd1;
                 end
             end
+        end
+    end
+
+    //----------AGU_enable cnt-------------
+    always_ff @( posedge clk or posedge rst ) begin
+        if (rst) begin
+            AGU_en_cnt <= 'd0;
+        end else begin
+            case (cs)
+                NTT_ite0: begin
+                    if (AGU_en_cnt == ite_0) begin
+                        AGU_en_cnt <= AGU_en_cnt;
+                    end else begin
+                        AGU_en_cnt <= AGU_en_cnt + 'd1;
+                    end
+                end
+                NTT_ite1: begin
+                    if (AGU_en_cnt == ite_1-'d1) begin
+                        AGU_en_cnt <= AGU_en_cnt;
+                    end else begin
+                        AGU_en_cnt <= AGU_en_cnt + 'd1;
+                    end
+                end
+                NTT_ite2: begin
+                    if (AGU_en_cnt == ite_2-'d1) begin
+                        AGU_en_cnt <= AGU_en_cnt;
+                    end else begin
+                        AGU_en_cnt <= AGU_en_cnt + 'd1;
+                    end
+                end 
+                default: begin
+                    AGU_en_cnt <= 'd0;
+                end
+            endcase
         end
     end
 
@@ -223,7 +261,11 @@ module Controller (
                     ntt_enable = 'd0;
                 end
                 compute_complete = 'd0;
-                AGU_enable = 'd1;
+                if (AGU_en_cnt == ite_0) begin
+                    AGU_enable = 'd0;
+                end else begin
+                    AGU_enable = 'd1;
+                end
             end
             NTT_buffer_0: begin
                 TF_init_base = 'd0;
@@ -235,7 +277,12 @@ module Controller (
                 AGU_enable = 'd0;
                 r_enable = 'd0;
                 w_enable = 'd1; 
-                ntt_enable = 'd0; 
+                if (r_enable_out) begin
+                    ntt_enable = 'd1; 
+                end else begin
+                    ntt_enable = 'd0; 
+                end
+                
             end
             NTT_ite1: begin
                 if (BN_MA_out_en) begin
@@ -259,6 +306,11 @@ module Controller (
                     ntt_enable = 'd0;
                 end
                 compute_complete = 'd0;
+                /*if (AGU_en_cnt == ite_0 - 'd1) begin
+                    AGU_enable = 'd0;
+                end else begin
+                    AGU_enable = 'd1;
+                end*/
                 AGU_enable = 'd1;
             end
             NTT_ite2: begin
@@ -294,7 +346,7 @@ module Controller (
                 end
             end 
             NTT_ite0: begin //2
-                if (BN_MA_out_en && BU_cnt == ite_0-1) begin
+                if (BU_cnt == ite_0-1) begin
                     ns <= NTT_buffer_0;
                 end else begin
                     ns <= cs;
@@ -308,7 +360,7 @@ module Controller (
                 end
             end
             NTT_ite1: begin
-                if (BN_MA_out_en && BU_cnt == ite_1-1) begin
+                if (BU_cnt == ite_1-1) begin
                     ns <= NTT_ite2;
                 end else begin
                    ns <= cs; 

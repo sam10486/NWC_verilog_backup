@@ -72,7 +72,7 @@ module AGU(
                     end
                 end
             end else begin
-                l <= 'd0;
+                l <= l;
                 AGU_done <= 'd0;
             end
         end
@@ -93,7 +93,7 @@ module AGU(
                     end
                 end
             end else begin
-                j <= 'd0;
+                j <= j;
             end
         end
     end
@@ -113,7 +113,7 @@ module AGU(
                     end
                 end
             end else begin
-                i <= 'd0;
+                i <= i;
             end
         end
     end
