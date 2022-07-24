@@ -163,7 +163,7 @@ module memory_rtl(
     
     logic [`D_width-1:0] test0_0, test0_1, test0_2, test1_0, test1_1, test1_2;
 
-    assign test0_0 = memory_array[0][0];
+    assign test0_0 = memory_array[3][31];
     assign test0_1 = memory_array[2][32];
     assign test0_2 = memory_array[4][64];
 
@@ -390,7 +390,7 @@ module memory_rtl(
                 BN14_idx_out    = BN14_idx;
                 BN15_idx_out    = BN15_idx;
             end
-            /*'b01: begin
+            'b01: begin
                 memory_array[R16_w_BN0_idx][R16_w_MA0_idx]      = data_in0;
                 memory_array[R16_w_BN1_idx][R16_w_MA1_idx]      = data_in1;
                 memory_array[R16_w_BN2_idx][R16_w_MA2_idx]      = data_in2;
@@ -407,7 +407,7 @@ module memory_rtl(
                 memory_array[R16_w_BN13_idx][R16_w_MA13_idx]    = data_in13;
                 memory_array[R16_w_BN14_idx][R16_w_MA14_idx]    = data_in14;
                 memory_array[R16_w_BN15_idx][R16_w_MA15_idx]    = data_in15;
-            end*/
+            end
             'b11: begin
                 memory_b0   = memory_array[BN0_idx][MA0_idx];
                 memory_b1   = memory_array[BN1_idx][MA1_idx];

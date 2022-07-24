@@ -1,6 +1,7 @@
 `include "../include/define.svh"
 `include "BU2_NWC.sv"
 `include "delay_buffer.sv"
+`include "TF_delay_buffer.sv"
 
 module R16_BU (
     input [`D_width-1:0]    x0, x1, x2, x3, x4, x5, x6, x7,
@@ -555,7 +556,7 @@ module R16_BU (
             pip0_fft_a6 <= 'd0; pip0_fft_b6 <= 'd0;
             pip0_fft_a7 <= 'd0; pip0_fft_b7 <= 'd0;
 
-            pip0_twiddle_0 <= 'd0; pip0_twiddle_8 <= 'd0;
+            /*pip0_twiddle_0 <= 'd0; pip0_twiddle_8 <= 'd0;
             pip0_twiddle_1 <= 'd0; pip0_twiddle_9 <= 'd0;
             pip0_twiddle_2 <= 'd0; pip0_twiddle_10 <= 'd0;
             pip0_twiddle_3 <= 'd0; pip0_twiddle_11 <= 'd0;
@@ -564,7 +565,7 @@ module R16_BU (
             pip0_twiddle_6 <= 'd0; pip0_twiddle_14 <= 'd0;
             pip0_twiddle_7 <= 'd0; pip0_twiddle_15 <= 'd0;
 
-            pip0_modulus <= 'd0;
+            pip0_modulus <= 'd0;*/
      
         end else begin
             pip0_fft_a0 <= stage0_fft_a0;   pip0_fft_b0 <= stage0_fft_b0;
@@ -576,7 +577,7 @@ module R16_BU (
             pip0_fft_a6 <= stage0_fft_a6;   pip0_fft_b6 <= stage0_fft_b6;
             pip0_fft_a7 <= stage0_fft_a7;   pip0_fft_b7 <= stage0_fft_b7;
 
-            pip0_twiddle_0 <= twiddle_0;   pip0_twiddle_8 <= twiddle_8;
+            /*pip0_twiddle_0 <= twiddle_0;   pip0_twiddle_8 <= twiddle_8;
             pip0_twiddle_1 <= twiddle_1;   pip0_twiddle_9 <= twiddle_9;
             pip0_twiddle_2 <= twiddle_2;   pip0_twiddle_10 <= twiddle_10;
             pip0_twiddle_3 <= twiddle_3;   pip0_twiddle_11 <= twiddle_11;
@@ -585,10 +586,54 @@ module R16_BU (
             pip0_twiddle_6 <= twiddle_6;   pip0_twiddle_14 <= twiddle_14;
             pip0_twiddle_7 <= twiddle_7;   pip0_twiddle_15 <= twiddle_15;
 
-            pip0_modulus <= modulus;
+            pip0_modulus <= modulus;*/
 
         end
     end
+
+    TF_delay_buffer TF_D0(
+        //input
+        .clk(clk),
+        .rst(rst),
+        .TF0_in (twiddle_0),
+        .TF1_in (twiddle_1),
+        .TF2_in (twiddle_2),
+        .TF3_in (twiddle_3),
+        .TF4_in (twiddle_4),
+        .TF5_in (twiddle_5),
+        .TF6_in (twiddle_6),
+        .TF7_in (twiddle_7),
+        .TF8_in (twiddle_8),
+        .TF9_in (twiddle_9),
+        .TF10_in(twiddle_10),
+        .TF11_in(twiddle_11),
+        .TF12_in(twiddle_12),
+        .TF13_in(twiddle_13),
+        .TF14_in(twiddle_14),
+        .TF15_in(twiddle_15),
+
+        .modulus(modulus),
+
+        //output
+        .TF0_pip_out    (pip0_twiddle_0),
+        .TF1_pip_out    (pip0_twiddle_1),
+        .TF2_pip_out    (pip0_twiddle_2),
+        .TF3_pip_out    (pip0_twiddle_3),
+        .TF4_pip_out    (pip0_twiddle_4),
+        .TF5_pip_out    (pip0_twiddle_5),
+        .TF6_pip_out    (pip0_twiddle_6),
+        .TF7_pip_out    (pip0_twiddle_7),
+        .TF8_pip_out    (pip0_twiddle_8),
+        .TF9_pip_out    (pip0_twiddle_9),
+        .TF10_pip_out   (pip0_twiddle_10),
+        .TF11_pip_out   (pip0_twiddle_11),
+        .TF12_pip_out   (pip0_twiddle_12),
+        .TF13_pip_out   (pip0_twiddle_13),
+        .TF14_pip_out   (pip0_twiddle_14),
+        .TF15_pip_out   (pip0_twiddle_15),
+        
+        .modulus_pip_out(pip0_modulus)
+    );
 
     //-----------stage 1------------------
     BU2_NWC stage1_BU0(
@@ -697,17 +742,17 @@ module R16_BU (
         .modulus_BU_out(BU7_stage1_modulus_out)
     );
 
-    //-------------------------stage 2---------------------------------
+
     always_ff @( posedge clk or posedge rst ) begin : stage2
         if (rst) begin
-            pip1_twiddle_0 <= 'd0; pip1_twiddle_8 <= 'd0;
+            /*pip1_twiddle_0 <= 'd0; pip1_twiddle_8 <= 'd0;
             pip1_twiddle_1 <= 'd0; pip1_twiddle_9 <= 'd0;
             pip1_twiddle_2 <= 'd0; pip1_twiddle_10 <= 'd0;
             pip1_twiddle_3 <= 'd0; pip1_twiddle_11 <= 'd0;
             pip1_twiddle_4 <= 'd0; pip1_twiddle_12 <= 'd0;
             pip1_twiddle_5 <= 'd0; pip1_twiddle_13 <= 'd0;
             pip1_twiddle_6 <= 'd0; pip1_twiddle_14 <= 'd0;
-            pip1_twiddle_7 <= 'd0; pip1_twiddle_15 <= 'd0;
+            pip1_twiddle_7 <= 'd0; pip1_twiddle_15 <= 'd0;*/
 
             pip1_fft_a0 <= 'd0; pip1_fft_b0 <= 'd0;
             pip1_fft_a1 <= 'd0; pip1_fft_b1 <= 'd0;
@@ -718,16 +763,16 @@ module R16_BU (
             pip1_fft_a6 <= 'd0; pip1_fft_b6 <= 'd0;
             pip1_fft_a7 <= 'd0; pip1_fft_b7 <= 'd0;
           
-            pip1_modulus <= 'd0;
+            //pip1_modulus <= 'd0;
         end else begin
-            pip1_twiddle_0 <= pip0_twiddle_0; pip1_twiddle_8 <=  pip0_twiddle_8 ;
+            /*pip1_twiddle_0 <= pip0_twiddle_0; pip1_twiddle_8 <=  pip0_twiddle_8 ;
             pip1_twiddle_1 <= pip0_twiddle_1; pip1_twiddle_9 <=  pip0_twiddle_9 ;
             pip1_twiddle_2 <= pip0_twiddle_2; pip1_twiddle_10 <= pip0_twiddle_10;
             pip1_twiddle_3 <= pip0_twiddle_3; pip1_twiddle_11 <= pip0_twiddle_11;
             pip1_twiddle_4 <= pip0_twiddle_4; pip1_twiddle_12 <= pip0_twiddle_12;
             pip1_twiddle_5 <= pip0_twiddle_5; pip1_twiddle_13 <= pip0_twiddle_13;
             pip1_twiddle_6 <= pip0_twiddle_6; pip1_twiddle_14 <= pip0_twiddle_14;
-            pip1_twiddle_7 <= pip0_twiddle_7; pip1_twiddle_15 <= pip0_twiddle_15;
+            pip1_twiddle_7 <= pip0_twiddle_7; pip1_twiddle_15 <= pip0_twiddle_15;*/
 
             pip1_fft_a0 <= stage1_fft_a0; pip1_fft_b0 <= stage1_fft_b0;
             pip1_fft_a1 <= stage1_fft_a1; pip1_fft_b1 <= stage1_fft_b1;
@@ -738,10 +783,55 @@ module R16_BU (
             pip1_fft_a6 <= stage1_fft_a6; pip1_fft_b6 <= stage1_fft_b6;
             pip1_fft_a7 <= stage1_fft_a7; pip1_fft_b7 <= stage1_fft_b7;
 
-            pip1_modulus <= pip0_modulus;
+            //pip1_modulus <= pip0_modulus;
         end
     end
 
+    TF_delay_buffer TF_D1(
+        //input
+        .clk(clk),
+        .rst(rst),
+        .TF0_in (pip0_twiddle_0),
+        .TF1_in (pip0_twiddle_1),
+        .TF2_in (pip0_twiddle_2),
+        .TF3_in (pip0_twiddle_3),
+        .TF4_in (pip0_twiddle_4),
+        .TF5_in (pip0_twiddle_5),
+        .TF6_in (pip0_twiddle_6),
+        .TF7_in (pip0_twiddle_7),
+        .TF8_in (pip0_twiddle_8),
+        .TF9_in (pip0_twiddle_9),
+        .TF10_in(pip0_twiddle_10),
+        .TF11_in(pip0_twiddle_11),
+        .TF12_in(pip0_twiddle_12),
+        .TF13_in(pip0_twiddle_13),
+        .TF14_in(pip0_twiddle_14),
+        .TF15_in(pip0_twiddle_15),
+
+        .modulus(pip0_modulus),
+
+        //output
+        .TF0_pip_out    (pip1_twiddle_0),
+        .TF1_pip_out    (pip1_twiddle_1),
+        .TF2_pip_out    (pip1_twiddle_2),
+        .TF3_pip_out    (pip1_twiddle_3),
+        .TF4_pip_out    (pip1_twiddle_4),
+        .TF5_pip_out    (pip1_twiddle_5),
+        .TF6_pip_out    (pip1_twiddle_6),
+        .TF7_pip_out    (pip1_twiddle_7),
+        .TF8_pip_out    (pip1_twiddle_8),
+        .TF9_pip_out    (pip1_twiddle_9),
+        .TF10_pip_out   (pip1_twiddle_10),
+        .TF11_pip_out   (pip1_twiddle_11),
+        .TF12_pip_out   (pip1_twiddle_12),
+        .TF13_pip_out   (pip1_twiddle_13),
+        .TF14_pip_out   (pip1_twiddle_14),
+        .TF15_pip_out   (pip1_twiddle_15),
+        
+        .modulus_pip_out(pip1_modulus)
+    );
+
+    //-------------------------stage 2---------------------------------
     BU2_NWC stage2_BU0(
         .in1(pip1_fft_a0),
         .in2(pip1_fft_a2),
@@ -846,18 +936,18 @@ module R16_BU (
         .twiddle_BU_out(BU7_stage2_twiddle_out),
         .modulus_BU_out(BU7_stage2_modulus_out)
     );
-    //-------------------stage 3 ---------------------
+    
 
     always_ff @( posedge clk or posedge rst ) begin : stage3
         if (rst) begin
-            pip2_twiddle_0 <= 'd0; pip2_twiddle_8  <= 'd0;
+            /*pip2_twiddle_0 <= 'd0; pip2_twiddle_8  <= 'd0;
             pip2_twiddle_1 <= 'd0; pip2_twiddle_9  <= 'd0;
             pip2_twiddle_2 <= 'd0; pip2_twiddle_10 <= 'd0;
             pip2_twiddle_3 <= 'd0; pip2_twiddle_11 <= 'd0;
             pip2_twiddle_4 <= 'd0; pip2_twiddle_12 <= 'd0;
             pip2_twiddle_5 <= 'd0; pip2_twiddle_13 <= 'd0;
             pip2_twiddle_6 <= 'd0; pip2_twiddle_14 <= 'd0;
-            pip2_twiddle_7 <= 'd0; pip2_twiddle_15 <= 'd0;
+            pip2_twiddle_7 <= 'd0; pip2_twiddle_15 <= 'd0;*/
 
             pip2_fft_a0 <= 'd0; pip2_fft_b0 <= 'd0;
             pip2_fft_a1 <= 'd0; pip2_fft_b1 <= 'd0;
@@ -868,16 +958,16 @@ module R16_BU (
             pip2_fft_a6 <= 'd0; pip2_fft_b6 <= 'd0;
             pip2_fft_a7 <= 'd0; pip2_fft_b7 <= 'd0;
 
-            pip2_modulus <= 'd0;
+            //pip2_modulus <= 'd0;
         end else begin
-            pip2_twiddle_0 <= pip1_twiddle_0; pip2_twiddle_8  <= pip1_twiddle_8 ;
+            /*pip2_twiddle_0 <= pip1_twiddle_0; pip2_twiddle_8  <= pip1_twiddle_8 ;
             pip2_twiddle_1 <= pip1_twiddle_1; pip2_twiddle_9  <= pip1_twiddle_9 ;
             pip2_twiddle_2 <= pip1_twiddle_2; pip2_twiddle_10 <= pip1_twiddle_10;
             pip2_twiddle_3 <= pip1_twiddle_3; pip2_twiddle_11 <= pip1_twiddle_11;
             pip2_twiddle_4 <= pip1_twiddle_4; pip2_twiddle_12 <= pip1_twiddle_12;
             pip2_twiddle_5 <= pip1_twiddle_5; pip2_twiddle_13 <= pip1_twiddle_13;
             pip2_twiddle_6 <= pip1_twiddle_6; pip2_twiddle_14 <= pip1_twiddle_14;
-            pip2_twiddle_7 <= pip1_twiddle_7; pip2_twiddle_15 <= pip1_twiddle_15;
+            pip2_twiddle_7 <= pip1_twiddle_7; pip2_twiddle_15 <= pip1_twiddle_15;*/
 
             pip2_fft_a0 <= stage2_fft_a0; pip2_fft_b0 <= stage2_fft_b0;
             pip2_fft_a1 <= stage2_fft_a1; pip2_fft_b1 <= stage2_fft_b1;
@@ -888,9 +978,55 @@ module R16_BU (
             pip2_fft_a6 <= stage2_fft_a6; pip2_fft_b6 <= stage2_fft_b6;
             pip2_fft_a7 <= stage2_fft_a7; pip2_fft_b7 <= stage2_fft_b7;
 
-            pip2_modulus <= pip1_modulus;
+            //pip2_modulus <= pip1_modulus;
         end
     end
+
+    TF_delay_buffer TF_D2(
+        //input
+        .clk(clk),
+        .rst(rst),
+        .TF0_in (pip1_twiddle_0),
+        .TF1_in (pip1_twiddle_1),
+        .TF2_in (pip1_twiddle_2),
+        .TF3_in (pip1_twiddle_3),
+        .TF4_in (pip1_twiddle_4),
+        .TF5_in (pip1_twiddle_5),
+        .TF6_in (pip1_twiddle_6),
+        .TF7_in (pip1_twiddle_7),
+        .TF8_in (pip1_twiddle_8),
+        .TF9_in (pip1_twiddle_9),
+        .TF10_in(pip1_twiddle_10),
+        .TF11_in(pip1_twiddle_11),
+        .TF12_in(pip1_twiddle_12),
+        .TF13_in(pip1_twiddle_13),
+        .TF14_in(pip1_twiddle_14),
+        .TF15_in(pip1_twiddle_15),
+
+        .modulus(pip1_modulus),
+
+        //output
+        .TF0_pip_out    (pip2_twiddle_0),
+        .TF1_pip_out    (pip2_twiddle_1),
+        .TF2_pip_out    (pip2_twiddle_2),
+        .TF3_pip_out    (pip2_twiddle_3),
+        .TF4_pip_out    (pip2_twiddle_4),
+        .TF5_pip_out    (pip2_twiddle_5),
+        .TF6_pip_out    (pip2_twiddle_6),
+        .TF7_pip_out    (pip2_twiddle_7),
+        .TF8_pip_out    (pip2_twiddle_8),
+        .TF9_pip_out    (pip2_twiddle_9),
+        .TF10_pip_out   (pip2_twiddle_10),
+        .TF11_pip_out   (pip2_twiddle_11),
+        .TF12_pip_out   (pip2_twiddle_12),
+        .TF13_pip_out   (pip2_twiddle_13),
+        .TF14_pip_out   (pip2_twiddle_14),
+        .TF15_pip_out   (pip2_twiddle_15),
+        
+        .modulus_pip_out(pip2_modulus)
+    );
+    
+    //-------------------stage 3 ---------------------
     BU2_NWC stage3_BU0(
         .in1(pip2_fft_a0),
         .in2(pip2_fft_a1),

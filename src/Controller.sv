@@ -32,7 +32,7 @@ module Controller (
     output logic ntt_enable
 );
     
-    enum {RESET, IDLE, NTT_ite0, NTT_ite1, NTT_ite2, NTT_buffer_0
+    enum {RESET, IDLE, NTT_ite0, NTT_ite1, NTT_ite2, NTT_buffer_0, NTT_buffer_1
             , Fin_state} cs, ns;
 
     parameter bank_num = `bank_num;
@@ -58,6 +58,10 @@ module Controller (
 
     logic [`D_width-1:0] buffer_0_cnt;
     parameter buffer_0_cnt_bound = 12;
+
+    logic [`D_width-1:0] buffer_1_cnt;
+    parameter buffer_1_cnt_bound = 12;
+    //logic [`D_width-1:0] ite_stage_buffer_1;
 
     logic [`D_width-1:0] AGU_en_cnt;
 
@@ -150,6 +154,7 @@ module Controller (
                                 BU_cnt <= BU_cnt;
                             end 
                             BU_group_cnt <= BU_group_cnt;
+
                         end
                     end
                     NTT_ite2: begin
@@ -193,6 +198,23 @@ module Controller (
             end
         end
     end
+
+    //---------buffer_1_cnt--------------------
+
+    always_ff @( posedge clk or posedge rst ) begin
+        if (rst) begin
+            buffer_1_cnt <= 'd0;
+        end else begin
+            if (cs == NTT_buffer_1) begin
+                if (buffer_1_cnt == buffer_1_cnt_bound) begin
+                    buffer_1_cnt <= buffer_1_cnt;
+                end else begin
+                    buffer_1_cnt <= buffer_1_cnt + 'd1;
+                end
+            end
+        end
+    end
+
 
     //----------AGU_enable cnt-------------
     always_ff @( posedge clk or posedge rst ) begin
@@ -260,11 +282,14 @@ module Controller (
                     r_enable <= 'd1;
                     TF_init_base = 'd0;
                     TF_ren = 'd1;
-                    TF_wen = 'd0;
                     TF_init_const = 'd0;
                     it_depth_cnt = ite_stage;
                 end else begin
                     r_enable = 'd0;
+                    TF_init_base = 'd0;
+                    TF_ren = 'd0;
+                    TF_init_const = 'd0;
+                    it_depth_cnt = 'd0;
                 end
                 if (ntt_done) begin
                     w_enable = 'd1;
@@ -282,13 +307,14 @@ module Controller (
                 end else begin
                     AGU_enable = 'd1;
                 end
+                TF_wen = 'd0;
             end
             NTT_buffer_0: begin
                 TF_init_base = 'd0;
                 TF_ren = 'd1;
                 TF_wen = 'd0;
                 TF_init_const = 'd0;
-                it_depth_cnt = it_depth_cnt;
+                it_depth_cnt = ite_stage;
                 compute_complete = 'd0;
                 AGU_enable = 'd0;
                 r_enable = 'd0;
@@ -298,18 +324,20 @@ module Controller (
                 end else begin
                     ntt_enable = 'd0; 
                 end
-                
             end
             NTT_ite1: begin
                 if (BN_MA_out_en) begin
                     r_enable <= 'd1;
                     TF_init_base = 'd0;
                     TF_ren = 'd1;
-                    TF_wen = 'd0;
                     TF_init_const = 'd0;
                     it_depth_cnt = ite_stage;
                 end else begin
                     r_enable = 'd0;
+                    TF_init_base = 'd0;
+                    TF_ren = 'd0;
+                    TF_init_const = 'd0;
+                    it_depth_cnt = 'd0;
                 end
                 if (ntt_done) begin
                     w_enable = 'd1;
@@ -322,12 +350,28 @@ module Controller (
                     ntt_enable = 'd0;
                 end
                 compute_complete = 'd0;
-                /*if (AGU_en_cnt == ite_0 - 'd1) begin
-                    AGU_enable = 'd0;
+                if (BU_cnt == ite_1-1 && BU_group_cnt != 'd15) begin
+                    TF_wen <= 'd1;
                 end else begin
-                    AGU_enable = 'd1;
-                end*/
+                    TF_wen <= 'd0;
+                end
                 AGU_enable = 'd1;
+            end
+            NTT_buffer_1: begin
+                TF_init_base = 'd0;
+                TF_ren = 'd1;
+                TF_wen = 'd0;
+                TF_init_const = 'd0;
+                it_depth_cnt = ite_stage;
+                compute_complete = 'd0;
+                AGU_enable = 'd0;
+                r_enable = 'd0;
+                w_enable = 'd1; 
+                if (r_enable_out) begin
+                    ntt_enable = 'd1; 
+                end else begin
+                    ntt_enable = 'd0; 
+                end
             end
             NTT_ite2: begin
                 
@@ -377,11 +421,18 @@ module Controller (
             end
             NTT_ite1: begin
                 if (BU_cnt == ite_1-1 && BU_group_cnt == 'd15) begin
-                    ns <= NTT_ite2;
+                    ns <= NTT_buffer_1;
                 end else begin
-                   ns <= cs; 
+                    ns <= cs; 
                 end
                 
+            end
+            NTT_buffer_1: begin
+                if (buffer_1_cnt == buffer_1_cnt_bound) begin
+                    ns <= NTT_ite2;
+                end else begin
+                    ns <= cs; 
+                end
             end
             NTT_ite2: begin
                 ns <= cs;
