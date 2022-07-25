@@ -93,7 +93,7 @@ module AGU(
                     end
                 end
             end else begin
-                j <= j;
+                j <= 'd0;
             end
         end
     end
@@ -113,7 +113,7 @@ module AGU(
                     end
                 end
             end else begin
-                i <= i;
+                i <= 'd0;
             end
         end
     end
