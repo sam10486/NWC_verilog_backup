@@ -84,24 +84,26 @@ module TF_delay_buffer (
     integer i;
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
-            TF0_pip[i+1] <=     'd0;
-            TF1_pip[i+1] <=     'd0;
-            TF2_pip[i+1] <=     'd0;
-            TF3_pip[i+1] <=     'd0;
-            TF4_pip[i+1] <=     'd0;
-            TF5_pip[i+1] <=     'd0;
-            TF6_pip[i+1] <=     'd0;
-            TF7_pip[i+1] <=     'd0;
-            TF8_pip[i+1] <=     'd0;
-            TF9_pip[i+1] <=     'd0;
-            TF10_pip[i+1] <=    'd0;
-            TF11_pip[i+1] <=    'd0;
-            TF12_pip[i+1] <=    'd0;
-            TF13_pip[i+1] <=    'd0;
-            TF14_pip[i+1] <=    'd0;
-            TF15_pip[i+1] <=    'd0;
-
-            modulus_pip[i+1] <=    'd0;
+            for (i = 0; i <= 3; i = i+1) begin
+                TF0_pip[i+1] <=     'd0;
+                TF1_pip[i+1] <=     'd0;
+                TF2_pip[i+1] <=     'd0;
+                TF3_pip[i+1] <=     'd0;
+                TF4_pip[i+1] <=     'd0;
+                TF5_pip[i+1] <=     'd0;
+                TF6_pip[i+1] <=     'd0;
+                TF7_pip[i+1] <=     'd0;
+                TF8_pip[i+1] <=     'd0;
+                TF9_pip[i+1] <=     'd0;
+                TF10_pip[i+1] <=    'd0;
+                TF11_pip[i+1] <=    'd0;
+                TF12_pip[i+1] <=    'd0;
+                TF13_pip[i+1] <=    'd0;
+                TF14_pip[i+1] <=    'd0;
+                TF15_pip[i+1] <=    'd0;
+    
+                modulus_pip[i+1] <=    'd0;
+            end
         end else begin
             for (i = 0; i<3 ; i = i+1 ) begin
                 TF0_pip[i+1] <=     TF0_pip[i] ;

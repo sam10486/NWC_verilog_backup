@@ -32,7 +32,7 @@ module Controller (
     output logic ntt_enable
 );
     
-    enum {RESET, IDLE, NTT_ite0, NTT_ite1, NTT_ite2, NTT_buffer_0, NTT_buffer_1, NTT_buffer_2
+    enum {RESET, IDLE, NTT_ite0, NTT_ite1, NTT_ite2, NTT_buffer_0, NTT_buffer_1, NTT_buffer_2, NTT_finish
             , Fin_state} cs, ns;
 
     parameter bank_num = `bank_num;
@@ -43,6 +43,7 @@ module Controller (
     parameter ite_2 = `ite_2;
     parameter BU_total = `BU_total;
     parameter degree = `degree;
+    parameter total_BU_number = `ite_0;
 
     logic [`D_width-1:0] ite_stage;
     logic [`D_width-1:0] ite_sw_cnt;
@@ -61,7 +62,9 @@ module Controller (
 
     logic [`D_width-1:0] buffer_1_cnt;
     parameter buffer_1_cnt_bound = 12;
-    //logic [`D_width-1:0] ite_stage_buffer_1;
+
+    logic [`D_width-1:0] buffer_2_cnt;
+    parameter buffer_2_cnt_bound = 12;
 
     logic [`D_width-1:0] AGU_en_cnt;
 
@@ -143,7 +146,7 @@ module Controller (
                         if (BU_cnt == ite_1-1) begin
                             BU_cnt <= 'd0;
                             if (BU_group_cnt == 'd15) begin
-                                BU_group_cnt <= BU_group_cnt;
+                                BU_group_cnt <= 'd0;
                             end else begin
                                 BU_group_cnt <= BU_group_cnt + 'd1;
                             end
@@ -160,8 +163,8 @@ module Controller (
                     NTT_ite2: begin
                         if (BU_cnt == ite_2-1) begin
                             BU_cnt <= 'd0;
-                            if (BU_group_cnt == 'd255) begin
-                                BU_group_cnt <= BU_group_cnt;
+                            if (BU_group_cnt == 'd1) begin
+                                BU_group_cnt <= 'd0;
                             end else begin
                                 BU_group_cnt <= BU_group_cnt + 'd1;
                             end
@@ -247,6 +250,57 @@ module Controller (
                     AGU_en_cnt <= 'd0;
                 end
             endcase
+        end
+    end
+
+    //---------depth cnt-----------------
+    logic [1:0] depth_buf_cnt;
+    logic [`D_width-1:0] ite2_depth_buf;
+    always_ff @( posedge clk or posedge rst ) begin
+        if (rst) begin
+            depth_buf_cnt <= 'd0;
+            ite2_depth_buf <= 'd2;
+        end else begin
+            if (TF_ren && cs == NTT_ite2) begin
+                case (depth_buf_cnt)
+                    'b00: begin
+                        depth_buf_cnt <= depth_buf_cnt + 'd1;
+                        ite2_depth_buf <= ite_stage;
+                    end 
+                    'b01: begin
+                        depth_buf_cnt <= depth_buf_cnt + 'd1;
+                        ite2_depth_buf <= ite_stage + 'd1  ;
+                    end
+                    'b10: begin
+                        depth_buf_cnt <= depth_buf_cnt + 'd1;
+                        ite2_depth_buf <= ite_stage + 'd1 ;
+                    end
+                    'b11: begin
+                        depth_buf_cnt <= depth_buf_cnt + 'd1;
+                        ite2_depth_buf <= ite_stage;
+                    end
+                    default: begin
+                        depth_buf_cnt <= 'd0;
+                        ite2_depth_buf <= 'd0;
+                    end
+                endcase
+            end 
+        end
+    end
+
+    //---------buffer_2_cnt--------------------
+
+    always_ff @( posedge clk or posedge rst ) begin
+        if (rst) begin
+            buffer_2_cnt <= 'd0;
+        end else begin
+            if (cs == NTT_buffer_2) begin
+                if (buffer_2_cnt == buffer_2_cnt_bound) begin
+                    buffer_2_cnt <= buffer_2_cnt;
+                end else begin
+                    buffer_2_cnt <= buffer_2_cnt + 'd1;
+                end
+            end
         end
     end
 
@@ -379,7 +433,7 @@ module Controller (
                     TF_init_base = 'd0;
                     TF_ren = 'd1;
                     TF_init_const = 'd0;
-                    it_depth_cnt = ite_stage;
+                    it_depth_cnt = ite2_depth_buf;
                 end else begin
                     r_enable = 'd0;
                     TF_init_base = 'd0;
@@ -398,7 +452,7 @@ module Controller (
                     ntt_enable = 'd0;
                 end
                 compute_complete = 'd0;
-                if (BU_cnt == ite_2-1 && BU_group_cnt != 'd255) begin
+                if (BU_group_cnt == 'd1) begin
                     TF_wen <= 'd1;
                 end else begin
                     TF_wen <= 'd0;
@@ -406,7 +460,32 @@ module Controller (
                 AGU_enable = 'd1;
             end
             NTT_buffer_2: begin
-                
+                TF_init_base = 'd0;
+                TF_ren = 'd0;
+                TF_wen = 'd0;
+                TF_init_const = 'd0;
+                it_depth_cnt = ite_stage;
+                compute_complete = 'd0;
+                AGU_enable = 'd0;
+                r_enable = 'd0;
+                w_enable = 'd1; 
+                if (r_enable_out) begin
+                    ntt_enable = 'd1; 
+                end else begin
+                    ntt_enable = 'd0; 
+                end
+            end
+            NTT_finish: begin
+                TF_init_base = 'd0; 
+                TF_ren = 'd0;
+                TF_wen = 'd0;
+                TF_init_const = 'd0;
+                it_depth_cnt = 'd0;
+                compute_complete = 'd0;
+                AGU_enable = 'd0;
+                r_enable = 'd0;
+                w_enable = 'd0;
+                ntt_enable = 'd0;
             end
             default: begin
                 TF_init_base = 'd0;
@@ -438,7 +517,7 @@ module Controller (
                 end
             end 
             NTT_ite0: begin //2
-                if (BU_cnt == ite_0-1) begin
+                if (ite_sw_cnt == total_BU_number-1) begin
                     ns <= NTT_buffer_0;
                 end else begin
                     ns <= cs;
@@ -452,7 +531,7 @@ module Controller (
                 end
             end
             NTT_ite1: begin
-                if (BU_cnt == ite_1-1 && BU_group_cnt == 'd15) begin
+                if (ite_sw_cnt == total_BU_number-1) begin
                     ns <= NTT_buffer_1;
                 end else begin
                     ns <= cs; 
@@ -466,14 +545,21 @@ module Controller (
                 end
             end
             NTT_ite2: begin
-               if (BU_cnt == ite_2-1 && BU_group_cnt == 'd15) begin
+               if (ite_sw_cnt == total_BU_number-1) begin
                     ns <= NTT_buffer_2;
                 end else begin
                     ns <= cs; 
                 end
             end
             NTT_buffer_2: begin
-                
+                if (buffer_2_cnt == buffer_2_cnt_bound) begin
+                    ns <= NTT_finish;
+                end else begin
+                    ns <= cs; 
+                end
+            end
+            NTT_finish: begin
+                ns <= NTT_finish;
             end
             default: begin
             end

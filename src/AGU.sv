@@ -23,10 +23,11 @@ module AGU(
     output logic [`D_width-1:0] Order_14,
     output logic [`D_width-1:0] Order_15,
     output logic AGU_out_en,
-    output logic AGU_done
+    output logic AGU_done,
+    output logic [`D_width-1:0] l
 );
 
-    logic [`D_width-1:0] l, j, i;
+    logic [`D_width-1:0] j, i;
     logic [`D_width-1:0] m0_pip, m1_pip, m2_pip, m3_pip, m4_pip, m5_pip, m6_pip, m7_pip, m8_pip, m9_pip, m10_pip,
                          m11_pip, m12_pip, m13_pip, m14_pip, m15_pip;
     logic [`D_width-1:0] j_upper, i_upper;

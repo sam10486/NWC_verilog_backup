@@ -42,7 +42,9 @@ module AGU_top(
     output logic [`D_width-1:0] BN15_idx,
 
     output logic AGU_done_out,
-    output logic BN_MA_out_en
+    output logic BN_MA_out_en,
+
+    output logic [`D_width-1:0] l_AGU_out
 );
 
     logic [`D_width-1:0] AGU_order0_out;
@@ -84,6 +86,8 @@ module AGU_top(
     logic AGU_out_en_pip;
     logic AGU_done_pip;
 
+    logic [`D_width-1:0] l_out, l_out_pip;
+
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
             AGU_order0_out_pip <= 'd0;
@@ -105,6 +109,8 @@ module AGU_top(
 
             AGU_out_en_pip <= 'd0;
             AGU_done_pip <= 'd0;
+
+            l_out_pip <= 'd0;
         end else begin
             AGU_order0_out_pip <= AGU_order0_out;
             AGU_order1_out_pip <= AGU_order1_out;
@@ -125,6 +131,8 @@ module AGU_top(
             
             AGU_out_en_pip <= AGU_out_en;
             AGU_done_pip <= AGU_done;
+
+            l_out_pip <= l_out;
         end
     end
 
@@ -150,7 +158,8 @@ module AGU_top(
         .Order_14(AGU_order14_out),
         .Order_15(AGU_order15_out),
         .AGU_out_en(AGU_out_en),
-        .AGU_done(AGU_done)
+        .AGU_done(AGU_done),
+        .l(l_out)
     );
 
     Order_translate Order_translate(
@@ -176,6 +185,7 @@ module AGU_top(
 
         .r_enable(AGU_out_en_pip),
         .AGU_done(AGU_done_pip),
+        .l(l_out_pip),
 
         .MA0_idx(MA0_idx),
         .BN0_idx(BN0_idx),
@@ -225,7 +235,8 @@ module AGU_top(
         .MA15_idx(MA15_idx),
         .BN15_idx(BN15_idx),
         .AGU_done_out(AGU_done_out),
-        .BN_MA_out_en(BN_MA_out_en)
+        .BN_MA_out_en(BN_MA_out_en),
+        .l_AGU_out(l_AGU_out)
     );
 
 

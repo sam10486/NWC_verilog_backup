@@ -87,6 +87,8 @@ module top (
     logic [`D_width-1:0] TF_gen_TF_const_in12  ;
     logic [`D_width-1:0] TF_gen_TF_const_in13  ;
 
+    logic [`D_width-1:0] TF_l;
+
     //output
     logic [`D_width-1:0] TF_gen_TF_base_b1     ;
     logic [`D_width-1:0] TF_gen_TF_base_b2     ;
@@ -143,6 +145,7 @@ module top (
         .TF_const_in12  (TF_gen_TF_const_in12  ),
         .TF_const_in13  (TF_gen_TF_const_in13  ),
         .modulus(modulus),
+        .l(TF_l),
         //output
         .TF_base_b1 (TF_gen_TF_base_b1 ),
         .TF_base_b2 (TF_gen_TF_base_b2 ),
@@ -198,6 +201,7 @@ module top (
 
     logic AGU_top_AGU_done_out;
     logic AGU_top_BN_MA_out_en;
+    logic [`D_width-1:0] AGU_l_AGU_out;
 
     AGU_top AGU_top(
         //input
@@ -240,7 +244,8 @@ module top (
         .BN15_idx   (AGU_top_BN15_idx),
 
         .AGU_done_out(AGU_top_AGU_done_out),
-        .BN_MA_out_en(AGU_top_BN_MA_out_en)
+        .BN_MA_out_en(AGU_top_BN_MA_out_en),
+        .l_AGU_out(AGU_l_AGU_out)
     );
 
     //input
@@ -827,6 +832,8 @@ module top (
     assign TF_gen_TF_const_in11 = 'd0     ;
     assign TF_gen_TF_const_in12 = 'd0     ;
     assign TF_gen_TF_const_in13 = 'd0     ;
+
+    assign TF_l                 = AGU_l_AGU_out ;
     
     //AGU_top
     //input 

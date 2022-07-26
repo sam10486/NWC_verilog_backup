@@ -22,6 +22,7 @@ module Order_translate(
     input [`D_width-1:0] Order_15, 
     input r_enable,
     input AGU_done,
+    input [`D_width-1:0] l,
 
     output logic [`D_width-1:0] MA0_idx,
     output logic [`D_width-1:0] BN0_idx,
@@ -72,7 +73,8 @@ module Order_translate(
     output logic [`D_width-1:0] BN15_idx,
 
     output logic AGU_done_out,
-    output logic BN_MA_out_en
+    output logic BN_MA_out_en,
+    output logic [`D_width-1:0] l_AGU_out
 );
 
     logic [`D_width-1:0] Order0_tmp0_pip0, Order0_tmp1_pip0, Order0_tmp2_pip0, Order0_tmp3_pip0;
@@ -193,6 +195,8 @@ module Order_translate(
 
     parameter difference_width = `D_width - `degree_width;
 
+    logic [`D_width-1:0] l_pip0, l_pip1, l_pip2;
+
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
             Order0_tmp0_pip0 <= 'd0;
@@ -293,6 +297,7 @@ module Order_translate(
 
             r_enable_pip0 <= 'd0;
             AGU_done_pip0 <= 'd0;
+            l_pip0 <= 'd0;
         end else begin
             Order0_tmp0_pip0 <= Order_0[3:0];
             Order0_tmp1_pip0 <= Order_0[7:4];
@@ -392,6 +397,8 @@ module Order_translate(
 
             r_enable_pip0 <= r_enable;
             AGU_done_pip0 <= AGU_done;
+
+            l_pip0 <= l;
         end
     end
     ModAdd add0_0(
@@ -590,6 +597,8 @@ module Order_translate(
 
             r_enable_pip1 <= 'd0;
             AGU_done_pip1 <= 'd0;
+
+            l_pip1 <= 'd0;
         end else begin
             Order0_tmp2_pip1 <= Order0_tmp2_pip0;
             Order0_tmp3_pip1 <= Order0_tmp3_pip0;
@@ -673,6 +682,8 @@ module Order_translate(
 
             r_enable_pip1 <= r_enable_pip0;
             AGU_done_pip1 <= AGU_done_pip0;
+
+            l_pip1 <= l_pip0;
         end
     end
 
@@ -856,6 +867,8 @@ module Order_translate(
 
             r_enable_pip2 <= 'd0;
             AGU_done_pip2 <= 'd0;
+
+            l_pip2 <= 'd0;
         end else begin
             Order0_tmp3_pip2    <= Order0_tmp3_pip1;
             Order0_pip2         <= Order0_pip1 >> `delta;
@@ -923,6 +936,8 @@ module Order_translate(
 
             r_enable_pip2 <= r_enable_pip1;
             AGU_done_pip2 <= AGU_done_pip1;
+
+            l_pip2 <= l_pip1;
         end
     end
     ModAdd add2_0(
@@ -1089,6 +1104,8 @@ module Order_translate(
 
             AGU_done_out <= 'd0;
             BN_MA_out_en <= 'd0;
+
+            l_AGU_out <= 'd0;
         end else begin
             if (r_enable_pip2) begin
                 MA0_idx <= Order0_pip2[`degree_width-1-`delta:0];
@@ -1141,6 +1158,8 @@ module Order_translate(
                 
                 AGU_done_out <= AGU_done_pip2;
                 BN_MA_out_en <= 'd1;
+
+                l_AGU_out <= l_pip2;
             end else begin
                 MA0_idx = 'd0;
                 BN0_idx = 'd0;
@@ -1192,6 +1211,8 @@ module Order_translate(
 
                 AGU_done_out <= AGU_done_pip2;
                 BN_MA_out_en <= 'd0;
+
+                l_AGU_out <= 'd0;
             end
         end
     end

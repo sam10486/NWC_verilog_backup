@@ -41,6 +41,7 @@ module TF_gen(
 	input [`D_width-1:0] TF_const_in12,
 	input [`D_width-1:0] TF_const_in13,
 	input [`D_width-1:0] modulus,
+	input [`D_width-1:0] l,
 	
 	output logic [`D_width-1:0] TF_base_b1,
 	output logic [`D_width-1:0] TF_base_b2,
@@ -64,7 +65,7 @@ module TF_gen(
 	parameter TF_bank = 15;
 	parameter TF_const_bank = 15;
 
-	logic [`D_width-1:0] TF_base_array[0:it_depth-1][0:TF_bank-1];
+	logic [`D_width-1:0] TF_base_array[0:it_depth][0:TF_bank-1];
 	logic [`D_width-1:0] TF_const_array[0:TF_const_bank-1];
 	
 
@@ -116,22 +117,24 @@ module TF_gen(
 	logic [`D_width-1:0] idx14;
 	logic [`D_width-1:0] idx15; 
 
+	logic [`D_width-1:0] w_it_depth_cnt;
+
 	
-	assign idx1 = $clog2(`degree) - `radix_k1*it_depth_cnt - 0; //m=1
-	assign idx2 = $clog2(`degree) - `radix_k1*it_depth_cnt - 1; //m=2
-	assign idx3 = $clog2(`degree) - `radix_k1*it_depth_cnt - 1; //m=3
-	assign idx4 = $clog2(`degree) - `radix_k1*it_depth_cnt - 2; //m=4
-	assign idx5 = $clog2(`degree) - `radix_k1*it_depth_cnt - 2; //m=5
-	assign idx6 = $clog2(`degree) - `radix_k1*it_depth_cnt - 2; //m=6
-	assign idx7 = $clog2(`degree) - `radix_k1*it_depth_cnt - 2; //m=7
-	assign idx8 = $clog2(`degree) - `radix_k1*it_depth_cnt - 3; //m=8
-	assign idx9 = $clog2(`degree) - `radix_k1*it_depth_cnt - 3; //m=9
-	assign idx10 = $clog2(`degree) - `radix_k1*it_depth_cnt - 3; //m=10
-	assign idx11 = $clog2(`degree) - `radix_k1*it_depth_cnt - 3; //m=11
-	assign idx12 = $clog2(`degree) - `radix_k1*it_depth_cnt - 3; //m=12
-	assign idx13 = $clog2(`degree) - `radix_k1*it_depth_cnt - 3; //m=13
-	assign idx14 = $clog2(`degree) - `radix_k1*it_depth_cnt - 3; //m=14
-	assign idx15 = $clog2(`degree) - `radix_k1*it_depth_cnt - 3; //m=15
+	assign idx1 = $clog2(`degree) - `radix_k1*l - 0; //m=1
+	assign idx2 = $clog2(`degree) - `radix_k1*l - 1; //m=2
+	assign idx3 = $clog2(`degree) - `radix_k1*l - 1; //m=3
+	assign idx4 = $clog2(`degree) - `radix_k1*l - 2; //m=4
+	assign idx5 = $clog2(`degree) - `radix_k1*l - 2; //m=5
+	assign idx6 = $clog2(`degree) - `radix_k1*l - 2; //m=6
+	assign idx7 = $clog2(`degree) - `radix_k1*l - 2; //m=7
+	assign idx8 = $clog2(`degree) - `radix_k1*l - 3; //m=8
+	assign idx9 = $clog2(`degree) - `radix_k1*l - 3; //m=9
+	assign idx10 = $clog2(`degree) - `radix_k1*l - 3; //m=10
+	assign idx11 = $clog2(`degree) - `radix_k1*l - 3; //m=11
+	assign idx12 = $clog2(`degree) - `radix_k1*l - 3; //m=12
+	assign idx13 = $clog2(`degree) - `radix_k1*l - 3; //m=13
+	assign idx14 = $clog2(`degree) - `radix_k1*l - 3; //m=14
+	assign idx15 = $clog2(`degree) - `radix_k1*l - 3; //m=15
 
 
 
@@ -153,6 +156,9 @@ module TF_gen(
 			end
 		end
 	end
+
+	logic [`D_width-1:0] test_TF;
+	assign test_TF = TF_base_array[3][4];
 	
 	always_ff@(posedge clk) begin
 		case({TF_init_base, TF_init_const, TF_ren, TF_wen})
@@ -224,38 +230,57 @@ module TF_gen(
 				
 			end
 			'b0001: begin
-				TF_base_array[it_depth_cnt][0] <= TF_base_b1_out; 
-				TF_base_array[it_depth_cnt][1] <= TF_base_b2_out; 
-				TF_base_array[it_depth_cnt][2] <= TF_base_b3_out; 
-				TF_base_array[it_depth_cnt][3] <= TF_base_b4_out; 
-				TF_base_array[it_depth_cnt][4] <= TF_base_b5_out; 
-				TF_base_array[it_depth_cnt][5] <= TF_base_b6_out; 
-				TF_base_array[it_depth_cnt][6] <= TF_base_b7_out; 
-				TF_base_array[it_depth_cnt][7] <= TF_base_b8_out; 
-				TF_base_array[it_depth_cnt][8] <= TF_base_b9_out; 
-				TF_base_array[it_depth_cnt][9] <= TF_base_b10_out; 
-				TF_base_array[it_depth_cnt][10] <= TF_base_b11_out;
-				TF_base_array[it_depth_cnt][11] <= TF_base_b12_out;
-				TF_base_array[it_depth_cnt][12] <= TF_base_b13_out;
-				TF_base_array[it_depth_cnt][13] <= TF_base_b14_out;
-				TF_base_array[it_depth_cnt][14] <= TF_base_b15_out;	
+				TF_base_array[w_it_depth_cnt][0] <= TF_base_b1_out; 
+				TF_base_array[w_it_depth_cnt][1] <= TF_base_b2_out; 
+				TF_base_array[w_it_depth_cnt][2] <= TF_base_b3_out; 
+				TF_base_array[w_it_depth_cnt][3] <= TF_base_b4_out; 
+				TF_base_array[w_it_depth_cnt][4] <= TF_base_b5_out; 
+				TF_base_array[w_it_depth_cnt][5] <= TF_base_b6_out; 
+				TF_base_array[w_it_depth_cnt][6] <= TF_base_b7_out; 
+				TF_base_array[w_it_depth_cnt][7] <= TF_base_b8_out; 
+				TF_base_array[w_it_depth_cnt][8] <= TF_base_b9_out; 
+				TF_base_array[w_it_depth_cnt][9] <= TF_base_b10_out; 
+				TF_base_array[w_it_depth_cnt][10] <= TF_base_b11_out;
+				TF_base_array[w_it_depth_cnt][11] <= TF_base_b12_out;
+				TF_base_array[w_it_depth_cnt][12] <= TF_base_b13_out;
+				TF_base_array[w_it_depth_cnt][13] <= TF_base_b14_out;
+				TF_base_array[w_it_depth_cnt][14] <= TF_base_b15_out;	
 			end
 			'b0011: begin
-				TF_base_b1 <= TF_base_array[it_depth_cnt][0];
-				TF_base_b2 <= TF_base_array[it_depth_cnt][1];
-				TF_base_b3 <= TF_base_array[it_depth_cnt][2];
-				TF_base_b4 <= TF_base_array[it_depth_cnt][3];
-				TF_base_b5 <= TF_base_array[it_depth_cnt][4];
-				TF_base_b6 <= TF_base_array[it_depth_cnt][5];
-				TF_base_b7 <= TF_base_array[it_depth_cnt][6];
-				TF_base_b8 <= TF_base_array[it_depth_cnt][7];
-				TF_base_b9 <= TF_base_array[it_depth_cnt][8];
-				TF_base_b10 <= TF_base_array[it_depth_cnt][9];
-				TF_base_b11 <= TF_base_array[it_depth_cnt][10];
-				TF_base_b12 <= TF_base_array[it_depth_cnt][11];
-				TF_base_b13 <= TF_base_array[it_depth_cnt][12];
-				TF_base_b14 <= TF_base_array[it_depth_cnt][13];
-				TF_base_b15 <= TF_base_array[it_depth_cnt][14];
+				if (l == 'd2 && w_it_depth_cnt == it_depth_cnt) begin
+					TF_base_b1 <= 	TF_base_b1_out;
+					TF_base_b2 <= 	TF_base_b2_out;
+					TF_base_b3 <= 	TF_base_b3_out;
+					TF_base_b4 <= 	TF_base_b4_out;
+					TF_base_b5 <= 	TF_base_b5_out;
+					TF_base_b6 <= 	TF_base_b6_out;
+					TF_base_b7 <= 	TF_base_b7_out;
+					TF_base_b8 <= 	TF_base_b8_out;
+					TF_base_b9 <= 	TF_base_b9_out;
+					TF_base_b10 <=	TF_base_b10_out;
+					TF_base_b11 <=	TF_base_b11_out;
+					TF_base_b12 <=	TF_base_b12_out;
+					TF_base_b13 <=	TF_base_b13_out;
+					TF_base_b14 <=	TF_base_b14_out;
+					TF_base_b15 <=	TF_base_b15_out;
+				end else begin
+					TF_base_b1 <= TF_base_array[it_depth_cnt][0];
+					TF_base_b2 <= TF_base_array[it_depth_cnt][1];
+					TF_base_b3 <= TF_base_array[it_depth_cnt][2];
+					TF_base_b4 <= TF_base_array[it_depth_cnt][3];
+					TF_base_b5 <= TF_base_array[it_depth_cnt][4];
+					TF_base_b6 <= TF_base_array[it_depth_cnt][5];
+					TF_base_b7 <= TF_base_array[it_depth_cnt][6];
+					TF_base_b8 <= TF_base_array[it_depth_cnt][7];
+					TF_base_b9 <= TF_base_array[it_depth_cnt][8];
+					TF_base_b10 <= TF_base_array[it_depth_cnt][9];
+					TF_base_b11 <= TF_base_array[it_depth_cnt][10];
+					TF_base_b12 <= TF_base_array[it_depth_cnt][11];
+					TF_base_b13 <= TF_base_array[it_depth_cnt][12];
+					TF_base_b14 <= TF_base_array[it_depth_cnt][13];
+					TF_base_b15 <= TF_base_array[it_depth_cnt][14];
+				end
+				
 				
 				TF_const_b1 <= TF_const_array[idx1];
 				TF_const_b2 <= TF_const_array[idx2];
@@ -273,21 +298,21 @@ module TF_gen(
 				TF_const_b14 <= TF_const_array[idx14];
 				TF_const_b15 <= TF_const_array[idx15];
 
-				TF_base_array[it_depth_cnt][0] <= TF_base_b1_out; 
-				TF_base_array[it_depth_cnt][1] <= TF_base_b2_out; 
-				TF_base_array[it_depth_cnt][2] <= TF_base_b3_out; 
-				TF_base_array[it_depth_cnt][3] <= TF_base_b4_out; 
-				TF_base_array[it_depth_cnt][4] <= TF_base_b5_out; 
-				TF_base_array[it_depth_cnt][5] <= TF_base_b6_out; 
-				TF_base_array[it_depth_cnt][6] <= TF_base_b7_out; 
-				TF_base_array[it_depth_cnt][7] <= TF_base_b8_out; 
-				TF_base_array[it_depth_cnt][8] <= TF_base_b9_out; 
-				TF_base_array[it_depth_cnt][9] <= TF_base_b10_out; 
-				TF_base_array[it_depth_cnt][10] <= TF_base_b11_out;
-				TF_base_array[it_depth_cnt][11] <= TF_base_b12_out;
-				TF_base_array[it_depth_cnt][12] <= TF_base_b13_out;
-				TF_base_array[it_depth_cnt][13] <= TF_base_b14_out;
-				TF_base_array[it_depth_cnt][14] <= TF_base_b15_out;	
+				TF_base_array[w_it_depth_cnt][0] <= TF_base_b1_out; 
+				TF_base_array[w_it_depth_cnt][1] <= TF_base_b2_out; 
+				TF_base_array[w_it_depth_cnt][2] <= TF_base_b3_out; 
+				TF_base_array[w_it_depth_cnt][3] <= TF_base_b4_out; 
+				TF_base_array[w_it_depth_cnt][4] <= TF_base_b5_out; 
+				TF_base_array[w_it_depth_cnt][5] <= TF_base_b6_out; 
+				TF_base_array[w_it_depth_cnt][6] <= TF_base_b7_out; 
+				TF_base_array[w_it_depth_cnt][7] <= TF_base_b8_out; 
+				TF_base_array[w_it_depth_cnt][8] <= TF_base_b9_out; 
+				TF_base_array[w_it_depth_cnt][9] <= TF_base_b10_out; 
+				TF_base_array[w_it_depth_cnt][10] <= TF_base_b11_out;
+				TF_base_array[w_it_depth_cnt][11] <= TF_base_b12_out;
+				TF_base_array[w_it_depth_cnt][12] <= TF_base_b13_out;
+				TF_base_array[w_it_depth_cnt][13] <= TF_base_b14_out;
+				TF_base_array[w_it_depth_cnt][14] <= TF_base_b15_out;	
 			end
 			default: begin
 				TF_base_b1 	<= 'd0	;
@@ -324,6 +349,25 @@ module TF_gen(
 			end
 		endcase
 	end
+
+	//----------depth buf-----------------
+	logic [`D_width-1:0] it_depth_cnt_pip [0:1];
+	integer i;
+	/*assign it_depth_cnt_pip[0] = it_depth_cnt;
+	always_ff @( posedge clk or posedge rst ) begin
+		if (rst) begin
+			for (i = 0; i<1 ; i=i+1) begin
+				it_depth_cnt_pip[i] <= 'd0;
+			end
+		end else begin
+			for (i = 0; i<1 ; i=i+1) begin
+				it_depth_cnt_pip[i+1] <= it_depth_cnt_pip[i];
+			end
+		end
+	end
+	assign w_it_depth_cnt = it_depth_cnt_pip[1];*/
+	assign w_it_depth_cnt = it_depth_cnt;
+	//-------------------------------
 	
 	barrett_reduction #(.pre_computing_width(`pre_computing_width) , 
                         .precompute(`precompute))

@@ -34,7 +34,7 @@ module Testbench ();
     logic [`D_width-1:0] data_in14;
     logic [`D_width-1:0] data_in15;
 
-    logic [`D_width-1:0] TF_based_in [0:k1_ite*bank_num-1]; 
+    logic [`D_width-1:0] TF_based_in [0:(k1_ite+1)*bank_num-1]; 
     logic [`D_width-1:0] TF_const_in [0:bank_num-2]; 
     logic [`D_width-1:0] mem_data_in [0:`degree-1];
     logic [`D_width-1:0] mem_data_golden [0:`degree-1]; 
@@ -69,7 +69,7 @@ module Testbench ();
     end
 
     initial begin
-        for (int i=0 ;i<k1_ite; i=i+1) begin
+        for (int i=0 ;i<=k1_ite; i=i+1) begin
             #`CYCLE;
             top.TF_gen.TF_base_array[i][0] <= TF_based_in[i*bank_num+0];
             top.TF_gen.TF_base_array[i][1] <= TF_based_in[i*bank_num+1];
