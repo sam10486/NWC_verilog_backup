@@ -3,7 +3,7 @@
 `include "Controller.sv"
 `include "AGU_top.sv"
 `include "TF_gen.sv"
-`include "memory_rtl.sv"
+`include "memory_top.sv"
 
 module top (
     input clk,
@@ -27,6 +27,7 @@ module top (
     logic ctr_AGU_enable;
     logic ctr_r_enable;
     logic ctr_w_enable;
+    logic ctr_LAST_STAGE;
     logic ctr_ntt_enable;
 
     Controller Controller(
@@ -47,6 +48,7 @@ module top (
         .AGU_enable     (ctr_AGU_enable),
         .r_enable       (ctr_r_enable),
         .w_enable       (ctr_w_enable),
+        .LAST_STAGE     (ctr_LAST_STAGE),
         .ntt_enable     (ctr_ntt_enable)
     );
 
@@ -249,6 +251,7 @@ module top (
     );
 
     //input
+    logic mem_LAST_STAGE;
     logic [`D_width-1:0] mem_data_in0   ;
     logic [`D_width-1:0] mem_data_in1   ;
     logic [`D_width-1:0] mem_data_in2   ;
@@ -387,8 +390,9 @@ module top (
     logic [`D_width-1:0] mem_BN14_idx_out           ;
     logic [`D_width-1:0] mem_BN15_idx_out           ;
 
-    memory_rtl memory_rtl(
+    memory_top memory_top(
         //input
+        .LAST_STAGE     (mem_LAST_STAGE),
         .data_in0       (mem_data_in0 ),
         .data_in1       (mem_data_in1 ),
         .data_in2       (mem_data_in2 ),
@@ -894,6 +898,7 @@ module top (
 
     assign mem_r_enable         = ctr_r_enable;
     assign mem_w_enable         = ctr_w_enable;
+    assign mem_LAST_STAGE       = ctr_LAST_STAGE;
 
     assign mem_R16_w_MA0_idx    = (mem_w_enable) ? R16_MA0_idx_out  :   'd0;
     assign mem_R16_w_MA1_idx    = (mem_w_enable) ? R16_MA1_idx_out  :   'd0;

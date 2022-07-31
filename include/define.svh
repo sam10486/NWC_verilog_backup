@@ -38,4 +38,7 @@
 `define BU_total 512
 
 
+//-------last iteration------
+`define Last_l 4
+
 `endif 

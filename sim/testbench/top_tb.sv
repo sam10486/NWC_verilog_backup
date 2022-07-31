@@ -107,22 +107,22 @@ module Testbench ();
 
         for (int k = 0; k<MA; k=k+1) begin
             #`CYCLE;
-            top.memory_rtl.memory_array[0][k] <= mem_data_in[k*BN + 0];
-            top.memory_rtl.memory_array[1][k] <= mem_data_in[k*BN + 1];
-            top.memory_rtl.memory_array[2][k] <= mem_data_in[k*BN + 2];
-            top.memory_rtl.memory_array[3][k] <= mem_data_in[k*BN + 3];
-            top.memory_rtl.memory_array[4][k] <= mem_data_in[k*BN + 4];
-            top.memory_rtl.memory_array[5][k] <= mem_data_in[k*BN + 5];
-            top.memory_rtl.memory_array[6][k] <= mem_data_in[k*BN + 6];
-            top.memory_rtl.memory_array[7][k] <= mem_data_in[k*BN + 7];
-            top.memory_rtl.memory_array[8][k] <= mem_data_in[k*BN + 8];
-            top.memory_rtl.memory_array[9][k] <= mem_data_in[k*BN + 9];
-            top.memory_rtl.memory_array[10][k] <= mem_data_in[k*BN + 10];
-            top.memory_rtl.memory_array[11][k] <= mem_data_in[k*BN + 11];
-            top.memory_rtl.memory_array[12][k] <= mem_data_in[k*BN + 12];
-            top.memory_rtl.memory_array[13][k] <= mem_data_in[k*BN + 13];
-            top.memory_rtl.memory_array[14][k] <= mem_data_in[k*BN + 14];
-            top.memory_rtl.memory_array[15][k] <= mem_data_in[k*BN + 15];
+            top.memory_top.memory_rtl.memory_array[0][k] <= mem_data_in[k*BN + 0];
+            top.memory_top.memory_rtl.memory_array[1][k] <= mem_data_in[k*BN + 1];
+            top.memory_top.memory_rtl.memory_array[2][k] <= mem_data_in[k*BN + 2];
+            top.memory_top.memory_rtl.memory_array[3][k] <= mem_data_in[k*BN + 3];
+            top.memory_top.memory_rtl.memory_array[4][k] <= mem_data_in[k*BN + 4];
+            top.memory_top.memory_rtl.memory_array[5][k] <= mem_data_in[k*BN + 5];
+            top.memory_top.memory_rtl.memory_array[6][k] <= mem_data_in[k*BN + 6];
+            top.memory_top.memory_rtl.memory_array[7][k] <= mem_data_in[k*BN + 7];
+            top.memory_top.memory_rtl.memory_array[8][k] <= mem_data_in[k*BN + 8];
+            top.memory_top.memory_rtl.memory_array[9][k] <= mem_data_in[k*BN + 9];
+            top.memory_top.memory_rtl.memory_array[10][k] <= mem_data_in[k*BN + 10];
+            top.memory_top.memory_rtl.memory_array[11][k] <= mem_data_in[k*BN + 11];
+            top.memory_top.memory_rtl.memory_array[12][k] <= mem_data_in[k*BN + 12];
+            top.memory_top.memory_rtl.memory_array[13][k] <= mem_data_in[k*BN + 13];
+            top.memory_top.memory_rtl.memory_array[14][k] <= mem_data_in[k*BN + 14];
+            top.memory_top.memory_rtl.memory_array[15][k] <= mem_data_in[k*BN + 15];
         end
     end
 

@@ -27,6 +27,7 @@ module Controller (
     //memory
     output logic r_enable,
     output logic w_enable,
+    output logic LAST_STAGE,
 
     //ntt
     output logic ntt_enable
@@ -317,6 +318,7 @@ module Controller (
                 AGU_enable = 'd0;
                 r_enable = 'd0;
                 w_enable = 'd0;
+                LAST_STAGE = 'd0;
                 ntt_enable = 'd0;
             end
             IDLE: begin
@@ -329,6 +331,7 @@ module Controller (
                 AGU_enable = 'd0;
                 r_enable = 'd0;
                 w_enable = 'd0;
+                LAST_STAGE = 'd0;
                 ntt_enable = 'd0;
             end 
             NTT_ite0: begin
@@ -362,6 +365,7 @@ module Controller (
                     AGU_enable = 'd1;
                 end
                 TF_wen = 'd0;
+                LAST_STAGE = 'd0;
             end
             NTT_buffer_0: begin
                 TF_init_base = 'd0;
@@ -378,6 +382,7 @@ module Controller (
                 end else begin
                     ntt_enable = 'd0; 
                 end
+                LAST_STAGE = 'd0;
             end
             NTT_ite1: begin
                 if (BN_MA_out_en) begin
@@ -410,6 +415,7 @@ module Controller (
                     TF_wen <= 'd0;
                 end
                 AGU_enable = 'd1;
+                LAST_STAGE = 'd0;
             end
             NTT_buffer_1: begin
                 TF_init_base = 'd0;
@@ -426,6 +432,7 @@ module Controller (
                 end else begin
                     ntt_enable = 'd0; 
                 end
+                LAST_STAGE = 'd0;
             end
             NTT_ite2: begin
                 if (BN_MA_out_en) begin
@@ -458,6 +465,7 @@ module Controller (
                     TF_wen <= 'd0;
                 end
                 AGU_enable = 'd1;
+                LAST_STAGE = 'd0;
             end
             NTT_buffer_2: begin
                 TF_init_base = 'd0;
@@ -474,6 +482,7 @@ module Controller (
                 end else begin
                     ntt_enable = 'd0; 
                 end
+                LAST_STAGE = 'd0;
             end
             NTT_finish: begin
                 TF_init_base = 'd0; 
@@ -486,6 +495,7 @@ module Controller (
                 r_enable = 'd0;
                 w_enable = 'd0;
                 ntt_enable = 'd0;
+                LAST_STAGE = 'd0;
             end
             default: begin
                 TF_init_base = 'd0;
@@ -498,6 +508,7 @@ module Controller (
                 r_enable = 'd0;
                 w_enable = 'd0;
                 ntt_enable = 'd0; 
+                LAST_STAGE = 'd0;
             end
         endcase
     end
