@@ -34,7 +34,7 @@ module Testbench ();
     logic [`D_width-1:0] data_in14;
     logic [`D_width-1:0] data_in15;
 
-    logic [`D_width-1:0] TF_based_in [0:(k1_ite+1)*bank_num-1]; 
+    logic [`D_width-1:0] TF_based_in [0:(k1_ite+5)*bank_num-1]; 
     logic [`D_width-1:0] TF_const_in [0:bank_num-2]; 
     logic [`D_width-1:0] mem_data_in [0:`degree-1];
     logic [`D_width-1:0] mem_data_golden [0:`degree-1]; 
@@ -69,40 +69,40 @@ module Testbench ();
     end
 
     initial begin
-        for (int i=0 ;i<=k1_ite; i=i+1) begin
+        for (int i=0 ;i<=k1_ite+5; i=i+1) begin
             #`CYCLE;
-            top.TF_gen.TF_base_array[i][0] <= TF_based_in[i*bank_num+0];
-            top.TF_gen.TF_base_array[i][1] <= TF_based_in[i*bank_num+1];
-            top.TF_gen.TF_base_array[i][2] <= TF_based_in[i*bank_num+2];
-            top.TF_gen.TF_base_array[i][3] <= TF_based_in[i*bank_num+3];
-            top.TF_gen.TF_base_array[i][4] <= TF_based_in[i*bank_num+4];
-            top.TF_gen.TF_base_array[i][5] <= TF_based_in[i*bank_num+5];
-            top.TF_gen.TF_base_array[i][6] <= TF_based_in[i*bank_num+6];
-            top.TF_gen.TF_base_array[i][7] <= TF_based_in[i*bank_num+7];
-            top.TF_gen.TF_base_array[i][8] <= TF_based_in[i*bank_num+8];
-            top.TF_gen.TF_base_array[i][9] <= TF_based_in[i*bank_num+9];
-            top.TF_gen.TF_base_array[i][10] <= TF_based_in[i*bank_num+10];
-            top.TF_gen.TF_base_array[i][11] <= TF_based_in[i*bank_num+11];
-            top.TF_gen.TF_base_array[i][12] <= TF_based_in[i*bank_num+12];
-            top.TF_gen.TF_base_array[i][13] <= TF_based_in[i*bank_num+13];
-            top.TF_gen.TF_base_array[i][14] <= TF_based_in[i*bank_num+14];
+            top.TF_top.TF_gen.TF_base_array[i][0] <= TF_based_in[i*bank_num+0];
+            top.TF_top.TF_gen.TF_base_array[i][1] <= TF_based_in[i*bank_num+1];
+            top.TF_top.TF_gen.TF_base_array[i][2] <= TF_based_in[i*bank_num+2];
+            top.TF_top.TF_gen.TF_base_array[i][3] <= TF_based_in[i*bank_num+3];
+            top.TF_top.TF_gen.TF_base_array[i][4] <= TF_based_in[i*bank_num+4];
+            top.TF_top.TF_gen.TF_base_array[i][5] <= TF_based_in[i*bank_num+5];
+            top.TF_top.TF_gen.TF_base_array[i][6] <= TF_based_in[i*bank_num+6];
+            top.TF_top.TF_gen.TF_base_array[i][7] <= TF_based_in[i*bank_num+7];
+            top.TF_top.TF_gen.TF_base_array[i][8] <= TF_based_in[i*bank_num+8];
+            top.TF_top.TF_gen.TF_base_array[i][9] <= TF_based_in[i*bank_num+9];
+            top.TF_top.TF_gen.TF_base_array[i][10] <= TF_based_in[i*bank_num+10];
+            top.TF_top.TF_gen.TF_base_array[i][11] <= TF_based_in[i*bank_num+11];
+            top.TF_top.TF_gen.TF_base_array[i][12] <= TF_based_in[i*bank_num+12];
+            top.TF_top.TF_gen.TF_base_array[i][13] <= TF_based_in[i*bank_num+13];
+            top.TF_top.TF_gen.TF_base_array[i][14] <= TF_based_in[i*bank_num+14];
         end
         
         for (int j=0; j<1; j=j+1) begin
-            top.TF_gen.TF_const_array[0] <= TF_const_in[0];
-            top.TF_gen.TF_const_array[1] <= TF_const_in[1];
-            top.TF_gen.TF_const_array[2] <= TF_const_in[2];
-            top.TF_gen.TF_const_array[3] <= TF_const_in[3];
-            top.TF_gen.TF_const_array[4] <= TF_const_in[4];
-            top.TF_gen.TF_const_array[5] <= TF_const_in[5];
-            top.TF_gen.TF_const_array[6] <= TF_const_in[6];
-            top.TF_gen.TF_const_array[7] <= TF_const_in[7];
-            top.TF_gen.TF_const_array[8] <= TF_const_in[8];
-            top.TF_gen.TF_const_array[9] <= TF_const_in[9];
-            top.TF_gen.TF_const_array[10] <= TF_const_in[10];
-            top.TF_gen.TF_const_array[11] <= TF_const_in[11];
-            top.TF_gen.TF_const_array[12] <= TF_const_in[12];
-            top.TF_gen.TF_const_array[13] <= TF_const_in[13];
+            top.TF_top.TF_gen.TF_const_array[0] <= TF_const_in[0];
+            top.TF_top.TF_gen.TF_const_array[1] <= TF_const_in[1];
+            top.TF_top.TF_gen.TF_const_array[2] <= TF_const_in[2];
+            top.TF_top.TF_gen.TF_const_array[3] <= TF_const_in[3];
+            top.TF_top.TF_gen.TF_const_array[4] <= TF_const_in[4];
+            top.TF_top.TF_gen.TF_const_array[5] <= TF_const_in[5];
+            top.TF_top.TF_gen.TF_const_array[6] <= TF_const_in[6];
+            top.TF_top.TF_gen.TF_const_array[7] <= TF_const_in[7];
+            top.TF_top.TF_gen.TF_const_array[8] <= TF_const_in[8];
+            top.TF_top.TF_gen.TF_const_array[9] <= TF_const_in[9];
+            top.TF_top.TF_gen.TF_const_array[10] <= TF_const_in[10];
+            top.TF_top.TF_gen.TF_const_array[11] <= TF_const_in[11];
+            top.TF_top.TF_gen.TF_const_array[12] <= TF_const_in[12];
+            top.TF_top.TF_gen.TF_const_array[13] <= TF_const_in[13];
         end
 
         for (int k = 0; k<MA; k=k+1) begin

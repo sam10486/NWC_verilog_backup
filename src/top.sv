@@ -1,8 +1,10 @@
 `include "../include/define.svh"
-`include "R16_BU.sv"
+`include "R16_top.sv"
 `include "Controller.sv"
-`include "AGU_top.sv"
-`include "TF_gen.sv"
+//`include "AGU_top.sv"
+//`include "AGU_top_k2.sv"
+`include "AGU_integrate.sv"
+`include "TF_top.sv"
 `include "memory_top.sv"
 
 module top (
@@ -25,6 +27,7 @@ module top (
     logic [`D_width-1:0] ctr_it_depth_cnt;
     logic ctr_TF_init_const;
     logic ctr_AGU_enable;
+    logic ctr_AGU_enable_k2;
     logic ctr_r_enable;
     logic ctr_w_enable;
     logic ctr_LAST_STAGE;
@@ -46,6 +49,7 @@ module top (
         .it_depth_cnt   (ctr_it_depth_cnt),
         .TF_init_const  (ctr_TF_init_const),
         .AGU_enable     (ctr_AGU_enable),
+        .AGU_enable_k2  (ctr_AGU_enable_k2),
         .r_enable       (ctr_r_enable),
         .w_enable       (ctr_w_enable),
         .LAST_STAGE     (ctr_LAST_STAGE),
@@ -53,6 +57,7 @@ module top (
     );
 
     //input
+    logic                TF_gen_LAST_STAGE     ;
     logic                TF_gen_TF_init_base   ;
     logic                TF_gen_TF_ren         ;
     logic                TF_gen_TF_wen         ;
@@ -107,8 +112,9 @@ module top (
     logic [`D_width-1:0] TF_gen_TF_base_b13    ;
     logic [`D_width-1:0] TF_gen_TF_base_b14    ;
     logic [`D_width-1:0] TF_gen_TF_base_b15    ;
-    TF_gen TF_gen(
+    TF_top TF_top(
         //input 
+        .LAST_STAGE     (TF_gen_LAST_STAGE),
         .clk            (clk),
         .rst            (rst),
         .TF_init_base   (TF_gen_TF_init_base),
@@ -166,7 +172,9 @@ module top (
         .TF_base_b15(TF_gen_TF_base_b15)
     );
 
+    logic AGU_top_LAST_STAGE;
     logic AGU_top_AGU_enable;
+    logic AGU_top_AGU_enable_k2;
     logic [`D_width-1:0] AGU_top_MA0_idx    ;
     logic [`D_width-1:0] AGU_top_MA1_idx    ;
     logic [`D_width-1:0] AGU_top_MA2_idx    ;
@@ -205,11 +213,13 @@ module top (
     logic AGU_top_BN_MA_out_en;
     logic [`D_width-1:0] AGU_l_AGU_out;
 
-    AGU_top AGU_top(
+    AGU_integrate AGU_integrate(
         //input
+        .LAST_STAGE(AGU_top_LAST_STAGE),
         .clk(clk),
         .rst(rst),
         .AGU_enable(AGU_top_AGU_enable),
+        .AGU_enable_k2(AGU_top_AGU_enable_k2),
         //output
         .MA0_idx    (AGU_top_MA0_idx ),
         .MA1_idx    (AGU_top_MA1_idx ),
@@ -249,6 +259,35 @@ module top (
         .BN_MA_out_en(AGU_top_BN_MA_out_en),
         .l_AGU_out(AGU_l_AGU_out)
     );
+
+    /*logic AGU_top_k2_AGU_enable_k2;
+    logic [`D_width-1:0] AGU_top_k2_MA0_idx_k2;
+    logic [`D_width-1:0] AGU_top_k2_MA1_idx_k2;
+
+    logic [`D_width-1:0] AGU_top_k2_BN0_idx_k2;
+    logic [`D_width-1:0] AGU_top_k2_BN1_idx_k2;
+
+    logic AGU_top_k2_AGU_done_out_k2;
+    logic AGU_top_k2_BN_MA_out_en_k2;
+    logic [`D_width-1:0] AGU_top_k2_l_AGU_out_k2;
+    
+    AGU_top_k2 AGU_top_k2 (
+        //input
+        .clk(clk),
+        .rst(rst),
+        .AGU_enable_k2(AGU_top_k2_AGU_enable_k2),
+
+        //output
+        .MA0_idx_k2(AGU_top_k2_MA0_idx_k2),
+        .MA1_idx_k2(AGU_top_k2_MA1_idx_k2),
+
+        .BN0_idx_k2(AGU_top_k2_BN0_idx_k2),
+        .BN1_idx_k2(AGU_top_k2_BN1_idx_k2),
+
+        .AGU_done_out_k2(AGU_top_k2_AGU_done_out_k2 ),
+        .BN_MA_out_en_k2(AGU_top_k2_BN_MA_out_en_k2 ),
+        .l_AGU_out_k2   (AGU_top_k2_l_AGU_out_k2    )
+    );*/
 
     //input
     logic mem_LAST_STAGE;
@@ -539,6 +578,7 @@ module top (
     );
 
     //input
+    logic  R16_LAST_STAGE ;
     logic [`D_width-1:0] R16_data_in0   ;
     logic [`D_width-1:0] R16_data_in1   ;
     logic [`D_width-1:0] R16_data_in2   ;
@@ -661,8 +701,9 @@ module top (
     logic [`D_width-1:0] R16_BN14_idx_out   ;
     logic [`D_width-1:0] R16_BN15_idx_out   ;
 
-    R16_BU R16_BU(
+    R16_top R16_top(
         //input
+        .LAST_STAGE         (R16_LAST_STAGE ),
         .x0                 (R16_data_in0   ),
         .x1                 (R16_data_in1   ),
         .x2                 (R16_data_in2   ),
@@ -800,6 +841,7 @@ module top (
     assign ctr_ntt_done     = R16_ntt_done          ;
   
     //TF_gen
+    assign TF_gen_LAST_STAGE    = ctr_LAST_STAGE    ;
     assign TF_gen_TF_init_base  = ctr_TF_init_base  ;
     assign TF_gen_TF_ren        = ctr_TF_ren        ;
     assign TF_gen_TF_wen        = ctr_TF_wen        ;
@@ -841,8 +883,9 @@ module top (
     
     //AGU_top
     //input 
-    assign AGU_top_AGU_enable   = ctr_AGU_enable    ;
-    
+    assign AGU_top_AGU_enable       = ctr_AGU_enable    ;
+    assign AGU_top_AGU_enable_k2    = ctr_AGU_enable_k2 ;
+    assign AGU_top_LAST_STAGE       = ctr_LAST_STAGE    ;
     //memory_rtl
     //input 
     assign mem_data_in0         = (mem_w_enable) ? R16_data_out0    :   'd0;
@@ -936,6 +979,7 @@ module top (
 
     //R16_BU
     //input
+    assign R16_LAST_STAGE       = ctr_LAST_STAGE;
     assign R16_data_in0         = mem_memory_b0;
     assign R16_data_in1         = mem_memory_b1;
     assign R16_data_in2         = mem_memory_b2;

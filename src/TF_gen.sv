@@ -42,6 +42,24 @@ module TF_gen(
 	input [`D_width-1:0] TF_const_in13,
 	input [`D_width-1:0] modulus,
 	input [`D_width-1:0] l,
+
+	input [`D_width-1:0] idx1	, 
+	input [`D_width-1:0] idx2	, 
+	input [`D_width-1:0] idx3	,
+	input [`D_width-1:0] idx4	,
+	input [`D_width-1:0] idx5	,
+	input [`D_width-1:0] idx6	,
+	input [`D_width-1:0] idx7	,
+	input [`D_width-1:0] idx8	,
+	input [`D_width-1:0] idx9	,
+	input [`D_width-1:0] idx10	,
+	input [`D_width-1:0] idx11	,
+	input [`D_width-1:0] idx12	,
+	input [`D_width-1:0] idx13	,
+	input [`D_width-1:0] idx14	,
+	input [`D_width-1:0] idx15	,
+
+	output logic [`D_width-1:0] TF_base_b1_select,
 	
 	output logic [`D_width-1:0] TF_base_b1,
 	output logic [`D_width-1:0] TF_base_b2,
@@ -65,7 +83,7 @@ module TF_gen(
 	parameter TF_bank = 15;
 	parameter TF_const_bank = 15;
 
-	logic [`D_width-1:0] TF_base_array[0:it_depth][0:TF_bank-1];
+	logic [`D_width-1:0] TF_base_array[0:it_depth+4][0:TF_bank-1];
 	logic [`D_width-1:0] TF_const_array[0:TF_const_bank-1];
 	
 
@@ -101,7 +119,7 @@ module TF_gen(
 	logic [`D_width-1:0] TF_base_b14_out;
 	logic [`D_width-1:0] TF_base_b15_out; 
 
-	logic [`D_width-1:0] idx1; 
+	/*logic [`D_width-1:0] idx1; 
 	logic [`D_width-1:0] idx2; 
 	logic [`D_width-1:0] idx3;
 	logic [`D_width-1:0] idx4;
@@ -115,11 +133,11 @@ module TF_gen(
 	logic [`D_width-1:0] idx12;
 	logic [`D_width-1:0] idx13;
 	logic [`D_width-1:0] idx14;
-	logic [`D_width-1:0] idx15; 
+	logic [`D_width-1:0] idx15; */
 
 	logic [`D_width-1:0] w_it_depth_cnt;
 
-	
+	/*
 	assign idx1 = $clog2(`degree) - `radix_k1*l - 0; //m=1
 	assign idx2 = $clog2(`degree) - `radix_k1*l - 1; //m=2
 	assign idx3 = $clog2(`degree) - `radix_k1*l - 1; //m=3
@@ -134,7 +152,10 @@ module TF_gen(
 	assign idx12 = $clog2(`degree) - `radix_k1*l - 3; //m=12
 	assign idx13 = $clog2(`degree) - `radix_k1*l - 3; //m=13
 	assign idx14 = $clog2(`degree) - `radix_k1*l - 3; //m=14
-	assign idx15 = $clog2(`degree) - `radix_k1*l - 3; //m=15
+	assign idx15 = $clog2(`degree) - `radix_k1*l - 3; //m=15*/
+
+	logic [`D_width-1:0] test;
+	assign test = TF_base_array[4][0];
 
 
 
@@ -263,6 +284,9 @@ module TF_gen(
 					TF_base_b13 <=	TF_base_b13_out;
 					TF_base_b14 <=	TF_base_b14_out;
 					TF_base_b15 <=	TF_base_b15_out;
+				//end else if (l == 'd4 && w_it_depth_cnt == it_depth_cnt) begin
+					
+				//	TF_base_b1 <= 	TF_base_b1_out;
 				end else begin
 					TF_base_b1 <= TF_base_array[it_depth_cnt][0];
 					TF_base_b2 <= TF_base_array[it_depth_cnt][1];
@@ -368,11 +392,14 @@ module TF_gen(
 	assign w_it_depth_cnt = it_depth_cnt_pip[1];*/
 	assign w_it_depth_cnt = it_depth_cnt;
 	//-------------------------------
+
+	//-----------
+	assign TF_base_b1_select = (l == 'd4 && TF_wen) ? TF_base_b1_out : TF_base_b1;
 	
 	barrett_reduction #(.pre_computing_width(`pre_computing_width) , 
                         .precompute(`precompute))
     barrett_reduction_b1(
-        .a(TF_base_b1),
+        .a(TF_base_b1_select),
         .b(TF_const_b1),
         .modulus(modulus),
         .clk(clk),

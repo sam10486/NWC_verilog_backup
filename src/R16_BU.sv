@@ -4,6 +4,7 @@
 `include "TF_delay_buffer.sv"
 
 module R16_BU (
+    input LAST_STAGE,
     input [`D_width-1:0]    x0, x1, x2, x3, x4, x5, x6, x7,
                             x8, x9, x10, x11, x12, x13, x14, x15,
 
@@ -125,6 +126,7 @@ module R16_BU (
 
     delay_buffer delay_buffer(
         //input
+        .LAST_STAGE(LAST_STAGE),
         .clk(clk),
         .rst(rst),
         .ntt_enable(ntt_enable),
@@ -1143,14 +1145,23 @@ module R16_BU (
             y6 <= 'd0;  y14 <= 'd0;  
             y7 <= 'd0;  y15 <= 'd0;  
         end else begin
-            y0 <= stage3_fft_a0; y8 <=  stage3_fft_a4;
-            y1 <= stage3_fft_b0; y9 <=  stage3_fft_b4; 
-            y2 <= stage3_fft_a1; y10 <= stage3_fft_a5;
-            y3 <= stage3_fft_b1; y11 <= stage3_fft_b5;
-            y4 <= stage3_fft_a2; y12 <= stage3_fft_a6;
-            y5 <= stage3_fft_b2; y13 <= stage3_fft_b6;
-            y6 <= stage3_fft_a3; y14 <= stage3_fft_a7;
-            y7 <= stage3_fft_b3; y15 <= stage3_fft_b7;
+            y0 <= (LAST_STAGE) ? stage0_fft_a0 : stage3_fft_a0; 
+            y1 <= (LAST_STAGE) ? stage0_fft_b0 : stage3_fft_b0; 
+            y2 <= (LAST_STAGE) ? 'd0 : stage3_fft_a1; 
+            y3 <= (LAST_STAGE) ? 'd0 : stage3_fft_b1; 
+            y4 <= (LAST_STAGE) ? 'd0 : stage3_fft_a2; 
+            y5 <= (LAST_STAGE) ? 'd0 : stage3_fft_b2; 
+            y6 <= (LAST_STAGE) ? 'd0 : stage3_fft_a3; 
+            y7 <= (LAST_STAGE) ? 'd0 : stage3_fft_b3; 
+
+            y8 <=  (LAST_STAGE) ? 'd0 : stage3_fft_a4;
+            y9 <=  (LAST_STAGE) ? 'd0 : stage3_fft_b4; 
+            y10 <= (LAST_STAGE) ? 'd0 : stage3_fft_a5;
+            y11 <= (LAST_STAGE) ? 'd0 : stage3_fft_b5;
+            y12 <= (LAST_STAGE) ? 'd0 : stage3_fft_a6;
+            y13 <= (LAST_STAGE) ? 'd0 : stage3_fft_b6;
+            y14 <= (LAST_STAGE) ? 'd0 : stage3_fft_a7;
+            y15 <= (LAST_STAGE) ? 'd0 : stage3_fft_b7;
         end
     end
 
