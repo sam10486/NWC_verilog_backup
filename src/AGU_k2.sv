@@ -1,5 +1,5 @@
 `include "../include/define.svh"
-`include "BitRev.sv"
+//`include "BitRev.sv"
 
 module AGU_k2 (
     input clk,

@@ -1,5 +1,5 @@
 `include "../include/define.svh"
-`include "barrett_reduction.sv"
+//`include "barrett_reduction.sv"
 
 module TF_gen(
 	input clk,

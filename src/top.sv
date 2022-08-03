@@ -12,7 +12,7 @@ module top (
     input rst,
     input [`D_width-1:0] modulus,
 
-    output logic done
+    output logic DONE
     
 );
 
@@ -32,6 +32,7 @@ module top (
     logic ctr_w_enable;
     logic ctr_LAST_STAGE;
     logic ctr_ntt_enable;
+    logic ctr_DONE;
 
     Controller Controller(
         //input
@@ -53,7 +54,8 @@ module top (
         .r_enable       (ctr_r_enable),
         .w_enable       (ctr_w_enable),
         .LAST_STAGE     (ctr_LAST_STAGE),
-        .ntt_enable     (ctr_ntt_enable)
+        .ntt_enable     (ctr_ntt_enable),
+        .DONE           (ctr_DONE)
     );
 
     //input
@@ -259,35 +261,6 @@ module top (
         .BN_MA_out_en(AGU_top_BN_MA_out_en),
         .l_AGU_out(AGU_l_AGU_out)
     );
-
-    /*logic AGU_top_k2_AGU_enable_k2;
-    logic [`D_width-1:0] AGU_top_k2_MA0_idx_k2;
-    logic [`D_width-1:0] AGU_top_k2_MA1_idx_k2;
-
-    logic [`D_width-1:0] AGU_top_k2_BN0_idx_k2;
-    logic [`D_width-1:0] AGU_top_k2_BN1_idx_k2;
-
-    logic AGU_top_k2_AGU_done_out_k2;
-    logic AGU_top_k2_BN_MA_out_en_k2;
-    logic [`D_width-1:0] AGU_top_k2_l_AGU_out_k2;
-    
-    AGU_top_k2 AGU_top_k2 (
-        //input
-        .clk(clk),
-        .rst(rst),
-        .AGU_enable_k2(AGU_top_k2_AGU_enable_k2),
-
-        //output
-        .MA0_idx_k2(AGU_top_k2_MA0_idx_k2),
-        .MA1_idx_k2(AGU_top_k2_MA1_idx_k2),
-
-        .BN0_idx_k2(AGU_top_k2_BN0_idx_k2),
-        .BN1_idx_k2(AGU_top_k2_BN1_idx_k2),
-
-        .AGU_done_out_k2(AGU_top_k2_AGU_done_out_k2 ),
-        .BN_MA_out_en_k2(AGU_top_k2_BN_MA_out_en_k2 ),
-        .l_AGU_out_k2   (AGU_top_k2_l_AGU_out_k2    )
-    );*/
 
     //input
     logic mem_LAST_STAGE;
@@ -839,6 +812,9 @@ module top (
     assign ctr_r_enable_out = mem_r_enable_out      ;
     assign ctr_w_enable_out = mem_w_enable_out      ;
     assign ctr_ntt_done     = R16_ntt_done          ;
+
+    //output
+    assign DONE = ctr_DONE;
   
     //TF_gen
     assign TF_gen_LAST_STAGE    = ctr_LAST_STAGE    ;

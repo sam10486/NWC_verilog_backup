@@ -7,7 +7,8 @@ module Testbench ();
     logic clk;
     logic rst;
     logic [`D_width-1:0] modulus;
-    logic done;
+    logic DONE;
+    string output_path;
 
 
     
@@ -55,7 +56,7 @@ module Testbench ();
         .rst(rst),
         .modulus(modulus),
         //output
-        .done(done)
+        .DONE(DONE)
     );
 
 
@@ -67,6 +68,28 @@ module Testbench ();
         rst = 1;
         #`CYCLE rst = 0;
     end
+
+    integer mem_out;
+    integer i, j;
+    initial begin
+        $value$plusargs("output_path=%s", output_path);
+        while (1)
+		begin
+			#(`CYCLE)
+			if(DONE) break;
+		end
+        mem_out = $fopen({output_path, "/mem_out.txt"}, "w");
+        for (i = 0; i<BN; i=i+1) begin
+            for (j = 0; j<MA ; j=j+1) begin
+                $fwrite(mem_out, "%d\n",  top.memory_top.memory_rtl.memory_array[i][j]);
+            end
+        end
+        $display("successful !\n");
+        $display("mem_out[0][0] = (%d)" , top.memory_top.memory_rtl.memory_array[1][0]);
+        $finish;
+
+    end
+
 
     initial begin
         for (int i=0 ;i<=k1_ite+5; i=i+1) begin

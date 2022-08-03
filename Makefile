@@ -4,12 +4,6 @@ syn_dir := ./syn
 inc_dir := ./include
 sim_dir := ./sim
 bld_dir := ./build
-FSDB_DEF :=
-ifeq ($(FSDB),1)
-FSDB_DEF := +FSDB
-else ifeq ($(FSDB),2)
-FSDB_DEF := +FSDB_ALL
-endif
 CYCLE=`grep -v '^$$' $(root_dir)/sim/CYCLE`
 MAX=`grep -v '^$$' $(root_dir)/sim/MAX`
 
@@ -32,8 +26,8 @@ top_tb: | $(bld_dir)
 	+incdir+$(root_dir)/$(src_dir)+$(root_dir)/$(inc_dir)+$(root_dir)/$(sim_dir) \
 	-define CYCLE=$(CYCLE) \
 	-define MAX=$(MAX) \
-	+access+r \
-	-loadpli1 debpli:novas_pli_boot
+	+access+r -loadpli1 debpli:novas_pli_boot \
+	+output_path=$(root_dir)/test_result_v	
 
 
 TF_tb: | $(bld_dir)

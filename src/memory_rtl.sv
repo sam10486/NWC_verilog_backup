@@ -163,8 +163,8 @@ module memory_rtl(
     
     logic [`D_width-1:0] test0_0, test0_1, test0_2, test1_0, test1_1, test1_2;
 
-    assign test0_0 = memory_array[3][31];
-    assign test0_1 = memory_array[2][32];
+    assign test0_0 = memory_array[0][0];
+    assign test0_1 = memory_array[1][0];
     assign test0_2 = memory_array[4][64];
 
     assign test1_0 = R16_w_BN0_idx;

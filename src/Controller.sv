@@ -31,7 +31,10 @@ module Controller (
     output logic LAST_STAGE,
 
     //ntt
-    output logic ntt_enable
+    output logic ntt_enable,
+
+    //state finish
+    output logic DONE
 );
     
     enum {RESET, IDLE, NTT_ite0, NTT_ite1, NTT_ite2, NTT_buffer_0, NTT_buffer_1, NTT_buffer_2,
@@ -414,6 +417,7 @@ module Controller (
                 AGU_enable_k2 = 'd0;
                 LAST_STAGE = 'd0;
                 ntt_enable = 'd0;
+                DONE = 'd0;
             end
             IDLE: begin
                 TF_init_base = 'd1; 
@@ -428,6 +432,7 @@ module Controller (
                 AGU_enable_k2 = 'd0;
                 LAST_STAGE = 'd0;
                 ntt_enable = 'd0;
+                DONE = 'd0;
             end 
             NTT_ite0: begin
                 if (BN_MA_out_en) begin
@@ -462,6 +467,7 @@ module Controller (
                 TF_wen = 'd0;
                 AGU_enable_k2 = 'd0;
                 LAST_STAGE = 'd0;
+                DONE = 'd0;
             end
             NTT_buffer_0: begin
                 TF_init_base = 'd0;
@@ -480,6 +486,7 @@ module Controller (
                 end
                 AGU_enable_k2 = 'd0;
                 LAST_STAGE = 'd0;
+                DONE = 'd0;
             end
             NTT_ite1: begin
                 if (BN_MA_out_en) begin
@@ -514,6 +521,7 @@ module Controller (
                 AGU_enable = 'd1;
                 AGU_enable_k2 = 'd0;
                 LAST_STAGE = 'd0;
+                DONE = 'd0;
             end
             NTT_buffer_1: begin
                 TF_init_base = 'd0;
@@ -532,6 +540,7 @@ module Controller (
                 end
                 AGU_enable_k2 = 'd0;
                 LAST_STAGE = 'd0;
+                DONE = 'd0;
             end
             NTT_ite2: begin
                 if (BN_MA_out_en) begin
@@ -566,6 +575,7 @@ module Controller (
                 AGU_enable = 'd1;
                 AGU_enable_k2 = 'd0;
                 LAST_STAGE = 'd0;
+                DONE = 'd0;
             end
             NTT_buffer_2: begin
                 TF_init_base = 'd0;
@@ -584,6 +594,7 @@ module Controller (
                 end
                 AGU_enable_k2 = 'd0;
                 LAST_STAGE = 'd0;
+                DONE = 'd0;
             end
             NTT_ite3: begin
                 if (BN_MA_out_en) begin
@@ -618,6 +629,7 @@ module Controller (
                 AGU_enable = 'd0;
                 AGU_enable_k2 = 'd1;
                 LAST_STAGE = 'd1;
+                DONE = 'd0;
             end
             NTT_buffer_3: begin
                 TF_init_base = 'd0;
@@ -636,6 +648,7 @@ module Controller (
                 end
                 AGU_enable_k2 = 'd0;
                 LAST_STAGE = 'd1;
+                DONE = 'd0;
             end
             NTT_finish: begin
                 TF_init_base = 'd0; 
@@ -650,6 +663,7 @@ module Controller (
                 ntt_enable = 'd0;
                 LAST_STAGE = 'd0;
                 AGU_enable_k2 = 'd0;
+                DONE = 'd1;
             end
             default: begin
                 TF_init_base = 'd0;
@@ -664,6 +678,7 @@ module Controller (
                 ntt_enable = 'd0; 
                 LAST_STAGE = 'd0;
                 AGU_enable_k2 = 'd0;
+                DONE = 'd0;
             end
         endcase
     end
