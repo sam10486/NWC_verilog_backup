@@ -119,40 +119,7 @@ module TF_gen(
 	logic [`D_width-1:0] TF_base_b14_out;
 	logic [`D_width-1:0] TF_base_b15_out; 
 
-	/*logic [`D_width-1:0] idx1; 
-	logic [`D_width-1:0] idx2; 
-	logic [`D_width-1:0] idx3;
-	logic [`D_width-1:0] idx4;
-	logic [`D_width-1:0] idx5;
-	logic [`D_width-1:0] idx6;
-	logic [`D_width-1:0] idx7;
-	logic [`D_width-1:0] idx8;
-	logic [`D_width-1:0] idx9;
-	logic [`D_width-1:0] idx10;
-	logic [`D_width-1:0] idx11;
-	logic [`D_width-1:0] idx12;
-	logic [`D_width-1:0] idx13;
-	logic [`D_width-1:0] idx14;
-	logic [`D_width-1:0] idx15; */
-
 	logic [`D_width-1:0] w_it_depth_cnt;
-
-	/*
-	assign idx1 = $clog2(`degree) - `radix_k1*l - 0; //m=1
-	assign idx2 = $clog2(`degree) - `radix_k1*l - 1; //m=2
-	assign idx3 = $clog2(`degree) - `radix_k1*l - 1; //m=3
-	assign idx4 = $clog2(`degree) - `radix_k1*l - 2; //m=4
-	assign idx5 = $clog2(`degree) - `radix_k1*l - 2; //m=5
-	assign idx6 = $clog2(`degree) - `radix_k1*l - 2; //m=6
-	assign idx7 = $clog2(`degree) - `radix_k1*l - 2; //m=7
-	assign idx8 = $clog2(`degree) - `radix_k1*l - 3; //m=8
-	assign idx9 = $clog2(`degree) - `radix_k1*l - 3; //m=9
-	assign idx10 = $clog2(`degree) - `radix_k1*l - 3; //m=10
-	assign idx11 = $clog2(`degree) - `radix_k1*l - 3; //m=11
-	assign idx12 = $clog2(`degree) - `radix_k1*l - 3; //m=12
-	assign idx13 = $clog2(`degree) - `radix_k1*l - 3; //m=13
-	assign idx14 = $clog2(`degree) - `radix_k1*l - 3; //m=14
-	assign idx15 = $clog2(`degree) - `radix_k1*l - 3; //m=15*/
 
 	logic [`D_width-1:0] test;
 	assign test = TF_base_array[4][0];
@@ -284,9 +251,7 @@ module TF_gen(
 					TF_base_b13 <=	TF_base_b13_out;
 					TF_base_b14 <=	TF_base_b14_out;
 					TF_base_b15 <=	TF_base_b15_out;
-				//end else if (l == 'd4 && w_it_depth_cnt == it_depth_cnt) begin
-					
-				//	TF_base_b1 <= 	TF_base_b1_out;
+
 				end else begin
 					TF_base_b1 <= TF_base_array[it_depth_cnt][0];
 					TF_base_b2 <= TF_base_array[it_depth_cnt][1];
@@ -377,19 +342,6 @@ module TF_gen(
 	//----------depth buf-----------------
 	logic [`D_width-1:0] it_depth_cnt_pip [0:1];
 	integer i;
-	/*assign it_depth_cnt_pip[0] = it_depth_cnt;
-	always_ff @( posedge clk or posedge rst ) begin
-		if (rst) begin
-			for (i = 0; i<1 ; i=i+1) begin
-				it_depth_cnt_pip[i] <= 'd0;
-			end
-		end else begin
-			for (i = 0; i<1 ; i=i+1) begin
-				it_depth_cnt_pip[i+1] <= it_depth_cnt_pip[i];
-			end
-		end
-	end
-	assign w_it_depth_cnt = it_depth_cnt_pip[1];*/
 	assign w_it_depth_cnt = it_depth_cnt;
 	//-------------------------------
 

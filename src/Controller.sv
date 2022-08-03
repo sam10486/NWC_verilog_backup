@@ -47,6 +47,7 @@ module Controller (
     //parameter BU_total = `BU_total;
     parameter degree = `degree;
     parameter total_BU_number = `BU_total;
+    parameter total_BU_number_k2 = `BU_total_k2;
 
     logic [`D_width-1:0] ite_stage;
     logic [`D_width-1:0] ite_sw_cnt;
@@ -70,7 +71,7 @@ module Controller (
     parameter buffer_2_cnt_bound = 12;
 
     logic [`D_width-1:0] buffer_3_cnt;
-    parameter buffer_3_cnt_bound = 12;
+    parameter buffer_3_cnt_bound = 2;
 
     logic [`D_width-1:0] AGU_en_cnt;
 
@@ -377,6 +378,26 @@ module Controller (
         end
     end
 
+    //---------------------
+    logic [`D_width-1:0] ite_sw_cnt_ite3;
+    always_ff @( posedge clk or posedge rst ) begin
+        if (rst) begin
+            ite_sw_cnt_ite3 <= 'd0;
+        end else begin
+            if (init_done && LAST_STAGE) begin
+                if (ite_sw_cnt_ite3 == total_BU_number_k2) begin
+                    ite_sw_cnt_ite3 <= 'd0;
+                end else begin
+                    if (TF_ren) begin
+                        ite_sw_cnt_ite3 <= ite_sw_cnt_ite3 + 'd1;
+                    end else begin
+                        ite_sw_cnt_ite3 <= ite_sw_cnt_ite3;
+                    end
+                end
+            end 
+        end
+    end
+
     //--------signal machine-------------
 
     always_comb begin
@@ -589,7 +610,7 @@ module Controller (
                     ntt_enable = 'd0;
                 end
                 compute_complete = 'd0;
-                if (BU_group_cnt == 'd0 && ite_sw_cnt >= 'd2) begin
+                if (BU_group_cnt == 'd0 && ite_sw_cnt_ite3 >= 'd2) begin
                     TF_wen <= 'd1;
                 end else begin
                     TF_wen <= 'd0;
@@ -614,7 +635,7 @@ module Controller (
                     ntt_enable = 'd0; 
                 end
                 AGU_enable_k2 = 'd0;
-                LAST_STAGE = 'd0;
+                LAST_STAGE = 'd1;
             end
             NTT_finish: begin
                 TF_init_base = 'd0; 
@@ -704,14 +725,14 @@ module Controller (
                 end
             end
             NTT_ite3: begin
-                if (ite_sw_cnt == total_BU_number-1) begin
+                if (ite_sw_cnt_ite3 == total_BU_number_k2) begin
                     ns <= NTT_buffer_3;
                 end else begin
                     ns <= cs; 
                 end
             end
             NTT_buffer_3: begin
-                if (buffer_2_cnt == buffer_2_cnt_bound) begin
+                if (buffer_3_cnt == buffer_3_cnt_bound) begin
                     ns <= NTT_finish;
                 end else begin
                     ns <= cs; 
