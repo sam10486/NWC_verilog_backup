@@ -587,6 +587,7 @@ module memory_top(
     end
 
     memory_rtl memory_rtl(
+        .LAST_STAGE (LAST_STAGE),
         .data_in0   (data_in0_pip_in ),
         .data_in1   (data_in1_pip_in ),
         .data_in2   (data_in2_pip_in ),

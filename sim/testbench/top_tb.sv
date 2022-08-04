@@ -85,7 +85,7 @@ module Testbench ();
             end
         end
         $display("successful !\n");
-        $display("mem_out[0][0] = (%d)" , top.memory_top.memory_rtl.memory_array[1][0]);
+        $display("mem_out[0][0] = (%d)" , top.memory_top.memory_rtl.memory_array[0][0]);
         $finish;
 
     end
