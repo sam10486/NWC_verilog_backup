@@ -47,6 +47,7 @@ module Controller (
     parameter ite_1 = `ite_1;
     parameter ite_2 = `ite_2;
     parameter ite_3 = `ite_3;
+    parameter last_l = `Last_l;
     //parameter BU_total = `BU_total;
     parameter degree = `degree;
     parameter total_BU_number = `BU_total;
@@ -322,30 +323,7 @@ module Controller (
                         ite2_depth_buf <= 'd0;
                     end
                 endcase
-            end else if (TF_ren && cs == NTT_ite3) begin
-                case (depth_buf_cnt)
-                    'd0: begin
-                        depth_buf_cnt <= depth_buf_cnt + 'd1;
-                        ite3_depth_buf <= ite3_depth_buf + 'd1;
-                    end 
-                    'd1: begin
-                        depth_buf_cnt <= depth_buf_cnt + 'd1;
-                        ite3_depth_buf <= ite3_depth_buf + 'd1;
-                    end
-                    'd2: begin
-                        depth_buf_cnt <= depth_buf_cnt + 'd1;
-                        ite3_depth_buf <= ite3_depth_buf + 'd1;
-                    end
-                    'd3: begin
-                        depth_buf_cnt <= 'd0;
-                        ite3_depth_buf <= `Last_l;
-                    end
-                    default: begin
-                        depth_buf_cnt <= 'd0;
-                        ite3_depth_buf <= 'd0;
-                    end
-                endcase
-            end
+            end 
         end
     end
 
@@ -602,7 +580,7 @@ module Controller (
                     TF_init_base = 'd0;
                     TF_ren = 'd1;
                     TF_init_const = 'd0;
-                    it_depth_cnt = 'd4;
+                    it_depth_cnt = last_l;
                 end else begin
                     r_enable = 'd0;
                     TF_init_base = 'd0;
@@ -636,7 +614,7 @@ module Controller (
                 TF_ren = 'd0;
                 TF_wen = 'd0;
                 TF_init_const = 'd0;
-                it_depth_cnt = 'd4;
+                it_depth_cnt = last_l;
                 compute_complete = 'd0;
                 AGU_enable = 'd0;
                 r_enable = 'd0;

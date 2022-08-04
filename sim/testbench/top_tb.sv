@@ -35,14 +35,15 @@ module Testbench ();
     logic [`D_width-1:0] data_in14;
     logic [`D_width-1:0] data_in15;
 
-    logic [`D_width-1:0] TF_based_in [0:(k1_ite+5)*bank_num-1]; 
+    logic [`D_width-1:0] TF_based_in [0:(k1_ite+2)*bank_num-1]; 
     logic [`D_width-1:0] TF_const_in [0:bank_num-2]; 
     logic [`D_width-1:0] mem_data_in [0:`degree-1];
     logic [`D_width-1:0] mem_data_golden [0:`degree-1]; 
 
     assign modulus = `D_width'd65537;
 
-
+    // ite0、ite1 is one TFs group, ite2 is two TFs group, and ite3 is one TFs group, 
+    // thus there are all five TF groups are needed to be stored. 
     initial begin
         $readmemh("../sim/data_file/top/TF_based_in.txt", TF_based_in);  
         $readmemh("../sim/data_file/top/TF_const_in.txt", TF_const_in);  
@@ -92,7 +93,7 @@ module Testbench ();
 
 
     initial begin
-        for (int i=0 ;i<=k1_ite+5; i=i+1) begin
+        for (int i=0 ;i<=k1_ite+2; i=i+1) begin
             #`CYCLE;
             top.TF_top.TF_gen.TF_base_array[i][0] <= TF_based_in[i*bank_num+0];
             top.TF_top.TF_gen.TF_base_array[i][1] <= TF_based_in[i*bank_num+1];
