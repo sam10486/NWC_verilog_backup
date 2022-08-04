@@ -48,7 +48,7 @@ module Controller (
     parameter ite_2 = `ite_2;
     parameter ite_3 = `ite_3;
     parameter last_l = `Last_l;
-    //parameter BU_total = `BU_total;
+
     parameter degree = `degree;
     parameter total_BU_number = `BU_total;
     parameter total_BU_number_k2 = `BU_total_k2;

@@ -557,17 +557,6 @@ module R16_BU (
             pip0_fft_a5 <= 'd0; pip0_fft_b5 <= 'd0;
             pip0_fft_a6 <= 'd0; pip0_fft_b6 <= 'd0;
             pip0_fft_a7 <= 'd0; pip0_fft_b7 <= 'd0;
-
-            /*pip0_twiddle_0 <= 'd0; pip0_twiddle_8 <= 'd0;
-            pip0_twiddle_1 <= 'd0; pip0_twiddle_9 <= 'd0;
-            pip0_twiddle_2 <= 'd0; pip0_twiddle_10 <= 'd0;
-            pip0_twiddle_3 <= 'd0; pip0_twiddle_11 <= 'd0;
-            pip0_twiddle_4 <= 'd0; pip0_twiddle_12 <= 'd0;
-            pip0_twiddle_5 <= 'd0; pip0_twiddle_13 <= 'd0;
-            pip0_twiddle_6 <= 'd0; pip0_twiddle_14 <= 'd0;
-            pip0_twiddle_7 <= 'd0; pip0_twiddle_15 <= 'd0;
-
-            pip0_modulus <= 'd0;*/
      
         end else begin
             pip0_fft_a0 <= stage0_fft_a0;   pip0_fft_b0 <= stage0_fft_b0;
@@ -578,17 +567,6 @@ module R16_BU (
             pip0_fft_a5 <= stage0_fft_a5;   pip0_fft_b5 <= stage0_fft_b5;
             pip0_fft_a6 <= stage0_fft_a6;   pip0_fft_b6 <= stage0_fft_b6;
             pip0_fft_a7 <= stage0_fft_a7;   pip0_fft_b7 <= stage0_fft_b7;
-
-            /*pip0_twiddle_0 <= twiddle_0;   pip0_twiddle_8 <= twiddle_8;
-            pip0_twiddle_1 <= twiddle_1;   pip0_twiddle_9 <= twiddle_9;
-            pip0_twiddle_2 <= twiddle_2;   pip0_twiddle_10 <= twiddle_10;
-            pip0_twiddle_3 <= twiddle_3;   pip0_twiddle_11 <= twiddle_11;
-            pip0_twiddle_4 <= twiddle_4;   pip0_twiddle_12 <= twiddle_12;
-            pip0_twiddle_5 <= twiddle_5;   pip0_twiddle_13 <= twiddle_13;
-            pip0_twiddle_6 <= twiddle_6;   pip0_twiddle_14 <= twiddle_14;
-            pip0_twiddle_7 <= twiddle_7;   pip0_twiddle_15 <= twiddle_15;
-
-            pip0_modulus <= modulus;*/
 
         end
     end
@@ -747,15 +725,6 @@ module R16_BU (
 
     always_ff @( posedge clk or posedge rst ) begin : stage2
         if (rst) begin
-            /*pip1_twiddle_0 <= 'd0; pip1_twiddle_8 <= 'd0;
-            pip1_twiddle_1 <= 'd0; pip1_twiddle_9 <= 'd0;
-            pip1_twiddle_2 <= 'd0; pip1_twiddle_10 <= 'd0;
-            pip1_twiddle_3 <= 'd0; pip1_twiddle_11 <= 'd0;
-            pip1_twiddle_4 <= 'd0; pip1_twiddle_12 <= 'd0;
-            pip1_twiddle_5 <= 'd0; pip1_twiddle_13 <= 'd0;
-            pip1_twiddle_6 <= 'd0; pip1_twiddle_14 <= 'd0;
-            pip1_twiddle_7 <= 'd0; pip1_twiddle_15 <= 'd0;*/
-
             pip1_fft_a0 <= 'd0; pip1_fft_b0 <= 'd0;
             pip1_fft_a1 <= 'd0; pip1_fft_b1 <= 'd0;
             pip1_fft_a2 <= 'd0; pip1_fft_b2 <= 'd0;
@@ -764,18 +733,7 @@ module R16_BU (
             pip1_fft_a5 <= 'd0; pip1_fft_b5 <= 'd0;
             pip1_fft_a6 <= 'd0; pip1_fft_b6 <= 'd0;
             pip1_fft_a7 <= 'd0; pip1_fft_b7 <= 'd0;
-          
-            //pip1_modulus <= 'd0;
         end else begin
-            /*pip1_twiddle_0 <= pip0_twiddle_0; pip1_twiddle_8 <=  pip0_twiddle_8 ;
-            pip1_twiddle_1 <= pip0_twiddle_1; pip1_twiddle_9 <=  pip0_twiddle_9 ;
-            pip1_twiddle_2 <= pip0_twiddle_2; pip1_twiddle_10 <= pip0_twiddle_10;
-            pip1_twiddle_3 <= pip0_twiddle_3; pip1_twiddle_11 <= pip0_twiddle_11;
-            pip1_twiddle_4 <= pip0_twiddle_4; pip1_twiddle_12 <= pip0_twiddle_12;
-            pip1_twiddle_5 <= pip0_twiddle_5; pip1_twiddle_13 <= pip0_twiddle_13;
-            pip1_twiddle_6 <= pip0_twiddle_6; pip1_twiddle_14 <= pip0_twiddle_14;
-            pip1_twiddle_7 <= pip0_twiddle_7; pip1_twiddle_15 <= pip0_twiddle_15;*/
-
             pip1_fft_a0 <= stage1_fft_a0; pip1_fft_b0 <= stage1_fft_b0;
             pip1_fft_a1 <= stage1_fft_a1; pip1_fft_b1 <= stage1_fft_b1;
             pip1_fft_a2 <= stage1_fft_a2; pip1_fft_b2 <= stage1_fft_b2;
@@ -784,8 +742,6 @@ module R16_BU (
             pip1_fft_a5 <= stage1_fft_a5; pip1_fft_b5 <= stage1_fft_b5;
             pip1_fft_a6 <= stage1_fft_a6; pip1_fft_b6 <= stage1_fft_b6;
             pip1_fft_a7 <= stage1_fft_a7; pip1_fft_b7 <= stage1_fft_b7;
-
-            //pip1_modulus <= pip0_modulus;
         end
     end
 
@@ -942,15 +898,6 @@ module R16_BU (
 
     always_ff @( posedge clk or posedge rst ) begin : stage3
         if (rst) begin
-            /*pip2_twiddle_0 <= 'd0; pip2_twiddle_8  <= 'd0;
-            pip2_twiddle_1 <= 'd0; pip2_twiddle_9  <= 'd0;
-            pip2_twiddle_2 <= 'd0; pip2_twiddle_10 <= 'd0;
-            pip2_twiddle_3 <= 'd0; pip2_twiddle_11 <= 'd0;
-            pip2_twiddle_4 <= 'd0; pip2_twiddle_12 <= 'd0;
-            pip2_twiddle_5 <= 'd0; pip2_twiddle_13 <= 'd0;
-            pip2_twiddle_6 <= 'd0; pip2_twiddle_14 <= 'd0;
-            pip2_twiddle_7 <= 'd0; pip2_twiddle_15 <= 'd0;*/
-
             pip2_fft_a0 <= 'd0; pip2_fft_b0 <= 'd0;
             pip2_fft_a1 <= 'd0; pip2_fft_b1 <= 'd0;
             pip2_fft_a2 <= 'd0; pip2_fft_b2 <= 'd0;
@@ -959,18 +906,7 @@ module R16_BU (
             pip2_fft_a5 <= 'd0; pip2_fft_b5 <= 'd0;
             pip2_fft_a6 <= 'd0; pip2_fft_b6 <= 'd0;
             pip2_fft_a7 <= 'd0; pip2_fft_b7 <= 'd0;
-
-            //pip2_modulus <= 'd0;
         end else begin
-            /*pip2_twiddle_0 <= pip1_twiddle_0; pip2_twiddle_8  <= pip1_twiddle_8 ;
-            pip2_twiddle_1 <= pip1_twiddle_1; pip2_twiddle_9  <= pip1_twiddle_9 ;
-            pip2_twiddle_2 <= pip1_twiddle_2; pip2_twiddle_10 <= pip1_twiddle_10;
-            pip2_twiddle_3 <= pip1_twiddle_3; pip2_twiddle_11 <= pip1_twiddle_11;
-            pip2_twiddle_4 <= pip1_twiddle_4; pip2_twiddle_12 <= pip1_twiddle_12;
-            pip2_twiddle_5 <= pip1_twiddle_5; pip2_twiddle_13 <= pip1_twiddle_13;
-            pip2_twiddle_6 <= pip1_twiddle_6; pip2_twiddle_14 <= pip1_twiddle_14;
-            pip2_twiddle_7 <= pip1_twiddle_7; pip2_twiddle_15 <= pip1_twiddle_15;*/
-
             pip2_fft_a0 <= stage2_fft_a0; pip2_fft_b0 <= stage2_fft_b0;
             pip2_fft_a1 <= stage2_fft_a1; pip2_fft_b1 <= stage2_fft_b1;
             pip2_fft_a2 <= stage2_fft_a2; pip2_fft_b2 <= stage2_fft_b2;
@@ -979,8 +915,6 @@ module R16_BU (
             pip2_fft_a5 <= stage2_fft_a5; pip2_fft_b5 <= stage2_fft_b5;
             pip2_fft_a6 <= stage2_fft_a6; pip2_fft_b6 <= stage2_fft_b6;
             pip2_fft_a7 <= stage2_fft_a7; pip2_fft_b7 <= stage2_fft_b7;
-
-            //pip2_modulus <= pip1_modulus;
         end
     end
 
