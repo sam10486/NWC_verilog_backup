@@ -2,7 +2,7 @@
 `define DEFINE_SVH
 
 `timescale 10ns / 1ps
-`define D_width 17
+`define D_width 31
 `define double_d_width `D_width*2
 
 `define degree 8192
@@ -26,7 +26,7 @@
 `define pow_radix_k2 (1 << `radix_k2)
 //-------barrett precomputing value-----
 `define pre_computing_width `D_width*2                  // D_width*2
-`define precompute 34'd524280                           // D_width*2
+`define precompute 62'd4581298446                          // D_width*2
 
 
 //----------controller initial------
