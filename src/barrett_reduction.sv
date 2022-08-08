@@ -3,10 +3,11 @@
 module barrett_reduction 
 #(
     parameter DATA_WIDTH = `D_width, //8
+    parameter MODULUS_WIDTH = `Modulus_D_witth,
     parameter DOUBLE_DATA_WIDTH = 2 * DATA_WIDTH,//16
-    parameter alpha = DATA_WIDTH + 1,//9
+    parameter alpha = MODULUS_WIDTH + 1,//9
     parameter beta = -2,
-    parameter RS_FRI = DATA_WIDTH + beta,//6
+    parameter RS_FRI = MODULUS_WIDTH + beta,//6
     parameter RS_SEC = alpha - beta,//11
     parameter pre_computing_width = DATA_WIDTH + 3,//13
     parameter DATA_FRI_RS_WIDTH = DOUBLE_DATA_WIDTH - RS_FRI,//10
