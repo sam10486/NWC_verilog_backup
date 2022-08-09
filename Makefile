@@ -4,6 +4,7 @@ syn_dir := ./syn
 inc_dir := ./include
 sim_dir := ./sim
 bld_dir := ./build
+mem_dir := ./mem
 CYCLE=`grep -v '^$$' $(root_dir)/sim/CYCLE`
 MAX=`grep -v '^$$' $(root_dir)/sim/MAX`
 
@@ -186,13 +187,20 @@ synthesize: | $(bld_dir) $(syn_dir)
 clean:
 	rm -rf $(bld_dir); \
 	rm -rf $(sim_dir)/prog*/result*.txt; \
+
 	rm -rf $(root_dir)/INCA_libs; \
 	rm -rf $(root_dir)/$(src_dir)/INCA_libs; \
-	rm -rf $(root_dir)/$(src_dir)/ncverilog.history; \
-	rm -rf $(root_dir)/$(src_dir)/ncverilog.log; \
-	rm -rf $(root_dir)/$(src_dir)/irun.history; \
-	rm -rf $(root_dir)/$(src_dir)/irun.log; \
+	rm -rf $(root_dir)/$(src_dir)/*.history; \
+	rm -rf $(root_dir)/$(src_dir)/*.log; \
 	rm -rf $(root_dir)/$(src_dir)/simv.daidir; \
+	
 	rm -rf $(root_dir)/$(sim_dir)/testbench/INCA_libs;\
-	rm -rf $(root_dir)/$(sim_dir)/testbench/ncverilog.history;\
-	rm -rf $(root_dir)/$(sim_dir)/testbench/ncverilog.log;\
+	rm -rf $(root_dir)/$(sim_dir)/testbench/*.history;\
+	rm -rf $(root_dir)/$(sim_dir)/testbench/*.log;\
+
+	rm -rf $(root_dir)/$(mem_dir)/*.log; \
+	rm -rf $(root_dir)/$(mem_dir)/*.history; \
+	rm -rf $(root_dir)/$(mem_dir)/INCA_libs; \
+
+	rm -rf $(root_dir)/*.log; \
+	rm -rf $(root_dir)/*.history;\
