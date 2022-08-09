@@ -175,54 +175,66 @@ module memory_rtl(
     always_ff@(posedge clk) begin
         case({r_enable, w_enable})
             'b10: begin
-                memory_b0       = memory_array[BN0_idx][MA0_idx];
-                memory_b1       = memory_array[BN1_idx][MA1_idx];
-                memory_b2       = memory_array[BN2_idx][MA2_idx];
-                memory_b3       = memory_array[BN3_idx][MA3_idx];
-                memory_b4       = memory_array[BN4_idx][MA4_idx];
-                memory_b5       = memory_array[BN5_idx][MA5_idx];
-                memory_b6       = memory_array[BN6_idx][MA6_idx];
-                memory_b7       = memory_array[BN7_idx][MA7_idx];
-                memory_b8       = memory_array[BN8_idx][MA8_idx];
-                memory_b9       = memory_array[BN9_idx][MA9_idx];
-                memory_b10      = memory_array[BN10_idx][MA10_idx];
-                memory_b11      = memory_array[BN11_idx][MA11_idx];
-                memory_b12      = memory_array[BN12_idx][MA12_idx];
-                memory_b13      = memory_array[BN13_idx][MA13_idx];
-                memory_b14      = memory_array[BN14_idx][MA14_idx];
-                memory_b15      = memory_array[BN15_idx][MA15_idx];
-                MA0_idx_out     = MA0_idx;
-                MA1_idx_out     = MA1_idx;
-                MA2_idx_out     = MA2_idx;
-                MA3_idx_out     = MA3_idx;
-                MA4_idx_out     = MA4_idx;
-                MA5_idx_out     = MA5_idx;
-                MA6_idx_out     = MA6_idx;
-                MA7_idx_out     = MA7_idx;
-                MA8_idx_out     = MA8_idx;
-                MA9_idx_out     = MA9_idx;
-                MA10_idx_out    = MA10_idx;
-                MA11_idx_out    = MA11_idx;
-                MA12_idx_out    = MA12_idx;
-                MA13_idx_out    = MA13_idx;
-                MA14_idx_out    = MA14_idx;
-                MA15_idx_out    = MA15_idx;
-                BN0_idx_out     = BN0_idx;
-                BN1_idx_out     = BN1_idx;
-                BN2_idx_out     = BN2_idx;
-                BN3_idx_out     = BN3_idx;
-                BN4_idx_out     = BN4_idx;
-                BN5_idx_out     = BN5_idx;
-                BN6_idx_out     = BN6_idx;
-                BN7_idx_out     = BN7_idx;
-                BN8_idx_out     = BN8_idx;
-                BN9_idx_out     = BN9_idx;
-                BN10_idx_out    = BN10_idx;
-                BN11_idx_out    = BN11_idx;
-                BN12_idx_out    = BN12_idx;
-                BN13_idx_out    = BN13_idx;
-                BN14_idx_out    = BN14_idx;
-                BN15_idx_out    = BN15_idx;
+                if (LAST_STAGE) begin
+                    memory_b0       = memory_array[BN0_idx][MA0_idx];
+                    memory_b1       = memory_array[BN1_idx][MA1_idx];
+
+                    MA0_idx_out     = MA0_idx;
+                    MA1_idx_out     = MA1_idx;
+
+                    BN0_idx_out     = BN0_idx;
+                    BN1_idx_out     = BN1_idx;
+                end else begin
+                    memory_b0       = memory_array[BN0_idx][MA0_idx];
+                    memory_b1       = memory_array[BN1_idx][MA1_idx];
+                    memory_b2       = memory_array[BN2_idx][MA2_idx];
+                    memory_b3       = memory_array[BN3_idx][MA3_idx];
+                    memory_b4       = memory_array[BN4_idx][MA4_idx];
+                    memory_b5       = memory_array[BN5_idx][MA5_idx];
+                    memory_b6       = memory_array[BN6_idx][MA6_idx];
+                    memory_b7       = memory_array[BN7_idx][MA7_idx];
+                    memory_b8       = memory_array[BN8_idx][MA8_idx];
+                    memory_b9       = memory_array[BN9_idx][MA9_idx];
+                    memory_b10      = memory_array[BN10_idx][MA10_idx];
+                    memory_b11      = memory_array[BN11_idx][MA11_idx];
+                    memory_b12      = memory_array[BN12_idx][MA12_idx];
+                    memory_b13      = memory_array[BN13_idx][MA13_idx];
+                    memory_b14      = memory_array[BN14_idx][MA14_idx];
+                    memory_b15      = memory_array[BN15_idx][MA15_idx];
+                    MA0_idx_out     = MA0_idx;
+                    MA1_idx_out     = MA1_idx;
+                    MA2_idx_out     = MA2_idx;
+                    MA3_idx_out     = MA3_idx;
+                    MA4_idx_out     = MA4_idx;
+                    MA5_idx_out     = MA5_idx;
+                    MA6_idx_out     = MA6_idx;
+                    MA7_idx_out     = MA7_idx;
+                    MA8_idx_out     = MA8_idx;
+                    MA9_idx_out     = MA9_idx;
+                    MA10_idx_out    = MA10_idx;
+                    MA11_idx_out    = MA11_idx;
+                    MA12_idx_out    = MA12_idx;
+                    MA13_idx_out    = MA13_idx;
+                    MA14_idx_out    = MA14_idx;
+                    MA15_idx_out    = MA15_idx;
+                    BN0_idx_out     = BN0_idx;
+                    BN1_idx_out     = BN1_idx;
+                    BN2_idx_out     = BN2_idx;
+                    BN3_idx_out     = BN3_idx;
+                    BN4_idx_out     = BN4_idx;
+                    BN5_idx_out     = BN5_idx;
+                    BN6_idx_out     = BN6_idx;
+                    BN7_idx_out     = BN7_idx;
+                    BN8_idx_out     = BN8_idx;
+                    BN9_idx_out     = BN9_idx;
+                    BN10_idx_out    = BN10_idx;
+                    BN11_idx_out    = BN11_idx;
+                    BN12_idx_out    = BN12_idx;
+                    BN13_idx_out    = BN13_idx;
+                    BN14_idx_out    = BN14_idx;
+                    BN15_idx_out    = BN15_idx;
+                end
+                
             end
             'b01: begin
                 if (LAST_STAGE) begin
