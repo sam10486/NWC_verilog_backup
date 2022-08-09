@@ -40,7 +40,7 @@ module Testbench ();
     logic [`D_width-1:0] mem_data_in [0:`degree-1];
     logic [`D_width-1:0] mem_data_golden [0:`degree-1]; 
 
-    assign modulus = `D_width'd2013265921;
+    assign modulus = `Modulus_D_width'd167772161;
 
     // ite0、ite1 is one TFs group, ite2 is two TFs group, and ite3 is one TFs group, 
     // thus there are all five TF groups are needed to be stored. 

@@ -3,7 +3,7 @@
 module barrett_reduction 
 #(
     parameter DATA_WIDTH = `D_width, //8
-    parameter MODULUS_WIDTH = `Modulus_D_witth,
+    parameter MODULUS_WIDTH = `Modulus_D_width,
     parameter DOUBLE_DATA_WIDTH = 2 * DATA_WIDTH,//16
     parameter alpha = MODULUS_WIDTH + 1,//9
     parameter beta = -2,
