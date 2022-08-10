@@ -17,7 +17,7 @@ module Mux_16_1_out (
     input [`D_width-1:0] Q_13   ,
     input [`D_width-1:0] Q_14   ,
     input [`D_width-1:0] Q_15   ,
-    input [`pow_radix_k1-1:0] sel_out,
+    input [3:0] sel_out,
 
     output logic [`D_width-1:0] Q_out
 );

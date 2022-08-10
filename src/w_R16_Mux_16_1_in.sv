@@ -1,22 +1,22 @@
 `include "../include/define.svh"
 
 module w_R16_Mux_16_1_in (
-    input [`D_width-1:0] A_0    ,
-    input [`D_width-1:0] A_1    ,
-    input [`D_width-1:0] A_2    ,
-    input [`D_width-1:0] A_3    ,
-    input [`D_width-1:0] A_4    ,
-    input [`D_width-1:0] A_5    ,
-    input [`D_width-1:0] A_6    ,
-    input [`D_width-1:0] A_7    ,
-    input [`D_width-1:0] A_8    ,
-    input [`D_width-1:0] A_9    ,
-    input [`D_width-1:0] A_10   ,
-    input [`D_width-1:0] A_11   ,
-    input [`D_width-1:0] A_12   ,
-    input [`D_width-1:0] A_13   ,
-    input [`D_width-1:0] A_14   ,
-    input [`D_width-1:0] A_15   ,
+    input [`MA_width-1:0] A_0    ,
+    input [`MA_width-1:0] A_1    ,
+    input [`MA_width-1:0] A_2    ,
+    input [`MA_width-1:0] A_3    ,
+    input [`MA_width-1:0] A_4    ,
+    input [`MA_width-1:0] A_5    ,
+    input [`MA_width-1:0] A_6    ,
+    input [`MA_width-1:0] A_7    ,
+    input [`MA_width-1:0] A_8    ,
+    input [`MA_width-1:0] A_9    ,
+    input [`MA_width-1:0] A_10   ,
+    input [`MA_width-1:0] A_11   ,
+    input [`MA_width-1:0] A_12   ,
+    input [`MA_width-1:0] A_13   ,
+    input [`MA_width-1:0] A_14   ,
+    input [`MA_width-1:0] A_15   ,
 
     input [`D_width-1:0] D_0    ,
     input [`D_width-1:0] D_1    ,
@@ -38,7 +38,7 @@ module w_R16_Mux_16_1_in (
     input w_enable              ,
     
     output logic CEN_out,
-    output logic [`D_width-1:0] A_out,
+    output logic [`MA_width-1:0] A_out,
     output logic [`D_width-1:0] D_out,
     output logic WEN_out
   

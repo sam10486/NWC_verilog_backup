@@ -23,78 +23,78 @@ module memory_wrapper (
     input [`D_width-1:0] data_in14,
     input [`D_width-1:0] data_in15,
 
-    input [`D_width-1:0] MA0_idx,
-    input [`D_width-1:0] MA1_idx,
-    input [`D_width-1:0] MA2_idx,
-    input [`D_width-1:0] MA3_idx,
-    input [`D_width-1:0] MA4_idx,
-    input [`D_width-1:0] MA5_idx,
-    input [`D_width-1:0] MA6_idx,
-    input [`D_width-1:0] MA7_idx,
-    input [`D_width-1:0] MA8_idx,
-    input [`D_width-1:0] MA9_idx,
-    input [`D_width-1:0] MA10_idx,
-    input [`D_width-1:0] MA11_idx,
-    input [`D_width-1:0] MA12_idx,
-    input [`D_width-1:0] MA13_idx,
-    input [`D_width-1:0] MA14_idx,
-    input [`D_width-1:0] MA15_idx,
+    input [`MA_width-1:0] MA0_idx,
+    input [`MA_width-1:0] MA1_idx,
+    input [`MA_width-1:0] MA2_idx,
+    input [`MA_width-1:0] MA3_idx,
+    input [`MA_width-1:0] MA4_idx,
+    input [`MA_width-1:0] MA5_idx,
+    input [`MA_width-1:0] MA6_idx,
+    input [`MA_width-1:0] MA7_idx,
+    input [`MA_width-1:0] MA8_idx,
+    input [`MA_width-1:0] MA9_idx,
+    input [`MA_width-1:0] MA10_idx,
+    input [`MA_width-1:0] MA11_idx,
+    input [`MA_width-1:0] MA12_idx,
+    input [`MA_width-1:0] MA13_idx,
+    input [`MA_width-1:0] MA14_idx,
+    input [`MA_width-1:0] MA15_idx,
 
-    input [`D_width-1:0] BN0_idx,
-    input [`D_width-1:0] BN1_idx,
-    input [`D_width-1:0] BN2_idx,
-    input [`D_width-1:0] BN3_idx,
-    input [`D_width-1:0] BN4_idx,
-    input [`D_width-1:0] BN5_idx,
-    input [`D_width-1:0] BN6_idx,
-    input [`D_width-1:0] BN7_idx,
-    input [`D_width-1:0] BN8_idx,
-    input [`D_width-1:0] BN9_idx,
-    input [`D_width-1:0] BN10_idx,
-    input [`D_width-1:0] BN11_idx,
-    input [`D_width-1:0] BN12_idx,
-    input [`D_width-1:0] BN13_idx,
-    input [`D_width-1:0] BN14_idx,
-    input [`D_width-1:0] BN15_idx,
+    input [`BANK_width-1:0] BN0_idx,
+    input [`BANK_width-1:0] BN1_idx,
+    input [`BANK_width-1:0] BN2_idx,
+    input [`BANK_width-1:0] BN3_idx,
+    input [`BANK_width-1:0] BN4_idx,
+    input [`BANK_width-1:0] BN5_idx,
+    input [`BANK_width-1:0] BN6_idx,
+    input [`BANK_width-1:0] BN7_idx,
+    input [`BANK_width-1:0] BN8_idx,
+    input [`BANK_width-1:0] BN9_idx,
+    input [`BANK_width-1:0] BN10_idx,
+    input [`BANK_width-1:0] BN11_idx,
+    input [`BANK_width-1:0] BN12_idx,
+    input [`BANK_width-1:0] BN13_idx,
+    input [`BANK_width-1:0] BN14_idx,
+    input [`BANK_width-1:0] BN15_idx,
     
 
     input r_enable,
     input w_enable,
     input clk,
     input rst,
-    input [`D_width-1:0] R16_w_MA0_idx,
-    input [`D_width-1:0] R16_w_MA1_idx,
-    input [`D_width-1:0] R16_w_MA2_idx,
-    input [`D_width-1:0] R16_w_MA3_idx,
-    input [`D_width-1:0] R16_w_MA4_idx,
-    input [`D_width-1:0] R16_w_MA5_idx,
-    input [`D_width-1:0] R16_w_MA6_idx,
-    input [`D_width-1:0] R16_w_MA7_idx,
-    input [`D_width-1:0] R16_w_MA8_idx,
-    input [`D_width-1:0] R16_w_MA9_idx,
-    input [`D_width-1:0] R16_w_MA10_idx,
-    input [`D_width-1:0] R16_w_MA11_idx,
-    input [`D_width-1:0] R16_w_MA12_idx,
-    input [`D_width-1:0] R16_w_MA13_idx,
-    input [`D_width-1:0] R16_w_MA14_idx,
-    input [`D_width-1:0] R16_w_MA15_idx,
+    input [`MA_width-1:0] R16_w_MA0_idx,
+    input [`MA_width-1:0] R16_w_MA1_idx,
+    input [`MA_width-1:0] R16_w_MA2_idx,
+    input [`MA_width-1:0] R16_w_MA3_idx,
+    input [`MA_width-1:0] R16_w_MA4_idx,
+    input [`MA_width-1:0] R16_w_MA5_idx,
+    input [`MA_width-1:0] R16_w_MA6_idx,
+    input [`MA_width-1:0] R16_w_MA7_idx,
+    input [`MA_width-1:0] R16_w_MA8_idx,
+    input [`MA_width-1:0] R16_w_MA9_idx,
+    input [`MA_width-1:0] R16_w_MA10_idx,
+    input [`MA_width-1:0] R16_w_MA11_idx,
+    input [`MA_width-1:0] R16_w_MA12_idx,
+    input [`MA_width-1:0] R16_w_MA13_idx,
+    input [`MA_width-1:0] R16_w_MA14_idx,
+    input [`MA_width-1:0] R16_w_MA15_idx,
 
-    input [`D_width-1:0] R16_w_BN0_idx,
-    input [`D_width-1:0] R16_w_BN1_idx,
-    input [`D_width-1:0] R16_w_BN2_idx,
-    input [`D_width-1:0] R16_w_BN3_idx,
-    input [`D_width-1:0] R16_w_BN4_idx,
-    input [`D_width-1:0] R16_w_BN5_idx,
-    input [`D_width-1:0] R16_w_BN6_idx,
-    input [`D_width-1:0] R16_w_BN7_idx,
-    input [`D_width-1:0] R16_w_BN8_idx,
-    input [`D_width-1:0] R16_w_BN9_idx,
-    input [`D_width-1:0] R16_w_BN10_idx,
-    input [`D_width-1:0] R16_w_BN11_idx,
-    input [`D_width-1:0] R16_w_BN12_idx,
-    input [`D_width-1:0] R16_w_BN13_idx,
-    input [`D_width-1:0] R16_w_BN14_idx,
-    input [`D_width-1:0] R16_w_BN15_idx,
+    input [`BANK_width-1:0] R16_w_BN0_idx,
+    input [`BANK_width-1:0] R16_w_BN1_idx,
+    input [`BANK_width-1:0] R16_w_BN2_idx,
+    input [`BANK_width-1:0] R16_w_BN3_idx,
+    input [`BANK_width-1:0] R16_w_BN4_idx,
+    input [`BANK_width-1:0] R16_w_BN5_idx,
+    input [`BANK_width-1:0] R16_w_BN6_idx,
+    input [`BANK_width-1:0] R16_w_BN7_idx,
+    input [`BANK_width-1:0] R16_w_BN8_idx,
+    input [`BANK_width-1:0] R16_w_BN9_idx,
+    input [`BANK_width-1:0] R16_w_BN10_idx,
+    input [`BANK_width-1:0] R16_w_BN11_idx,
+    input [`BANK_width-1:0] R16_w_BN12_idx,
+    input [`BANK_width-1:0] R16_w_BN13_idx,
+    input [`BANK_width-1:0] R16_w_BN14_idx,
+    input [`BANK_width-1:0] R16_w_BN15_idx,
 
     output logic [`D_width-1:0] memory_b0,
     output logic [`D_width-1:0] memory_b1,
@@ -115,63 +115,63 @@ module memory_wrapper (
 
     output logic r_enable_out,
     output logic w_enable_out,
-    output logic [`D_width-1:0] MA0_idx_out,
-    output logic [`D_width-1:0] MA1_idx_out,
-    output logic [`D_width-1:0] MA2_idx_out,
-    output logic [`D_width-1:0] MA3_idx_out,
-    output logic [`D_width-1:0] MA4_idx_out,
-    output logic [`D_width-1:0] MA5_idx_out,
-    output logic [`D_width-1:0] MA6_idx_out,
-    output logic [`D_width-1:0] MA7_idx_out,
-    output logic [`D_width-1:0] MA8_idx_out,
-    output logic [`D_width-1:0] MA9_idx_out,
-    output logic [`D_width-1:0] MA10_idx_out,
-    output logic [`D_width-1:0] MA11_idx_out,
-    output logic [`D_width-1:0] MA12_idx_out,
-    output logic [`D_width-1:0] MA13_idx_out,
-    output logic [`D_width-1:0] MA14_idx_out,
-    output logic [`D_width-1:0] MA15_idx_out,
+    output logic [`MA_width-1:0] MA0_idx_out,
+    output logic [`MA_width-1:0] MA1_idx_out,
+    output logic [`MA_width-1:0] MA2_idx_out,
+    output logic [`MA_width-1:0] MA3_idx_out,
+    output logic [`MA_width-1:0] MA4_idx_out,
+    output logic [`MA_width-1:0] MA5_idx_out,
+    output logic [`MA_width-1:0] MA6_idx_out,
+    output logic [`MA_width-1:0] MA7_idx_out,
+    output logic [`MA_width-1:0] MA8_idx_out,
+    output logic [`MA_width-1:0] MA9_idx_out,
+    output logic [`MA_width-1:0] MA10_idx_out,
+    output logic [`MA_width-1:0] MA11_idx_out,
+    output logic [`MA_width-1:0] MA12_idx_out,
+    output logic [`MA_width-1:0] MA13_idx_out,
+    output logic [`MA_width-1:0] MA14_idx_out,
+    output logic [`MA_width-1:0] MA15_idx_out,
 
-    output logic [`D_width-1:0] BN0_idx_out,
-    output logic [`D_width-1:0] BN1_idx_out,
-    output logic [`D_width-1:0] BN2_idx_out,
-    output logic [`D_width-1:0] BN3_idx_out,
-    output logic [`D_width-1:0] BN4_idx_out,
-    output logic [`D_width-1:0] BN5_idx_out,
-    output logic [`D_width-1:0] BN6_idx_out,
-    output logic [`D_width-1:0] BN7_idx_out,
-    output logic [`D_width-1:0] BN8_idx_out,
-    output logic [`D_width-1:0] BN9_idx_out,
-    output logic [`D_width-1:0] BN10_idx_out,
-    output logic [`D_width-1:0] BN11_idx_out,
-    output logic [`D_width-1:0] BN12_idx_out,
-    output logic [`D_width-1:0] BN13_idx_out,
-    output logic [`D_width-1:0] BN14_idx_out,
-    output logic [`D_width-1:0] BN15_idx_out
+    output logic [`BANK_width-1:0] BN0_idx_out,
+    output logic [`BANK_width-1:0] BN1_idx_out,
+    output logic [`BANK_width-1:0] BN2_idx_out,
+    output logic [`BANK_width-1:0] BN3_idx_out,
+    output logic [`BANK_width-1:0] BN4_idx_out,
+    output logic [`BANK_width-1:0] BN5_idx_out,
+    output logic [`BANK_width-1:0] BN6_idx_out,
+    output logic [`BANK_width-1:0] BN7_idx_out,
+    output logic [`BANK_width-1:0] BN8_idx_out,
+    output logic [`BANK_width-1:0] BN9_idx_out,
+    output logic [`BANK_width-1:0] BN10_idx_out,
+    output logic [`BANK_width-1:0] BN11_idx_out,
+    output logic [`BANK_width-1:0] BN12_idx_out,
+    output logic [`BANK_width-1:0] BN13_idx_out,
+    output logic [`BANK_width-1:0] BN14_idx_out,
+    output logic [`BANK_width-1:0] BN15_idx_out
 );
     parameter BN = `BN;
     parameter radix_16 = `pow_radix_k1;
     parameter radix_2 = `pow_radix_k2;
     genvar i;
 
-    logic   [63:0]  QA [0:BN-1];            //data output
-    logic   [63:0]  QB [0:BN-1];            //data output
-    logic           CLKA;                   //clk
-    logic           CENA [0:BN-1];          //chip select
-    logic           WENA [0:BN-1];          //write enable
-    logic   [8:0]   AA [0:BN-1];            //input addr
-    logic   [63:0]  DA [0:BN-1];            //data in a
-    logic           CLKB;                   //clk
-    logic           CENB [0:BN-1];          //chip select
-    logic           WENB [0:BN-1];          //write enable
-    logic   [8:0]   AB [0:BN-1];            //input addr
-    logic   [63:0]  DB [0:BN-1];            //data in b
+    logic   [63:0]          QA [0:BN-1];            //data output
+    logic   [63:0]          QB [0:BN-1];            //data output
+    logic                   CLKA;                   //clk
+    logic                   CENA [0:BN-1];          //chip select
+    logic                   WENA [0:BN-1];          //write enable
+    logic   [8:0]           AA [0:BN-1];            //input addr
+    logic   [`D_width-1:0]  DA [0:BN-1];            //data in a
+    logic                   CLKB;                   //clk
+    logic                   CENB [0:BN-1];          //chip select
+    logic                   WENB [0:BN-1];          //write enable
+    logic   [8:0]           AB [0:BN-1];            //input addr
+    logic   [`D_width-1:0]  DB [0:BN-1];            //data in b
     logic   [2:0]   EMAA;   
     logic   [2:0]   EMAB;
 
     logic [`D_width-1:0] QA_out [0:BN-1];
     logic [`D_width-1:0] QA_out_sel [0:BN-1];
-    logic [`D_width-1:0] sel_out [0:BN-1];
+    logic [3:0] sel_out [0:BN-1];
 
     assign CLKA = clk;
     assign CLKB = clk;
