@@ -9,78 +9,78 @@ module AGU_integrate (
     input AGU_enable    ,
     input AGU_enable_k2 ,
 
-    output logic [`D_width-1:0] MA0_idx ,
-    output logic [`D_width-1:0] MA1_idx ,
-    output logic [`D_width-1:0] MA2_idx ,
-    output logic [`D_width-1:0] MA3_idx ,
-    output logic [`D_width-1:0] MA4_idx ,
-    output logic [`D_width-1:0] MA5_idx ,
-    output logic [`D_width-1:0] MA6_idx ,
-    output logic [`D_width-1:0] MA7_idx ,
-    output logic [`D_width-1:0] MA8_idx ,
-    output logic [`D_width-1:0] MA9_idx ,
-    output logic [`D_width-1:0] MA10_idx,
-    output logic [`D_width-1:0] MA11_idx,
-    output logic [`D_width-1:0] MA12_idx,
-    output logic [`D_width-1:0] MA13_idx,
-    output logic [`D_width-1:0] MA14_idx,
-    output logic [`D_width-1:0] MA15_idx,
+    output logic [`MA_width-1:0] MA0_idx ,
+    output logic [`MA_width-1:0] MA1_idx ,
+    output logic [`MA_width-1:0] MA2_idx ,
+    output logic [`MA_width-1:0] MA3_idx ,
+    output logic [`MA_width-1:0] MA4_idx ,
+    output logic [`MA_width-1:0] MA5_idx ,
+    output logic [`MA_width-1:0] MA6_idx ,
+    output logic [`MA_width-1:0] MA7_idx ,
+    output logic [`MA_width-1:0] MA8_idx ,
+    output logic [`MA_width-1:0] MA9_idx ,
+    output logic [`MA_width-1:0] MA10_idx,
+    output logic [`MA_width-1:0] MA11_idx,
+    output logic [`MA_width-1:0] MA12_idx,
+    output logic [`MA_width-1:0] MA13_idx,
+    output logic [`MA_width-1:0] MA14_idx,
+    output logic [`MA_width-1:0] MA15_idx,
 
-    output logic [`D_width-1:0] BN0_idx ,
-    output logic [`D_width-1:0] BN1_idx ,
-    output logic [`D_width-1:0] BN2_idx ,
-    output logic [`D_width-1:0] BN3_idx ,
-    output logic [`D_width-1:0] BN4_idx ,
-    output logic [`D_width-1:0] BN5_idx ,
-    output logic [`D_width-1:0] BN6_idx ,
-    output logic [`D_width-1:0] BN7_idx ,
-    output logic [`D_width-1:0] BN8_idx ,
-    output logic [`D_width-1:0] BN9_idx ,
-    output logic [`D_width-1:0] BN10_idx,
-    output logic [`D_width-1:0] BN11_idx,
-    output logic [`D_width-1:0] BN12_idx,
-    output logic [`D_width-1:0] BN13_idx,
-    output logic [`D_width-1:0] BN14_idx,
-    output logic [`D_width-1:0] BN15_idx,
+    output logic [`BANK_width-1:0] BN0_idx ,
+    output logic [`BANK_width-1:0] BN1_idx ,
+    output logic [`BANK_width-1:0] BN2_idx ,
+    output logic [`BANK_width-1:0] BN3_idx ,
+    output logic [`BANK_width-1:0] BN4_idx ,
+    output logic [`BANK_width-1:0] BN5_idx ,
+    output logic [`BANK_width-1:0] BN6_idx ,
+    output logic [`BANK_width-1:0] BN7_idx ,
+    output logic [`BANK_width-1:0] BN8_idx ,
+    output logic [`BANK_width-1:0] BN9_idx ,
+    output logic [`BANK_width-1:0] BN10_idx,
+    output logic [`BANK_width-1:0] BN11_idx,
+    output logic [`BANK_width-1:0] BN12_idx,
+    output logic [`BANK_width-1:0] BN13_idx,
+    output logic [`BANK_width-1:0] BN14_idx,
+    output logic [`BANK_width-1:0] BN15_idx,
 
     output logic AGU_done_out               ,
     output logic BN_MA_out_en               ,
     output logic [`D_width-1:0] l_AGU_out   
 
 );
-    logic [`D_width-1:0] k1_MA0_idx ;
-    logic [`D_width-1:0] k1_MA1_idx ;
-    logic [`D_width-1:0] k1_MA2_idx ;
-    logic [`D_width-1:0] k1_MA3_idx ;
-    logic [`D_width-1:0] k1_MA4_idx ;
-    logic [`D_width-1:0] k1_MA5_idx ;
-    logic [`D_width-1:0] k1_MA6_idx ;
-    logic [`D_width-1:0] k1_MA7_idx ;
-    logic [`D_width-1:0] k1_MA8_idx ;
-    logic [`D_width-1:0] k1_MA9_idx ;
-    logic [`D_width-1:0] k1_MA10_idx;
-    logic [`D_width-1:0] k1_MA11_idx;
-    logic [`D_width-1:0] k1_MA12_idx;
-    logic [`D_width-1:0] k1_MA13_idx;
-    logic [`D_width-1:0] k1_MA14_idx;
-    logic [`D_width-1:0] k1_MA15_idx;
+    logic [`MA_width-1:0] k1_MA0_idx ;
+    logic [`MA_width-1:0] k1_MA1_idx ;
+    logic [`MA_width-1:0] k1_MA2_idx ;
+    logic [`MA_width-1:0] k1_MA3_idx ;
+    logic [`MA_width-1:0] k1_MA4_idx ;
+    logic [`MA_width-1:0] k1_MA5_idx ;
+    logic [`MA_width-1:0] k1_MA6_idx ;
+    logic [`MA_width-1:0] k1_MA7_idx ;
+    logic [`MA_width-1:0] k1_MA8_idx ;
+    logic [`MA_width-1:0] k1_MA9_idx ;
+    logic [`MA_width-1:0] k1_MA10_idx;
+    logic [`MA_width-1:0] k1_MA11_idx;
+    logic [`MA_width-1:0] k1_MA12_idx;
+    logic [`MA_width-1:0] k1_MA13_idx;
+    logic [`MA_width-1:0] k1_MA14_idx;
+    logic [`MA_width-1:0] k1_MA15_idx;
 
-    logic [`D_width-1:0] k1_BN0_idx ;
-    logic [`D_width-1:0] k1_BN1_idx ;
-    logic [`D_width-1:0] k1_BN2_idx ;
-    logic [`D_width-1:0] k1_BN3_idx ;
-    logic [`D_width-1:0] k1_BN4_idx ;
-    logic [`D_width-1:0] k1_BN5_idx ;
-    logic [`D_width-1:0] k1_BN6_idx ;
-    logic [`D_width-1:0] k1_BN7_idx ;
-    logic [`D_width-1:0] k1_BN8_idx ;
-    logic [`D_width-1:0] k1_BN9_idx ;
-    logic [`D_width-1:0] k1_BN10_idx;
-    logic [`D_width-1:0] k1_BN11_idx;
-    logic [`D_width-1:0] k1_BN12_idx;
-    logic [`D_width-1:0] k1_BN13_idx;
-    logic [`D_width-1:0] k1_BN14_idx;
-    logic [`D_width-1:0] k1_BN15_idx;
+    logic [`BANK_width-1:0] k1_BN0_idx ;
+    logic [`BANK_width-1:0] k1_BN1_idx ;
+    logic [`BANK_width-1:0] k1_BN2_idx ;
+    logic [`BANK_width-1:0] k1_BN3_idx ;
+    logic [`BANK_width-1:0] k1_BN4_idx ;
+    logic [`BANK_width-1:0] k1_BN5_idx ;
+    logic [`BANK_width-1:0] k1_BN6_idx ;
+    logic [`BANK_width-1:0] k1_BN7_idx ;
+    logic [`BANK_width-1:0] k1_BN8_idx ;
+    logic [`BANK_width-1:0] k1_BN9_idx ;
+    logic [`BANK_width-1:0] k1_BN10_idx;
+    logic [`BANK_width-1:0] k1_BN11_idx;
+    logic [`BANK_width-1:0] k1_BN12_idx;
+    logic [`BANK_width-1:0] k1_BN13_idx;
+    logic [`BANK_width-1:0] k1_BN14_idx;
+    logic [`BANK_width-1:0] k1_BN15_idx;
 
     logic k1_AGU_done_out;
     logic k1_BN_MA_out_en;
@@ -133,10 +133,10 @@ module AGU_integrate (
 
     );
 
-    logic [`D_width-1:0] k2_MA0_idx_k2;
-    logic [`D_width-1:0] k2_MA1_idx_k2;
-    logic [`D_width-1:0] k2_BN0_idx_k2;
-    logic [`D_width-1:0] k2_BN1_idx_k2;
+    logic [`MA_width-1:0] k2_MA0_idx_k2;
+    logic [`MA_width-1:0] k2_MA1_idx_k2;
+    logic [`BANK_width-1:0] k2_BN0_idx_k2;
+    logic [`BANK_width-1:0] k2_BN1_idx_k2;
 
     logic k2_AGU_done_out_k2;   
     logic k2_BN_MA_out_en_k2;   

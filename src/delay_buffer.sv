@@ -5,110 +5,110 @@ module delay_buffer (
     input clk,
     input rst,
     input ntt_enable,
-    input [`D_width-1:0] R16_MA0_idx    ,
-    input [`D_width-1:0] R16_MA1_idx    ,
-    input [`D_width-1:0] R16_MA2_idx    ,
-    input [`D_width-1:0] R16_MA3_idx    ,
-    input [`D_width-1:0] R16_MA4_idx    ,
-    input [`D_width-1:0] R16_MA5_idx    ,
-    input [`D_width-1:0] R16_MA6_idx    ,
-    input [`D_width-1:0] R16_MA7_idx    ,
-    input [`D_width-1:0] R16_MA8_idx    ,
-    input [`D_width-1:0] R16_MA9_idx    ,
-    input [`D_width-1:0] R16_MA10_idx   ,
-    input [`D_width-1:0] R16_MA11_idx   ,
-    input [`D_width-1:0] R16_MA12_idx   ,
-    input [`D_width-1:0] R16_MA13_idx   ,
-    input [`D_width-1:0] R16_MA14_idx   ,
-    input [`D_width-1:0] R16_MA15_idx   ,
+    input [`MA_width-1:0] R16_MA0_idx    ,
+    input [`MA_width-1:0] R16_MA1_idx    ,
+    input [`MA_width-1:0] R16_MA2_idx    ,
+    input [`MA_width-1:0] R16_MA3_idx    ,
+    input [`MA_width-1:0] R16_MA4_idx    ,
+    input [`MA_width-1:0] R16_MA5_idx    ,
+    input [`MA_width-1:0] R16_MA6_idx    ,
+    input [`MA_width-1:0] R16_MA7_idx    ,
+    input [`MA_width-1:0] R16_MA8_idx    ,
+    input [`MA_width-1:0] R16_MA9_idx    ,
+    input [`MA_width-1:0] R16_MA10_idx   ,
+    input [`MA_width-1:0] R16_MA11_idx   ,
+    input [`MA_width-1:0] R16_MA12_idx   ,
+    input [`MA_width-1:0] R16_MA13_idx   ,
+    input [`MA_width-1:0] R16_MA14_idx   ,
+    input [`MA_width-1:0] R16_MA15_idx   ,
 
-    input [`D_width-1:0] R16_BN0_idx    ,
-    input [`D_width-1:0] R16_BN1_idx    ,
-    input [`D_width-1:0] R16_BN2_idx    ,
-    input [`D_width-1:0] R16_BN3_idx    ,
-    input [`D_width-1:0] R16_BN4_idx    ,
-    input [`D_width-1:0] R16_BN5_idx    ,
-    input [`D_width-1:0] R16_BN6_idx    ,
-    input [`D_width-1:0] R16_BN7_idx    ,
-    input [`D_width-1:0] R16_BN8_idx    ,
-    input [`D_width-1:0] R16_BN9_idx    ,
-    input [`D_width-1:0] R16_BN10_idx   ,
-    input [`D_width-1:0] R16_BN11_idx   ,
-    input [`D_width-1:0] R16_BN12_idx   ,
-    input [`D_width-1:0] R16_BN13_idx   ,
-    input [`D_width-1:0] R16_BN14_idx   ,
-    input [`D_width-1:0] R16_BN15_idx   ,
+    input [`BANK_width-1:0] R16_BN0_idx    ,
+    input [`BANK_width-1:0] R16_BN1_idx    ,
+    input [`BANK_width-1:0] R16_BN2_idx    ,
+    input [`BANK_width-1:0] R16_BN3_idx    ,
+    input [`BANK_width-1:0] R16_BN4_idx    ,
+    input [`BANK_width-1:0] R16_BN5_idx    ,
+    input [`BANK_width-1:0] R16_BN6_idx    ,
+    input [`BANK_width-1:0] R16_BN7_idx    ,
+    input [`BANK_width-1:0] R16_BN8_idx    ,
+    input [`BANK_width-1:0] R16_BN9_idx    ,
+    input [`BANK_width-1:0] R16_BN10_idx   ,
+    input [`BANK_width-1:0] R16_BN11_idx   ,
+    input [`BANK_width-1:0] R16_BN12_idx   ,
+    input [`BANK_width-1:0] R16_BN13_idx   ,
+    input [`BANK_width-1:0] R16_BN14_idx   ,
+    input [`BANK_width-1:0] R16_BN15_idx   ,
 
-    output logic [`D_width-1:0] R16_MA0_idx_pip_out ,
-    output logic [`D_width-1:0] R16_MA1_idx_pip_out ,
-    output logic [`D_width-1:0] R16_MA2_idx_pip_out ,
-    output logic [`D_width-1:0] R16_MA3_idx_pip_out ,
-    output logic [`D_width-1:0] R16_MA4_idx_pip_out ,
-    output logic [`D_width-1:0] R16_MA5_idx_pip_out ,
-    output logic [`D_width-1:0] R16_MA6_idx_pip_out ,
-    output logic [`D_width-1:0] R16_MA7_idx_pip_out ,
-    output logic [`D_width-1:0] R16_MA8_idx_pip_out ,
-    output logic [`D_width-1:0] R16_MA9_idx_pip_out ,
-    output logic [`D_width-1:0] R16_MA10_idx_pip_out,
-    output logic [`D_width-1:0] R16_MA11_idx_pip_out,
-    output logic [`D_width-1:0] R16_MA12_idx_pip_out,
-    output logic [`D_width-1:0] R16_MA13_idx_pip_out,
-    output logic [`D_width-1:0] R16_MA14_idx_pip_out,
-    output logic [`D_width-1:0] R16_MA15_idx_pip_out,
+    output logic [`MA_width-1:0] R16_MA0_idx_pip_out ,
+    output logic [`MA_width-1:0] R16_MA1_idx_pip_out ,
+    output logic [`MA_width-1:0] R16_MA2_idx_pip_out ,
+    output logic [`MA_width-1:0] R16_MA3_idx_pip_out ,
+    output logic [`MA_width-1:0] R16_MA4_idx_pip_out ,
+    output logic [`MA_width-1:0] R16_MA5_idx_pip_out ,
+    output logic [`MA_width-1:0] R16_MA6_idx_pip_out ,
+    output logic [`MA_width-1:0] R16_MA7_idx_pip_out ,
+    output logic [`MA_width-1:0] R16_MA8_idx_pip_out ,
+    output logic [`MA_width-1:0] R16_MA9_idx_pip_out ,
+    output logic [`MA_width-1:0] R16_MA10_idx_pip_out,
+    output logic [`MA_width-1:0] R16_MA11_idx_pip_out,
+    output logic [`MA_width-1:0] R16_MA12_idx_pip_out,
+    output logic [`MA_width-1:0] R16_MA13_idx_pip_out,
+    output logic [`MA_width-1:0] R16_MA14_idx_pip_out,
+    output logic [`MA_width-1:0] R16_MA15_idx_pip_out,
 
-    output logic [`D_width-1:0] R16_BN0_idx_pip_out ,
-    output logic [`D_width-1:0] R16_BN1_idx_pip_out ,
-    output logic [`D_width-1:0] R16_BN2_idx_pip_out ,
-    output logic [`D_width-1:0] R16_BN3_idx_pip_out ,
-    output logic [`D_width-1:0] R16_BN4_idx_pip_out ,
-    output logic [`D_width-1:0] R16_BN5_idx_pip_out ,
-    output logic [`D_width-1:0] R16_BN6_idx_pip_out ,
-    output logic [`D_width-1:0] R16_BN7_idx_pip_out ,
-    output logic [`D_width-1:0] R16_BN8_idx_pip_out ,
-    output logic [`D_width-1:0] R16_BN9_idx_pip_out ,
-    output logic [`D_width-1:0] R16_BN10_idx_pip_out,
-    output logic [`D_width-1:0] R16_BN11_idx_pip_out,
-    output logic [`D_width-1:0] R16_BN12_idx_pip_out,
-    output logic [`D_width-1:0] R16_BN13_idx_pip_out,
-    output logic [`D_width-1:0] R16_BN14_idx_pip_out,
-    output logic [`D_width-1:0] R16_BN15_idx_pip_out,
+    output logic [`BANK_width-1:0] R16_BN0_idx_pip_out ,
+    output logic [`BANK_width-1:0] R16_BN1_idx_pip_out ,
+    output logic [`BANK_width-1:0] R16_BN2_idx_pip_out ,
+    output logic [`BANK_width-1:0] R16_BN3_idx_pip_out ,
+    output logic [`BANK_width-1:0] R16_BN4_idx_pip_out ,
+    output logic [`BANK_width-1:0] R16_BN5_idx_pip_out ,
+    output logic [`BANK_width-1:0] R16_BN6_idx_pip_out ,
+    output logic [`BANK_width-1:0] R16_BN7_idx_pip_out ,
+    output logic [`BANK_width-1:0] R16_BN8_idx_pip_out ,
+    output logic [`BANK_width-1:0] R16_BN9_idx_pip_out ,
+    output logic [`BANK_width-1:0] R16_BN10_idx_pip_out,
+    output logic [`BANK_width-1:0] R16_BN11_idx_pip_out,
+    output logic [`BANK_width-1:0] R16_BN12_idx_pip_out,
+    output logic [`BANK_width-1:0] R16_BN13_idx_pip_out,
+    output logic [`BANK_width-1:0] R16_BN14_idx_pip_out,
+    output logic [`BANK_width-1:0] R16_BN15_idx_pip_out,
 
     output logic ntt_done_pip_out
 );
 
-    logic [`D_width-1:0] R16_MA0_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_MA1_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_MA2_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_MA3_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_MA4_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_MA5_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_MA6_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_MA7_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_MA8_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_MA9_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_MA10_idx_pip[0:12]   ;
-    logic [`D_width-1:0] R16_MA11_idx_pip[0:12]   ;
-    logic [`D_width-1:0] R16_MA12_idx_pip[0:12]   ;
-    logic [`D_width-1:0] R16_MA13_idx_pip[0:12]   ;
-    logic [`D_width-1:0] R16_MA14_idx_pip[0:12]   ;
-    logic [`D_width-1:0] R16_MA15_idx_pip[0:12]   ;
+    logic [`MA_width-1:0] R16_MA0_idx_pip[0:12]    ;
+    logic [`MA_width-1:0] R16_MA1_idx_pip[0:12]    ;
+    logic [`MA_width-1:0] R16_MA2_idx_pip[0:12]    ;
+    logic [`MA_width-1:0] R16_MA3_idx_pip[0:12]    ;
+    logic [`MA_width-1:0] R16_MA4_idx_pip[0:12]    ;
+    logic [`MA_width-1:0] R16_MA5_idx_pip[0:12]    ;
+    logic [`MA_width-1:0] R16_MA6_idx_pip[0:12]    ;
+    logic [`MA_width-1:0] R16_MA7_idx_pip[0:12]    ;
+    logic [`MA_width-1:0] R16_MA8_idx_pip[0:12]    ;
+    logic [`MA_width-1:0] R16_MA9_idx_pip[0:12]    ;
+    logic [`MA_width-1:0] R16_MA10_idx_pip[0:12]   ;
+    logic [`MA_width-1:0] R16_MA11_idx_pip[0:12]   ;
+    logic [`MA_width-1:0] R16_MA12_idx_pip[0:12]   ;
+    logic [`MA_width-1:0] R16_MA13_idx_pip[0:12]   ;
+    logic [`MA_width-1:0] R16_MA14_idx_pip[0:12]   ;
+    logic [`MA_width-1:0] R16_MA15_idx_pip[0:12]   ;
 
-    logic [`D_width-1:0] R16_BN0_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_BN1_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_BN2_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_BN3_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_BN4_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_BN5_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_BN6_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_BN7_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_BN8_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_BN9_idx_pip[0:12]    ;
-    logic [`D_width-1:0] R16_BN10_idx_pip[0:12]   ;
-    logic [`D_width-1:0] R16_BN11_idx_pip[0:12]   ;
-    logic [`D_width-1:0] R16_BN12_idx_pip[0:12]   ;
-    logic [`D_width-1:0] R16_BN13_idx_pip[0:12]   ;
-    logic [`D_width-1:0] R16_BN14_idx_pip[0:12]   ;
-    logic [`D_width-1:0] R16_BN15_idx_pip[0:12]   ;
+    logic [`BANK_width-1:0] R16_BN0_idx_pip[0:12]    ;
+    logic [`BANK_width-1:0] R16_BN1_idx_pip[0:12]    ;
+    logic [`BANK_width-1:0] R16_BN2_idx_pip[0:12]    ;
+    logic [`BANK_width-1:0] R16_BN3_idx_pip[0:12]    ;
+    logic [`BANK_width-1:0] R16_BN4_idx_pip[0:12]    ;
+    logic [`BANK_width-1:0] R16_BN5_idx_pip[0:12]    ;
+    logic [`BANK_width-1:0] R16_BN6_idx_pip[0:12]    ;
+    logic [`BANK_width-1:0] R16_BN7_idx_pip[0:12]    ;
+    logic [`BANK_width-1:0] R16_BN8_idx_pip[0:12]    ;
+    logic [`BANK_width-1:0] R16_BN9_idx_pip[0:12]    ;
+    logic [`BANK_width-1:0] R16_BN10_idx_pip[0:12]   ;
+    logic [`BANK_width-1:0] R16_BN11_idx_pip[0:12]   ;
+    logic [`BANK_width-1:0] R16_BN12_idx_pip[0:12]   ;
+    logic [`BANK_width-1:0] R16_BN13_idx_pip[0:12]   ;
+    logic [`BANK_width-1:0] R16_BN14_idx_pip[0:12]   ;
+    logic [`BANK_width-1:0] R16_BN15_idx_pip[0:12]   ;
 
     logic [1:0] ntt_enable_pip [0:12];
 

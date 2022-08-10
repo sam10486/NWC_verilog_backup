@@ -20,78 +20,78 @@ module memory_top(
     input [`D_width-1:0] data_in14  ,
     input [`D_width-1:0] data_in15  ,
 
-    input [`D_width-1:0] MA0_idx    ,
-    input [`D_width-1:0] MA1_idx    ,
-    input [`D_width-1:0] MA2_idx    ,
-    input [`D_width-1:0] MA3_idx    ,
-    input [`D_width-1:0] MA4_idx    ,
-    input [`D_width-1:0] MA5_idx    ,
-    input [`D_width-1:0] MA6_idx    ,
-    input [`D_width-1:0] MA7_idx    ,
-    input [`D_width-1:0] MA8_idx    ,
-    input [`D_width-1:0] MA9_idx    ,
-    input [`D_width-1:0] MA10_idx   ,
-    input [`D_width-1:0] MA11_idx   ,
-    input [`D_width-1:0] MA12_idx   ,
-    input [`D_width-1:0] MA13_idx   ,
-    input [`D_width-1:0] MA14_idx   ,
-    input [`D_width-1:0] MA15_idx   ,
+    input [`MA_width-1:0] MA0_idx    ,
+    input [`MA_width-1:0] MA1_idx    ,
+    input [`MA_width-1:0] MA2_idx    ,
+    input [`MA_width-1:0] MA3_idx    ,
+    input [`MA_width-1:0] MA4_idx    ,
+    input [`MA_width-1:0] MA5_idx    ,
+    input [`MA_width-1:0] MA6_idx    ,
+    input [`MA_width-1:0] MA7_idx    ,
+    input [`MA_width-1:0] MA8_idx    ,
+    input [`MA_width-1:0] MA9_idx    ,
+    input [`MA_width-1:0] MA10_idx   ,
+    input [`MA_width-1:0] MA11_idx   ,
+    input [`MA_width-1:0] MA12_idx   ,
+    input [`MA_width-1:0] MA13_idx   ,
+    input [`MA_width-1:0] MA14_idx   ,
+    input [`MA_width-1:0] MA15_idx   ,
 
-    input [`D_width-1:0] BN0_idx    ,
-    input [`D_width-1:0] BN1_idx    ,
-    input [`D_width-1:0] BN2_idx    ,
-    input [`D_width-1:0] BN3_idx    ,
-    input [`D_width-1:0] BN4_idx    ,
-    input [`D_width-1:0] BN5_idx    ,
-    input [`D_width-1:0] BN6_idx    ,
-    input [`D_width-1:0] BN7_idx    ,
-    input [`D_width-1:0] BN8_idx    ,
-    input [`D_width-1:0] BN9_idx    ,
-    input [`D_width-1:0] BN10_idx   ,
-    input [`D_width-1:0] BN11_idx   ,
-    input [`D_width-1:0] BN12_idx   ,
-    input [`D_width-1:0] BN13_idx   ,
-    input [`D_width-1:0] BN14_idx   ,
-    input [`D_width-1:0] BN15_idx   ,
+    input [`BANK_width-1:0] BN0_idx    ,
+    input [`BANK_width-1:0] BN1_idx    ,
+    input [`BANK_width-1:0] BN2_idx    ,
+    input [`BANK_width-1:0] BN3_idx    ,
+    input [`BANK_width-1:0] BN4_idx    ,
+    input [`BANK_width-1:0] BN5_idx    ,
+    input [`BANK_width-1:0] BN6_idx    ,
+    input [`BANK_width-1:0] BN7_idx    ,
+    input [`BANK_width-1:0] BN8_idx    ,
+    input [`BANK_width-1:0] BN9_idx    ,
+    input [`BANK_width-1:0] BN10_idx   ,
+    input [`BANK_width-1:0] BN11_idx   ,
+    input [`BANK_width-1:0] BN12_idx   ,
+    input [`BANK_width-1:0] BN13_idx   ,
+    input [`BANK_width-1:0] BN14_idx   ,
+    input [`BANK_width-1:0] BN15_idx   ,
 
     input r_enable,
     input w_enable,
     input clk,
     input rst,
 
-    input [`D_width-1:0] R16_w_MA0_idx  ,
-    input [`D_width-1:0] R16_w_MA1_idx  ,
-    input [`D_width-1:0] R16_w_MA2_idx  ,
-    input [`D_width-1:0] R16_w_MA3_idx  ,
-    input [`D_width-1:0] R16_w_MA4_idx  ,
-    input [`D_width-1:0] R16_w_MA5_idx  ,
-    input [`D_width-1:0] R16_w_MA6_idx  ,
-    input [`D_width-1:0] R16_w_MA7_idx  ,
-    input [`D_width-1:0] R16_w_MA8_idx  ,
-    input [`D_width-1:0] R16_w_MA9_idx  ,
-    input [`D_width-1:0] R16_w_MA10_idx ,
-    input [`D_width-1:0] R16_w_MA11_idx ,
-    input [`D_width-1:0] R16_w_MA12_idx ,
-    input [`D_width-1:0] R16_w_MA13_idx ,
-    input [`D_width-1:0] R16_w_MA14_idx ,
-    input [`D_width-1:0] R16_w_MA15_idx ,
+    input [`MA_width-1:0] R16_w_MA0_idx  ,
+    input [`MA_width-1:0] R16_w_MA1_idx  ,
+    input [`MA_width-1:0] R16_w_MA2_idx  ,
+    input [`MA_width-1:0] R16_w_MA3_idx  ,
+    input [`MA_width-1:0] R16_w_MA4_idx  ,
+    input [`MA_width-1:0] R16_w_MA5_idx  ,
+    input [`MA_width-1:0] R16_w_MA6_idx  ,
+    input [`MA_width-1:0] R16_w_MA7_idx  ,
+    input [`MA_width-1:0] R16_w_MA8_idx  ,
+    input [`MA_width-1:0] R16_w_MA9_idx  ,
+    input [`MA_width-1:0] R16_w_MA10_idx ,
+    input [`MA_width-1:0] R16_w_MA11_idx ,
+    input [`MA_width-1:0] R16_w_MA12_idx ,
+    input [`MA_width-1:0] R16_w_MA13_idx ,
+    input [`MA_width-1:0] R16_w_MA14_idx ,
+    input [`MA_width-1:0] R16_w_MA15_idx ,
 
-    input [`D_width-1:0] R16_w_BN0_idx  ,
-    input [`D_width-1:0] R16_w_BN1_idx  ,
-    input [`D_width-1:0] R16_w_BN2_idx  ,
-    input [`D_width-1:0] R16_w_BN3_idx  ,
-    input [`D_width-1:0] R16_w_BN4_idx  ,
-    input [`D_width-1:0] R16_w_BN5_idx  ,
-    input [`D_width-1:0] R16_w_BN6_idx  ,
-    input [`D_width-1:0] R16_w_BN7_idx  ,
-    input [`D_width-1:0] R16_w_BN8_idx  ,
-    input [`D_width-1:0] R16_w_BN9_idx  ,
-    input [`D_width-1:0] R16_w_BN10_idx ,
-    input [`D_width-1:0] R16_w_BN11_idx ,
-    input [`D_width-1:0] R16_w_BN12_idx ,
-    input [`D_width-1:0] R16_w_BN13_idx ,
-    input [`D_width-1:0] R16_w_BN14_idx ,
-    input [`D_width-1:0] R16_w_BN15_idx ,
+    input [`BANK_width-1:0] R16_w_BN0_idx  ,
+    input [`BANK_width-1:0] R16_w_BN1_idx  ,
+    input [`BANK_width-1:0] R16_w_BN2_idx  ,
+    input [`BANK_width-1:0] R16_w_BN3_idx  ,
+    input [`BANK_width-1:0] R16_w_BN4_idx  ,
+    input [`BANK_width-1:0] R16_w_BN5_idx  ,
+    input [`BANK_width-1:0] R16_w_BN6_idx  ,
+    input [`BANK_width-1:0] R16_w_BN7_idx  ,
+    input [`BANK_width-1:0] R16_w_BN8_idx  ,
+    input [`BANK_width-1:0] R16_w_BN9_idx  ,
+    input [`BANK_width-1:0] R16_w_BN10_idx ,
+    input [`BANK_width-1:0] R16_w_BN11_idx ,
+    input [`BANK_width-1:0] R16_w_BN12_idx ,
+    input [`BANK_width-1:0] R16_w_BN13_idx ,
+    input [`BANK_width-1:0] R16_w_BN14_idx ,
+    input [`BANK_width-1:0] R16_w_BN15_idx ,
 
     //output
     output logic [`D_width-1:0] memory_b0   ,
@@ -113,39 +113,39 @@ module memory_top(
 
     output logic r_enable_out,
     output logic w_enable_out,
-    output logic [`D_width-1:0] MA0_idx_out ,
-    output logic [`D_width-1:0] MA1_idx_out ,
-    output logic [`D_width-1:0] MA2_idx_out ,
-    output logic [`D_width-1:0] MA3_idx_out ,
-    output logic [`D_width-1:0] MA4_idx_out ,
-    output logic [`D_width-1:0] MA5_idx_out ,
-    output logic [`D_width-1:0] MA6_idx_out ,
-    output logic [`D_width-1:0] MA7_idx_out ,
-    output logic [`D_width-1:0] MA8_idx_out ,
-    output logic [`D_width-1:0] MA9_idx_out ,
-    output logic [`D_width-1:0] MA10_idx_out,
-    output logic [`D_width-1:0] MA11_idx_out,
-    output logic [`D_width-1:0] MA12_idx_out,
-    output logic [`D_width-1:0] MA13_idx_out,
-    output logic [`D_width-1:0] MA14_idx_out,
-    output logic [`D_width-1:0] MA15_idx_out,
+    output logic [`MA_width-1:0] MA0_idx_out ,
+    output logic [`MA_width-1:0] MA1_idx_out ,
+    output logic [`MA_width-1:0] MA2_idx_out ,
+    output logic [`MA_width-1:0] MA3_idx_out ,
+    output logic [`MA_width-1:0] MA4_idx_out ,
+    output logic [`MA_width-1:0] MA5_idx_out ,
+    output logic [`MA_width-1:0] MA6_idx_out ,
+    output logic [`MA_width-1:0] MA7_idx_out ,
+    output logic [`MA_width-1:0] MA8_idx_out ,
+    output logic [`MA_width-1:0] MA9_idx_out ,
+    output logic [`MA_width-1:0] MA10_idx_out,
+    output logic [`MA_width-1:0] MA11_idx_out,
+    output logic [`MA_width-1:0] MA12_idx_out,
+    output logic [`MA_width-1:0] MA13_idx_out,
+    output logic [`MA_width-1:0] MA14_idx_out,
+    output logic [`MA_width-1:0] MA15_idx_out,
 
-    output logic [`D_width-1:0] BN0_idx_out ,
-    output logic [`D_width-1:0] BN1_idx_out ,
-    output logic [`D_width-1:0] BN2_idx_out ,
-    output logic [`D_width-1:0] BN3_idx_out ,
-    output logic [`D_width-1:0] BN4_idx_out ,
-    output logic [`D_width-1:0] BN5_idx_out ,
-    output logic [`D_width-1:0] BN6_idx_out ,
-    output logic [`D_width-1:0] BN7_idx_out ,
-    output logic [`D_width-1:0] BN8_idx_out ,
-    output logic [`D_width-1:0] BN9_idx_out ,
-    output logic [`D_width-1:0] BN10_idx_out,
-    output logic [`D_width-1:0] BN11_idx_out,
-    output logic [`D_width-1:0] BN12_idx_out,
-    output logic [`D_width-1:0] BN13_idx_out,
-    output logic [`D_width-1:0] BN14_idx_out,
-    output logic [`D_width-1:0] BN15_idx_out
+    output logic [`BANK_width-1:0] BN0_idx_out ,
+    output logic [`BANK_width-1:0] BN1_idx_out ,
+    output logic [`BANK_width-1:0] BN2_idx_out ,
+    output logic [`BANK_width-1:0] BN3_idx_out ,
+    output logic [`BANK_width-1:0] BN4_idx_out ,
+    output logic [`BANK_width-1:0] BN5_idx_out ,
+    output logic [`BANK_width-1:0] BN6_idx_out ,
+    output logic [`BANK_width-1:0] BN7_idx_out ,
+    output logic [`BANK_width-1:0] BN8_idx_out ,
+    output logic [`BANK_width-1:0] BN9_idx_out ,
+    output logic [`BANK_width-1:0] BN10_idx_out,
+    output logic [`BANK_width-1:0] BN11_idx_out,
+    output logic [`BANK_width-1:0] BN12_idx_out,
+    output logic [`BANK_width-1:0] BN13_idx_out,
+    output logic [`BANK_width-1:0] BN14_idx_out,
+    output logic [`BANK_width-1:0] BN15_idx_out
 
 );
 
@@ -166,76 +166,76 @@ module memory_top(
     logic [`D_width-1:0]    data_in14_pip_in;
     logic [`D_width-1:0]    data_in15_pip_in;
        
-    logic [`D_width-1:0]    MA0_idx_pip_in ;
-    logic [`D_width-1:0]    MA1_idx_pip_in ;
-    logic [`D_width-1:0]    MA2_idx_pip_in ;
-    logic [`D_width-1:0]    MA3_idx_pip_in ;
-    logic [`D_width-1:0]    MA4_idx_pip_in ;
-    logic [`D_width-1:0]    MA5_idx_pip_in ;
-    logic [`D_width-1:0]    MA6_idx_pip_in ;
-    logic [`D_width-1:0]    MA7_idx_pip_in ;
-    logic [`D_width-1:0]    MA8_idx_pip_in ;
-    logic [`D_width-1:0]    MA9_idx_pip_in ;
-    logic [`D_width-1:0]    MA10_idx_pip_in;
-    logic [`D_width-1:0]    MA11_idx_pip_in;
-    logic [`D_width-1:0]    MA12_idx_pip_in;
-    logic [`D_width-1:0]    MA13_idx_pip_in;
-    logic [`D_width-1:0]    MA14_idx_pip_in;
-    logic [`D_width-1:0]    MA15_idx_pip_in;
+    logic [`MA_width-1:0]    MA0_idx_pip_in ;
+    logic [`MA_width-1:0]    MA1_idx_pip_in ;
+    logic [`MA_width-1:0]    MA2_idx_pip_in ;
+    logic [`MA_width-1:0]    MA3_idx_pip_in ;
+    logic [`MA_width-1:0]    MA4_idx_pip_in ;
+    logic [`MA_width-1:0]    MA5_idx_pip_in ;
+    logic [`MA_width-1:0]    MA6_idx_pip_in ;
+    logic [`MA_width-1:0]    MA7_idx_pip_in ;
+    logic [`MA_width-1:0]    MA8_idx_pip_in ;
+    logic [`MA_width-1:0]    MA9_idx_pip_in ;
+    logic [`MA_width-1:0]    MA10_idx_pip_in;
+    logic [`MA_width-1:0]    MA11_idx_pip_in;
+    logic [`MA_width-1:0]    MA12_idx_pip_in;
+    logic [`MA_width-1:0]    MA13_idx_pip_in;
+    logic [`MA_width-1:0]    MA14_idx_pip_in;
+    logic [`MA_width-1:0]    MA15_idx_pip_in;
         
-    logic [`D_width-1:0]    BN0_idx_pip_in ;
-    logic [`D_width-1:0]    BN1_idx_pip_in ;
-    logic [`D_width-1:0]    BN2_idx_pip_in ;
-    logic [`D_width-1:0]    BN3_idx_pip_in ;
-    logic [`D_width-1:0]    BN4_idx_pip_in ;
-    logic [`D_width-1:0]    BN5_idx_pip_in ;
-    logic [`D_width-1:0]    BN6_idx_pip_in ;
-    logic [`D_width-1:0]    BN7_idx_pip_in ;
-    logic [`D_width-1:0]    BN8_idx_pip_in ;
-    logic [`D_width-1:0]    BN9_idx_pip_in ;
-    logic [`D_width-1:0]    BN10_idx_pip_in;
-    logic [`D_width-1:0]    BN11_idx_pip_in;
-    logic [`D_width-1:0]    BN12_idx_pip_in;
-    logic [`D_width-1:0]    BN13_idx_pip_in;
-    logic [`D_width-1:0]    BN14_idx_pip_in;
-    logic [`D_width-1:0]    BN15_idx_pip_in;
+    logic [`BANK_width-1:0]    BN0_idx_pip_in ;
+    logic [`BANK_width-1:0]    BN1_idx_pip_in ;
+    logic [`BANK_width-1:0]    BN2_idx_pip_in ;
+    logic [`BANK_width-1:0]    BN3_idx_pip_in ;
+    logic [`BANK_width-1:0]    BN4_idx_pip_in ;
+    logic [`BANK_width-1:0]    BN5_idx_pip_in ;
+    logic [`BANK_width-1:0]    BN6_idx_pip_in ;
+    logic [`BANK_width-1:0]    BN7_idx_pip_in ;
+    logic [`BANK_width-1:0]    BN8_idx_pip_in ;
+    logic [`BANK_width-1:0]    BN9_idx_pip_in ;
+    logic [`BANK_width-1:0]    BN10_idx_pip_in;
+    logic [`BANK_width-1:0]    BN11_idx_pip_in;
+    logic [`BANK_width-1:0]    BN12_idx_pip_in;
+    logic [`BANK_width-1:0]    BN13_idx_pip_in;
+    logic [`BANK_width-1:0]    BN14_idx_pip_in;
+    logic [`BANK_width-1:0]    BN15_idx_pip_in;
         
     logic r_enable_pip_in;
     logic w_enable_pip_in;
         
-    logic [`D_width-1:0]    R16_w_MA0_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_MA1_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_MA2_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_MA3_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_MA4_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_MA5_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_MA6_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_MA7_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_MA8_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_MA9_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_MA10_idx_pip_in;
-    logic [`D_width-1:0]    R16_w_MA11_idx_pip_in;
-    logic [`D_width-1:0]    R16_w_MA12_idx_pip_in;
-    logic [`D_width-1:0]    R16_w_MA13_idx_pip_in;
-    logic [`D_width-1:0]    R16_w_MA14_idx_pip_in;
-    logic [`D_width-1:0]    R16_w_MA15_idx_pip_in;
+    logic [`MA_width-1:0]    R16_w_MA0_idx_pip_in ;
+    logic [`MA_width-1:0]    R16_w_MA1_idx_pip_in ;
+    logic [`MA_width-1:0]    R16_w_MA2_idx_pip_in ;
+    logic [`MA_width-1:0]    R16_w_MA3_idx_pip_in ;
+    logic [`MA_width-1:0]    R16_w_MA4_idx_pip_in ;
+    logic [`MA_width-1:0]    R16_w_MA5_idx_pip_in ;
+    logic [`MA_width-1:0]    R16_w_MA6_idx_pip_in ;
+    logic [`MA_width-1:0]    R16_w_MA7_idx_pip_in ;
+    logic [`MA_width-1:0]    R16_w_MA8_idx_pip_in ;
+    logic [`MA_width-1:0]    R16_w_MA9_idx_pip_in ;
+    logic [`MA_width-1:0]    R16_w_MA10_idx_pip_in;
+    logic [`MA_width-1:0]    R16_w_MA11_idx_pip_in;
+    logic [`MA_width-1:0]    R16_w_MA12_idx_pip_in;
+    logic [`MA_width-1:0]    R16_w_MA13_idx_pip_in;
+    logic [`MA_width-1:0]    R16_w_MA14_idx_pip_in;
+    logic [`MA_width-1:0]    R16_w_MA15_idx_pip_in;
         
-    logic [`D_width-1:0]    R16_w_BN0_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_BN1_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_BN2_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_BN3_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_BN4_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_BN5_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_BN6_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_BN7_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_BN8_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_BN9_idx_pip_in ;
-    logic [`D_width-1:0]    R16_w_BN10_idx_pip_in;
-    logic [`D_width-1:0]    R16_w_BN11_idx_pip_in;
-    logic [`D_width-1:0]    R16_w_BN12_idx_pip_in;
-    logic [`D_width-1:0]    R16_w_BN13_idx_pip_in;
-    logic [`D_width-1:0]    R16_w_BN14_idx_pip_in;
-    logic [`D_width-1:0]    R16_w_BN15_idx_pip_in;
+    logic [`BANK_width-1:0]    R16_w_BN0_idx_pip_in ;
+    logic [`BANK_width-1:0]    R16_w_BN1_idx_pip_in ;
+    logic [`BANK_width-1:0]    R16_w_BN2_idx_pip_in ;
+    logic [`BANK_width-1:0]    R16_w_BN3_idx_pip_in ;
+    logic [`BANK_width-1:0]    R16_w_BN4_idx_pip_in ;
+    logic [`BANK_width-1:0]    R16_w_BN5_idx_pip_in ;
+    logic [`BANK_width-1:0]    R16_w_BN6_idx_pip_in ;
+    logic [`BANK_width-1:0]    R16_w_BN7_idx_pip_in ;
+    logic [`BANK_width-1:0]    R16_w_BN8_idx_pip_in ;
+    logic [`BANK_width-1:0]    R16_w_BN9_idx_pip_in ;
+    logic [`BANK_width-1:0]    R16_w_BN10_idx_pip_in;
+    logic [`BANK_width-1:0]    R16_w_BN11_idx_pip_in;
+    logic [`BANK_width-1:0]    R16_w_BN12_idx_pip_in;
+    logic [`BANK_width-1:0]    R16_w_BN13_idx_pip_in;
+    logic [`BANK_width-1:0]    R16_w_BN14_idx_pip_in;
+    logic [`BANK_width-1:0]    R16_w_BN15_idx_pip_in;
 
 
 
@@ -259,39 +259,39 @@ module memory_top(
     logic r_enable_out_pip_out    ;
     logic w_enable_out_pip_out    ;
 
-    logic [`D_width-1:0]    MA0_idx_out_pip_out     ;
-    logic [`D_width-1:0]    MA1_idx_out_pip_out     ;
-    logic [`D_width-1:0]    MA2_idx_out_pip_out     ;
-    logic [`D_width-1:0]    MA3_idx_out_pip_out     ;
-    logic [`D_width-1:0]    MA4_idx_out_pip_out     ;
-    logic [`D_width-1:0]    MA5_idx_out_pip_out     ;
-    logic [`D_width-1:0]    MA6_idx_out_pip_out     ;
-    logic [`D_width-1:0]    MA7_idx_out_pip_out     ;
-    logic [`D_width-1:0]    MA8_idx_out_pip_out     ;
-    logic [`D_width-1:0]    MA9_idx_out_pip_out     ;
-    logic [`D_width-1:0]    MA10_idx_out_pip_out    ;
-    logic [`D_width-1:0]    MA11_idx_out_pip_out    ;
-    logic [`D_width-1:0]    MA12_idx_out_pip_out    ;
-    logic [`D_width-1:0]    MA13_idx_out_pip_out    ;
-    logic [`D_width-1:0]    MA14_idx_out_pip_out    ;
-    logic [`D_width-1:0]    MA15_idx_out_pip_out    ;
+    logic [`MA_width-1:0]    MA0_idx_out_pip_out     ;
+    logic [`MA_width-1:0]    MA1_idx_out_pip_out     ;
+    logic [`MA_width-1:0]    MA2_idx_out_pip_out     ;
+    logic [`MA_width-1:0]    MA3_idx_out_pip_out     ;
+    logic [`MA_width-1:0]    MA4_idx_out_pip_out     ;
+    logic [`MA_width-1:0]    MA5_idx_out_pip_out     ;
+    logic [`MA_width-1:0]    MA6_idx_out_pip_out     ;
+    logic [`MA_width-1:0]    MA7_idx_out_pip_out     ;
+    logic [`MA_width-1:0]    MA8_idx_out_pip_out     ;
+    logic [`MA_width-1:0]    MA9_idx_out_pip_out     ;
+    logic [`MA_width-1:0]    MA10_idx_out_pip_out    ;
+    logic [`MA_width-1:0]    MA11_idx_out_pip_out    ;
+    logic [`MA_width-1:0]    MA12_idx_out_pip_out    ;
+    logic [`MA_width-1:0]    MA13_idx_out_pip_out    ;
+    logic [`MA_width-1:0]    MA14_idx_out_pip_out    ;
+    logic [`MA_width-1:0]    MA15_idx_out_pip_out    ;
 
-    logic [`D_width-1:0]    BN0_idx_out_pip_out     ;
-    logic [`D_width-1:0]    BN1_idx_out_pip_out     ;
-    logic [`D_width-1:0]    BN2_idx_out_pip_out     ;
-    logic [`D_width-1:0]    BN3_idx_out_pip_out     ;
-    logic [`D_width-1:0]    BN4_idx_out_pip_out     ;
-    logic [`D_width-1:0]    BN5_idx_out_pip_out     ;
-    logic [`D_width-1:0]    BN6_idx_out_pip_out     ;
-    logic [`D_width-1:0]    BN7_idx_out_pip_out     ;
-    logic [`D_width-1:0]    BN8_idx_out_pip_out     ;
-    logic [`D_width-1:0]    BN9_idx_out_pip_out     ;
-    logic [`D_width-1:0]    BN10_idx_out_pip_out    ;
-    logic [`D_width-1:0]    BN11_idx_out_pip_out    ;
-    logic [`D_width-1:0]    BN12_idx_out_pip_out    ;
-    logic [`D_width-1:0]    BN13_idx_out_pip_out    ;
-    logic [`D_width-1:0]    BN14_idx_out_pip_out    ;
-    logic [`D_width-1:0]    BN15_idx_out_pip_out    ;
+    logic [`BANK_width-1:0]    BN0_idx_out_pip_out     ;
+    logic [`BANK_width-1:0]    BN1_idx_out_pip_out     ;
+    logic [`BANK_width-1:0]    BN2_idx_out_pip_out     ;
+    logic [`BANK_width-1:0]    BN3_idx_out_pip_out     ;
+    logic [`BANK_width-1:0]    BN4_idx_out_pip_out     ;
+    logic [`BANK_width-1:0]    BN5_idx_out_pip_out     ;
+    logic [`BANK_width-1:0]    BN6_idx_out_pip_out     ;
+    logic [`BANK_width-1:0]    BN7_idx_out_pip_out     ;
+    logic [`BANK_width-1:0]    BN8_idx_out_pip_out     ;
+    logic [`BANK_width-1:0]    BN9_idx_out_pip_out     ;
+    logic [`BANK_width-1:0]    BN10_idx_out_pip_out    ;
+    logic [`BANK_width-1:0]    BN11_idx_out_pip_out    ;
+    logic [`BANK_width-1:0]    BN12_idx_out_pip_out    ;
+    logic [`BANK_width-1:0]    BN13_idx_out_pip_out    ;
+    logic [`BANK_width-1:0]    BN14_idx_out_pip_out    ;
+    logic [`BANK_width-1:0]    BN15_idx_out_pip_out    ;
 
     always_comb begin
         if (LAST_STAGE) begin

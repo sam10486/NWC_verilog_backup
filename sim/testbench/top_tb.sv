@@ -42,7 +42,7 @@ module Testbench ();
 
     assign modulus = `Modulus_D_width'd167772161;
 
-    // ite0、ite1 is one TFs group, ite2 is two TFs group, and ite3 is one TFs group, 
+    // ite0, ite1 is one TFs group, ite2 is two TFs group, and ite3 is one TFs group, 
     // thus there are all five TF groups are needed to be stored. 
     initial begin
         $readmemh("../sim/data_file/top/TF_based_in.txt", TF_based_in);  

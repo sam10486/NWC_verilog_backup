@@ -24,53 +24,53 @@ module Order_translate(
     input AGU_done,
     input [`D_width-1:0] l,
 
-    output logic [`D_width-1:0] MA0_idx,
-    output logic [`D_width-1:0] BN0_idx,
+    output logic [`MA_width-1:0] MA0_idx,
+    output logic [`BANK_width-1:0] BN0_idx,
     
-    output logic [`D_width-1:0] MA1_idx,
-    output logic [`D_width-1:0] BN1_idx,
+    output logic [`MA_width-1:0] MA1_idx,
+    output logic [`BANK_width-1:0] BN1_idx,
 
-    output logic [`D_width-1:0] MA2_idx,
-    output logic [`D_width-1:0] BN2_idx,
+    output logic [`MA_width-1:0] MA2_idx,
+    output logic [`BANK_width-1:0] BN2_idx,
 
-    output logic [`D_width-1:0] MA3_idx,
-    output logic [`D_width-1:0] BN3_idx,
+    output logic [`MA_width-1:0] MA3_idx,
+    output logic [`BANK_width-1:0] BN3_idx,
 
-    output logic [`D_width-1:0] MA4_idx,
-    output logic [`D_width-1:0] BN4_idx,
+    output logic [`MA_width-1:0] MA4_idx,
+    output logic [`BANK_width-1:0] BN4_idx,
 
-    output logic [`D_width-1:0] MA5_idx,
-    output logic [`D_width-1:0] BN5_idx,
+    output logic [`MA_width-1:0] MA5_idx,
+    output logic [`BANK_width-1:0] BN5_idx,
 
-    output logic [`D_width-1:0] MA6_idx,
-    output logic [`D_width-1:0] BN6_idx,
+    output logic [`MA_width-1:0] MA6_idx,
+    output logic [`BANK_width-1:0] BN6_idx,
 
-    output logic [`D_width-1:0] MA7_idx,
-    output logic [`D_width-1:0] BN7_idx,
+    output logic [`MA_width-1:0] MA7_idx,
+    output logic [`BANK_width-1:0] BN7_idx,
 
-    output logic [`D_width-1:0] MA8_idx,
-    output logic [`D_width-1:0] BN8_idx,
+    output logic [`MA_width-1:0] MA8_idx,
+    output logic [`BANK_width-1:0] BN8_idx,
 
-    output logic [`D_width-1:0] MA9_idx,
-    output logic [`D_width-1:0] BN9_idx,
+    output logic [`MA_width-1:0] MA9_idx,
+    output logic [`BANK_width-1:0] BN9_idx,
 
-    output logic [`D_width-1:0] MA10_idx,
-    output logic [`D_width-1:0] BN10_idx,
+    output logic [`MA_width-1:0] MA10_idx,
+    output logic [`BANK_width-1:0] BN10_idx,
 
-    output logic [`D_width-1:0] MA11_idx,
-    output logic [`D_width-1:0] BN11_idx,
+    output logic [`MA_width-1:0] MA11_idx,
+    output logic [`BANK_width-1:0] BN11_idx,
 
-    output logic [`D_width-1:0] MA12_idx,
-    output logic [`D_width-1:0] BN12_idx,
+    output logic [`MA_width-1:0] MA12_idx,
+    output logic [`BANK_width-1:0] BN12_idx,
 
-    output logic [`D_width-1:0] MA13_idx,
-    output logic [`D_width-1:0] BN13_idx,
+    output logic [`MA_width-1:0] MA13_idx,
+    output logic [`BANK_width-1:0] BN13_idx,
 
-    output logic [`D_width-1:0] MA14_idx,
-    output logic [`D_width-1:0] BN14_idx,
+    output logic [`MA_width-1:0] MA14_idx,
+    output logic [`BANK_width-1:0] BN14_idx,
     
-    output logic [`D_width-1:0] MA15_idx,
-    output logic [`D_width-1:0] BN15_idx,
+    output logic [`MA_width-1:0] MA15_idx,
+    output logic [`BANK_width-1:0] BN15_idx,
 
     output logic AGU_done_out,
     output logic BN_MA_out_en,
