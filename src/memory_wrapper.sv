@@ -6,50 +6,50 @@
 
 module memory_wrapper (
     input LAST_STAGE,
-    input [`D_width-1:0] data_in0,
-    input [`D_width-1:0] data_in1,
-    input [`D_width-1:0] data_in2,
-    input [`D_width-1:0] data_in3,
-    input [`D_width-1:0] data_in4,
-    input [`D_width-1:0] data_in5,
-    input [`D_width-1:0] data_in6,
-    input [`D_width-1:0] data_in7,
-    input [`D_width-1:0] data_in8,
-    input [`D_width-1:0] data_in9,
-    input [`D_width-1:0] data_in10,
-    input [`D_width-1:0] data_in11,
-    input [`D_width-1:0] data_in12,
-    input [`D_width-1:0] data_in13,
-    input [`D_width-1:0] data_in14,
-    input [`D_width-1:0] data_in15,
+    input [`D_width-1:0] data_in0   ,
+    input [`D_width-1:0] data_in1   ,
+    input [`D_width-1:0] data_in2   ,
+    input [`D_width-1:0] data_in3   ,
+    input [`D_width-1:0] data_in4   ,
+    input [`D_width-1:0] data_in5   ,
+    input [`D_width-1:0] data_in6   ,
+    input [`D_width-1:0] data_in7   ,
+    input [`D_width-1:0] data_in8   ,
+    input [`D_width-1:0] data_in9   ,
+    input [`D_width-1:0] data_in10  ,
+    input [`D_width-1:0] data_in11  ,
+    input [`D_width-1:0] data_in12  ,
+    input [`D_width-1:0] data_in13  ,
+    input [`D_width-1:0] data_in14  ,
+    input [`D_width-1:0] data_in15  ,
 
-    input [`MA_width-1:0] MA0_idx,
-    input [`MA_width-1:0] MA1_idx,
-    input [`MA_width-1:0] MA2_idx,
-    input [`MA_width-1:0] MA3_idx,
-    input [`MA_width-1:0] MA4_idx,
-    input [`MA_width-1:0] MA5_idx,
-    input [`MA_width-1:0] MA6_idx,
-    input [`MA_width-1:0] MA7_idx,
-    input [`MA_width-1:0] MA8_idx,
-    input [`MA_width-1:0] MA9_idx,
-    input [`MA_width-1:0] MA10_idx,
-    input [`MA_width-1:0] MA11_idx,
-    input [`MA_width-1:0] MA12_idx,
-    input [`MA_width-1:0] MA13_idx,
-    input [`MA_width-1:0] MA14_idx,
-    input [`MA_width-1:0] MA15_idx,
+    input [`MA_width-1:0] MA0_idx   ,
+    input [`MA_width-1:0] MA1_idx   ,
+    input [`MA_width-1:0] MA2_idx   ,
+    input [`MA_width-1:0] MA3_idx   ,
+    input [`MA_width-1:0] MA4_idx   ,
+    input [`MA_width-1:0] MA5_idx   ,
+    input [`MA_width-1:0] MA6_idx   ,
+    input [`MA_width-1:0] MA7_idx   ,
+    input [`MA_width-1:0] MA8_idx   ,
+    input [`MA_width-1:0] MA9_idx   ,
+    input [`MA_width-1:0] MA10_idx  ,
+    input [`MA_width-1:0] MA11_idx  ,
+    input [`MA_width-1:0] MA12_idx  ,
+    input [`MA_width-1:0] MA13_idx  ,
+    input [`MA_width-1:0] MA14_idx  ,
+    input [`MA_width-1:0] MA15_idx  ,
 
-    input [`BANK_width-1:0] BN0_idx,
-    input [`BANK_width-1:0] BN1_idx,
-    input [`BANK_width-1:0] BN2_idx,
-    input [`BANK_width-1:0] BN3_idx,
-    input [`BANK_width-1:0] BN4_idx,
-    input [`BANK_width-1:0] BN5_idx,
-    input [`BANK_width-1:0] BN6_idx,
-    input [`BANK_width-1:0] BN7_idx,
-    input [`BANK_width-1:0] BN8_idx,
-    input [`BANK_width-1:0] BN9_idx,
+    input [`BANK_width-1:0] BN0_idx ,
+    input [`BANK_width-1:0] BN1_idx ,
+    input [`BANK_width-1:0] BN2_idx ,
+    input [`BANK_width-1:0] BN3_idx ,
+    input [`BANK_width-1:0] BN4_idx ,
+    input [`BANK_width-1:0] BN5_idx ,
+    input [`BANK_width-1:0] BN6_idx ,
+    input [`BANK_width-1:0] BN7_idx ,
+    input [`BANK_width-1:0] BN8_idx ,
+    input [`BANK_width-1:0] BN9_idx ,
     input [`BANK_width-1:0] BN10_idx,
     input [`BANK_width-1:0] BN11_idx,
     input [`BANK_width-1:0] BN12_idx,
@@ -62,16 +62,16 @@ module memory_wrapper (
     input w_enable,
     input clk,
     input rst,
-    input [`MA_width-1:0] R16_w_MA0_idx,
-    input [`MA_width-1:0] R16_w_MA1_idx,
-    input [`MA_width-1:0] R16_w_MA2_idx,
-    input [`MA_width-1:0] R16_w_MA3_idx,
-    input [`MA_width-1:0] R16_w_MA4_idx,
-    input [`MA_width-1:0] R16_w_MA5_idx,
-    input [`MA_width-1:0] R16_w_MA6_idx,
-    input [`MA_width-1:0] R16_w_MA7_idx,
-    input [`MA_width-1:0] R16_w_MA8_idx,
-    input [`MA_width-1:0] R16_w_MA9_idx,
+    input [`MA_width-1:0] R16_w_MA0_idx ,
+    input [`MA_width-1:0] R16_w_MA1_idx ,
+    input [`MA_width-1:0] R16_w_MA2_idx ,
+    input [`MA_width-1:0] R16_w_MA3_idx ,
+    input [`MA_width-1:0] R16_w_MA4_idx ,
+    input [`MA_width-1:0] R16_w_MA5_idx ,
+    input [`MA_width-1:0] R16_w_MA6_idx ,
+    input [`MA_width-1:0] R16_w_MA7_idx ,
+    input [`MA_width-1:0] R16_w_MA8_idx ,
+    input [`MA_width-1:0] R16_w_MA9_idx ,
     input [`MA_width-1:0] R16_w_MA10_idx,
     input [`MA_width-1:0] R16_w_MA11_idx,
     input [`MA_width-1:0] R16_w_MA12_idx,
@@ -79,75 +79,75 @@ module memory_wrapper (
     input [`MA_width-1:0] R16_w_MA14_idx,
     input [`MA_width-1:0] R16_w_MA15_idx,
 
-    input [`BANK_width-1:0] R16_w_BN0_idx,
-    input [`BANK_width-1:0] R16_w_BN1_idx,
-    input [`BANK_width-1:0] R16_w_BN2_idx,
-    input [`BANK_width-1:0] R16_w_BN3_idx,
-    input [`BANK_width-1:0] R16_w_BN4_idx,
-    input [`BANK_width-1:0] R16_w_BN5_idx,
-    input [`BANK_width-1:0] R16_w_BN6_idx,
-    input [`BANK_width-1:0] R16_w_BN7_idx,
-    input [`BANK_width-1:0] R16_w_BN8_idx,
-    input [`BANK_width-1:0] R16_w_BN9_idx,
-    input [`BANK_width-1:0] R16_w_BN10_idx,
-    input [`BANK_width-1:0] R16_w_BN11_idx,
-    input [`BANK_width-1:0] R16_w_BN12_idx,
-    input [`BANK_width-1:0] R16_w_BN13_idx,
-    input [`BANK_width-1:0] R16_w_BN14_idx,
-    input [`BANK_width-1:0] R16_w_BN15_idx,
+    input [`BANK_width-1:0] R16_w_BN0_idx   ,
+    input [`BANK_width-1:0] R16_w_BN1_idx   ,
+    input [`BANK_width-1:0] R16_w_BN2_idx   ,
+    input [`BANK_width-1:0] R16_w_BN3_idx   ,
+    input [`BANK_width-1:0] R16_w_BN4_idx   ,
+    input [`BANK_width-1:0] R16_w_BN5_idx   ,
+    input [`BANK_width-1:0] R16_w_BN6_idx   ,
+    input [`BANK_width-1:0] R16_w_BN7_idx   ,
+    input [`BANK_width-1:0] R16_w_BN8_idx   ,
+    input [`BANK_width-1:0] R16_w_BN9_idx   ,
+    input [`BANK_width-1:0] R16_w_BN10_idx  ,
+    input [`BANK_width-1:0] R16_w_BN11_idx  ,
+    input [`BANK_width-1:0] R16_w_BN12_idx  ,
+    input [`BANK_width-1:0] R16_w_BN13_idx  ,
+    input [`BANK_width-1:0] R16_w_BN14_idx  ,
+    input [`BANK_width-1:0] R16_w_BN15_idx  ,
 
-    output logic [`D_width-1:0] memory_b0,
-    output logic [`D_width-1:0] memory_b1,
-    output logic [`D_width-1:0] memory_b2,
-    output logic [`D_width-1:0] memory_b3,
-    output logic [`D_width-1:0] memory_b4,
-    output logic [`D_width-1:0] memory_b5,
-    output logic [`D_width-1:0] memory_b6,
-    output logic [`D_width-1:0] memory_b7,
-    output logic [`D_width-1:0] memory_b8,
-    output logic [`D_width-1:0] memory_b9,
-    output logic [`D_width-1:0] memory_b10,
-    output logic [`D_width-1:0] memory_b11,
-    output logic [`D_width-1:0] memory_b12,
-    output logic [`D_width-1:0] memory_b13,
-    output logic [`D_width-1:0] memory_b14,
-    output logic [`D_width-1:0] memory_b15,
+    output logic [`D_width-1:0] memory_b0   ,
+    output logic [`D_width-1:0] memory_b1   ,
+    output logic [`D_width-1:0] memory_b2   ,
+    output logic [`D_width-1:0] memory_b3   ,
+    output logic [`D_width-1:0] memory_b4   ,
+    output logic [`D_width-1:0] memory_b5   ,
+    output logic [`D_width-1:0] memory_b6   ,
+    output logic [`D_width-1:0] memory_b7   ,
+    output logic [`D_width-1:0] memory_b8   ,
+    output logic [`D_width-1:0] memory_b9   ,
+    output logic [`D_width-1:0] memory_b10  ,
+    output logic [`D_width-1:0] memory_b11  ,
+    output logic [`D_width-1:0] memory_b12  ,
+    output logic [`D_width-1:0] memory_b13  ,
+    output logic [`D_width-1:0] memory_b14  ,
+    output logic [`D_width-1:0] memory_b15  ,
 
     output logic r_enable_out,
     output logic w_enable_out,
-    output logic [`MA_width-1:0] MA0_idx_out,
-    output logic [`MA_width-1:0] MA1_idx_out,
-    output logic [`MA_width-1:0] MA2_idx_out,
-    output logic [`MA_width-1:0] MA3_idx_out,
-    output logic [`MA_width-1:0] MA4_idx_out,
-    output logic [`MA_width-1:0] MA5_idx_out,
-    output logic [`MA_width-1:0] MA6_idx_out,
-    output logic [`MA_width-1:0] MA7_idx_out,
-    output logic [`MA_width-1:0] MA8_idx_out,
-    output logic [`MA_width-1:0] MA9_idx_out,
-    output logic [`MA_width-1:0] MA10_idx_out,
-    output logic [`MA_width-1:0] MA11_idx_out,
-    output logic [`MA_width-1:0] MA12_idx_out,
-    output logic [`MA_width-1:0] MA13_idx_out,
-    output logic [`MA_width-1:0] MA14_idx_out,
-    output logic [`MA_width-1:0] MA15_idx_out,
+    output logic [`MA_width-1:0] MA0_idx_out    ,
+    output logic [`MA_width-1:0] MA1_idx_out    ,
+    output logic [`MA_width-1:0] MA2_idx_out    ,
+    output logic [`MA_width-1:0] MA3_idx_out    ,
+    output logic [`MA_width-1:0] MA4_idx_out    ,
+    output logic [`MA_width-1:0] MA5_idx_out    ,
+    output logic [`MA_width-1:0] MA6_idx_out    ,
+    output logic [`MA_width-1:0] MA7_idx_out    ,
+    output logic [`MA_width-1:0] MA8_idx_out    ,
+    output logic [`MA_width-1:0] MA9_idx_out    ,
+    output logic [`MA_width-1:0] MA10_idx_out   ,
+    output logic [`MA_width-1:0] MA11_idx_out   ,
+    output logic [`MA_width-1:0] MA12_idx_out   ,
+    output logic [`MA_width-1:0] MA13_idx_out   ,
+    output logic [`MA_width-1:0] MA14_idx_out   ,
+    output logic [`MA_width-1:0] MA15_idx_out   ,
 
-    output logic [`BANK_width-1:0] BN0_idx_out,
-    output logic [`BANK_width-1:0] BN1_idx_out,
-    output logic [`BANK_width-1:0] BN2_idx_out,
-    output logic [`BANK_width-1:0] BN3_idx_out,
-    output logic [`BANK_width-1:0] BN4_idx_out,
-    output logic [`BANK_width-1:0] BN5_idx_out,
-    output logic [`BANK_width-1:0] BN6_idx_out,
-    output logic [`BANK_width-1:0] BN7_idx_out,
-    output logic [`BANK_width-1:0] BN8_idx_out,
-    output logic [`BANK_width-1:0] BN9_idx_out,
-    output logic [`BANK_width-1:0] BN10_idx_out,
-    output logic [`BANK_width-1:0] BN11_idx_out,
-    output logic [`BANK_width-1:0] BN12_idx_out,
-    output logic [`BANK_width-1:0] BN13_idx_out,
-    output logic [`BANK_width-1:0] BN14_idx_out,
-    output logic [`BANK_width-1:0] BN15_idx_out
+    output logic [`BANK_width-1:0] BN0_idx_out  ,
+    output logic [`BANK_width-1:0] BN1_idx_out  ,
+    output logic [`BANK_width-1:0] BN2_idx_out  ,
+    output logic [`BANK_width-1:0] BN3_idx_out  ,
+    output logic [`BANK_width-1:0] BN4_idx_out  ,
+    output logic [`BANK_width-1:0] BN5_idx_out  ,
+    output logic [`BANK_width-1:0] BN6_idx_out  ,
+    output logic [`BANK_width-1:0] BN7_idx_out  ,
+    output logic [`BANK_width-1:0] BN8_idx_out  ,
+    output logic [`BANK_width-1:0] BN9_idx_out  ,
+    output logic [`BANK_width-1:0] BN10_idx_out ,
+    output logic [`BANK_width-1:0] BN11_idx_out ,
+    output logic [`BANK_width-1:0] BN12_idx_out ,
+    output logic [`BANK_width-1:0] BN13_idx_out ,
+    output logic [`BANK_width-1:0] BN14_idx_out ,
+    output logic [`BANK_width-1:0] BN15_idx_out 
 );
     parameter BN = `BN;
     parameter radix_16 = `pow_radix_k1;
@@ -184,7 +184,7 @@ module memory_wrapper (
     assign zero_mux_16_in = 'd0;
 
     logic [3:0] BN_idx_sel_in [0:BN-1];
-    logic [3:0] R16_w_BN_idx_sel_in [0:BN-1];
+    logic [4:0] R16_w_BN_idx_sel_in [0:BN-1];
 
     //---------Read sel--------------
     always_comb begin
@@ -509,329 +509,650 @@ module memory_wrapper (
 
     //-------Write select-------------
     always_comb begin
-        if      (R16_w_BN0_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd0;
-        else if (R16_w_BN1_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd1;
-        else if (R16_w_BN2_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd2;
-        else if (R16_w_BN3_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd3;
-        else if (R16_w_BN4_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd4;
-        else if (R16_w_BN5_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd5;
-        else if (R16_w_BN6_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd6;
-        else if (R16_w_BN7_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd7;
-        else if (R16_w_BN8_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd8;
-        else if (R16_w_BN9_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd9;
-        else if (R16_w_BN10_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd10;
-        else if (R16_w_BN11_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd11;
-        else if (R16_w_BN12_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd12;
-        else if (R16_w_BN13_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd13;
-        else if (R16_w_BN14_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd14;
-        else if (R16_w_BN15_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd15;
-        else                                  R16_w_BN_idx_sel_in[0] = 'd16; // 16 is turn off
+        if (LAST_STAGE) begin
+            if      (R16_w_BN0_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd0;
+            else if (R16_w_BN1_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd1;
+            else if (R16_w_BN2_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
+            else if (R16_w_BN3_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
+            else if (R16_w_BN4_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
+            else if (R16_w_BN5_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
+            else if (R16_w_BN6_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
+            else if (R16_w_BN7_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
+            else if (R16_w_BN8_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
+            else if (R16_w_BN9_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
+            else if (R16_w_BN10_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
+            else if (R16_w_BN11_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
+            else if (R16_w_BN12_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
+            else if (R16_w_BN13_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
+            else if (R16_w_BN14_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
+            else if (R16_w_BN15_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
+            else                                  R16_w_BN_idx_sel_in[0] = 'd16; // 16 is turn off
+        end else begin
+            if      (R16_w_BN0_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd0;
+            else if (R16_w_BN1_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd1;
+            else if (R16_w_BN2_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd2;
+            else if (R16_w_BN3_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd3;
+            else if (R16_w_BN4_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd4;
+            else if (R16_w_BN5_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd5;
+            else if (R16_w_BN6_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd6;
+            else if (R16_w_BN7_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd7;
+            else if (R16_w_BN8_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd8;
+            else if (R16_w_BN9_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd9;
+            else if (R16_w_BN10_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd10;
+            else if (R16_w_BN11_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd11;
+            else if (R16_w_BN12_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd12;
+            else if (R16_w_BN13_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd13;
+            else if (R16_w_BN14_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd14;
+            else if (R16_w_BN15_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd15;
+            else                                  R16_w_BN_idx_sel_in[0] = 'd16; // 16 is turn off
+        end 
     end
 
     always_comb begin
-        if      (R16_w_BN0_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd0;
-        else if (R16_w_BN1_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd1;
-        else if (R16_w_BN2_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd2;
-        else if (R16_w_BN3_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd3;
-        else if (R16_w_BN4_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd4;
-        else if (R16_w_BN5_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd5;
-        else if (R16_w_BN6_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd6;
-        else if (R16_w_BN7_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd7;
-        else if (R16_w_BN8_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd8;
-        else if (R16_w_BN9_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd9;
-        else if (R16_w_BN10_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd10;
-        else if (R16_w_BN11_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd11;
-        else if (R16_w_BN12_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd12;
-        else if (R16_w_BN13_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd13;
-        else if (R16_w_BN14_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd14;
-        else if (R16_w_BN15_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd15;
-        else                                  R16_w_BN_idx_sel_in[1] = 'd16; // 16 is turn off
+        if (LAST_STAGE) begin
+            if      (R16_w_BN0_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd0;
+            else if (R16_w_BN1_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd1;
+            else if (R16_w_BN2_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
+            else if (R16_w_BN3_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
+            else if (R16_w_BN4_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
+            else if (R16_w_BN5_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
+            else if (R16_w_BN6_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
+            else if (R16_w_BN7_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
+            else if (R16_w_BN8_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
+            else if (R16_w_BN9_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
+            else if (R16_w_BN10_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
+            else if (R16_w_BN11_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
+            else if (R16_w_BN12_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
+            else if (R16_w_BN13_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
+            else if (R16_w_BN14_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
+            else if (R16_w_BN15_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
+            else                                  R16_w_BN_idx_sel_in[1] = 'd16; // 16 is turn off
+        end else begin
+            if      (R16_w_BN0_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd0;
+            else if (R16_w_BN1_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd1;
+            else if (R16_w_BN2_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd2;
+            else if (R16_w_BN3_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd3;
+            else if (R16_w_BN4_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd4;
+            else if (R16_w_BN5_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd5;
+            else if (R16_w_BN6_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd6;
+            else if (R16_w_BN7_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd7;
+            else if (R16_w_BN8_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd8;
+            else if (R16_w_BN9_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd9;
+            else if (R16_w_BN10_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd10;
+            else if (R16_w_BN11_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd11;
+            else if (R16_w_BN12_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd12;
+            else if (R16_w_BN13_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd13;
+            else if (R16_w_BN14_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd14;
+            else if (R16_w_BN15_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd15;
+            else                                  R16_w_BN_idx_sel_in[1] = 'd16; // 16 is turn off
+        end     
     end
 
     always_comb begin
-        if      (R16_w_BN0_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd0;
-        else if (R16_w_BN1_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd1;
-        else if (R16_w_BN2_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd2;
-        else if (R16_w_BN3_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd3;
-        else if (R16_w_BN4_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd4;
-        else if (R16_w_BN5_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd5;
-        else if (R16_w_BN6_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd6;
-        else if (R16_w_BN7_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd7;
-        else if (R16_w_BN8_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd8;
-        else if (R16_w_BN9_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd9;
-        else if (R16_w_BN10_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd10;
-        else if (R16_w_BN11_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd11;
-        else if (R16_w_BN12_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd12;
-        else if (R16_w_BN13_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd13;
-        else if (R16_w_BN14_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd14;
-        else if (R16_w_BN15_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd15;
-        else                                  R16_w_BN_idx_sel_in[2] = 'd16; // 16 is turn off
+        if (LAST_STAGE) begin
+            if      (R16_w_BN0_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd0;
+            else if (R16_w_BN1_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd1;
+            else if (R16_w_BN2_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
+            else if (R16_w_BN3_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
+            else if (R16_w_BN4_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
+            else if (R16_w_BN5_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
+            else if (R16_w_BN6_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
+            else if (R16_w_BN7_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
+            else if (R16_w_BN8_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
+            else if (R16_w_BN9_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
+            else if (R16_w_BN10_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
+            else if (R16_w_BN11_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
+            else if (R16_w_BN12_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
+            else if (R16_w_BN13_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
+            else if (R16_w_BN14_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
+            else if (R16_w_BN15_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
+            else                                  R16_w_BN_idx_sel_in[2] = 'd16; // 16 is turn off
+        end else begin
+            if      (R16_w_BN0_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd0;
+            else if (R16_w_BN1_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd1;
+            else if (R16_w_BN2_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd2;
+            else if (R16_w_BN3_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd3;
+            else if (R16_w_BN4_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd4;
+            else if (R16_w_BN5_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd5;
+            else if (R16_w_BN6_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd6;
+            else if (R16_w_BN7_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd7;
+            else if (R16_w_BN8_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd8;
+            else if (R16_w_BN9_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd9;
+            else if (R16_w_BN10_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd10;
+            else if (R16_w_BN11_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd11;
+            else if (R16_w_BN12_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd12;
+            else if (R16_w_BN13_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd13;
+            else if (R16_w_BN14_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd14;
+            else if (R16_w_BN15_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd15;
+            else                                  R16_w_BN_idx_sel_in[2] = 'd16; // 16 is turn off
+        end   
     end
 
     always_comb begin
-        if      (R16_w_BN0_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd0;
-        else if (R16_w_BN1_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd1;
-        else if (R16_w_BN2_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd2;
-        else if (R16_w_BN3_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd3;
-        else if (R16_w_BN4_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd4;
-        else if (R16_w_BN5_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd5;
-        else if (R16_w_BN6_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd6;
-        else if (R16_w_BN7_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd7;
-        else if (R16_w_BN8_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd8;
-        else if (R16_w_BN9_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd9;
-        else if (R16_w_BN10_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd10;
-        else if (R16_w_BN11_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd11;
-        else if (R16_w_BN12_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd12;
-        else if (R16_w_BN13_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd13;
-        else if (R16_w_BN14_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd14;
-        else if (R16_w_BN15_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd15;
-        else                                  R16_w_BN_idx_sel_in[3] = 'd16; // 16 is turn off
+        if (LAST_STAGE) begin
+            if      (R16_w_BN0_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd0;
+            else if (R16_w_BN1_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd1;
+            else if (R16_w_BN2_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
+            else if (R16_w_BN3_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
+            else if (R16_w_BN4_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
+            else if (R16_w_BN5_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
+            else if (R16_w_BN6_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
+            else if (R16_w_BN7_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
+            else if (R16_w_BN8_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
+            else if (R16_w_BN9_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
+            else if (R16_w_BN10_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
+            else if (R16_w_BN11_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
+            else if (R16_w_BN12_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
+            else if (R16_w_BN13_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
+            else if (R16_w_BN14_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
+            else if (R16_w_BN15_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
+            else                                  R16_w_BN_idx_sel_in[3] = 'd16; // 16 is turn off
+        end else begin
+            if      (R16_w_BN0_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd0;
+            else if (R16_w_BN1_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd1;
+            else if (R16_w_BN2_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd2;
+            else if (R16_w_BN3_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd3;
+            else if (R16_w_BN4_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd4;
+            else if (R16_w_BN5_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd5;
+            else if (R16_w_BN6_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd6;
+            else if (R16_w_BN7_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd7;
+            else if (R16_w_BN8_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd8;
+            else if (R16_w_BN9_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd9;
+            else if (R16_w_BN10_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd10;
+            else if (R16_w_BN11_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd11;
+            else if (R16_w_BN12_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd12;
+            else if (R16_w_BN13_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd13;
+            else if (R16_w_BN14_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd14;
+            else if (R16_w_BN15_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd15;
+            else                                  R16_w_BN_idx_sel_in[3] = 'd16; // 16 is turn off
+        end    
     end
 
     always_comb begin
-        if      (R16_w_BN0_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd0;
-        else if (R16_w_BN1_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd1;
-        else if (R16_w_BN2_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd2;
-        else if (R16_w_BN3_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd3;
-        else if (R16_w_BN4_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd4;
-        else if (R16_w_BN5_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd5;
-        else if (R16_w_BN6_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd6;
-        else if (R16_w_BN7_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd7;
-        else if (R16_w_BN8_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd8;
-        else if (R16_w_BN9_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd9;
-        else if (R16_w_BN10_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd10;
-        else if (R16_w_BN11_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd11;
-        else if (R16_w_BN12_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd12;
-        else if (R16_w_BN13_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd13;
-        else if (R16_w_BN14_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd14;
-        else if (R16_w_BN15_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd15;
-        else                                  R16_w_BN_idx_sel_in[4] = 'd16; // 16 is turn off
+        if (LAST_STAGE) begin
+            if      (R16_w_BN0_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd0;
+            else if (R16_w_BN1_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd1;
+            else if (R16_w_BN2_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
+            else if (R16_w_BN3_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
+            else if (R16_w_BN4_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
+            else if (R16_w_BN5_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
+            else if (R16_w_BN6_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
+            else if (R16_w_BN7_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
+            else if (R16_w_BN8_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
+            else if (R16_w_BN9_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
+            else if (R16_w_BN10_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
+            else if (R16_w_BN11_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
+            else if (R16_w_BN12_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
+            else if (R16_w_BN13_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
+            else if (R16_w_BN14_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
+            else if (R16_w_BN15_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
+            else                                  R16_w_BN_idx_sel_in[4] = 'd16; // 16 is turn off
+        end else begin
+            if      (R16_w_BN0_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd0;
+            else if (R16_w_BN1_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd1;
+            else if (R16_w_BN2_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd2;
+            else if (R16_w_BN3_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd3;
+            else if (R16_w_BN4_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd4;
+            else if (R16_w_BN5_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd5;
+            else if (R16_w_BN6_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd6;
+            else if (R16_w_BN7_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd7;
+            else if (R16_w_BN8_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd8;
+            else if (R16_w_BN9_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd9;
+            else if (R16_w_BN10_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd10;
+            else if (R16_w_BN11_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd11;
+            else if (R16_w_BN12_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd12;
+            else if (R16_w_BN13_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd13;
+            else if (R16_w_BN14_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd14;
+            else if (R16_w_BN15_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd15;
+            else                                  R16_w_BN_idx_sel_in[4] = 'd16; // 16 is turn off
+        end
     end
 
     always_comb begin
-        if      (R16_w_BN0_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd0;
-        else if (R16_w_BN1_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd1;
-        else if (R16_w_BN2_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd2;
-        else if (R16_w_BN3_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd3;
-        else if (R16_w_BN4_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd4;
-        else if (R16_w_BN5_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd5;
-        else if (R16_w_BN6_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd6;
-        else if (R16_w_BN7_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd7;
-        else if (R16_w_BN8_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd8;
-        else if (R16_w_BN9_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd9;
-        else if (R16_w_BN10_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd10;
-        else if (R16_w_BN11_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd11;
-        else if (R16_w_BN12_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd12;
-        else if (R16_w_BN13_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd13;
-        else if (R16_w_BN14_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd14;
-        else if (R16_w_BN15_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd15;
-        else                                  R16_w_BN_idx_sel_in[5] = 'd16; // 16 is turn off
+        if (LAST_STAGE) begin
+            if      (R16_w_BN0_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd0;
+            else if (R16_w_BN1_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd1;
+            else if (R16_w_BN2_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
+            else if (R16_w_BN3_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
+            else if (R16_w_BN4_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
+            else if (R16_w_BN5_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
+            else if (R16_w_BN6_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
+            else if (R16_w_BN7_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
+            else if (R16_w_BN8_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
+            else if (R16_w_BN9_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
+            else if (R16_w_BN10_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
+            else if (R16_w_BN11_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
+            else if (R16_w_BN12_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
+            else if (R16_w_BN13_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
+            else if (R16_w_BN14_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
+            else if (R16_w_BN15_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
+            else                                  R16_w_BN_idx_sel_in[5] = 'd16; // 16 is turn off
+        end else begin
+            if      (R16_w_BN0_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd0;
+            else if (R16_w_BN1_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd1;
+            else if (R16_w_BN2_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd2;
+            else if (R16_w_BN3_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd3;
+            else if (R16_w_BN4_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd4;
+            else if (R16_w_BN5_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd5;
+            else if (R16_w_BN6_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd6;
+            else if (R16_w_BN7_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd7;
+            else if (R16_w_BN8_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd8;
+            else if (R16_w_BN9_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd9;
+            else if (R16_w_BN10_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd10;
+            else if (R16_w_BN11_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd11;
+            else if (R16_w_BN12_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd12;
+            else if (R16_w_BN13_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd13;
+            else if (R16_w_BN14_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd14;
+            else if (R16_w_BN15_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd15;
+            else                                  R16_w_BN_idx_sel_in[5] = 'd16; // 16 is turn off
+        end
     end
 
     always_comb begin
-        if      (R16_w_BN0_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd0;
-        else if (R16_w_BN1_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd1;
-        else if (R16_w_BN2_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd2;
-        else if (R16_w_BN3_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd3;
-        else if (R16_w_BN4_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd4;
-        else if (R16_w_BN5_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd5;
-        else if (R16_w_BN6_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd6;
-        else if (R16_w_BN7_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd7;
-        else if (R16_w_BN8_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd8;
-        else if (R16_w_BN9_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd9;
-        else if (R16_w_BN10_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd10;
-        else if (R16_w_BN11_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd11;
-        else if (R16_w_BN12_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd12;
-        else if (R16_w_BN13_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd13;
-        else if (R16_w_BN14_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd14;
-        else if (R16_w_BN15_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd15;
-        else                                  R16_w_BN_idx_sel_in[6] = 'd16; // 16 is turn off
+        if (LAST_STAGE) begin
+            if      (R16_w_BN0_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd0;
+            else if (R16_w_BN1_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd1;
+            else if (R16_w_BN2_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
+            else if (R16_w_BN3_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
+            else if (R16_w_BN4_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
+            else if (R16_w_BN5_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
+            else if (R16_w_BN6_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
+            else if (R16_w_BN7_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
+            else if (R16_w_BN8_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
+            else if (R16_w_BN9_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
+            else if (R16_w_BN10_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
+            else if (R16_w_BN11_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
+            else if (R16_w_BN12_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
+            else if (R16_w_BN13_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
+            else if (R16_w_BN14_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
+            else if (R16_w_BN15_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
+            else                                  R16_w_BN_idx_sel_in[6] = 'd16; // 16 is turn off
+        end else begin
+            if      (R16_w_BN0_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd0;
+            else if (R16_w_BN1_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd1;
+            else if (R16_w_BN2_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd2;
+            else if (R16_w_BN3_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd3;
+            else if (R16_w_BN4_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd4;
+            else if (R16_w_BN5_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd5;
+            else if (R16_w_BN6_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd6;
+            else if (R16_w_BN7_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd7;
+            else if (R16_w_BN8_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd8;
+            else if (R16_w_BN9_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd9;
+            else if (R16_w_BN10_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd10;
+            else if (R16_w_BN11_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd11;
+            else if (R16_w_BN12_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd12;
+            else if (R16_w_BN13_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd13;
+            else if (R16_w_BN14_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd14;
+            else if (R16_w_BN15_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd15;
+            else                                  R16_w_BN_idx_sel_in[6] = 'd16; // 16 is turn off
+        end
     end
 
     always_comb begin
-        if      (R16_w_BN0_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd0;
-        else if (R16_w_BN1_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd1;
-        else if (R16_w_BN2_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd2;
-        else if (R16_w_BN3_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd3;
-        else if (R16_w_BN4_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd4;
-        else if (R16_w_BN5_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd5;
-        else if (R16_w_BN6_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd6;
-        else if (R16_w_BN7_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd7;
-        else if (R16_w_BN8_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd8;
-        else if (R16_w_BN9_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd9;
-        else if (R16_w_BN10_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd10;
-        else if (R16_w_BN11_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd11;
-        else if (R16_w_BN12_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd12;
-        else if (R16_w_BN13_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd13;
-        else if (R16_w_BN14_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd14;
-        else if (R16_w_BN15_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd15;
-        else                                  R16_w_BN_idx_sel_in[7] = 'd16; // 16 is turn off
+        if (LAST_STAGE) begin
+            if      (R16_w_BN0_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd0;
+            else if (R16_w_BN1_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd1;
+            else if (R16_w_BN2_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
+            else if (R16_w_BN3_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
+            else if (R16_w_BN4_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
+            else if (R16_w_BN5_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
+            else if (R16_w_BN6_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
+            else if (R16_w_BN7_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
+            else if (R16_w_BN8_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
+            else if (R16_w_BN9_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
+            else if (R16_w_BN10_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
+            else if (R16_w_BN11_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
+            else if (R16_w_BN12_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
+            else if (R16_w_BN13_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
+            else if (R16_w_BN14_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
+            else if (R16_w_BN15_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
+            else                                  R16_w_BN_idx_sel_in[7] = 'd16; // 16 is turn off
+        end else begin
+            if      (R16_w_BN0_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd0;
+            else if (R16_w_BN1_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd1;
+            else if (R16_w_BN2_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd2;
+            else if (R16_w_BN3_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd3;
+            else if (R16_w_BN4_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd4;
+            else if (R16_w_BN5_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd5;
+            else if (R16_w_BN6_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd6;
+            else if (R16_w_BN7_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd7;
+            else if (R16_w_BN8_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd8;
+            else if (R16_w_BN9_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd9;
+            else if (R16_w_BN10_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd10;
+            else if (R16_w_BN11_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd11;
+            else if (R16_w_BN12_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd12;
+            else if (R16_w_BN13_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd13;
+            else if (R16_w_BN14_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd14;
+            else if (R16_w_BN15_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd15;
+            else                                  R16_w_BN_idx_sel_in[7] = 'd16; // 16 is turn off
+        end
     end
 
     always_comb begin
-        if      (R16_w_BN0_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd0;
-        else if (R16_w_BN1_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd1;
-        else if (R16_w_BN2_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd2;
-        else if (R16_w_BN3_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd3;
-        else if (R16_w_BN4_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd4;
-        else if (R16_w_BN5_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd5;
-        else if (R16_w_BN6_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd6;
-        else if (R16_w_BN7_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd7;
-        else if (R16_w_BN8_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd8;
-        else if (R16_w_BN9_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd9;
-        else if (R16_w_BN10_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd10;
-        else if (R16_w_BN11_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd11;
-        else if (R16_w_BN12_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd12;
-        else if (R16_w_BN13_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd13;
-        else if (R16_w_BN14_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd14;
-        else if (R16_w_BN15_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd15;
-        else                                  R16_w_BN_idx_sel_in[8] = 'd16; // 16 is turn off
+        if (LAST_STAGE) begin
+            if      (R16_w_BN0_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd0;
+            else if (R16_w_BN1_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd1;
+            else if (R16_w_BN2_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
+            else if (R16_w_BN3_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
+            else if (R16_w_BN4_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
+            else if (R16_w_BN5_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
+            else if (R16_w_BN6_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
+            else if (R16_w_BN7_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
+            else if (R16_w_BN8_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
+            else if (R16_w_BN9_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
+            else if (R16_w_BN10_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
+            else if (R16_w_BN11_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
+            else if (R16_w_BN12_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
+            else if (R16_w_BN13_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
+            else if (R16_w_BN14_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
+            else if (R16_w_BN15_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
+            else                                  R16_w_BN_idx_sel_in[8] = 'd16; // 16 is turn off
+        end else begin
+            if      (R16_w_BN0_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd0;
+            else if (R16_w_BN1_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd1;
+            else if (R16_w_BN2_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd2;
+            else if (R16_w_BN3_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd3;
+            else if (R16_w_BN4_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd4;
+            else if (R16_w_BN5_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd5;
+            else if (R16_w_BN6_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd6;
+            else if (R16_w_BN7_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd7;
+            else if (R16_w_BN8_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd8;
+            else if (R16_w_BN9_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd9;
+            else if (R16_w_BN10_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd10;
+            else if (R16_w_BN11_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd11;
+            else if (R16_w_BN12_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd12;
+            else if (R16_w_BN13_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd13;
+            else if (R16_w_BN14_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd14;
+            else if (R16_w_BN15_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd15;
+            else                                  R16_w_BN_idx_sel_in[8] = 'd16; // 16 is turn off
+        end
+        
     end
 
     always_comb begin
-        if      (R16_w_BN0_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd0;
-        else if (R16_w_BN1_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd1;
-        else if (R16_w_BN2_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd2;
-        else if (R16_w_BN3_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd3;
-        else if (R16_w_BN4_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd4;
-        else if (R16_w_BN5_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd5;
-        else if (R16_w_BN6_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd6;
-        else if (R16_w_BN7_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd7;
-        else if (R16_w_BN8_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd8;
-        else if (R16_w_BN9_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd9;
-        else if (R16_w_BN10_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd10;
-        else if (R16_w_BN11_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd11;
-        else if (R16_w_BN12_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd12;
-        else if (R16_w_BN13_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd13;
-        else if (R16_w_BN14_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd14;
-        else if (R16_w_BN15_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd15;
-        else                                  R16_w_BN_idx_sel_in[9] = 'd16; // 16 is turn off
+        if (LAST_STAGE) begin
+            if      (R16_w_BN0_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd0;
+            else if (R16_w_BN1_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd1;
+            else if (R16_w_BN2_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
+            else if (R16_w_BN3_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
+            else if (R16_w_BN4_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
+            else if (R16_w_BN5_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
+            else if (R16_w_BN6_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
+            else if (R16_w_BN7_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
+            else if (R16_w_BN8_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
+            else if (R16_w_BN9_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
+            else if (R16_w_BN10_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
+            else if (R16_w_BN11_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
+            else if (R16_w_BN12_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
+            else if (R16_w_BN13_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
+            else if (R16_w_BN14_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
+            else if (R16_w_BN15_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
+            else                                  R16_w_BN_idx_sel_in[9] = 'd16; // 16 is turn off
+        end else begin
+            if      (R16_w_BN0_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd0;
+            else if (R16_w_BN1_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd1;
+            else if (R16_w_BN2_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd2;
+            else if (R16_w_BN3_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd3;
+            else if (R16_w_BN4_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd4;
+            else if (R16_w_BN5_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd5;
+            else if (R16_w_BN6_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd6;
+            else if (R16_w_BN7_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd7;
+            else if (R16_w_BN8_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd8;
+            else if (R16_w_BN9_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd9;
+            else if (R16_w_BN10_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd10;
+            else if (R16_w_BN11_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd11;
+            else if (R16_w_BN12_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd12;
+            else if (R16_w_BN13_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd13;
+            else if (R16_w_BN14_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd14;
+            else if (R16_w_BN15_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd15;
+            else                                  R16_w_BN_idx_sel_in[9] = 'd16; // 16 is turn off
+        end 
     end
 
     always_comb begin
-        if      (R16_w_BN0_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd0;
-        else if (R16_w_BN1_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd1;
-        else if (R16_w_BN2_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd2;
-        else if (R16_w_BN3_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd3;
-        else if (R16_w_BN4_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd4;
-        else if (R16_w_BN5_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd5;
-        else if (R16_w_BN6_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd6;
-        else if (R16_w_BN7_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd7;
-        else if (R16_w_BN8_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd8;
-        else if (R16_w_BN9_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd9;
-        else if (R16_w_BN10_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd10;
-        else if (R16_w_BN11_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd11;
-        else if (R16_w_BN12_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd12;
-        else if (R16_w_BN13_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd13;
-        else if (R16_w_BN14_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd14;
-        else if (R16_w_BN15_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd15;
-        else                                   R16_w_BN_idx_sel_in[10] = 'd16; // 16 is turn off
+        if (LAST_STAGE) begin
+            if      (R16_w_BN0_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd0;
+            else if (R16_w_BN1_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd1;
+            else if (R16_w_BN2_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
+            else if (R16_w_BN3_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
+            else if (R16_w_BN4_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
+            else if (R16_w_BN5_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
+            else if (R16_w_BN6_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
+            else if (R16_w_BN7_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
+            else if (R16_w_BN8_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
+            else if (R16_w_BN9_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
+            else if (R16_w_BN10_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
+            else if (R16_w_BN11_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
+            else if (R16_w_BN12_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
+            else if (R16_w_BN13_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
+            else if (R16_w_BN14_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
+            else if (R16_w_BN15_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
+            else                                   R16_w_BN_idx_sel_in[10] = 'd16; // 16 is turn off
+        end else begin
+            if      (R16_w_BN0_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd0;
+            else if (R16_w_BN1_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd1;
+            else if (R16_w_BN2_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd2;
+            else if (R16_w_BN3_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd3;
+            else if (R16_w_BN4_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd4;
+            else if (R16_w_BN5_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd5;
+            else if (R16_w_BN6_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd6;
+            else if (R16_w_BN7_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd7;
+            else if (R16_w_BN8_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd8;
+            else if (R16_w_BN9_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd9;
+            else if (R16_w_BN10_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd10;
+            else if (R16_w_BN11_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd11;
+            else if (R16_w_BN12_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd12;
+            else if (R16_w_BN13_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd13;
+            else if (R16_w_BN14_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd14;
+            else if (R16_w_BN15_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd15;
+            else                                   R16_w_BN_idx_sel_in[10] = 'd16; // 16 is turn off
+        end
     end
 
     always_comb begin
-        if      (R16_w_BN0_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd0;
-        else if (R16_w_BN1_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd1;
-        else if (R16_w_BN2_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd2;
-        else if (R16_w_BN3_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd3;
-        else if (R16_w_BN4_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd4;
-        else if (R16_w_BN5_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd5;
-        else if (R16_w_BN6_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd6;
-        else if (R16_w_BN7_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd7;
-        else if (R16_w_BN8_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd8;
-        else if (R16_w_BN9_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd9;
-        else if (R16_w_BN10_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd10;
-        else if (R16_w_BN11_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd11;
-        else if (R16_w_BN12_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd12;
-        else if (R16_w_BN13_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd13;
-        else if (R16_w_BN14_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd14;
-        else if (R16_w_BN15_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd15;
-        else                                   R16_w_BN_idx_sel_in[11] = 'd16; // 16 is turn off
+        if (LAST_STAGE) begin
+            if      (R16_w_BN0_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd0;
+            else if (R16_w_BN1_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd1;
+            else if (R16_w_BN2_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
+            else if (R16_w_BN3_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
+            else if (R16_w_BN4_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
+            else if (R16_w_BN5_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
+            else if (R16_w_BN6_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
+            else if (R16_w_BN7_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
+            else if (R16_w_BN8_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
+            else if (R16_w_BN9_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
+            else if (R16_w_BN10_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
+            else if (R16_w_BN11_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
+            else if (R16_w_BN12_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
+            else if (R16_w_BN13_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
+            else if (R16_w_BN14_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
+            else if (R16_w_BN15_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
+            else                                   R16_w_BN_idx_sel_in[11] = 'd16; // 16 is turn off
+        end else begin
+            if      (R16_w_BN0_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd0;
+            else if (R16_w_BN1_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd1;
+            else if (R16_w_BN2_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd2;
+            else if (R16_w_BN3_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd3;
+            else if (R16_w_BN4_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd4;
+            else if (R16_w_BN5_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd5;
+            else if (R16_w_BN6_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd6;
+            else if (R16_w_BN7_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd7;
+            else if (R16_w_BN8_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd8;
+            else if (R16_w_BN9_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd9;
+            else if (R16_w_BN10_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd10;
+            else if (R16_w_BN11_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd11;
+            else if (R16_w_BN12_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd12;
+            else if (R16_w_BN13_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd13;
+            else if (R16_w_BN14_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd14;
+            else if (R16_w_BN15_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd15;
+            else                                   R16_w_BN_idx_sel_in[11] = 'd16; // 16 is turn off
+        end 
     end
 
     always_comb begin
-        if      (R16_w_BN0_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd0;
-        else if (R16_w_BN1_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd1;
-        else if (R16_w_BN2_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd2;
-        else if (R16_w_BN3_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd3;
-        else if (R16_w_BN4_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd4;
-        else if (R16_w_BN5_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd5;
-        else if (R16_w_BN6_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd6;
-        else if (R16_w_BN7_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd7;
-        else if (R16_w_BN8_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd8;
-        else if (R16_w_BN9_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd9;
-        else if (R16_w_BN10_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd10;
-        else if (R16_w_BN11_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd11;
-        else if (R16_w_BN12_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd12;
-        else if (R16_w_BN13_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd13;
-        else if (R16_w_BN14_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd14;
-        else if (R16_w_BN15_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd15;
-        else                                   R16_w_BN_idx_sel_in[12] = 'd16; // 16 is turn off
+        if (LAST_STAGE) begin
+            if      (R16_w_BN0_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd0;
+            else if (R16_w_BN1_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd1;
+            else if (R16_w_BN2_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
+            else if (R16_w_BN3_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
+            else if (R16_w_BN4_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
+            else if (R16_w_BN5_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
+            else if (R16_w_BN6_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
+            else if (R16_w_BN7_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
+            else if (R16_w_BN8_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
+            else if (R16_w_BN9_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
+            else if (R16_w_BN10_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
+            else if (R16_w_BN11_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
+            else if (R16_w_BN12_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
+            else if (R16_w_BN13_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
+            else if (R16_w_BN14_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
+            else if (R16_w_BN15_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
+            else                                   R16_w_BN_idx_sel_in[12] = 'd16; // 16 is turn off
+        end else begin
+            if      (R16_w_BN0_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd0;
+            else if (R16_w_BN1_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd1;
+            else if (R16_w_BN2_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd2;
+            else if (R16_w_BN3_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd3;
+            else if (R16_w_BN4_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd4;
+            else if (R16_w_BN5_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd5;
+            else if (R16_w_BN6_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd6;
+            else if (R16_w_BN7_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd7;
+            else if (R16_w_BN8_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd8;
+            else if (R16_w_BN9_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd9;
+            else if (R16_w_BN10_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd10;
+            else if (R16_w_BN11_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd11;
+            else if (R16_w_BN12_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd12;
+            else if (R16_w_BN13_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd13;
+            else if (R16_w_BN14_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd14;
+            else if (R16_w_BN15_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd15;
+            else                                   R16_w_BN_idx_sel_in[12] = 'd16; // 16 is turn off
+        end
     end
 
     always_comb begin
-        if      (R16_w_BN0_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd0;
-        else if (R16_w_BN1_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd1;
-        else if (R16_w_BN2_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd2;
-        else if (R16_w_BN3_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd3;
-        else if (R16_w_BN4_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd4;
-        else if (R16_w_BN5_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd5;
-        else if (R16_w_BN6_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd6;
-        else if (R16_w_BN7_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd7;
-        else if (R16_w_BN8_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd8;
-        else if (R16_w_BN9_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd9;
-        else if (R16_w_BN10_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd10;
-        else if (R16_w_BN11_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd11;
-        else if (R16_w_BN12_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd12;
-        else if (R16_w_BN13_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd13;
-        else if (R16_w_BN14_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd14;
-        else if (R16_w_BN15_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd15;
-        else                                   R16_w_BN_idx_sel_in[13] = 'd16; // 16 is turn off
+        if (LAST_STAGE) begin
+            if      (R16_w_BN0_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd0;
+            else if (R16_w_BN1_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd1;
+            else if (R16_w_BN2_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
+            else if (R16_w_BN3_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
+            else if (R16_w_BN4_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
+            else if (R16_w_BN5_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
+            else if (R16_w_BN6_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
+            else if (R16_w_BN7_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
+            else if (R16_w_BN8_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
+            else if (R16_w_BN9_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
+            else if (R16_w_BN10_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
+            else if (R16_w_BN11_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
+            else if (R16_w_BN12_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
+            else if (R16_w_BN13_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
+            else if (R16_w_BN14_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
+            else if (R16_w_BN15_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
+            else                                   R16_w_BN_idx_sel_in[13] = 'd16; // 16 is turn off
+        end else begin
+            if      (R16_w_BN0_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd0;
+            else if (R16_w_BN1_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd1;
+            else if (R16_w_BN2_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd2;
+            else if (R16_w_BN3_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd3;
+            else if (R16_w_BN4_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd4;
+            else if (R16_w_BN5_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd5;
+            else if (R16_w_BN6_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd6;
+            else if (R16_w_BN7_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd7;
+            else if (R16_w_BN8_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd8;
+            else if (R16_w_BN9_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd9;
+            else if (R16_w_BN10_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd10;
+            else if (R16_w_BN11_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd11;
+            else if (R16_w_BN12_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd12;
+            else if (R16_w_BN13_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd13;
+            else if (R16_w_BN14_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd14;
+            else if (R16_w_BN15_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd15;
+            else                                   R16_w_BN_idx_sel_in[13] = 'd16; // 16 is turn off
+        end
     end
 
     always_comb begin
-        if      (R16_w_BN0_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd0;
-        else if (R16_w_BN1_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd1;
-        else if (R16_w_BN2_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd2;
-        else if (R16_w_BN3_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd3;
-        else if (R16_w_BN4_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd4;
-        else if (R16_w_BN5_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd5;
-        else if (R16_w_BN6_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd6;
-        else if (R16_w_BN7_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd7;
-        else if (R16_w_BN8_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd8;
-        else if (R16_w_BN9_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd9;
-        else if (R16_w_BN10_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd10;
-        else if (R16_w_BN11_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd11;
-        else if (R16_w_BN12_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd12;
-        else if (R16_w_BN13_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd13;
-        else if (R16_w_BN14_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd14;
-        else if (R16_w_BN15_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd15;
-        else                                   R16_w_BN_idx_sel_in[14] = 'd16; // 16 is turn off
+        if (LAST_STAGE) begin
+            if      (R16_w_BN0_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd0;
+            else if (R16_w_BN1_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd1;
+            else if (R16_w_BN2_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
+            else if (R16_w_BN3_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
+            else if (R16_w_BN4_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
+            else if (R16_w_BN5_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
+            else if (R16_w_BN6_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
+            else if (R16_w_BN7_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
+            else if (R16_w_BN8_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
+            else if (R16_w_BN9_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
+            else if (R16_w_BN10_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
+            else if (R16_w_BN11_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
+            else if (R16_w_BN12_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
+            else if (R16_w_BN13_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
+            else if (R16_w_BN14_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
+            else if (R16_w_BN15_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
+            else                                   R16_w_BN_idx_sel_in[14] = 'd16; // 16 is turn off
+        end else begin
+            if      (R16_w_BN0_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd0;
+            else if (R16_w_BN1_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd1;
+            else if (R16_w_BN2_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd2;
+            else if (R16_w_BN3_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd3;
+            else if (R16_w_BN4_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd4;
+            else if (R16_w_BN5_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd5;
+            else if (R16_w_BN6_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd6;
+            else if (R16_w_BN7_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd7;
+            else if (R16_w_BN8_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd8;
+            else if (R16_w_BN9_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd9;
+            else if (R16_w_BN10_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd10;
+            else if (R16_w_BN11_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd11;
+            else if (R16_w_BN12_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd12;
+            else if (R16_w_BN13_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd13;
+            else if (R16_w_BN14_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd14;
+            else if (R16_w_BN15_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd15;
+            else                                   R16_w_BN_idx_sel_in[14] = 'd16; // 16 is turn off
+        end
     end
 
     always_comb begin
-        if      (R16_w_BN0_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd0;
-        else if (R16_w_BN1_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd1;
-        else if (R16_w_BN2_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd2;
-        else if (R16_w_BN3_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd3;
-        else if (R16_w_BN4_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd4;
-        else if (R16_w_BN5_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd5;
-        else if (R16_w_BN6_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd6;
-        else if (R16_w_BN7_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd7;
-        else if (R16_w_BN8_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd8;
-        else if (R16_w_BN9_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd9;
-        else if (R16_w_BN10_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd10;
-        else if (R16_w_BN11_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd11;
-        else if (R16_w_BN12_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd12;
-        else if (R16_w_BN13_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd13;
-        else if (R16_w_BN14_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd14;
-        else if (R16_w_BN15_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd15;
-        else                                   R16_w_BN_idx_sel_in[15] = 'd16; // 16 is turn off
+        if (LAST_STAGE) begin
+            if      (R16_w_BN0_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd0;
+            else if (R16_w_BN1_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd1;
+            else if (R16_w_BN2_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
+            else if (R16_w_BN3_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
+            else if (R16_w_BN4_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
+            else if (R16_w_BN5_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
+            else if (R16_w_BN6_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
+            else if (R16_w_BN7_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
+            else if (R16_w_BN8_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
+            else if (R16_w_BN9_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
+            else if (R16_w_BN10_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
+            else if (R16_w_BN11_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
+            else if (R16_w_BN12_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
+            else if (R16_w_BN13_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
+            else if (R16_w_BN14_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
+            else if (R16_w_BN15_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
+            else                                   R16_w_BN_idx_sel_in[15] = 'd16; // 16 is turn off
+        end else begin
+            if      (R16_w_BN0_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd0;
+            else if (R16_w_BN1_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd1;
+            else if (R16_w_BN2_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd2;
+            else if (R16_w_BN3_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd3;
+            else if (R16_w_BN4_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd4;
+            else if (R16_w_BN5_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd5;
+            else if (R16_w_BN6_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd6;
+            else if (R16_w_BN7_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd7;
+            else if (R16_w_BN8_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd8;
+            else if (R16_w_BN9_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd9;
+            else if (R16_w_BN10_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd10;
+            else if (R16_w_BN11_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd11;
+            else if (R16_w_BN12_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd12;
+            else if (R16_w_BN13_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd13;
+            else if (R16_w_BN14_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd14;
+            else if (R16_w_BN15_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd15;
+            else                                   R16_w_BN_idx_sel_in[15] = 'd16; // 16 is turn off
+        end    
     end
 
 
     //-----------Read by A port-------------
     generate
-        for (i = 0; i < radix_16; i = i + 1) begin
+        for (i = 0; i < radix_16; i = i + 1) begin: Mux_16_1_in_A
             Mux_16_1_in Mux_16_1_in_A(
             //input
             .A_0    (MA0_idx),
@@ -880,7 +1201,7 @@ module memory_wrapper (
 
     //----------write by B port-----------
     generate
-        for (i = 0; i < radix_16; i = i + 1) begin
+        for (i = 0; i < radix_16; i = i + 1) begin: w_R16_Mux_16_1_in
             w_R16_Mux_16_1_in w_R16_Mux_16_1_in(
             //input
             .A_0    (R16_w_MA0_idx),
@@ -951,25 +1272,25 @@ module memory_wrapper (
     endgenerate
     
     //-----------------------
-    assign sel_out[0] = BN0_idx;
-    assign sel_out[1] = BN1_idx;
-    assign sel_out[2] = BN2_idx;
-    assign sel_out[3] = BN3_idx;
-    assign sel_out[4] = BN4_idx;
-    assign sel_out[5] = BN5_idx;
-    assign sel_out[6] = BN6_idx;
-    assign sel_out[7] = BN7_idx;
-    assign sel_out[8] = BN8_idx;
-    assign sel_out[9] = BN9_idx;
-    assign sel_out[10] = BN10_idx;
-    assign sel_out[11] = BN11_idx;
-    assign sel_out[12] = BN12_idx;
-    assign sel_out[13] = BN13_idx;
-    assign sel_out[14] = BN14_idx;
-    assign sel_out[15] = BN15_idx;
+    assign sel_out[0] = BN0_idx_out;
+    assign sel_out[1] = BN1_idx_out;
+    assign sel_out[2] = BN2_idx_out;
+    assign sel_out[3] = BN3_idx_out;
+    assign sel_out[4] = BN4_idx_out;
+    assign sel_out[5] = BN5_idx_out;
+    assign sel_out[6] = BN6_idx_out;
+    assign sel_out[7] = BN7_idx_out;
+    assign sel_out[8] = BN8_idx_out;
+    assign sel_out[9] = BN9_idx_out;
+    assign sel_out[10] = BN10_idx_out;
+    assign sel_out[11] = BN11_idx_out;
+    assign sel_out[12] = BN12_idx_out;
+    assign sel_out[13] = BN13_idx_out;
+    assign sel_out[14] = BN14_idx_out;
+    assign sel_out[15] = BN15_idx_out;
 
     generate
-        for (i = 0; i < radix_16; i = i + 1) begin
+        for (i = 0; i < radix_16; i = i + 1) begin: Mux_16_1_out
             Mux_16_1_out Mux_16_1_out(
                 //input
                 .Q_0    (QA_out[0]),
@@ -1071,23 +1392,62 @@ module memory_wrapper (
         end
     end
 
-
-    assign memory_b0 =  (LAST_STAGE) ? QA_out_sel[0] : QA_out_sel[0];
-    assign memory_b1 =  (LAST_STAGE) ? QA_out_sel[1] : QA_out_sel[1];
-    assign memory_b2 =  (LAST_STAGE) ? 'd0 : QA_out_sel[2] ;
-    assign memory_b3 =  (LAST_STAGE) ? 'd0 : QA_out_sel[3] ;
-    assign memory_b4 =  (LAST_STAGE) ? 'd0 : QA_out_sel[4] ;
-    assign memory_b5 =  (LAST_STAGE) ? 'd0 : QA_out_sel[5] ;
-    assign memory_b6 =  (LAST_STAGE) ? 'd0 : QA_out_sel[6] ;
-    assign memory_b7 =  (LAST_STAGE) ? 'd0 : QA_out_sel[7] ;
-    assign memory_b8 =  (LAST_STAGE) ? 'd0 : QA_out_sel[8] ;
-    assign memory_b9 =  (LAST_STAGE) ? 'd0 : QA_out_sel[9] ;
-    assign memory_b10 = (LAST_STAGE) ? 'd0 : QA_out_sel[10];
-    assign memory_b11 = (LAST_STAGE) ? 'd0 : QA_out_sel[11];
-    assign memory_b12 = (LAST_STAGE) ? 'd0 : QA_out_sel[12];
-    assign memory_b13 = (LAST_STAGE) ? 'd0 : QA_out_sel[13];
-    assign memory_b14 = (LAST_STAGE) ? 'd0 : QA_out_sel[14];
-    assign memory_b15 = (LAST_STAGE) ? 'd0 : QA_out_sel[15];
+    always_comb begin
+        if (r_enable_out) begin
+            if (LAST_STAGE) begin
+                memory_b0   =   QA_out_sel[0]   ;   
+                memory_b1   =   QA_out_sel[1]   ;   
+                memory_b2   =   'd0  ; 
+                memory_b3   =   'd0  ; 
+                memory_b4   =   'd0  ; 
+                memory_b5   =   'd0  ; 
+                memory_b6   =   'd0  ; 
+                memory_b7   =   'd0  ; 
+                memory_b8   =   'd0  ; 
+                memory_b9   =   'd0  ; 
+                memory_b10  =   'd0  ;
+                memory_b11  =   'd0  ;
+                memory_b12  =   'd0  ;
+                memory_b13  =   'd0  ;
+                memory_b14  =   'd0  ;
+                memory_b15  =   'd0  ;
+            end else begin
+                memory_b0   =   QA_out_sel[0]   ; 
+                memory_b1   =   QA_out_sel[1]   ; 
+                memory_b2   =   QA_out_sel[2]   ; 
+                memory_b3   =   QA_out_sel[3]   ; 
+                memory_b4   =   QA_out_sel[4]   ; 
+                memory_b5   =   QA_out_sel[5]   ; 
+                memory_b6   =   QA_out_sel[6]   ; 
+                memory_b7   =   QA_out_sel[7]   ; 
+                memory_b8   =   QA_out_sel[8]   ; 
+                memory_b9   =   QA_out_sel[9]   ; 
+                memory_b10  =   QA_out_sel[10]  ;
+                memory_b11  =   QA_out_sel[11]  ;
+                memory_b12  =   QA_out_sel[12]  ;
+                memory_b13  =   QA_out_sel[13]  ;
+                memory_b14  =   QA_out_sel[14]  ;
+                memory_b15  =   QA_out_sel[15]  ;
+            end
+        end else begin
+            memory_b0   =   'd0   ; 
+            memory_b1   =   'd0   ; 
+            memory_b2   =   'd0  ; 
+            memory_b3   =   'd0  ; 
+            memory_b4   =   'd0  ; 
+            memory_b5   =   'd0  ; 
+            memory_b6   =   'd0  ; 
+            memory_b7   =   'd0  ; 
+            memory_b8   =   'd0  ; 
+            memory_b9   =   'd0  ; 
+            memory_b10  =   'd0  ;
+            memory_b11  =   'd0  ;
+            memory_b12  =   'd0  ;
+            memory_b13  =   'd0  ;
+            memory_b14  =   'd0  ;
+            memory_b15  =   'd0  ;
+        end
+    end
     //--------------------------------
 
 endmodule

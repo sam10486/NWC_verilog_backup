@@ -34,7 +34,7 @@ module w_R16_Mux_16_1_in (
     input [`D_width-1:0] D_13   ,
     input [`D_width-1:0] D_14   ,
     input [`D_width-1:0] D_15   ,
-    input [3:0] sel_in          ,
+    input [4:0] sel_in          ,
     input w_enable              ,
     
     output logic CEN_out,

@@ -80,13 +80,24 @@ module Testbench ();
 			if(DONE) break;
 		end
         mem_out = $fopen({output_path, "/mem_out.txt"}, "w");
-        for (i = 0; i<BN; i=i+1) begin
-            for (j = 0; j<MA ; j=j+1) begin
-                $fwrite(mem_out, "%d\n",  top.memory_top.memory_rtl.memory_array[i][j]);
-            end
-        end
+        for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper.gen_sram[0].sram.mem[j]);
+        for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper.gen_sram[1].sram.mem[j]);
+        for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper.gen_sram[2].sram.mem[j]);
+        for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper.gen_sram[3].sram.mem[j]);
+        for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper.gen_sram[4].sram.mem[j]);
+        for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper.gen_sram[5].sram.mem[j]);
+        for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper.gen_sram[6].sram.mem[j]);
+        for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper.gen_sram[7].sram.mem[j]);
+        for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper.gen_sram[8].sram.mem[j]);
+        for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper.gen_sram[9].sram.mem[j]);
+        for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper.gen_sram[10].sram.mem[j]);
+        for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper.gen_sram[11].sram.mem[j]);
+        for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper.gen_sram[12].sram.mem[j]);
+        for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper.gen_sram[13].sram.mem[j]);
+        for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper.gen_sram[14].sram.mem[j]);
+        for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper.gen_sram[15].sram.mem[j]);
         $display("successful !\n");
-        $display("mem_out[0][0] = (%d)" , top.memory_top.memory_rtl.memory_array[0][0]);
+        $display("mem_out[0][0] = (%d)" , top.memory_wrapper.gen_sram[0].sram.mem[0]);
         $finish;
 
     end
@@ -128,7 +139,7 @@ module Testbench ();
             top.TF_top.TF_gen.TF_const_array[12] <= TF_const_in[12];
             top.TF_top.TF_gen.TF_const_array[13] <= TF_const_in[13];
         end
-
+        /*
         for (int k = 0; k<MA; k=k+1) begin
             #`CYCLE;
             top.memory_top.memory_rtl.memory_array[0][k] <= mem_data_in[k*BN + 0];
@@ -147,6 +158,26 @@ module Testbench ();
             top.memory_top.memory_rtl.memory_array[13][k] <= mem_data_in[k*BN + 13];
             top.memory_top.memory_rtl.memory_array[14][k] <= mem_data_in[k*BN + 14];
             top.memory_top.memory_rtl.memory_array[15][k] <= mem_data_in[k*BN + 15];
+        end*/
+
+        for (int k = 0; k<MA; k=k+1) begin
+            #`CYCLE;
+            top.memory_wrapper.gen_sram[0].sram.mem[k] <= mem_data_in[k*BN + 0];
+            top.memory_wrapper.gen_sram[1].sram.mem[k] <= mem_data_in[k*BN + 1];
+            top.memory_wrapper.gen_sram[2].sram.mem[k] <= mem_data_in[k*BN + 2];
+            top.memory_wrapper.gen_sram[3].sram.mem[k] <= mem_data_in[k*BN + 3];
+            top.memory_wrapper.gen_sram[4].sram.mem[k] <= mem_data_in[k*BN + 4];
+            top.memory_wrapper.gen_sram[5].sram.mem[k] <= mem_data_in[k*BN + 5];
+            top.memory_wrapper.gen_sram[6].sram.mem[k] <= mem_data_in[k*BN + 6];
+            top.memory_wrapper.gen_sram[7].sram.mem[k] <= mem_data_in[k*BN + 7];
+            top.memory_wrapper.gen_sram[8].sram.mem[k] <= mem_data_in[k*BN + 8];
+            top.memory_wrapper.gen_sram[9].sram.mem[k] <= mem_data_in[k*BN + 9];
+            top.memory_wrapper.gen_sram[10].sram.mem[k] <= mem_data_in[k*BN + 10];
+            top.memory_wrapper.gen_sram[11].sram.mem[k] <= mem_data_in[k*BN + 11];
+            top.memory_wrapper.gen_sram[12].sram.mem[k] <= mem_data_in[k*BN + 12];
+            top.memory_wrapper.gen_sram[13].sram.mem[k] <= mem_data_in[k*BN + 13];
+            top.memory_wrapper.gen_sram[14].sram.mem[k] <= mem_data_in[k*BN + 14];
+            top.memory_wrapper.gen_sram[15].sram.mem[k] <= mem_data_in[k*BN + 15];
         end
     end
 
