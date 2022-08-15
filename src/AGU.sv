@@ -38,18 +38,18 @@ module AGU(
 
     always_comb begin
         if (rst) begin
-            i_upper <= 'd0;
+            i_upper = 'd0;
         end else begin
-            i_upper <= (1 << (`logn - `radix_k1*(l+1)) ) - 'd1;
+            i_upper = (1 << (`logn - `radix_k1*(l+1)) ) - 'd1;
             //i_upper <= 'd511;
         end
     end
 
     always_comb begin
         if (rst) begin
-            j_upper <= 'd0;
+            j_upper = 'd0;
         end else begin
-            j_upper <= (1 << (`radix_k1*l) ) - 'd1;
+            j_upper = (1 << (`radix_k1*l) ) - 'd1;
         end
     end
 

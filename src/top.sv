@@ -1,11 +1,8 @@
 `include "../include/define.svh"
 `include "R16_top.sv"
 `include "Controller.sv"
-//`include "AGU_top.sv"
-//`include "AGU_top_k2.sv"
 `include "AGU_integrate.sv"
 `include "TF_top.sv"
-`include "memory_top.sv"
 `include "memory_wrapper.sv"
 
 module top (

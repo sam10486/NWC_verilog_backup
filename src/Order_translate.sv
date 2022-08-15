@@ -1161,53 +1161,53 @@ module Order_translate(
 
                 l_AGU_out <= l_pip2;
             end else begin
-                MA0_idx = 'd0;
-                BN0_idx = 'd0;
+                MA0_idx <= 'd0;
+                BN0_idx <= 'd0;
 
-                MA1_idx = 'd0;
-                BN1_idx = 'd0;
+                MA1_idx <= 'd0;
+                BN1_idx <= 'd0;
 
-                MA2_idx = 'd0;
-                BN2_idx = 'd0;
+                MA2_idx <= 'd0;
+                BN2_idx <= 'd0;
 
-                MA3_idx = 'd0;
-                BN3_idx = 'd0;
+                MA3_idx <= 'd0;
+                BN3_idx <= 'd0;
 
-                MA4_idx = 'd0;
-                BN4_idx = 'd0;
+                MA4_idx <= 'd0;
+                BN4_idx <= 'd0;
 
-                MA5_idx = 'd0;
-                BN5_idx = 'd0;
+                MA5_idx <= 'd0;
+                BN5_idx <= 'd0;
 
-                MA6_idx = 'd0;
-                BN6_idx = 'd0;
+                MA6_idx <= 'd0;
+                BN6_idx <= 'd0;
 
-                MA7_idx = 'd0;
-                BN7_idx = 'd0;
+                MA7_idx <= 'd0;
+                BN7_idx <= 'd0;
 
-                MA8_idx = 'd0;
-                BN8_idx = 'd0;
+                MA8_idx <= 'd0;
+                BN8_idx <= 'd0;
 
-                MA9_idx = 'd0;
-                BN9_idx = 'd0;
+                MA9_idx <= 'd0;
+                BN9_idx <= 'd0;
 
-                MA10_idx = 'd0;
-                BN10_idx = 'd0;
+                MA10_idx <= 'd0;
+                BN10_idx <= 'd0;
 
-                MA11_idx = 'd0;
-                BN11_idx = 'd0;
+                MA11_idx <= 'd0;
+                BN11_idx <= 'd0;
 
-                MA12_idx = 'd0;
-                BN12_idx = 'd0;
+                MA12_idx <= 'd0;
+                BN12_idx <= 'd0;
 
-                MA13_idx = 'd0;
-                BN13_idx = 'd0;
+                MA13_idx <= 'd0;
+                BN13_idx <= 'd0;
 
-                MA14_idx = 'd0;
-                BN14_idx = 'd0;
+                MA14_idx <= 'd0;
+                BN14_idx <= 'd0;
 
-                MA15_idx = 'd0;
-                BN15_idx = 'd0;
+                MA15_idx <= 'd0;
+                BN15_idx <= 'd0;
 
                 AGU_done_out <= AGU_done_pip2;
                 BN_MA_out_en <= 'd0;

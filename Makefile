@@ -170,6 +170,10 @@ syn3: | $(bld_dir)
 nWave: | $(bld_dir)
 	cd $(bld_dir); \
 	nWave &
+	
+superlint: | $(bld_dir)
+	cd $(bld_dir); \
+	jg -superlint ../script/superlint.tcl &
 
 dv: | $(bld_dir) $(syn_dir)
 	cp script/synopsys_dc.setup $(bld_dir)/.synopsys_dc.setup; \
@@ -177,7 +181,7 @@ dv: | $(bld_dir) $(syn_dir)
 	dc_shell -gui -no_home_init
 
 synthesize: | $(bld_dir) $(syn_dir)
-	cp script/synopsys_dc.setup $(bld_dir)/.synopsys_dc.setup; \
+#	cp script/synopsys_dc.setup $(bld_dir)/.synopsys_dc.setup; 
 	cd $(bld_dir); \
 	dc_shell -no_home_init -f ../script/synthesis.tcl
 

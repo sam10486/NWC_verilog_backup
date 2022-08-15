@@ -1251,7 +1251,7 @@ module memory_wrapper (
     // A port for read, B port for write
     generate
         for(i = 0; i < radix_16; i = i + 1) begin : gen_sram
-            SRAM_DP_512 sram(
+            SRAM_DP_512_rtl sram(
                 .QA(QA[i]),
                 .QB(QB[i]),
                 .CLKA(CLKA),

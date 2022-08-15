@@ -20,15 +20,15 @@ module BitRev(
         integer i;
         if (rst) begin
             for (i = 0; i<`D_width; i=i+1) begin
-                BitRev_out[i] = 'd0;
+                BitRev_out[i] <= 'd0;
             end
         end else begin
             if (BitRev_enable) begin
                 for (i = 0; i<BitRev_width; i=i+1) begin
-                    BitRev_out[BitRev_width-1 - i] = input_idx[i];
+                    BitRev_out[BitRev_width - 'd1 - i] <= input_idx[i];
                 end
             end else begin
-                BitRev_out[BitRev_width-1 - i] = 'd0;
+                BitRev_out[BitRev_width - 'd1 - i] <= 'd0;
             end
         end
     end

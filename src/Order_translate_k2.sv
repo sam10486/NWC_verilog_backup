@@ -45,7 +45,7 @@ module Order_translate_k2 (
 
     logic [`D_width-1:0] l_pip0, l_pip1, l_pip2;
 
-    always_ff @( posedge clk or posedge clk ) begin
+    always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
             Order0_tmp0_pip0 <= 'd0;
             Order0_tmp1_pip0 <= 'd0;

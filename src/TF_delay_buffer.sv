@@ -84,7 +84,7 @@ module TF_delay_buffer (
     integer i;
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
-            for (i = 0; i <= 3; i = i+1) begin
+            for (i = 0; i <= 2; i = i+1) begin
                 TF0_pip[i+1] <=     'd0;
                 TF1_pip[i+1] <=     'd0;
                 TF2_pip[i+1] <=     'd0;

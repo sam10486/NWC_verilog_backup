@@ -59,7 +59,6 @@ module Controller (
     logic [`D_width-1:0] BU_group_cnt;
     logic [`D_width-1:0] delay_cnt;
     logic delay_flag;
-    logic compute_complete;
 
     logic [`D_width-1:0] TF_base_l;
     logic [`D_width-1:0] TF_base_i;
@@ -403,7 +402,6 @@ module Controller (
                 TF_wen = 'd0;
                 TF_init_const = 'd1;
                 it_depth_cnt = 'd0;
-                compute_complete = 'd0;
                 AGU_enable = 'd0;
                 r_enable = 'd0;
                 w_enable = 'd0;
@@ -414,7 +412,7 @@ module Controller (
             end 
             NTT_ite0: begin
                 if (BN_MA_out_en) begin
-                    r_enable <= 'd1;
+                    r_enable = 'd1;
                     TF_init_base = 'd0;
                     TF_ren = 'd1;
                     TF_init_const = 'd0;
@@ -436,7 +434,6 @@ module Controller (
                 end else begin
                     ntt_enable = 'd0;
                 end
-                compute_complete = 'd0;
                 if (AGU_en_cnt == ite_0) begin
                     AGU_enable = 'd0;
                 end else begin
@@ -453,7 +450,6 @@ module Controller (
                 TF_wen = 'd0;
                 TF_init_const = 'd0;
                 it_depth_cnt = ite_stage;
-                compute_complete = 'd0;
                 AGU_enable = 'd0;
                 r_enable = 'd0;
                 w_enable = 'd1; 
@@ -468,7 +464,7 @@ module Controller (
             end
             NTT_ite1: begin
                 if (BN_MA_out_en) begin
-                    r_enable <= 'd1;
+                    r_enable = 'd1;
                     TF_init_base = 'd0;
                     TF_ren = 'd1;
                     TF_init_const = 'd0;
@@ -490,11 +486,10 @@ module Controller (
                 end else begin
                     ntt_enable = 'd0;
                 end
-                compute_complete = 'd0;
                 if (BU_cnt == ite_1-1 && BU_group_cnt != 'd15) begin
-                    TF_wen <= 'd1;
+                    TF_wen = 'd1;
                 end else begin
-                    TF_wen <= 'd0;
+                    TF_wen = 'd0;
                 end
                 AGU_enable = 'd1;
                 AGU_enable_k2 = 'd0;
@@ -507,7 +502,6 @@ module Controller (
                 TF_wen = 'd0;
                 TF_init_const = 'd0;
                 it_depth_cnt = ite_stage;
-                compute_complete = 'd0;
                 AGU_enable = 'd0;
                 r_enable = 'd0;
                 w_enable = 'd1; 
@@ -522,7 +516,7 @@ module Controller (
             end
             NTT_ite2: begin
                 if (BN_MA_out_en) begin
-                    r_enable <= 'd1;
+                    r_enable = 'd1;
                     TF_init_base = 'd0;
                     TF_ren = 'd1;
                     TF_init_const = 'd0;
@@ -544,11 +538,10 @@ module Controller (
                 end else begin
                     ntt_enable = 'd0;
                 end
-                compute_complete = 'd0;
                 if (BU_group_cnt == 'd1) begin
-                    TF_wen <= 'd1;
+                    TF_wen = 'd1;
                 end else begin
-                    TF_wen <= 'd0;
+                    TF_wen = 'd0;
                 end
                 AGU_enable = 'd1;
                 AGU_enable_k2 = 'd0;
@@ -561,7 +554,6 @@ module Controller (
                 TF_wen = 'd0;
                 TF_init_const = 'd0;
                 it_depth_cnt = ite_stage;
-                compute_complete = 'd0;
                 AGU_enable = 'd0;
                 r_enable = 'd0;
                 w_enable = 'd1; 
@@ -576,7 +568,7 @@ module Controller (
             end
             NTT_ite3: begin
                 if (BN_MA_out_en) begin
-                    r_enable <= 'd1;
+                    r_enable = 'd1;
                     TF_init_base = 'd0;
                     TF_ren = 'd1;
                     TF_init_const = 'd0;
@@ -598,11 +590,10 @@ module Controller (
                 end else begin
                     ntt_enable = 'd0;
                 end
-                compute_complete = 'd0;
                 if (BU_group_cnt == 'd0 && ite_sw_cnt_ite3 >= 'd2) begin
-                    TF_wen <= 'd1;
+                    TF_wen = 'd1;
                 end else begin
-                    TF_wen <= 'd0;
+                    TF_wen = 'd0;
                 end
                 AGU_enable = 'd0;
                 AGU_enable_k2 = 'd1;
@@ -615,7 +606,6 @@ module Controller (
                 TF_wen = 'd0;
                 TF_init_const = 'd0;
                 it_depth_cnt = last_l;
-                compute_complete = 'd0;
                 AGU_enable = 'd0;
                 r_enable = 'd0;
                 w_enable = 'd1; 
@@ -634,7 +624,6 @@ module Controller (
                 TF_wen = 'd0;
                 TF_init_const = 'd0;
                 it_depth_cnt = 'd0;
-                compute_complete = 'd0;
                 AGU_enable = 'd0;
                 r_enable = 'd0;
                 w_enable = 'd0;
@@ -649,7 +638,6 @@ module Controller (
                 TF_wen = 'd0;
                 TF_init_const = 'd0;
                 it_depth_cnt = 'd0;
-                compute_complete = 'd0;
                 AGU_enable = 'd0;
                 r_enable = 'd0;
                 w_enable = 'd0;
@@ -666,75 +654,76 @@ module Controller (
     always_comb begin
         case (cs)
             RESET: begin //0
-                ns <= IDLE;
+                ns = IDLE;
             end
             IDLE: begin //1
                 if (init_done) begin
-                    ns <= NTT_ite0;
+                    ns = NTT_ite0;
                 end else begin
-                    ns <= cs;
+                    ns = cs;
                 end
             end 
             NTT_ite0: begin //2
                 if (ite_sw_cnt == total_BU_number-1) begin
-                    ns <= NTT_buffer_0;
+                    ns = NTT_buffer_0;
                 end else begin
-                    ns <= cs;
+                    ns = cs;
                 end          
             end
             NTT_buffer_0: begin
                 if (buffer_0_cnt == buffer_0_cnt_bound) begin
-                    ns <= NTT_ite1;
+                    ns = NTT_ite1;
                 end else begin
-                    ns <= cs; 
+                    ns = cs; 
                 end
             end
             NTT_ite1: begin
                 if (ite_sw_cnt == total_BU_number-1) begin
-                    ns <= NTT_buffer_1;
+                    ns = NTT_buffer_1;
                 end else begin
-                    ns <= cs; 
+                    ns = cs; 
                 end
             end
             NTT_buffer_1: begin
                 if (buffer_1_cnt == buffer_1_cnt_bound) begin
-                    ns <= NTT_ite2;
+                    ns = NTT_ite2;
                 end else begin
-                    ns <= cs; 
+                    ns = cs; 
                 end
             end
             NTT_ite2: begin
                 if (ite_sw_cnt == total_BU_number-1) begin
-                    ns <= NTT_buffer_2;
+                    ns = NTT_buffer_2;
                 end else begin
-                    ns <= cs; 
+                    ns = cs; 
                 end
             end
             NTT_buffer_2: begin
                 if (buffer_2_cnt == buffer_2_cnt_bound) begin
-                    ns <= NTT_ite3;
+                    ns = NTT_ite3;
                 end else begin
-                    ns <= cs; 
+                    ns = cs; 
                 end
             end
             NTT_ite3: begin
                 if (ite_sw_cnt_ite3 == total_BU_number_k2) begin
-                    ns <= NTT_buffer_3;
+                    ns = NTT_buffer_3;
                 end else begin
-                    ns <= cs; 
+                    ns = cs; 
                 end
             end
             NTT_buffer_3: begin
                 if (buffer_3_cnt == buffer_3_cnt_bound) begin
-                    ns <= NTT_finish;
+                    ns = NTT_finish;
                 end else begin
-                    ns <= cs; 
+                    ns = cs; 
                 end
             end
             NTT_finish: begin
-                ns <= NTT_finish;
+                ns = NTT_finish;
             end
             default: begin
+                ns = cs;
             end
         endcase
     end
