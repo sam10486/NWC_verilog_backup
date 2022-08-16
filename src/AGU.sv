@@ -131,8 +131,8 @@ module AGU(
 
     always_comb begin
         if (AGU_enable) begin
-            tmp1 = 1'd1 << ((`logn) - `radix_k1*l);
-            tmp2 = 1'd1 << ((`logn) - `radix_k1*(l+1));
+            tmp1 = 'd1 << ((`logn) - `radix_k1*l);
+            tmp2 = 'd1 << ((`logn) - `radix_k1*(l+1));
         end else begin
             tmp1 = 'd0;
             tmp2 = 'd0;

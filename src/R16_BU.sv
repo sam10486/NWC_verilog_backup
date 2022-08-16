@@ -51,7 +51,7 @@ module R16_BU (
 
     output logic [`D_width-1:0] y0, y1, y2, y3, y4, y5, y6, y7,
                                 y8, y9, y10, y11, y12, y13, y14, y15,
-    output logic ntt_done,
+    output logic [1:0] ntt_done,
 
     output logic [`MA_width-1:0] R16_MA0_idx_out ,
     output logic [`MA_width-1:0] R16_MA1_idx_out ,
@@ -123,6 +123,8 @@ module R16_BU (
     logic [`BANK_width-1:0]    R16_BN13_idx_pip_out;
     logic [`BANK_width-1:0]    R16_BN14_idx_pip_out;
     logic [`BANK_width-1:0]    R16_BN15_idx_pip_out;
+
+    logic [1:0] ntt_done_pip_out;
 
     delay_buffer delay_buffer(
         //input

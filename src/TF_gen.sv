@@ -138,6 +138,40 @@ module TF_gen(
 			for(int i=0; i<TF_const_bank; i++) begin
 				TF_const_array[i] <= 'd0;
 			end
+			
+			TF_base_b1 	<= 'd0	;
+			TF_base_b2 	<= 'd0	;
+			TF_base_b3 	<= 'd0	;
+			TF_base_b4 	<= 'd0	;
+			TF_base_b5 	<= 'd0	;
+			TF_base_b6 	<= 'd0	;
+			TF_base_b7 	<= 'd0	;
+			TF_base_b8 	<= 'd0	;
+			TF_base_b9 	<= 'd0	;
+			TF_base_b10 <= 'd0	;
+			TF_base_b11 <= 'd0	;
+			TF_base_b12 <= 'd0	;
+			TF_base_b13 <= 'd0	;
+			TF_base_b14 <= 'd0	;
+			TF_base_b15 <= 'd0	;
+
+			TF_const_b1 	<= 'd0;
+			TF_const_b2 	<= 'd0;
+			TF_const_b3 	<= 'd0;
+			TF_const_b4 	<= 'd0;
+			TF_const_b5 	<= 'd0;
+			TF_const_b6 	<= 'd0;
+			TF_const_b7 	<= 'd0;
+			TF_const_b8 	<= 'd0;
+			TF_const_b9 	<= 'd0;
+			TF_const_b10 	<= 'd0;
+			TF_const_b11 	<= 'd0;
+			TF_const_b12 	<= 'd0;
+			TF_const_b13 	<= 'd0;
+			TF_const_b14 	<= 'd0;
+			TF_const_b15 	<= 'd0;
+
+
 		end else begin
 			case({TF_init_base, TF_init_const, TF_ren, TF_wen})
 				'b1000: begin

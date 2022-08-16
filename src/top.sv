@@ -18,7 +18,7 @@ module top (
     logic ctr_BN_MA_out_en;
     logic ctr_r_enable_out;
     logic ctr_w_enable_out;
-    logic ctr_ntt_done;
+    logic [1:0] ctr_ntt_done;
     logic ctr_TF_init_base;
     logic ctr_TF_ren;
     logic ctr_TF_wen;
@@ -547,155 +547,6 @@ module top (
         .BN15_idx_out   (mem_BN15_idx_out)
     );
     
-    /*
-    memory_top memory_top(
-        //input
-        .LAST_STAGE     (mem_LAST_STAGE),
-        .data_in0       (mem_data_in0 ),
-        .data_in1       (mem_data_in1 ),
-        .data_in2       (mem_data_in2 ),
-        .data_in3       (mem_data_in3 ),
-        .data_in4       (mem_data_in4 ),
-        .data_in5       (mem_data_in5 ),
-        .data_in6       (mem_data_in6 ),
-        .data_in7       (mem_data_in7 ),
-        .data_in8       (mem_data_in8 ),
-        .data_in9       (mem_data_in9 ),
-        .data_in10      (mem_data_in10),
-        .data_in11      (mem_data_in11),
-        .data_in12      (mem_data_in12),
-        .data_in13      (mem_data_in13),
-        .data_in14      (mem_data_in14),
-        .data_in15      (mem_data_in15),
-
-        .MA0_idx        (mem_MA0_idx ),
-        .MA1_idx        (mem_MA1_idx ),
-        .MA2_idx        (mem_MA2_idx ),
-        .MA3_idx        (mem_MA3_idx ),
-        .MA4_idx        (mem_MA4_idx ),
-        .MA5_idx        (mem_MA5_idx ),
-        .MA6_idx        (mem_MA6_idx ),
-        .MA7_idx        (mem_MA7_idx ),
-        .MA8_idx        (mem_MA8_idx ),
-        .MA9_idx        (mem_MA9_idx ),
-        .MA10_idx       (mem_MA10_idx),
-        .MA11_idx       (mem_MA11_idx),
-        .MA12_idx       (mem_MA12_idx),
-        .MA13_idx       (mem_MA13_idx),
-        .MA14_idx       (mem_MA14_idx),
-        .MA15_idx       (mem_MA15_idx),
-
-        .BN0_idx        (mem_BN0_idx ),
-        .BN1_idx        (mem_BN1_idx ),
-        .BN2_idx        (mem_BN2_idx ),
-        .BN3_idx        (mem_BN3_idx ),
-        .BN4_idx        (mem_BN4_idx ),
-        .BN5_idx        (mem_BN5_idx ),
-        .BN6_idx        (mem_BN6_idx ),
-        .BN7_idx        (mem_BN7_idx ),
-        .BN8_idx        (mem_BN8_idx ),
-        .BN9_idx        (mem_BN9_idx ),
-        .BN10_idx       (mem_BN10_idx),
-        .BN11_idx       (mem_BN11_idx),
-        .BN12_idx       (mem_BN12_idx),
-        .BN13_idx       (mem_BN13_idx),
-        .BN14_idx       (mem_BN14_idx),
-        .BN15_idx       (mem_BN15_idx),
-
-        .r_enable       (mem_r_enable),
-        .w_enable       (mem_w_enable),
-        .clk            (clk     ),
-        .rst            (rst     ),
-
-        .R16_w_MA0_idx  (mem_R16_w_MA0_idx ),
-        .R16_w_MA1_idx  (mem_R16_w_MA1_idx ),
-        .R16_w_MA2_idx  (mem_R16_w_MA2_idx ),
-        .R16_w_MA3_idx  (mem_R16_w_MA3_idx ),
-        .R16_w_MA4_idx  (mem_R16_w_MA4_idx ),
-        .R16_w_MA5_idx  (mem_R16_w_MA5_idx ),
-        .R16_w_MA6_idx  (mem_R16_w_MA6_idx ),
-        .R16_w_MA7_idx  (mem_R16_w_MA7_idx ),
-        .R16_w_MA8_idx  (mem_R16_w_MA8_idx ),
-        .R16_w_MA9_idx  (mem_R16_w_MA9_idx ),
-        .R16_w_MA10_idx (mem_R16_w_MA10_idx),
-        .R16_w_MA11_idx (mem_R16_w_MA11_idx),
-        .R16_w_MA12_idx (mem_R16_w_MA12_idx),
-        .R16_w_MA13_idx (mem_R16_w_MA13_idx),
-        .R16_w_MA14_idx (mem_R16_w_MA14_idx),
-        .R16_w_MA15_idx (mem_R16_w_MA15_idx),
-
-        .R16_w_BN0_idx  (mem_R16_w_BN0_idx ),
-        .R16_w_BN1_idx  (mem_R16_w_BN1_idx ),
-        .R16_w_BN2_idx  (mem_R16_w_BN2_idx ),
-        .R16_w_BN3_idx  (mem_R16_w_BN3_idx ),
-        .R16_w_BN4_idx  (mem_R16_w_BN4_idx ),
-        .R16_w_BN5_idx  (mem_R16_w_BN5_idx ),
-        .R16_w_BN6_idx  (mem_R16_w_BN6_idx ),
-        .R16_w_BN7_idx  (mem_R16_w_BN7_idx ),
-        .R16_w_BN8_idx  (mem_R16_w_BN8_idx ),
-        .R16_w_BN9_idx  (mem_R16_w_BN9_idx ),
-        .R16_w_BN10_idx (mem_R16_w_BN10_idx),
-        .R16_w_BN11_idx (mem_R16_w_BN11_idx),
-        .R16_w_BN12_idx (mem_R16_w_BN12_idx),
-        .R16_w_BN13_idx (mem_R16_w_BN13_idx),
-        .R16_w_BN14_idx (mem_R16_w_BN14_idx),
-        .R16_w_BN15_idx (mem_R16_w_BN15_idx),
-        //output
-        .memory_b0      (mem_memory_b0 ),
-        .memory_b1      (mem_memory_b1 ),
-        .memory_b2      (mem_memory_b2 ),
-        .memory_b3      (mem_memory_b3 ),
-        .memory_b4      (mem_memory_b4 ),
-        .memory_b5      (mem_memory_b5 ),
-        .memory_b6      (mem_memory_b6 ),
-        .memory_b7      (mem_memory_b7 ),
-        .memory_b8      (mem_memory_b8 ),
-        .memory_b9      (mem_memory_b9 ),
-        .memory_b10     (mem_memory_b10),
-        .memory_b11     (mem_memory_b11),
-        .memory_b12     (mem_memory_b12),
-        .memory_b13     (mem_memory_b13),
-        .memory_b14     (mem_memory_b14),
-        .memory_b15     (mem_memory_b15),
-
-        .r_enable_out   (mem_r_enable_out),
-        .w_enable_out   (mem_w_enable_out),
-
-        .MA0_idx_out    (mem_MA0_idx_out ),
-        .MA1_idx_out    (mem_MA1_idx_out ),
-        .MA2_idx_out    (mem_MA2_idx_out ),
-        .MA3_idx_out    (mem_MA3_idx_out ),
-        .MA4_idx_out    (mem_MA4_idx_out ),
-        .MA5_idx_out    (mem_MA5_idx_out ),
-        .MA6_idx_out    (mem_MA6_idx_out ),
-        .MA7_idx_out    (mem_MA7_idx_out ),
-        .MA8_idx_out    (mem_MA8_idx_out ),
-        .MA9_idx_out    (mem_MA9_idx_out ),
-        .MA10_idx_out   (mem_MA10_idx_out),
-        .MA11_idx_out   (mem_MA11_idx_out),
-        .MA12_idx_out   (mem_MA12_idx_out),
-        .MA13_idx_out   (mem_MA13_idx_out),
-        .MA14_idx_out   (mem_MA14_idx_out),
-        .MA15_idx_out   (mem_MA15_idx_out),
-
-        .BN0_idx_out    (mem_BN0_idx_out ),
-        .BN1_idx_out    (mem_BN1_idx_out ),
-        .BN2_idx_out    (mem_BN2_idx_out ),
-        .BN3_idx_out    (mem_BN3_idx_out ),
-        .BN4_idx_out    (mem_BN4_idx_out ),
-        .BN5_idx_out    (mem_BN5_idx_out ),
-        .BN6_idx_out    (mem_BN6_idx_out ),
-        .BN7_idx_out    (mem_BN7_idx_out ),
-        .BN8_idx_out    (mem_BN8_idx_out ),
-        .BN9_idx_out    (mem_BN9_idx_out ),
-        .BN10_idx_out   (mem_BN10_idx_out),
-        .BN11_idx_out   (mem_BN11_idx_out),
-        .BN12_idx_out   (mem_BN12_idx_out),
-        .BN13_idx_out   (mem_BN13_idx_out),
-        .BN14_idx_out   (mem_BN14_idx_out),
-        .BN15_idx_out   (mem_BN15_idx_out)
-    );*/
-
     //input
     logic  R16_LAST_STAGE ;
     logic [`D_width-1:0] R16_data_in0   ;
@@ -785,6 +636,7 @@ module top (
     logic [`D_width-1:0] R16_data_out13 ;
     logic [`D_width-1:0] R16_data_out14 ;
     logic [`D_width-1:0] R16_data_out15 ;
+    logic [1:0] R16_ntt_done;
 
     logic [`MA_width-1:0] R16_MA0_idx_out    ;
     logic [`MA_width-1:0] R16_MA1_idx_out    ;

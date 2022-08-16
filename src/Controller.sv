@@ -12,7 +12,7 @@ module Controller (
     input w_enable_out,
 
     //ntt
-    input ntt_done,
+    input [1:0] ntt_done,
 
     // TF_gen
     output logic TF_init_base,
@@ -654,7 +654,11 @@ module Controller (
     always_comb begin
         case (cs)
             RESET: begin //0
-                ns = IDLE;
+                if (rst) begin
+                    ns = cs;
+                end else begin
+                    ns = IDLE;
+                end
             end
             IDLE: begin //1
                 if (init_done) begin
@@ -720,7 +724,7 @@ module Controller (
                 end
             end
             NTT_finish: begin
-                ns = NTT_finish;
+                ns = IDLE;
             end
             default: begin
                 ns = cs;

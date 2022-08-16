@@ -24,11 +24,15 @@ module BitRev(
             end
         end else begin
             if (BitRev_enable) begin
-                for (i = 0; i<BitRev_width; i=i+1) begin
-                    BitRev_out[BitRev_width - 'd1 - i] <= input_idx[i];
+                for (i = 0; i < `D_width; i = i+1) begin
+                    if (i < BitRev_width) begin
+                        BitRev_out[BitRev_width - 'd1 - i] <= input_idx[i];
+                    end
                 end
             end else begin
-                BitRev_out[BitRev_width - 'd1 - i] <= 'd0;
+                for (i = 0; i<`D_width; i=i+1) begin
+					BitRev_out[i] <= 'd0;
+				end
             end
         end
     end

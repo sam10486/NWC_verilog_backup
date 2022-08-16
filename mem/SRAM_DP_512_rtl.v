@@ -50,7 +50,7 @@
 //
 `timescale 1 ns/1 ps
 `celldefine
-  module SRAM_DP_512_rtl (
+  module SRAM_DP_512 (
                 QA,
                 QB,
                 CLKA,

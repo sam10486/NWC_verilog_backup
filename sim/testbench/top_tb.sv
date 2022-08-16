@@ -1,5 +1,17 @@
 `include "../include/define.svh"
 `include "top.sv"
+
+`ifdef SYN
+`include "top_syn.v"
+`include "SRAM_DP_512.v"
+`timescale 1ns/10ps
+`else
+`include "top.sv"
+`include "SRAM_DP_512_rtl.v"
+`endif
+`timescale 1ns/10ps
+//`include "SRAM_DP_512_rtl.v"
+
 `define CYCLE 10
 
 module Testbench ();

@@ -2,7 +2,7 @@
 `define DEFINE_SVH
 
 `timescale 10ns / 1ps
-`define D_width 32
+`define D_width 52
 `define Modulus_D_width 28
 
 `define degree 8192

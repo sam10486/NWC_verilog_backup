@@ -24,7 +24,7 @@ top_tb: | $(bld_dir)
 	fi; \
 	cd $(bld_dir); \
 	irun $(root_dir)/$(sim_dir)/testbench/top_tb.sv \
-	+incdir+$(root_dir)/$(src_dir)+$(root_dir)/$(inc_dir)+$(root_dir)/$(sim_dir) \
+	+incdir+$(root_dir)/$(src_dir)+$(root_dir)/$(inc_dir)+$(root_dir)/$(sim_dir)+$(root_dir)/$(mem_dir) \
 	-define CYCLE=$(CYCLE) \
 	-define MAX=$(MAX) \
 	+access+r -loadpli1 debpli:novas_pli_boot \

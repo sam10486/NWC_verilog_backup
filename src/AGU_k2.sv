@@ -63,7 +63,7 @@ module AGU_k2 (
 
     always_comb begin
         if (AGU_enable_k2) begin
-            tmp1 = (1 << radix_k2);
+            tmp1 = ('d1 << radix_k2);
         end else begin
             tmp1 = 'd0;
         end

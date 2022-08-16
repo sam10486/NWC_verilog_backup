@@ -2,7 +2,7 @@
 `include "Mux_16_1_out.sv"
 `include "Mux_16_1_in.sv"
 `include "w_R16_Mux_16_1_in.sv"
-`include "../mem/SRAM_DP_512_rtl.v"
+//`include "../mem/SRAM_DP_512_rtl.v"
 
 module memory_wrapper (
     input LAST_STAGE,
@@ -183,7 +183,7 @@ module memory_wrapper (
     assign zero = 'd0;
     assign zero_mux_16_in = 'd0;
 
-    logic [3:0] BN_idx_sel_in [0:BN-1];
+    logic [4:0] BN_idx_sel_in [0:BN-1];
     logic [4:0] R16_w_BN_idx_sel_in [0:BN-1];
 
     //---------Read sel--------------
@@ -1251,7 +1251,7 @@ module memory_wrapper (
     // A port for read, B port for write
     generate
         for(i = 0; i < radix_16; i = i + 1) begin : gen_sram
-            SRAM_DP_512_rtl sram(
+            SRAM_DP_512 sram(
                 .QA(QA[i]),
                 .QB(QB[i]),
                 .CLKA(CLKA),
@@ -1320,75 +1320,75 @@ module memory_wrapper (
     //------------------------------------
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
-            MA0_idx_out     = 'd0;
-            MA1_idx_out     = 'd0;
-            MA2_idx_out     = 'd0;
-            MA3_idx_out     = 'd0;
-            MA4_idx_out     = 'd0;
-            MA5_idx_out     = 'd0;
-            MA6_idx_out     = 'd0;
-            MA7_idx_out     = 'd0;
-            MA8_idx_out     = 'd0;
-            MA9_idx_out     = 'd0;
-            MA10_idx_out    = 'd0;
-            MA11_idx_out    = 'd0;
-            MA12_idx_out    = 'd0;
-            MA13_idx_out    = 'd0;
-            MA14_idx_out    = 'd0;
-            MA15_idx_out    = 'd0;
-            BN0_idx_out     = 'd0;
-            BN1_idx_out     = 'd0;
-            BN2_idx_out     = 'd0;
-            BN3_idx_out     = 'd0;
-            BN4_idx_out     = 'd0;
-            BN5_idx_out     = 'd0;
-            BN6_idx_out     = 'd0;
-            BN7_idx_out     = 'd0;
-            BN8_idx_out     = 'd0;
-            BN9_idx_out     = 'd0;
-            BN10_idx_out    = 'd0;
-            BN11_idx_out    = 'd0;
-            BN12_idx_out    = 'd0;
-            BN13_idx_out    = 'd0;
-            BN14_idx_out    = 'd0;
-            BN15_idx_out    = 'd0;
-            r_enable_out    = 'd0;
-            w_enable_out    = 'd0;
+            MA0_idx_out     <= 'd0;
+            MA1_idx_out     <= 'd0;
+            MA2_idx_out     <= 'd0;
+            MA3_idx_out     <= 'd0;
+            MA4_idx_out     <= 'd0;
+            MA5_idx_out     <= 'd0;
+            MA6_idx_out     <= 'd0;
+            MA7_idx_out     <= 'd0;
+            MA8_idx_out     <= 'd0;
+            MA9_idx_out     <= 'd0;
+            MA10_idx_out    <= 'd0;
+            MA11_idx_out    <= 'd0;
+            MA12_idx_out    <= 'd0;
+            MA13_idx_out    <= 'd0;
+            MA14_idx_out    <= 'd0;
+            MA15_idx_out    <= 'd0;
+            BN0_idx_out     <= 'd0;
+            BN1_idx_out     <= 'd0;
+            BN2_idx_out     <= 'd0;
+            BN3_idx_out     <= 'd0;
+            BN4_idx_out     <= 'd0;
+            BN5_idx_out     <= 'd0;
+            BN6_idx_out     <= 'd0;
+            BN7_idx_out     <= 'd0;
+            BN8_idx_out     <= 'd0;
+            BN9_idx_out     <= 'd0;
+            BN10_idx_out    <= 'd0;
+            BN11_idx_out    <= 'd0;
+            BN12_idx_out    <= 'd0;
+            BN13_idx_out    <= 'd0;
+            BN14_idx_out    <= 'd0;
+            BN15_idx_out    <= 'd0;
+            r_enable_out    <= 'd0;
+            w_enable_out    <= 'd0;
         end else begin
-            MA0_idx_out     = MA0_idx;
-            MA1_idx_out     = MA1_idx;
-            MA2_idx_out     = MA2_idx;
-            MA3_idx_out     = MA3_idx;
-            MA4_idx_out     = MA4_idx;
-            MA5_idx_out     = MA5_idx;
-            MA6_idx_out     = MA6_idx;
-            MA7_idx_out     = MA7_idx;
-            MA8_idx_out     = MA8_idx;
-            MA9_idx_out     = MA9_idx;
-            MA10_idx_out    = MA10_idx;
-            MA11_idx_out    = MA11_idx;
-            MA12_idx_out    = MA12_idx;
-            MA13_idx_out    = MA13_idx;
-            MA14_idx_out    = MA14_idx;
-            MA15_idx_out    = MA15_idx;
-            BN0_idx_out     = BN0_idx;
-            BN1_idx_out     = BN1_idx;
-            BN2_idx_out     = BN2_idx;
-            BN3_idx_out     = BN3_idx;
-            BN4_idx_out     = BN4_idx;
-            BN5_idx_out     = BN5_idx;
-            BN6_idx_out     = BN6_idx;
-            BN7_idx_out     = BN7_idx;
-            BN8_idx_out     = BN8_idx;
-            BN9_idx_out     = BN9_idx;
-            BN10_idx_out    = BN10_idx;
-            BN11_idx_out    = BN11_idx;
-            BN12_idx_out    = BN12_idx;
-            BN13_idx_out    = BN13_idx;
-            BN14_idx_out    = BN14_idx;
-            BN15_idx_out    = BN15_idx;
-            r_enable_out    = r_enable;
-            w_enable_out    = w_enable;
+            MA0_idx_out     <= MA0_idx;
+            MA1_idx_out     <= MA1_idx;
+            MA2_idx_out     <= MA2_idx;
+            MA3_idx_out     <= MA3_idx;
+            MA4_idx_out     <= MA4_idx;
+            MA5_idx_out     <= MA5_idx;
+            MA6_idx_out     <= MA6_idx;
+            MA7_idx_out     <= MA7_idx;
+            MA8_idx_out     <= MA8_idx;
+            MA9_idx_out     <= MA9_idx;
+            MA10_idx_out    <= MA10_idx;
+            MA11_idx_out    <= MA11_idx;
+            MA12_idx_out    <= MA12_idx;
+            MA13_idx_out    <= MA13_idx;
+            MA14_idx_out    <= MA14_idx;
+            MA15_idx_out    <= MA15_idx;
+            BN0_idx_out     <= BN0_idx;
+            BN1_idx_out     <= BN1_idx;
+            BN2_idx_out     <= BN2_idx;
+            BN3_idx_out     <= BN3_idx;
+            BN4_idx_out     <= BN4_idx;
+            BN5_idx_out     <= BN5_idx;
+            BN6_idx_out     <= BN6_idx;
+            BN7_idx_out     <= BN7_idx;
+            BN8_idx_out     <= BN8_idx;
+            BN9_idx_out     <= BN9_idx;
+            BN10_idx_out    <= BN10_idx;
+            BN11_idx_out    <= BN11_idx;
+            BN12_idx_out    <= BN12_idx;
+            BN13_idx_out    <= BN13_idx;
+            BN14_idx_out    <= BN14_idx;
+            BN15_idx_out    <= BN15_idx;
+            r_enable_out    <= r_enable;
+            w_enable_out    <= w_enable;
         end
     end
 

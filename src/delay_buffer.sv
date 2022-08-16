@@ -73,7 +73,7 @@ module delay_buffer (
     output logic [`BANK_width-1:0] R16_BN14_idx_pip_out,
     output logic [`BANK_width-1:0] R16_BN15_idx_pip_out,
 
-    output logic ntt_done_pip_out
+    output logic [1:0] ntt_done_pip_out
 );
 
     logic [`MA_width-1:0] R16_MA0_idx_pip[0:12]    ;
