@@ -1,4 +1,4 @@
-set search_path      ". /usr/cad/synopsys/CBDK_TSMC90GUTM_Arm_f1.0/CIC/SynopsysDC/db ../Mem_lib ../mem $search_path"
+set search_path      ". /usr/cad/synopsys/CBDK_TSMC90GUTM_Arm_f1.0/CIC/SynopsysDC/db ../mem $search_path"
 #set target_library  "slow.db fast.db typical.db SRAM_DP_512.db"
 set target_library  "typical.db SRAM_DP_512.db"
 set link_library     "* $target_library dw_foundation.sldb"
@@ -39,8 +39,8 @@ set_wire_load_model -name tsmc090_wl10 -library typical
 create_clock -period 24 [get_ports clk]
 set_dont_touch_network [get_ports clk]                                                          
 set_ideal_network [get_ports clk]                                                             
-set_ideal_network [get_ports rst_n]                                                             
-#set_dont_touch_network [get_ports rst_n]                                                       
+set_ideal_network [get_ports rst]                                                             
+#set_dont_touch_network [get_ports rst]                                                       
                                                                                                 
 set_clock_uncertainty -setup 0.1 [get_clocks clk]                                               
 set_drive [drive_of typical/DFFX2/Q] [remove_from_collection [all_inputs] [get_ports {clk}]]    
@@ -51,7 +51,7 @@ set_input_delay 0.2 -clock clk [remove_from_collection [all_inputs] [get_ports {
 set_output_delay 0.2 -max -clock clk [all_outputs]                                              
 set_fix_multiple_port_nets -all -buffer_constants  
 set_host_options -max_cores 4                                             
-#set_case_analysis 1 [get_ports rst_n]                                                          
+#set_case_analysis 1 [get_ports rst]                                                          
 #set_max_area 0                                                                                 
                                                                                                 
 #set_clock_gating_style -sequential_cell latch -max_fanout 3 -num_stage 1 -setup 0.3            
@@ -92,6 +92,8 @@ write_sdf -version 2.1 -context verilog -load_delay net ../syn/top_syn.sdf
 report_timing -max_paths 20  > ../syn/timing.log                                  
 report_area > ../syn/area.log                                                     
 report_power > ../syn/power.log                                                   
-report_area -hier > ../syn/area_hier.log                                          
+report_area -hier > ../syn/area_hier.log      
+
+exit
                                                                                            
 

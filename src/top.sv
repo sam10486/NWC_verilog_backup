@@ -19,11 +19,9 @@ module top (
     logic ctr_r_enable_out;
     logic ctr_w_enable_out;
     logic [1:0] ctr_ntt_done;
-    logic ctr_TF_init_base;
     logic ctr_TF_ren;
     logic ctr_TF_wen;
     logic [`D_width-1:0] ctr_it_depth_cnt;
-    logic ctr_TF_init_const;
     logic ctr_AGU_enable;
     logic ctr_AGU_enable_k2;
     logic ctr_r_enable;
@@ -42,11 +40,9 @@ module top (
         .w_enable_out   (ctr_w_enable_out),
         .ntt_done       (ctr_ntt_done),
         //output
-        .TF_init_base   (ctr_TF_init_base),
         .TF_ren         (ctr_TF_ren),
         .TF_wen         (ctr_TF_wen),
         .it_depth_cnt   (ctr_it_depth_cnt),
-        .TF_init_const  (ctr_TF_init_const),
         .AGU_enable     (ctr_AGU_enable),
         .AGU_enable_k2  (ctr_AGU_enable_k2),
         .r_enable       (ctr_r_enable),
@@ -58,7 +54,6 @@ module top (
 
     //input
     logic                TF_gen_LAST_STAGE     ;
-    logic                TF_gen_TF_init_base   ;
     logic                TF_gen_TF_ren         ;
     logic                TF_gen_TF_wen         ;
     logic [`D_width-1:0] TF_gen_it_depth_cnt;
@@ -78,7 +73,6 @@ module top (
     logic [`D_width-1:0] TF_gen_TF_base_in13   ;
     logic [`D_width-1:0] TF_gen_TF_base_in14   ;
 
-    logic                TF_gen_TF_init_const  ;
     logic [`D_width-1:0] TF_gen_TF_const_in0   ;
     logic [`D_width-1:0] TF_gen_TF_const_in1   ;
     logic [`D_width-1:0] TF_gen_TF_const_in2   ;
@@ -117,7 +111,6 @@ module top (
         .LAST_STAGE     (TF_gen_LAST_STAGE),
         .clk            (clk),
         .rst            (rst),
-        .TF_init_base   (TF_gen_TF_init_base),
         .TF_ren         (TF_gen_TF_ren),
         .TF_wen         (TF_gen_TF_wen),
         .it_depth_cnt   (TF_gen_it_depth_cnt),
@@ -137,7 +130,6 @@ module top (
         .TF_base_in13   (TF_gen_TF_base_in13),
         .TF_base_in14   (TF_gen_TF_base_in14),
 
-        .TF_init_const  (TF_gen_TF_init_const  ),
         .TF_const_in0   (TF_gen_TF_const_in0   ),
         .TF_const_in1   (TF_gen_TF_const_in1   ),
         .TF_const_in2   (TF_gen_TF_const_in2   ),
@@ -583,6 +575,7 @@ module top (
     logic [`D_width-1:0] R16_TF14       ;
     logic [`D_width-1:0] R16_TF15       ;
 
+    logic R16_ntt_enable                 ;
     logic [`MA_width-1:0] R16_MA0_idx    ;
     logic [`MA_width-1:0] R16_MA1_idx    ;
     logic [`MA_width-1:0] R16_MA2_idx    ;
@@ -816,7 +809,6 @@ module top (
   
     //TF_gen
     assign TF_gen_LAST_STAGE    = ctr_LAST_STAGE    ;
-    assign TF_gen_TF_init_base  = ctr_TF_init_base  ;
     assign TF_gen_TF_ren        = ctr_TF_ren        ;
     assign TF_gen_TF_wen        = ctr_TF_wen        ;
     assign TF_gen_it_depth_cnt  = ctr_it_depth_cnt  ; 
@@ -837,7 +829,6 @@ module top (
     assign TF_gen_TF_base_in13  = 'd0      ;
     assign TF_gen_TF_base_in14  = 'd0      ;
     
-    assign TF_gen_TF_init_const = ctr_TF_init_const ;
     assign TF_gen_TF_const_in0  = 'd0     ;
     assign TF_gen_TF_const_in1  = 'd0     ;
     assign TF_gen_TF_const_in2  = 'd0     ;

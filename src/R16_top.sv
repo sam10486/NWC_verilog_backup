@@ -94,7 +94,7 @@ module R16_top(
     output logic [`D_width-1:0] y14 ,
     output logic [`D_width-1:0] y15 ,
 
-    output logic ntt_done,
+    output logic [1:0] ntt_done,
 
     output logic [`MA_width-1:0] R16_MA0_idx_out ,
     output logic [`MA_width-1:0] R16_MA1_idx_out ,
@@ -366,7 +366,7 @@ module R16_top(
     logic [`D_width-1:0]    y14_pip_out ;
     logic [`D_width-1:0]    y15_pip_out ;
         
-    logic                   ntt_done_pip_out    ;
+    logic [1:0]                  ntt_done_pip_out    ;
         
     logic [`MA_width-1:0]    R16_MA0_idx_out_pip_out     ;
     logic [`MA_width-1:0]    R16_MA1_idx_out_pip_out     ;

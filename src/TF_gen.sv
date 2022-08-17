@@ -4,7 +4,6 @@
 module TF_gen(
 	input clk,
 	input rst,
-	input TF_init_base,
 	input TF_ren,
 	input TF_wen,
 	input [`D_width-1:0] it_depth_cnt,
@@ -25,7 +24,6 @@ module TF_gen(
 	input [`D_width-1:0] TF_base_in14,
 	
 
-	input  TF_init_const,
 	input [`D_width-1:0] TF_const_in0,
 	input [`D_width-1:0] TF_const_in1,
 	input [`D_width-1:0] TF_const_in2,
@@ -129,16 +127,7 @@ module TF_gen(
 	assign test_TF = TF_base_array[3][4];
 	
 	always_ff@(posedge clk or posedge rst) begin
-		if (rst) begin
-			for(int i=0; i<it_depth; i++) begin
-				for(int j=0; j<TF_bank; j++) begin
-					TF_base_array[i][j] <= 'd0;
-				end
-			end
-			for(int i=0; i<TF_const_bank; i++) begin
-				TF_const_array[i] <= 'd0;
-			end
-			
+		if (rst) begin		
 			TF_base_b1 	<= 'd0	;
 			TF_base_b2 	<= 'd0	;
 			TF_base_b3 	<= 'd0	;
@@ -173,41 +162,8 @@ module TF_gen(
 
 
 		end else begin
-			case({TF_init_base, TF_init_const, TF_ren, TF_wen})
-				'b1000: begin
-					TF_base_array[it_depth_cnt][0] <= TF_base_in0;
-					TF_base_array[it_depth_cnt][1] <= TF_base_in1;
-					TF_base_array[it_depth_cnt][2] <= TF_base_in2;
-					TF_base_array[it_depth_cnt][3] <= TF_base_in3;
-					TF_base_array[it_depth_cnt][4] <= TF_base_in4;
-					TF_base_array[it_depth_cnt][5] <= TF_base_in5;
-					TF_base_array[it_depth_cnt][6] <= TF_base_in6;
-					TF_base_array[it_depth_cnt][7] <= TF_base_in7;
-					TF_base_array[it_depth_cnt][8] <= TF_base_in8;
-					TF_base_array[it_depth_cnt][9] <= TF_base_in9;
-					TF_base_array[it_depth_cnt][10] <= TF_base_in10;
-					TF_base_array[it_depth_cnt][11] <= TF_base_in11;
-					TF_base_array[it_depth_cnt][12] <= TF_base_in12;
-					TF_base_array[it_depth_cnt][13] <= TF_base_in13;
-					TF_base_array[it_depth_cnt][14] <= TF_base_in14;
-				end
-				'b0100: begin
-					TF_const_array[0] <= TF_const_in0;
-					TF_const_array[1] <= TF_const_in1;
-					TF_const_array[2] <= TF_const_in2;
-					TF_const_array[3] <= TF_const_in3;
-					TF_const_array[4] <= TF_const_in4;
-					TF_const_array[5] <= TF_const_in5;
-					TF_const_array[6] <= TF_const_in6;
-					TF_const_array[7] <= TF_const_in7;
-					TF_const_array[8] <= TF_const_in8;
-					TF_const_array[9] <= TF_const_in9;
-					TF_const_array[10] <= TF_const_in10;
-					TF_const_array[11] <= TF_const_in11;
-					TF_const_array[12] <= TF_const_in12;
-					TF_const_array[13] <= TF_const_in13;
-				end
-				'b0010: begin
+			case({TF_ren, TF_wen})
+				'b10: begin
 					TF_base_b1 <= TF_base_array[it_depth_cnt][0];
 					TF_base_b2 <= TF_base_array[it_depth_cnt][1];
 					TF_base_b3 <= TF_base_array[it_depth_cnt][2];
@@ -241,7 +197,7 @@ module TF_gen(
 					TF_const_b15 <= TF_const_array[idx15];
 
 				end
-				'b0001: begin
+				'b01: begin
 					TF_base_array[w_it_depth_cnt][0] <= TF_base_b1_out; 
 					TF_base_array[w_it_depth_cnt][1] <= TF_base_b2_out; 
 					TF_base_array[w_it_depth_cnt][2] <= TF_base_b3_out; 
@@ -258,7 +214,7 @@ module TF_gen(
 					TF_base_array[w_it_depth_cnt][13] <= TF_base_b14_out;
 					TF_base_array[w_it_depth_cnt][14] <= TF_base_b15_out;	
 				end
-				'b0011: begin
+				'b11: begin
 					if (l == 'd2 && w_it_depth_cnt == it_depth_cnt) begin
 						TF_base_b1 <= 	TF_base_b1_out;
 						TF_base_b2 <= 	TF_base_b2_out;

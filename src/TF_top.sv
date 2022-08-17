@@ -6,7 +6,6 @@ module TF_top (
 
     input clk           ,
     input rst           ,
-    input TF_init_base  ,
     input TF_ren        ,
     input TF_wen        ,
     input [`D_width-1:0] it_depth_cnt   ,
@@ -26,7 +25,6 @@ module TF_top (
     input [`D_width-1:0] TF_base_in13   ,
     input [`D_width-1:0] TF_base_in14   ,
 
-    input  TF_init_const                ,
     input [`D_width-1:0] TF_const_in0   ,
     input [`D_width-1:0] TF_const_in1   ,
     input [`D_width-1:0] TF_const_in2   ,
@@ -201,7 +199,6 @@ module TF_top (
     TF_gen TF_gen (
         .clk           (clk),
         .rst           (rst),
-        .TF_init_base  (TF_init_base),
         .TF_ren        (TF_ren      ),
         .TF_wen        (TF_wen      ),
 
@@ -222,7 +219,6 @@ module TF_top (
         .TF_base_in13   (TF_base_in13),
         .TF_base_in14   (TF_base_in14),
 
-        .TF_init_const  (TF_init_const),
         .TF_const_in0   (TF_const_in0 ),
         .TF_const_in1   (TF_const_in1 ),
         .TF_const_in2   (TF_const_in2 ),

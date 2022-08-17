@@ -15,11 +15,11 @@
 //           			TSMC CLN90G Process
 //      version:		2009Q1V1
 //      comment:		
-//      configuration:	 -instname "SRAM_DP_ADV" -words 512 -bits 64 -frequency 200 -ring_width 2.0 -mux 8 -write_mask off -wp_size 8 -top_layer "met5-9" -power_type rings -horiz met3 -vert met4 -redundancy off -rcols 2 -rrows 2 -bmux off -ser none -ema on -cust_comment "" -bus_notation on -left_bus_delim "[" -right_bus_delim "]" -pwr_gnd_rename "VDD:VDD,VSS:VSS" -prefix "" -pin_space 0.0 -name_case upper -check_instname on -diodes on -inside_ring_type VSS -drive 6 -dpccm on -asvm off -corners ff_1.1_-40.0,ff_1.1_125.0,tt_1.0_25.0,ss_0.9_125.0
+//      configuration:	 -instname "SRAM_DP_512" -words 512 -bits 64 -frequency 200 -ring_width 2.0 -mux 8 -write_mask off -wp_size 8 -top_layer "met5-9" -power_type rings -horiz met3 -vert met4 -redundancy off -rcols 2 -rrows 2 -bmux off -ser none -ema on -cust_comment "" -bus_notation on -left_bus_delim "[" -right_bus_delim "]" -pwr_gnd_rename "VDD:VDD,VSS:VSS" -prefix "" -pin_space 0.0 -name_case upper -check_instname on -diodes on -inside_ring_type VSS -drive 6 -dpccm on -asvm off -corners ff_1.1_-40.0,ff_1.1_125.0,tt_1.0_25.0,ss_0.9_125.0
 //
 //      Verilog model for Synchronous Dual-Port Ram
 //
-//      Instance Name:              SRAM_DP_ADV
+//      Instance Name:              SRAM_DP_512
 //      Words:                      512
 //      Bits:                       64
 //      Mux:                        8
@@ -31,7 +31,7 @@
 //      Redundant Columns:          0
 //      Test Muxes                  Off
 //
-//      Creation Date:  2022-08-09 07:42:17Z
+//      Creation Date:  2022-08-17 08:02:10Z
 //      Version: 	2009Q1V1
 //
 //      Modeling Assumptions: This model supports full gate level simulation

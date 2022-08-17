@@ -102,69 +102,21 @@ AGU_tb: | $(bld_dir)
 # Post-Synthesis simulation
 syn_all: clean syn0 syn1 syn2 syn3
 
-syn0: | $(bld_dir)
+top_tb_syn: | $(bld_dir)
 	@if [ $$(echo $(CYCLE) '>' 20.0 | bc -l) -eq 1 ]; then \
 		echo "Cycle time shouldn't exceed 20"; \
 		exit 1; \
 	fi; \
-	make -C $(sim_dir)/prog0/; \
 	cd $(bld_dir); \
-	irun $(root_dir)/$(sim_dir)/top_tb.sv \
+	irun $(root_dir)/$(sim_dir)/testbench/top_tb.sv \
 	-sdf_file $(root_dir)/$(syn_dir)/top_syn.sdf \
-	+incdir+$(root_dir)/$(syn_dir)+$(root_dir)/$(inc_dir)+$(root_dir)/$(sim_dir) \
-	+define+SYN+prog0$(FSDB_DEF) \
+	+incdir+$(root_dir)/$(syn_dir)+$(root_dir)/$(inc_dir)+$(root_dir)/$(sim_dir)+$(root_dir)/$(mem_dir) \
+	+define+SYN \
 	-define CYCLE=$(CYCLE) \
 	-define MAX=$(MAX) \
-	+access+r \
-	+prog_path=$(root_dir)/$(sim_dir)/prog0
+	+access+r -loadpli1 debpli:novas_pli_boot \
+	+output_path=$(root_dir)/test_result_v	
 
-syn1: | $(bld_dir)
-	@if [ $$(echo $(CYCLE) '>' 20.0 | bc -l) -eq 1 ]; then \
-		echo "Cycle time shouldn't exceed 20"; \
-		exit 1; \
-	fi; \
-	make -C $(sim_dir)/prog1/; \
-	cd $(bld_dir); \
-	irun $(root_dir)/$(sim_dir)/top_tb.sv \
-	-sdf_file $(root_dir)/$(syn_dir)/top_syn.sdf \
-	+incdir+$(root_dir)/$(syn_dir)+$(root_dir)/$(inc_dir)+$(root_dir)/$(sim_dir) \
-	+define+SYN+prog1$(FSDB_DEF) \
-	-define CYCLE=$(CYCLE) \
-	-define MAX=$(MAX) \
-	+access+r \
-	+prog_path=$(root_dir)/$(sim_dir)/prog1
-
-syn2: | $(bld_dir)
-	@if [ $$(echo $(CYCLE) '>' 20.0 | bc -l) -eq 1 ]; then \
-		echo "Cycle time shouldn't exceed 20"; \
-		exit 1; \
-	fi; \
-	make -C $(sim_dir)/prog2/; \
-	cd $(bld_dir); \
-	irun $(root_dir)/$(sim_dir)/top_tb.sv \
-	-sdf_file $(root_dir)/$(syn_dir)/top_syn.sdf \
-	+incdir+$(root_dir)/$(syn_dir)+$(root_dir)/$(inc_dir)+$(root_dir)/$(sim_dir) \
-	+define+SYN+prog2$(FSDB_DEF) \
-	-define CYCLE=$(CYCLE) \
-	-define MAX=$(MAX) \
-	+access+r \
-	+prog_path=$(root_dir)/$(sim_dir)/prog2
-
-syn3: | $(bld_dir)
-	@if [ $$(echo $(CYCLE) '>' 20.0 | bc -l) -eq 1 ]; then \
-		echo "Cycle time shouldn't exceed 20"; \
-		exit 1; \
-	fi; \
-	make -C $(sim_dir)/prog3/; \
-	cd $(bld_dir); \
-	irun $(root_dir)/$(sim_dir)/top_tb.sv \
-	-sdf_file $(root_dir)/$(syn_dir)/top_syn.sdf \
-	+incdir+$(root_dir)/$(syn_dir)+$(root_dir)/$(inc_dir)+$(root_dir)/$(sim_dir) \
-	+define+SYN+prog3$(FSDB_DEF) \
-	-define CYCLE=$(CYCLE) \
-	-define MAX=$(MAX) \
-	+access+r \
-	+prog_path=$(root_dir)/$(sim_dir)/prog3
 
 # Utilities
 nWave: | $(bld_dir)

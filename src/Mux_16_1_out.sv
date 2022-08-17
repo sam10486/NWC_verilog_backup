@@ -40,7 +40,6 @@ module Mux_16_1_out (
             'd13:   Q_out = Q_13;
             'd14:   Q_out = Q_14;
             'd15:   Q_out = Q_15;
-            default: Q_out = 'd0;
         endcase
     end
     
