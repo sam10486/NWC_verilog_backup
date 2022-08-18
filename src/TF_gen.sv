@@ -1,5 +1,6 @@
 `include "../include/define.svh"
-//`include "barrett_reduction.sv"
+`include "Register.sv"
+`include "barrett_reduction.sv"
 
 module TF_gen(
 	input clk,
@@ -119,223 +120,194 @@ module TF_gen(
 
 	logic [`D_width-1:0] w_it_depth_cnt;
 
-	logic [`D_width-1:0] test;
-	assign test = TF_base_array[4][0];
 
-
-	logic [`D_width-1:0] test_TF;
-	assign test_TF = TF_base_array[3][4];
+	logic [`D_width-1:0] Read_TF_base0  ;
+	logic [`D_width-1:0] Read_TF_base1  ;
+	logic [`D_width-1:0] Read_TF_base2  ;
+	logic [`D_width-1:0] Read_TF_base3  ;
+	logic [`D_width-1:0] Read_TF_base4  ;
+	logic [`D_width-1:0] Read_TF_base5  ;
+	logic [`D_width-1:0] Read_TF_base6  ;
+	logic [`D_width-1:0] Read_TF_base7  ;
+	logic [`D_width-1:0] Read_TF_base8  ;
+	logic [`D_width-1:0] Read_TF_base9  ;
+	logic [`D_width-1:0] Read_TF_base10 ;
+	logic [`D_width-1:0] Read_TF_base11 ;
+	logic [`D_width-1:0] Read_TF_base12 ;
+	logic [`D_width-1:0] Read_TF_base13 ;
+	logic [`D_width-1:0] Read_TF_base14 ;
 	
-	always_ff@(posedge clk or posedge rst) begin
-		if (rst) begin		
-			for(int i=0; i<it_depth; i++) begin
-				for(int j=0; j<TF_bank; j++) begin
-					TF_base_array[i][j] <= 'd0;
-				end
-			end
-			for(int i=0; i<TF_const_bank; i++) begin
-				TF_const_array[i] <= 'd0;
-			end
+	logic [`D_width-1:0] Read_TF_const0    ;
+	logic [`D_width-1:0] Read_TF_const1    ;
+	logic [`D_width-1:0] Read_TF_const2    ;
+	logic [`D_width-1:0] Read_TF_const3    ;
+	logic [`D_width-1:0] Read_TF_const4    ;
+	logic [`D_width-1:0] Read_TF_const5    ;
+	logic [`D_width-1:0] Read_TF_const6    ;
+	logic [`D_width-1:0] Read_TF_const7    ;
+	logic [`D_width-1:0] Read_TF_const8    ;
+	logic [`D_width-1:0] Read_TF_const9    ;
+	logic [`D_width-1:0] Read_TF_const10   ;
+	logic [`D_width-1:0] Read_TF_const11   ;
+	logic [`D_width-1:0] Read_TF_const12   ;
+	logic [`D_width-1:0] Read_TF_const13   ;
+	logic [`D_width-1:0] Read_TF_const14   ;
 
+	Register Register(
+		//input
+		.clk           	(clk),
+		.rst           	(rst),
+		.TF_ren        	(TF_ren),
+		.TF_wen        	(TF_wen),
+		.it_depth_cnt   (it_depth_cnt),
+		.w_it_depth_cnt (w_it_depth_cnt),
 
-			TF_base_b1 	<= 'd0	;
-			TF_base_b2 	<= 'd0	;
-			TF_base_b3 	<= 'd0	;
-			TF_base_b4 	<= 'd0	;
-			TF_base_b5 	<= 'd0	;
-			TF_base_b6 	<= 'd0	;
-			TF_base_b7 	<= 'd0	;
-			TF_base_b8 	<= 'd0	;
-			TF_base_b9 	<= 'd0	;
-			TF_base_b10 <= 'd0	;
-			TF_base_b11 <= 'd0	;
-			TF_base_b12 <= 'd0	;
-			TF_base_b13 <= 'd0	;
-			TF_base_b14 <= 'd0	;
-			TF_base_b15 <= 'd0	;
+		.TF_base_b1_out  (TF_base_b1_out ),
+		.TF_base_b2_out  (TF_base_b2_out ),
+		.TF_base_b3_out  (TF_base_b3_out ),
+		.TF_base_b4_out  (TF_base_b4_out ),
+		.TF_base_b5_out  (TF_base_b5_out ),
+		.TF_base_b6_out  (TF_base_b6_out ),
+		.TF_base_b7_out  (TF_base_b7_out ),
+		.TF_base_b8_out  (TF_base_b8_out ),
+		.TF_base_b9_out  (TF_base_b9_out ),
+		.TF_base_b10_out (TF_base_b10_out),
+		.TF_base_b11_out (TF_base_b11_out),
+		.TF_base_b12_out (TF_base_b12_out),
+		.TF_base_b13_out (TF_base_b13_out),
+		.TF_base_b14_out (TF_base_b14_out),
+		.TF_base_b15_out (TF_base_b15_out),
 
-			TF_const_b1 	<= 'd0;
-			TF_const_b2 	<= 'd0;
-			TF_const_b3 	<= 'd0;
-			TF_const_b4 	<= 'd0;
-			TF_const_b5 	<= 'd0;
-			TF_const_b6 	<= 'd0;
-			TF_const_b7 	<= 'd0;
-			TF_const_b8 	<= 'd0;
-			TF_const_b9 	<= 'd0;
-			TF_const_b10 	<= 'd0;
-			TF_const_b11 	<= 'd0;
-			TF_const_b12 	<= 'd0;
-			TF_const_b13 	<= 'd0;
-			TF_const_b14 	<= 'd0;
-			TF_const_b15 	<= 'd0;
+		.idx1	(idx1),
+		.idx2	(idx2),
+		.idx3	(idx3),
+		.idx4	(idx4),
+		.idx5	(idx5),
+		.idx6	(idx6),
+		.idx7	(idx7),
+		.idx8	(idx8),
+		.idx9	(idx9),
+		.idx10	(idx10),
+		.idx11	(idx11),
+		.idx12	(idx12),
+		.idx13	(idx13),
+		.idx14	(idx14),
+		.idx15	(idx15),
+		
+		//output
+		.Read_TF_base0  (Read_TF_base0 ),
+		.Read_TF_base1  (Read_TF_base1 ),
+		.Read_TF_base2  (Read_TF_base2 ),
+		.Read_TF_base3  (Read_TF_base3 ),
+		.Read_TF_base4  (Read_TF_base4 ),
+		.Read_TF_base5  (Read_TF_base5 ),
+		.Read_TF_base6  (Read_TF_base6 ),
+		.Read_TF_base7  (Read_TF_base7 ),
+		.Read_TF_base8  (Read_TF_base8 ),
+		.Read_TF_base9  (Read_TF_base9 ),
+		.Read_TF_base10 (Read_TF_base10),
+		.Read_TF_base11 (Read_TF_base11),
+		.Read_TF_base12 (Read_TF_base12),
+		.Read_TF_base13 (Read_TF_base13),
+		.Read_TF_base14 (Read_TF_base14),
 
-
+		.Read_TF_const0    (Read_TF_const0 ),
+		.Read_TF_const1    (Read_TF_const1 ),
+		.Read_TF_const2    (Read_TF_const2 ),
+		.Read_TF_const3    (Read_TF_const3 ),
+		.Read_TF_const4    (Read_TF_const4 ),
+		.Read_TF_const5    (Read_TF_const5 ),
+		.Read_TF_const6    (Read_TF_const6 ),
+		.Read_TF_const7    (Read_TF_const7 ),
+		.Read_TF_const8    (Read_TF_const8 ),
+		.Read_TF_const9    (Read_TF_const9 ),
+		.Read_TF_const10   (Read_TF_const10),
+		.Read_TF_const11   (Read_TF_const11),
+		.Read_TF_const12   (Read_TF_const12),
+		.Read_TF_const13   (Read_TF_const13),
+		.Read_TF_const14   (Read_TF_const14)
+	);
+	
+	
+	logic [`D_width-1:0] l_pip;
+	logic [`D_width-1:0] l_pip1;
+	always_ff @(posedge clk or posedge rst) begin
+		if (rst) begin
+			l_pip <= `D_width'd0;
+			l_pip1 <= `D_width'd0;
 		end else begin
-			case({TF_ren, TF_wen})
-				'b10: begin
-					TF_base_b1 <= TF_base_array[it_depth_cnt][0];
-					TF_base_b2 <= TF_base_array[it_depth_cnt][1];
-					TF_base_b3 <= TF_base_array[it_depth_cnt][2];
-					TF_base_b4 <= TF_base_array[it_depth_cnt][3];
-					TF_base_b5 <= TF_base_array[it_depth_cnt][4];
-					TF_base_b6 <= TF_base_array[it_depth_cnt][5];
-					TF_base_b7 <= TF_base_array[it_depth_cnt][6];
-					TF_base_b8 <= TF_base_array[it_depth_cnt][7];
-					TF_base_b9 <= TF_base_array[it_depth_cnt][8];
-					TF_base_b10 <= TF_base_array[it_depth_cnt][9];
-					TF_base_b11 <= TF_base_array[it_depth_cnt][10];
-					TF_base_b12 <= TF_base_array[it_depth_cnt][11];
-					TF_base_b13 <= TF_base_array[it_depth_cnt][12];
-					TF_base_b14 <= TF_base_array[it_depth_cnt][13];
-					TF_base_b15 <= TF_base_array[it_depth_cnt][14];
-
-					TF_const_b1 <= TF_const_array[idx1];
-					TF_const_b2 <= TF_const_array[idx2];
-					TF_const_b3 <= TF_const_array[idx3];
-					TF_const_b4 <= TF_const_array[idx4];
-					TF_const_b5 <= TF_const_array[idx5];
-					TF_const_b6 <= TF_const_array[idx6];
-					TF_const_b7 <= TF_const_array[idx7];
-					TF_const_b8 <= TF_const_array[idx8];
-					TF_const_b9 <= TF_const_array[idx9];
-					TF_const_b10 <= TF_const_array[idx10];
-					TF_const_b11 <= TF_const_array[idx11];
-					TF_const_b12 <= TF_const_array[idx12];
-					TF_const_b13 <= TF_const_array[idx13];
-					TF_const_b14 <= TF_const_array[idx14];
-					TF_const_b15 <= TF_const_array[idx15];
-
-				end
-				'b01: begin
-					TF_base_array[w_it_depth_cnt][0] <= TF_base_b1_out; 
-					TF_base_array[w_it_depth_cnt][1] <= TF_base_b2_out; 
-					TF_base_array[w_it_depth_cnt][2] <= TF_base_b3_out; 
-					TF_base_array[w_it_depth_cnt][3] <= TF_base_b4_out; 
-					TF_base_array[w_it_depth_cnt][4] <= TF_base_b5_out; 
-					TF_base_array[w_it_depth_cnt][5] <= TF_base_b6_out; 
-					TF_base_array[w_it_depth_cnt][6] <= TF_base_b7_out; 
-					TF_base_array[w_it_depth_cnt][7] <= TF_base_b8_out; 
-					TF_base_array[w_it_depth_cnt][8] <= TF_base_b9_out; 
-					TF_base_array[w_it_depth_cnt][9] <= TF_base_b10_out; 
-					TF_base_array[w_it_depth_cnt][10] <= TF_base_b11_out;
-					TF_base_array[w_it_depth_cnt][11] <= TF_base_b12_out;
-					TF_base_array[w_it_depth_cnt][12] <= TF_base_b13_out;
-					TF_base_array[w_it_depth_cnt][13] <= TF_base_b14_out;
-					TF_base_array[w_it_depth_cnt][14] <= TF_base_b15_out;	
-				end
-				'b11: begin
-					if (l == 'd2 && w_it_depth_cnt == it_depth_cnt) begin
-						TF_base_b1 <= 	TF_base_b1_out;
-						TF_base_b2 <= 	TF_base_b2_out;
-						TF_base_b3 <= 	TF_base_b3_out;
-						TF_base_b4 <= 	TF_base_b4_out;
-						TF_base_b5 <= 	TF_base_b5_out;
-						TF_base_b6 <= 	TF_base_b6_out;
-						TF_base_b7 <= 	TF_base_b7_out;
-						TF_base_b8 <= 	TF_base_b8_out;
-						TF_base_b9 <= 	TF_base_b9_out;
-						TF_base_b10 <=	TF_base_b10_out;
-						TF_base_b11 <=	TF_base_b11_out;
-						TF_base_b12 <=	TF_base_b12_out;
-						TF_base_b13 <=	TF_base_b13_out;
-						TF_base_b14 <=	TF_base_b14_out;
-						TF_base_b15 <=	TF_base_b15_out;
-
-					end else begin
-						TF_base_b1 <= TF_base_array[it_depth_cnt][0];
-						TF_base_b2 <= TF_base_array[it_depth_cnt][1];
-						TF_base_b3 <= TF_base_array[it_depth_cnt][2];
-						TF_base_b4 <= TF_base_array[it_depth_cnt][3];
-						TF_base_b5 <= TF_base_array[it_depth_cnt][4];
-						TF_base_b6 <= TF_base_array[it_depth_cnt][5];
-						TF_base_b7 <= TF_base_array[it_depth_cnt][6];
-						TF_base_b8 <= TF_base_array[it_depth_cnt][7];
-						TF_base_b9 <= TF_base_array[it_depth_cnt][8];
-						TF_base_b10 <= TF_base_array[it_depth_cnt][9];
-						TF_base_b11 <= TF_base_array[it_depth_cnt][10];
-						TF_base_b12 <= TF_base_array[it_depth_cnt][11];
-						TF_base_b13 <= TF_base_array[it_depth_cnt][12];
-						TF_base_b14 <= TF_base_array[it_depth_cnt][13];
-						TF_base_b15 <= TF_base_array[it_depth_cnt][14];
-					end
-
-
-					TF_const_b1 <= TF_const_array[idx1];
-					TF_const_b2 <= TF_const_array[idx2];
-					TF_const_b3 <= TF_const_array[idx3];
-					TF_const_b4 <= TF_const_array[idx4];
-					TF_const_b5 <= TF_const_array[idx5];
-					TF_const_b6 <= TF_const_array[idx6];
-					TF_const_b7 <= TF_const_array[idx7];
-					TF_const_b8 <= TF_const_array[idx8];
-					TF_const_b9 <= TF_const_array[idx9];
-					TF_const_b10 <= TF_const_array[idx10];
-					TF_const_b11 <= TF_const_array[idx11];
-					TF_const_b12 <= TF_const_array[idx12];
-					TF_const_b13 <= TF_const_array[idx13];
-					TF_const_b14 <= TF_const_array[idx14];
-					TF_const_b15 <= TF_const_array[idx15];
-
-					TF_base_array[w_it_depth_cnt][0] <= TF_base_b1_out; 
-					TF_base_array[w_it_depth_cnt][1] <= TF_base_b2_out; 
-					TF_base_array[w_it_depth_cnt][2] <= TF_base_b3_out; 
-					TF_base_array[w_it_depth_cnt][3] <= TF_base_b4_out; 
-					TF_base_array[w_it_depth_cnt][4] <= TF_base_b5_out; 
-					TF_base_array[w_it_depth_cnt][5] <= TF_base_b6_out; 
-					TF_base_array[w_it_depth_cnt][6] <= TF_base_b7_out; 
-					TF_base_array[w_it_depth_cnt][7] <= TF_base_b8_out; 
-					TF_base_array[w_it_depth_cnt][8] <= TF_base_b9_out; 
-					TF_base_array[w_it_depth_cnt][9] <= TF_base_b10_out; 
-					TF_base_array[w_it_depth_cnt][10] <= TF_base_b11_out;
-					TF_base_array[w_it_depth_cnt][11] <= TF_base_b12_out;
-					TF_base_array[w_it_depth_cnt][12] <= TF_base_b13_out;
-					TF_base_array[w_it_depth_cnt][13] <= TF_base_b14_out;
-					TF_base_array[w_it_depth_cnt][14] <= TF_base_b15_out;	
-				end
-				default: begin
-					for(int i=0; i<it_depth; i++) begin
-						for(int j=0; j<TF_bank; j++) begin
-							TF_base_array[i][j] <= TF_base_array[i][j];
-						end
-					end
-					for(int i=0; i<TF_const_bank; i++) begin
-						TF_const_array[i] <= TF_const_array[i];
-					end
-					TF_base_b1 	<= 'd0	;
-					TF_base_b2 	<= 'd0	;
-					TF_base_b3 	<= 'd0	;
-					TF_base_b4 	<= 'd0	;
-					TF_base_b5 	<= 'd0	;
-					TF_base_b6 	<= 'd0	;
-					TF_base_b7 	<= 'd0	;
-					TF_base_b8 	<= 'd0	;
-					TF_base_b9 	<= 'd0	;
-					TF_base_b10 <= 'd0	;
-					TF_base_b11 <= 'd0	;
-					TF_base_b12 <= 'd0	;
-					TF_base_b13 <= 'd0	;
-					TF_base_b14 <= 'd0	;
-					TF_base_b15 <= 'd0	;
-
-					TF_const_b1 	<= 'd0;
-					TF_const_b2 	<= 'd0;
-					TF_const_b3 	<= 'd0;
-					TF_const_b4 	<= 'd0;
-					TF_const_b5 	<= 'd0;
-					TF_const_b6 	<= 'd0;
-					TF_const_b7 	<= 'd0;
-					TF_const_b8 	<= 'd0;
-					TF_const_b9 	<= 'd0;
-					TF_const_b10 	<= 'd0;
-					TF_const_b11 	<= 'd0;
-					TF_const_b12 	<= 'd0;
-					TF_const_b13 	<= 'd0;
-					TF_const_b14 	<= 'd0;
-					TF_const_b15 	<= 'd0;
-				end
-			endcase
-		end	
+			l_pip <= l;
+			l_pip1 <= l_pip;
+		end
+	end 
+	
+	always_comb begin
+		if(TF_ren == 'd1 && TF_wen == 'd0) begin
+			if (l_pip1 == 'd2 && w_it_depth_cnt == it_depth_cnt) begin
+				TF_base_b1 <= 	TF_base_b1_out;
+				TF_base_b2 <= 	TF_base_b2_out;
+				TF_base_b3 <= 	TF_base_b3_out;
+				TF_base_b4 <= 	TF_base_b4_out;
+				TF_base_b5 <= 	TF_base_b5_out;
+				TF_base_b6 <= 	TF_base_b6_out;
+				TF_base_b7 <= 	TF_base_b7_out;
+				TF_base_b8 <= 	TF_base_b8_out;
+				TF_base_b9 <= 	TF_base_b9_out;
+				TF_base_b10 <=	TF_base_b10_out;
+				TF_base_b11 <=	TF_base_b11_out;
+				TF_base_b12 <=	TF_base_b12_out;
+				TF_base_b13 <=	TF_base_b13_out;
+				TF_base_b14 <=	TF_base_b14_out;
+				TF_base_b15 <=	TF_base_b15_out;
+			end else begin
+				TF_base_b1 	<= Read_TF_base0 ;
+				TF_base_b2 	<= Read_TF_base1 ;
+				TF_base_b3 	<= Read_TF_base2 ;
+				TF_base_b4 	<= Read_TF_base3 ;
+				TF_base_b5 	<= Read_TF_base4 ;
+				TF_base_b6 	<= Read_TF_base5 ;
+				TF_base_b7 	<= Read_TF_base6 ;
+				TF_base_b8 	<= Read_TF_base7 ;
+				TF_base_b9 	<= Read_TF_base8 ;
+				TF_base_b10 <= Read_TF_base9 ;
+				TF_base_b11 <= Read_TF_base10;
+				TF_base_b12 <= Read_TF_base11;
+				TF_base_b13 <= Read_TF_base12;
+				TF_base_b14 <= Read_TF_base13;
+				TF_base_b15 <= Read_TF_base14;
+			end
+		end else begin
+			TF_base_b1 	<= Read_TF_base0 ;
+			TF_base_b2 	<= Read_TF_base1 ;
+			TF_base_b3 	<= Read_TF_base2 ;
+			TF_base_b4 	<= Read_TF_base3 ;
+			TF_base_b5 	<= Read_TF_base4 ;
+			TF_base_b6 	<= Read_TF_base5 ;
+			TF_base_b7 	<= Read_TF_base6 ;
+			TF_base_b8 	<= Read_TF_base7 ;
+			TF_base_b9 	<= Read_TF_base8 ;
+			TF_base_b10 <= Read_TF_base9 ;
+			TF_base_b11 <= Read_TF_base10;
+			TF_base_b12 <= Read_TF_base11;
+			TF_base_b13 <= Read_TF_base12;
+			TF_base_b14 <= Read_TF_base13;
+		    TF_base_b15 <= Read_TF_base14;
+		end
+		TF_const_b1 	<= Read_TF_const0 ;
+		TF_const_b2 	<= Read_TF_const1 ;
+		TF_const_b3 	<= Read_TF_const2 ;
+		TF_const_b4 	<= Read_TF_const3 ;
+		TF_const_b5 	<= Read_TF_const4 ;
+		TF_const_b6 	<= Read_TF_const5 ;
+		TF_const_b7 	<= Read_TF_const6 ;
+		TF_const_b8 	<= Read_TF_const7 ;
+		TF_const_b9 	<= Read_TF_const8 ;
+		TF_const_b10 	<= Read_TF_const9 ;
+		TF_const_b11 	<= Read_TF_const10;
+		TF_const_b12 	<= Read_TF_const11;
+		TF_const_b13 	<= Read_TF_const12;
+		TF_const_b14 	<= Read_TF_const13;
+		TF_const_b15 	<= Read_TF_const14;
 	end
 
 	//----------depth buf-----------------

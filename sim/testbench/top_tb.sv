@@ -136,7 +136,7 @@ module Testbench ();
 
     initial begin
         `ifndef SYN
-            for (int i=0 ;i<=k1_ite+2; i=i+1) begin
+            /*for (int i=0 ;i<=k1_ite+2; i=i+1) begin
                 #`CYCLE;
                 top.TF_top.TF_gen.TF_base_array[i][0] <= TF_based_in[i*bank_num+0];
                 top.TF_top.TF_gen.TF_base_array[i][1] <= TF_based_in[i*bank_num+1];
@@ -170,7 +170,7 @@ module Testbench ();
                 top.TF_top.TF_gen.TF_const_array[11] <= TF_const_in[11];
                 top.TF_top.TF_gen.TF_const_array[12] <= TF_const_in[12];
                 top.TF_top.TF_gen.TF_const_array[13] <= TF_const_in[13];
-            end
+            end*/
 
             for (int k = 0; k<MA; k=k+1) begin
                 #`CYCLE;
@@ -218,10 +218,13 @@ module Testbench ();
 
 
     initial begin
-        $fsdbDumpfile("top_tb.fsdb");
+        /*$fsdbDumpfile("top_tb.fsdb");
         $fsdbDumpvars;
         $fsdbDumpvars("+struct", "+mda", top);
-        $fsdbDumpvars("+struct", "+mda", Testbench);
+        $fsdbDumpvars("+struct", "+mda", Testbench);*/
+
+        $dumpfile("top_tb.vcd");
+        $dumpvars;
         #(`CYCLE*`MAX)
         $finish;
     end
