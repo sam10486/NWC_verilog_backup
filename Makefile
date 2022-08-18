@@ -103,10 +103,6 @@ AGU_tb: | $(bld_dir)
 syn_all: clean syn0 syn1 syn2 syn3
 
 top_tb_syn: | $(bld_dir)
-	@if [ $$(echo $(CYCLE) '>' 20.0 | bc -l) -eq 1 ]; then \
-		echo "Cycle time shouldn't exceed 20"; \
-		exit 1; \
-	fi; \
 	cd $(bld_dir); \
 	irun $(root_dir)/$(sim_dir)/testbench/top_tb.sv \
 	-sdf_file $(root_dir)/$(syn_dir)/top_syn.sdf \
@@ -115,7 +111,7 @@ top_tb_syn: | $(bld_dir)
 	-define CYCLE=$(CYCLE) \
 	-define MAX=$(MAX) \
 	+access+r -loadpli1 debpli:novas_pli_boot \
-	+output_path=$(root_dir)/test_result_v	
+	+output_path=$(root_dir)/test_result_syn
 
 
 # Utilities

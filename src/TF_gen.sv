@@ -81,7 +81,7 @@ module TF_gen(
 	parameter TF_bank = 15;
 	parameter TF_const_bank = 15;
 
-	logic [`D_width-1:0] TF_base_array[0:it_depth+4][0:TF_bank-1];
+	logic [`D_width-1:0] TF_base_array[0:it_depth+2][0:TF_bank-1];
 	logic [`D_width-1:0] TF_const_array[0:TF_const_bank-1];
 	
 
@@ -128,6 +128,16 @@ module TF_gen(
 	
 	always_ff@(posedge clk or posedge rst) begin
 		if (rst) begin		
+			for(int i=0; i<it_depth; i++) begin
+				for(int j=0; j<TF_bank; j++) begin
+					TF_base_array[i][j] <= 'd0;
+				end
+			end
+			for(int i=0; i<TF_const_bank; i++) begin
+				TF_const_array[i] <= 'd0;
+			end
+
+
 			TF_base_b1 	<= 'd0	;
 			TF_base_b2 	<= 'd0	;
 			TF_base_b3 	<= 'd0	;
@@ -284,6 +294,14 @@ module TF_gen(
 					TF_base_array[w_it_depth_cnt][14] <= TF_base_b15_out;	
 				end
 				default: begin
+					for(int i=0; i<it_depth; i++) begin
+						for(int j=0; j<TF_bank; j++) begin
+							TF_base_array[i][j] <= TF_base_array[i][j];
+						end
+					end
+					for(int i=0; i<TF_const_bank; i++) begin
+						TF_const_array[i] <= TF_const_array[i];
+					end
 					TF_base_b1 	<= 'd0	;
 					TF_base_b2 	<= 'd0	;
 					TF_base_b3 	<= 'd0	;
