@@ -18,10 +18,6 @@ $(syn_dir):
 rtl_all: clean 
 
 top_tb: | $(bld_dir)
-	@if [ $$(echo $(CYCLE) '>' 20.0 | bc -l) -eq 1 ]; then \
-		echo "Cycle time shouldn't exceed 20"; \
-		exit 1; \
-	fi; \
 	cd $(bld_dir); \
 	irun $(root_dir)/$(sim_dir)/testbench/top_tb.sv \
 	+incdir+$(root_dir)/$(src_dir)+$(root_dir)/$(inc_dir)+$(root_dir)/$(sim_dir)+$(root_dir)/$(mem_dir) \

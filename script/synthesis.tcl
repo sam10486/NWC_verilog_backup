@@ -61,7 +61,7 @@ set_host_options -max_cores 4
 #replace_clock_gates                                                                            
    
     
-	#compile                                                                                                                                                                               
+	compile                                                                                                                                                                               
 	#compile -inc -map_effort high                                                                  
 	#compile -map_effort medium                                                                     
 	#compile -incremental_mapping -map_effort high -area_effort high -boundary_optimization         

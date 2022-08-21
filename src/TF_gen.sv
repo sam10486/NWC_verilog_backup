@@ -1,6 +1,6 @@
 `include "../include/define.svh"
 `include "Register.sv"
-`include "barrett_reduction.sv"
+//`include "barrett_reduction.sv"
 
 module TF_gen(
 	input clk,
@@ -244,70 +244,70 @@ module TF_gen(
 	always_comb begin
 		if(TF_ren == 'd1 && TF_wen == 'd0) begin
 			if (l_pip1 == 'd2 && w_it_depth_cnt == it_depth_cnt) begin
-				TF_base_b1 <= 	TF_base_b1_out;
-				TF_base_b2 <= 	TF_base_b2_out;
-				TF_base_b3 <= 	TF_base_b3_out;
-				TF_base_b4 <= 	TF_base_b4_out;
-				TF_base_b5 <= 	TF_base_b5_out;
-				TF_base_b6 <= 	TF_base_b6_out;
-				TF_base_b7 <= 	TF_base_b7_out;
-				TF_base_b8 <= 	TF_base_b8_out;
-				TF_base_b9 <= 	TF_base_b9_out;
-				TF_base_b10 <=	TF_base_b10_out;
-				TF_base_b11 <=	TF_base_b11_out;
-				TF_base_b12 <=	TF_base_b12_out;
-				TF_base_b13 <=	TF_base_b13_out;
-				TF_base_b14 <=	TF_base_b14_out;
-				TF_base_b15 <=	TF_base_b15_out;
+				TF_base_b1 = 	TF_base_b1_out;
+				TF_base_b2 = 	TF_base_b2_out;
+				TF_base_b3 = 	TF_base_b3_out;
+				TF_base_b4 = 	TF_base_b4_out;
+				TF_base_b5 = 	TF_base_b5_out;
+				TF_base_b6 = 	TF_base_b6_out;
+				TF_base_b7 = 	TF_base_b7_out;
+				TF_base_b8 = 	TF_base_b8_out;
+				TF_base_b9 = 	TF_base_b9_out;
+				TF_base_b10 =	TF_base_b10_out;
+				TF_base_b11 =	TF_base_b11_out;
+				TF_base_b12 =	TF_base_b12_out;
+				TF_base_b13 =	TF_base_b13_out;
+				TF_base_b14 =	TF_base_b14_out;
+				TF_base_b15 =	TF_base_b15_out;
 			end else begin
-				TF_base_b1 	<= Read_TF_base0 ;
-				TF_base_b2 	<= Read_TF_base1 ;
-				TF_base_b3 	<= Read_TF_base2 ;
-				TF_base_b4 	<= Read_TF_base3 ;
-				TF_base_b5 	<= Read_TF_base4 ;
-				TF_base_b6 	<= Read_TF_base5 ;
-				TF_base_b7 	<= Read_TF_base6 ;
-				TF_base_b8 	<= Read_TF_base7 ;
-				TF_base_b9 	<= Read_TF_base8 ;
-				TF_base_b10 <= Read_TF_base9 ;
-				TF_base_b11 <= Read_TF_base10;
-				TF_base_b12 <= Read_TF_base11;
-				TF_base_b13 <= Read_TF_base12;
-				TF_base_b14 <= Read_TF_base13;
-				TF_base_b15 <= Read_TF_base14;
+				TF_base_b1 	= Read_TF_base0 ;
+				TF_base_b2 	= Read_TF_base1 ;
+				TF_base_b3 	= Read_TF_base2 ;
+				TF_base_b4 	= Read_TF_base3 ;
+				TF_base_b5 	= Read_TF_base4 ;
+				TF_base_b6 	= Read_TF_base5 ;
+				TF_base_b7 	= Read_TF_base6 ;
+				TF_base_b8 	= Read_TF_base7 ;
+				TF_base_b9 	= Read_TF_base8 ;
+				TF_base_b10 = Read_TF_base9 ;
+				TF_base_b11 = Read_TF_base10;
+				TF_base_b12 = Read_TF_base11;
+				TF_base_b13 = Read_TF_base12;
+				TF_base_b14 = Read_TF_base13;
+				TF_base_b15 = Read_TF_base14;
 			end
 		end else begin
-			TF_base_b1 	<= Read_TF_base0 ;
-			TF_base_b2 	<= Read_TF_base1 ;
-			TF_base_b3 	<= Read_TF_base2 ;
-			TF_base_b4 	<= Read_TF_base3 ;
-			TF_base_b5 	<= Read_TF_base4 ;
-			TF_base_b6 	<= Read_TF_base5 ;
-			TF_base_b7 	<= Read_TF_base6 ;
-			TF_base_b8 	<= Read_TF_base7 ;
-			TF_base_b9 	<= Read_TF_base8 ;
-			TF_base_b10 <= Read_TF_base9 ;
-			TF_base_b11 <= Read_TF_base10;
-			TF_base_b12 <= Read_TF_base11;
-			TF_base_b13 <= Read_TF_base12;
-			TF_base_b14 <= Read_TF_base13;
-		    TF_base_b15 <= Read_TF_base14;
+			TF_base_b1 	= Read_TF_base0 ;
+			TF_base_b2 	= Read_TF_base1 ;
+			TF_base_b3 	= Read_TF_base2 ;
+			TF_base_b4 	= Read_TF_base3 ;
+			TF_base_b5 	= Read_TF_base4 ;
+			TF_base_b6 	= Read_TF_base5 ;
+			TF_base_b7 	= Read_TF_base6 ;
+			TF_base_b8 	= Read_TF_base7 ;
+			TF_base_b9 	= Read_TF_base8 ;
+			TF_base_b10 = Read_TF_base9 ;
+			TF_base_b11 = Read_TF_base10;
+			TF_base_b12 = Read_TF_base11;
+			TF_base_b13 = Read_TF_base12;
+			TF_base_b14 = Read_TF_base13;
+		    TF_base_b15 = Read_TF_base14;
 		end
-		TF_const_b1 	<= Read_TF_const0 ;
-		TF_const_b2 	<= Read_TF_const1 ;
-		TF_const_b3 	<= Read_TF_const2 ;
-		TF_const_b4 	<= Read_TF_const3 ;
-		TF_const_b5 	<= Read_TF_const4 ;
-		TF_const_b6 	<= Read_TF_const5 ;
-		TF_const_b7 	<= Read_TF_const6 ;
-		TF_const_b8 	<= Read_TF_const7 ;
-		TF_const_b9 	<= Read_TF_const8 ;
-		TF_const_b10 	<= Read_TF_const9 ;
-		TF_const_b11 	<= Read_TF_const10;
-		TF_const_b12 	<= Read_TF_const11;
-		TF_const_b13 	<= Read_TF_const12;
-		TF_const_b14 	<= Read_TF_const13;
-		TF_const_b15 	<= Read_TF_const14;
+		TF_const_b1 	= Read_TF_const0 ;
+		TF_const_b2 	= Read_TF_const1 ;
+		TF_const_b3 	= Read_TF_const2 ;
+		TF_const_b4 	= Read_TF_const3 ;
+		TF_const_b5 	= Read_TF_const4 ;
+		TF_const_b6 	= Read_TF_const5 ;
+		TF_const_b7 	= Read_TF_const6 ;
+		TF_const_b8 	= Read_TF_const7 ;
+		TF_const_b9 	= Read_TF_const8 ;
+		TF_const_b10 	= Read_TF_const9 ;
+		TF_const_b11 	= Read_TF_const10;
+		TF_const_b12 	= Read_TF_const11;
+		TF_const_b13 	= Read_TF_const12;
+		TF_const_b14 	= Read_TF_const13;
+		TF_const_b15 	= Read_TF_const14;
 	end
 
 	//----------depth buf-----------------

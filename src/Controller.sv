@@ -38,29 +38,18 @@ module Controller (
     enum {RESET, IDLE, NTT_ite0, NTT_ite1, NTT_ite2, NTT_buffer_0, NTT_buffer_1, NTT_buffer_2,
            NTT_ite3, NTT_buffer_3, NTT_finish, Fin_state} cs, ns;
 
-    logic [`D_width-1:0] bank_num;
-    logic [`D_width-1:0] k;
-    logic [`D_width-1:0] delay_cycle;
-    logic [`D_width-1:0] ite_0;
-    logic [`D_width-1:0] ite_1;
-    logic [`D_width-1:0] ite_2;
-    logic [`D_width-1:0] ite_3;
-    logic [`D_width-1:0] last_l;
-    assign bank_num = `bank_num;
-    assign k = `ite_k;
-    assign delay_cycle = 'd2;
-    assign ite_0 = `ite_0;
-    assign ite_1 = `ite_1;
-    assign ite_2 = `ite_2;
-    assign ite_3 = `ite_3;
-    assign last_l = `Last_l;
+    parameter bank_num = `bank_num;
+    parameter k = `ite_k;
+    parameter delay_cycle = 2;
+    parameter ite_0 = `ite_0;
+    parameter ite_1 = `ite_1;
+    parameter ite_2 = `ite_2;
+    parameter ite_3 = `ite_3;
+    parameter last_l = `Last_l;
 
-    logic [`D_width-1:0] degree;
-    logic [`D_width-1:0] total_BU_number;
-    logic [`D_width-1:0] total_BU_number_k2;
-    assign degree = `degree;
-    assign total_BU_number = `BU_total;
-    assign total_BU_number_k2 = `BU_total_k2;
+    parameter [`D_width-1:0] degree = `degree;
+    parameter [`D_width-1:0] total_BU_number = `BU_total;
+    parameter [`D_width-1:0] total_BU_number_k2 = `BU_total_k2;
 
     logic [`D_width-1:0] ite_stage;
     logic [`D_width-1:0] ite_sw_cnt;
@@ -313,19 +302,19 @@ module Controller (
         end else begin
             if (TF_ren && cs == NTT_ite2) begin
                 case (depth_buf_cnt)
-                    'b00: begin
+                    2'b00: begin
                         depth_buf_cnt <= depth_buf_cnt + 'd1;
                         ite2_depth_buf <= ite_stage;
                     end 
-                    'b01: begin
+                    2'b01: begin
                         depth_buf_cnt <= depth_buf_cnt + 'd1;
                         ite2_depth_buf <= ite_stage + 'd1  ;
                     end
-                    'b10: begin
+                    2'b10: begin
                         depth_buf_cnt <= depth_buf_cnt + 'd1;
                         ite2_depth_buf <= ite_stage + 'd1 ;
                     end
-                    'b11: begin
+                    2'b11: begin
                         depth_buf_cnt <= depth_buf_cnt + 'd1;
                         ite2_depth_buf <= ite_stage;
                     end
