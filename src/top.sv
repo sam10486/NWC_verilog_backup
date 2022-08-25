@@ -21,7 +21,7 @@ module top (
     logic [1:0] ctr_ntt_done;
     logic ctr_TF_ren;
     logic ctr_TF_wen;
-    logic [`D_width-1:0] ctr_it_depth_cnt;
+    logic [2:0] ctr_it_depth_cnt;
     logic ctr_AGU_enable;
     logic ctr_AGU_enable_k2;
     logic ctr_r_enable;
@@ -56,7 +56,7 @@ module top (
     logic                TF_gen_LAST_STAGE     ;
     logic                TF_gen_TF_ren         ;
     logic                TF_gen_TF_wen         ;
-    logic [`D_width-1:0] TF_gen_it_depth_cnt;
+    logic [2:0] TF_gen_it_depth_cnt;
     logic [`D_width-1:0] TF_gen_TF_base_in0    ;
     logic [`D_width-1:0] TF_gen_TF_base_in1    ;
     logic [`D_width-1:0] TF_gen_TF_base_in2    ;
@@ -88,7 +88,7 @@ module top (
     logic [`D_width-1:0] TF_gen_TF_const_in12  ;
     logic [`D_width-1:0] TF_gen_TF_const_in13  ;
 
-    logic [`D_width-1:0] TF_l;
+    logic [2:0] TF_l;
 
     //output
     logic [`D_width-1:0] TF_gen_TF_base_b1     ;
@@ -203,7 +203,7 @@ module top (
 
     logic AGU_top_AGU_done_out;
     logic AGU_top_BN_MA_out_en;
-    logic [`D_width-1:0] AGU_l_AGU_out;
+    logic [2:0] AGU_l_AGU_out;
 
     AGU_integrate AGU_integrate(
         //input

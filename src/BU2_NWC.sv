@@ -26,9 +26,7 @@ module BU2_NWC (
 
     logic [`D_width-1:0] barrett_result_in2;
 
-    barrett_reduction #(.pre_computing_width(`pre_computing_width) , 
-                        .precompute(`precompute))
-    barrett_reduction(
+    barrett_reduction barrett_reduction(
         .a(in2),
         .b(twiddle),
         .modulus(modulus),

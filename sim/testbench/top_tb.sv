@@ -138,6 +138,7 @@ module Testbench ();
                 top.memory_wrapper.gen_sram[15].sram.mem[k] = mem_data_in[k*BN + 15];
             end
         `else
+            #`CYCLE;
             for (int k = 0; k<MA; k=k+1) begin
                 top.memory_wrapper.gen_sram_0__sram.mem[k]  = mem_data_in[k*BN + 0];
                 top.memory_wrapper.gen_sram_1__sram.mem[k]  = mem_data_in[k*BN + 1];
@@ -155,6 +156,7 @@ module Testbench ();
                 top.memory_wrapper.gen_sram_13__sram.mem[k] = mem_data_in[k*BN + 13];
                 top.memory_wrapper.gen_sram_14__sram.mem[k] = mem_data_in[k*BN + 14];
                 top.memory_wrapper.gen_sram_15__sram.mem[k] = mem_data_in[k*BN + 15];
+                $display("mem_out[0][0] = (%d)" , top.memory_wrapper.gen_sram_0__sram.mem[k]);
             end
         `endif
     end

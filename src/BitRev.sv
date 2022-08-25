@@ -3,14 +3,14 @@
 module BitRev(
     input [`D_width-1:0] input_idx,
     input BitRev_enable,
-    input [`D_width-1:0] l,
+    input [2:0] l,
     input clk,
     input rst,
 
     output logic [`D_width-1:0] BitRev_out
 );
 
-    logic [`D_width-1:0] BitRev_width;
+    logic [6:0] BitRev_width;
 
 
 

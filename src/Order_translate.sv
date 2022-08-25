@@ -22,7 +22,7 @@ module Order_translate(
     input [`D_width-1:0] Order_15, 
     input r_enable,
     input AGU_done,
-    input [`D_width-1:0] l,
+    input [2:0] l,
 
     output logic [`MA_width-1:0] MA0_idx,
     output logic [`BANK_width-1:0] BN0_idx,
@@ -74,7 +74,7 @@ module Order_translate(
 
     output logic AGU_done_out,
     output logic BN_MA_out_en,
-    output logic [`D_width-1:0] l_AGU_out
+    output logic [2:0] l_AGU_out
 );
 
     logic [`D_width-1:0] Order0_tmp0_pip0, Order0_tmp1_pip0, Order0_tmp2_pip0, Order0_tmp3_pip0;
@@ -195,7 +195,7 @@ module Order_translate(
 
     parameter difference_width = `D_width - `degree_width;
 
-    logic [`D_width-1:0] l_pip0, l_pip1, l_pip2;
+    logic [2:0] l_pip0, l_pip1, l_pip2;
 
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin

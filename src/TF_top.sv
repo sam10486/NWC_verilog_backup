@@ -8,7 +8,7 @@ module TF_top (
     input rst           ,
     input TF_ren        ,
     input TF_wen        ,
-    input [`D_width-1:0] it_depth_cnt   ,
+    input [2:0] it_depth_cnt   ,
     input [`D_width-1:0] TF_base_in0    ,
     input [`D_width-1:0] TF_base_in1    ,
     input [`D_width-1:0] TF_base_in2    ,
@@ -40,7 +40,7 @@ module TF_top (
     input [`D_width-1:0] TF_const_in12  ,
     input [`D_width-1:0] TF_const_in13  ,
     input [`D_width-1:0] modulus        ,
-    input [`D_width-1:0] l              ,
+    input [2:0] l              ,
 
     output logic [`D_width-1:0] TF_base_b1  ,
     output logic [`D_width-1:0] TF_base_b2  ,
@@ -77,21 +77,21 @@ module TF_top (
     logic [`D_width-1:0]    TF_base_b14_pip_out;
     logic [`D_width-1:0]    TF_base_b15_pip_out;
 
-    logic [`D_width-1:0]    idx1_pip_in     ;
-    logic [`D_width-1:0]    idx2_pip_in     ;
-    logic [`D_width-1:0]    idx3_pip_in     ;
-    logic [`D_width-1:0]    idx4_pip_in     ;
-    logic [`D_width-1:0]    idx5_pip_in     ;
-    logic [`D_width-1:0]    idx6_pip_in     ;
-    logic [`D_width-1:0]    idx7_pip_in     ;
-    logic [`D_width-1:0]    idx8_pip_in     ;
-    logic [`D_width-1:0]    idx9_pip_in     ;
-    logic [`D_width-1:0]    idx10_pip_in    ;
-    logic [`D_width-1:0]    idx11_pip_in    ;
-    logic [`D_width-1:0]    idx12_pip_in    ;
-    logic [`D_width-1:0]    idx13_pip_in    ;
-    logic [`D_width-1:0]    idx14_pip_in    ;
-    logic [`D_width-1:0]    idx15_pip_in    ;
+    logic [3:0]    idx1_pip_in     ;
+    logic [3:0]    idx2_pip_in     ;
+    logic [3:0]    idx3_pip_in     ;
+    logic [3:0]    idx4_pip_in     ;
+    logic [3:0]    idx5_pip_in     ;
+    logic [3:0]    idx6_pip_in     ;
+    logic [3:0]    idx7_pip_in     ;
+    logic [3:0]    idx8_pip_in     ;
+    logic [3:0]    idx9_pip_in     ;
+    logic [3:0]    idx10_pip_in    ;
+    logic [3:0]    idx11_pip_in    ;
+    logic [3:0]    idx12_pip_in    ;
+    logic [3:0]    idx13_pip_in    ;
+    logic [3:0]    idx14_pip_in    ;
+    logic [3:0]    idx15_pip_in    ;
 
     logic [`D_width-1:0] idx1; 
     logic [`D_width-1:0] idx2; 

@@ -17,7 +17,7 @@ module Controller (
     // TF_gen
     output logic TF_ren,
     output logic TF_wen,
-    output logic [`D_width-1:0] it_depth_cnt,
+    output logic [2:0] it_depth_cnt,
     
     // AGU_top
     output logic AGU_enable,
@@ -51,7 +51,7 @@ module Controller (
     parameter [`D_width-1:0] total_BU_number = `BU_total;
     parameter [`D_width-1:0] total_BU_number_k2 = `BU_total_k2;
 
-    logic [`D_width-1:0] ite_stage;
+    logic [2:0] ite_stage;
     logic [`D_width-1:0] ite_sw_cnt;
     logic [`D_width-1:0] BU_cnt;
     logic [`D_width-1:0] BU_group_cnt;

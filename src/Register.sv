@@ -5,8 +5,8 @@ module Register (
     input rst                           ,
     input TF_ren                        ,
 	input TF_wen                        ,
-    input [`D_width-1:0] it_depth_cnt   ,
-    input [`D_width-1:0] w_it_depth_cnt ,
+    input [2:0] it_depth_cnt   ,
+    input [2:0] w_it_depth_cnt ,
 
     input [`D_width-1:0] TF_base_b1_out     ,
     input [`D_width-1:0] TF_base_b2_out     ,
@@ -24,21 +24,21 @@ module Register (
     input [`D_width-1:0] TF_base_b14_out    ,
     input [`D_width-1:0] TF_base_b15_out    ,
 
-    input [`D_width-1:0] idx1	,
-    input [`D_width-1:0] idx2	,
-    input [`D_width-1:0] idx3	,
-    input [`D_width-1:0] idx4	,
-    input [`D_width-1:0] idx5	,
-    input [`D_width-1:0] idx6	,
-    input [`D_width-1:0] idx7	,
-    input [`D_width-1:0] idx8	,
-    input [`D_width-1:0] idx9	,
-    input [`D_width-1:0] idx10	,
-    input [`D_width-1:0] idx11	,
-    input [`D_width-1:0] idx12	,
-    input [`D_width-1:0] idx13	,
-    input [`D_width-1:0] idx14	,
-    input [`D_width-1:0] idx15	,
+    input [3:0] idx1	,
+    input [3:0] idx2	,
+    input [3:0] idx3	,
+    input [3:0] idx4	,
+    input [3:0] idx5	,
+    input [3:0] idx6	,
+    input [3:0] idx7	,
+    input [3:0] idx8	,
+    input [3:0] idx9	,
+    input [3:0] idx10	,
+    input [3:0] idx11	,
+    input [3:0] idx12	,
+    input [3:0] idx13	,
+    input [3:0] idx14	,
+    input [3:0] idx15	,
 
     output logic [`D_width-1:0] Read_TF_base0  ,
     output logic [`D_width-1:0] Read_TF_base1  ,
@@ -74,12 +74,12 @@ module Register (
 );
 
 
-    parameter it_depth = 3;
-	parameter TF_bank = 15;
-	parameter TF_const_bank = 14;
+    parameter it_depth = 8;
+	parameter TF_bank = 16;
+	parameter TF_const_bank = 16;
 
-    logic [`D_width-1:0] TF_base_array[0:5][0:14];  //[0:3+2][0:15-1]
-	logic [`D_width-1:0] TF_const_array[0:13];      //[0:14-1]
+    logic [`D_width-1:0] TF_base_array[0:7][0:15];  //[0:3+2][0:15-1]
+	logic [`D_width-1:0] TF_const_array[0:15];      //[0:14-1]
     
 
     always_ff @( posedge clk or posedge rst ) begin
@@ -260,6 +260,8 @@ module Register (
             TF_const_array[11]  <=  `D_width'h442e7e8   ;
             TF_const_array[12]  <=  `D_width'h3e3a2b0   ;
             TF_const_array[13]  <=  `D_width'h1         ;
+            TF_const_array[14]  <=  `D_width'h0         ;
+            TF_const_array[15]  <=  `D_width'h0         ;
         end else begin
             case ({TF_ren, TF_wen})
                 2'b10: begin

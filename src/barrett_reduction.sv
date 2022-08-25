@@ -1,29 +1,34 @@
 `include "../include/define.svh"
 
-module barrett_reduction 
-#(
-    parameter DATA_WIDTH = `D_width, //8
-    parameter MODULUS_WIDTH = `Modulus_D_width,
-    parameter DOUBLE_DATA_WIDTH = 2 * DATA_WIDTH,//16
-    parameter alpha = MODULUS_WIDTH + 1,//9
-    parameter beta = -2,
-    parameter RS_FRI = MODULUS_WIDTH + beta,//6
-    parameter RS_SEC = alpha - beta,//11
-    parameter pre_computing_width = DATA_WIDTH + 3,//13
-    parameter DATA_FRI_RS_WIDTH = DOUBLE_DATA_WIDTH - RS_FRI,//10
-    parameter DATA_MULT_PRE_WIDTH = DATA_FRI_RS_WIDTH + pre_computing_width,//23
-    parameter precompute  = 11'd514
-)
-(
-    input [DATA_WIDTH-1:0] a,
-    input [DATA_WIDTH-1:0] b,
-    input [DATA_WIDTH-1:0] modulus,
-    input clk,
-    input rst,
+module barrett_reduction (
+    a,
+    b,
+    modulus,
+    clk,
+    rst,
     
-    output logic [DATA_WIDTH-1:0] result
+    result
 
 );
+    parameter DATA_WIDTH = `D_width; //8
+    parameter MODULUS_WIDTH = `Modulus_D_width;
+    parameter DOUBLE_DATA_WIDTH = 2 * DATA_WIDTH;//16
+    parameter alpha = MODULUS_WIDTH + 1;//9
+    parameter beta = -2;
+    parameter RS_FRI = MODULUS_WIDTH + beta;//6
+    parameter RS_SEC = alpha - beta;//11
+    parameter pre_computing_width = `pre_computing_width;//13
+    parameter DATA_FRI_RS_WIDTH = DOUBLE_DATA_WIDTH - RS_FRI;//10
+    parameter DATA_MULT_PRE_WIDTH = DATA_FRI_RS_WIDTH + pre_computing_width;//23
+    parameter precompute  = `precompute;
+
+    input [DATA_WIDTH-1:0] a;
+    input [DATA_WIDTH-1:0] b;
+    input [DATA_WIDTH-1:0] modulus;
+    input clk;
+    input rst;
+    
+    output logic [DATA_WIDTH-1:0] result;
 
     logic [DOUBLE_DATA_WIDTH-1:0] a_mul_b;//16
     logic [DATA_FRI_RS_WIDTH-1:0] a_mul_b_RS;//10

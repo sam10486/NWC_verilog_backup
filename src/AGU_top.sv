@@ -44,7 +44,7 @@ module AGU_top(
     output logic AGU_done_out,
     output logic BN_MA_out_en,
 
-    output logic [`D_width-1:0] l_AGU_out
+    output logic [2:0] l_AGU_out
 );
 
     logic [`D_width-1:0] AGU_order0_out;
@@ -86,7 +86,7 @@ module AGU_top(
     logic AGU_out_en_pip;
     logic AGU_done_pip;
 
-    logic [`D_width-1:0] l_out, l_out_pip;
+    logic [2:0] l_out, l_out_pip;
 
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin

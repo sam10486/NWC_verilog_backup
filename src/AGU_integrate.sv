@@ -45,7 +45,7 @@ module AGU_integrate (
 
     output logic AGU_done_out               ,
     output logic BN_MA_out_en               ,
-    output logic [`D_width-1:0] l_AGU_out   
+    output logic [2:0] l_AGU_out   
 
 );
     logic [`MA_width-1:0] k1_MA0_idx ;
@@ -84,7 +84,7 @@ module AGU_integrate (
 
     logic k1_AGU_done_out;
     logic k1_BN_MA_out_en;
-    logic [`D_width-1:0] k1_l_AGU_out;
+    logic [2:0] k1_l_AGU_out;
 
     AGU_top AGU_top (
         //input
@@ -140,7 +140,7 @@ module AGU_integrate (
 
     logic k2_AGU_done_out_k2;   
     logic k2_BN_MA_out_en_k2;   
-    logic [`D_width-1:0] k2_l_AGU_out_k2;
+    logic [2:0] k2_l_AGU_out_k2;
 
     AGU_top_k2 AGU_top_k2 (
         .clk            (clk),

@@ -11,7 +11,7 @@ module Order_translate_k2 (
 
     input r_enable_k2,
     input AGU_done_k2,
-    input [`D_width-1:0] l,
+    input [2:0] l,
 
     output logic [`MA_width-1:0] MA0_idx_k2,
     output logic [`MA_width-1:0] MA1_idx_k2,
@@ -21,7 +21,7 @@ module Order_translate_k2 (
 
     output logic AGU_done_out_k2,
     output logic BN_MA_out_en_k2,
-    output logic [`D_width-1:0] l_AGU_out_k2
+    output logic [2:0] l_AGU_out_k2
 );
 
 

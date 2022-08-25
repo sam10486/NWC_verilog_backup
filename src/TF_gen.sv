@@ -7,7 +7,7 @@ module TF_gen(
 	input rst,
 	input TF_ren,
 	input TF_wen,
-	input [`D_width-1:0] it_depth_cnt,
+	input [2:0] it_depth_cnt,
 	input [`D_width-1:0] TF_base_in0,
 	input [`D_width-1:0] TF_base_in1,
 	input [`D_width-1:0] TF_base_in2,
@@ -40,23 +40,23 @@ module TF_gen(
 	input [`D_width-1:0] TF_const_in12,
 	input [`D_width-1:0] TF_const_in13,
 	input [`D_width-1:0] modulus,
-	input [`D_width-1:0] l,
+	input [2:0] l,
 
-	input [`D_width-1:0] idx1	, 
-	input [`D_width-1:0] idx2	, 
-	input [`D_width-1:0] idx3	,
-	input [`D_width-1:0] idx4	,
-	input [`D_width-1:0] idx5	,
-	input [`D_width-1:0] idx6	,
-	input [`D_width-1:0] idx7	,
-	input [`D_width-1:0] idx8	,
-	input [`D_width-1:0] idx9	,
-	input [`D_width-1:0] idx10	,
-	input [`D_width-1:0] idx11	,
-	input [`D_width-1:0] idx12	,
-	input [`D_width-1:0] idx13	,
-	input [`D_width-1:0] idx14	,
-	input [`D_width-1:0] idx15	,
+	input [3:0] idx1	, 
+	input [3:0] idx2	, 
+	input [3:0] idx3	,
+	input [3:0] idx4	,
+	input [3:0] idx5	,
+	input [3:0] idx6	,
+	input [3:0] idx7	,
+	input [3:0] idx8	,
+	input [3:0] idx9	,
+	input [3:0] idx10	,
+	input [3:0] idx11	,
+	input [3:0] idx12	,
+	input [3:0] idx13	,
+	input [3:0] idx14	,
+	input [3:0] idx15	,
 
 	output logic [`D_width-1:0] TF_base_b1_select,
 	
@@ -118,7 +118,7 @@ module TF_gen(
 	logic [`D_width-1:0] TF_base_b14_out;
 	logic [`D_width-1:0] TF_base_b15_out; 
 
-	logic [`D_width-1:0] w_it_depth_cnt;
+	logic [2:0] w_it_depth_cnt;
 
 
 	logic [`D_width-1:0] Read_TF_base0  ;
@@ -229,8 +229,8 @@ module TF_gen(
 	);
 	
 	
-	logic [`D_width-1:0] l_pip;
-	logic [`D_width-1:0] l_pip1;
+	logic [2:0] l_pip;
+	logic [2:0] l_pip1;
 	always_ff @(posedge clk or posedge rst) begin
 		if (rst) begin
 			l_pip <= `D_width'd0;
@@ -311,7 +311,7 @@ module TF_gen(
 	end
 
 	//----------depth buf-----------------
-	logic [`D_width-1:0] it_depth_cnt_pip [0:1];
+	logic [2:0] it_depth_cnt_pip [0:1];
 	integer i;
 	assign w_it_depth_cnt = it_depth_cnt;
 	//-------------------------------
@@ -319,9 +319,7 @@ module TF_gen(
 	//-----------
 	assign TF_base_b1_select = (l == 'd4 && TF_wen) ? TF_base_b1_out : TF_base_b1;
 	
-	barrett_reduction #(.pre_computing_width(`pre_computing_width) , 
-                        .precompute(`precompute))
-    barrett_reduction_b1(
+	barrett_reduction barrett_reduction_b1(
         .a(TF_base_b1_select),
         .b(TF_const_b1),
         .modulus(modulus),
@@ -332,9 +330,7 @@ module TF_gen(
     );
 	
 	///---------------------
-	barrett_reduction #(.pre_computing_width(`pre_computing_width) , 
-                        .precompute(`precompute))
-    barrett_reduction_b2(
+	barrett_reduction barrett_reduction_b2(
         .a(TF_base_b2),
         .b(TF_const_b2),
         .modulus(modulus),
@@ -344,9 +340,7 @@ module TF_gen(
         .result(TF_base_b2_out)
     );
 	
-	barrett_reduction #(.pre_computing_width(`pre_computing_width) , 
-                        .precompute(`precompute))
-    barrett_reduction_b3(
+	barrett_reduction barrett_reduction_b3(
         .a(TF_base_b3),
         .b(TF_const_b3),
         .modulus(modulus),
@@ -356,9 +350,7 @@ module TF_gen(
         .result(TF_base_b3_out)
     );
 	//------------
-	barrett_reduction #(.pre_computing_width(`pre_computing_width) , 
-                        .precompute(`precompute))
-    barrett_reduction_b4(
+	barrett_reduction barrett_reduction_b4(
         .a(TF_base_b4),
         .b(TF_const_b4),
         .modulus(modulus),
@@ -368,9 +360,7 @@ module TF_gen(
         .result(TF_base_b4_out)
     );
 	
-	barrett_reduction #(.pre_computing_width(`pre_computing_width) , 
-                        .precompute(`precompute))
-    barrett_reduction_b5(
+	barrett_reduction barrett_reduction_b5(
         .a(TF_base_b5),
         .b(TF_const_b5),
         .modulus(modulus),
@@ -380,9 +370,7 @@ module TF_gen(
         .result(TF_base_b5_out)
     );
 	
-	barrett_reduction #(.pre_computing_width(`pre_computing_width) , 
-                        .precompute(`precompute))
-    barrett_reduction_b6(
+	barrett_reduction barrett_reduction_b6(
         .a(TF_base_b6),
         .b(TF_const_b6),
         .modulus(modulus),
@@ -392,9 +380,7 @@ module TF_gen(
         .result(TF_base_b6_out)
     );
 	
-	barrett_reduction #(.pre_computing_width(`pre_computing_width) , 
-                        .precompute(`precompute))
-    barrett_reduction_b7(
+	barrett_reduction barrett_reduction_b7(
         .a(TF_base_b7),
         .b(TF_const_b7),
         .modulus(modulus),
@@ -405,9 +391,7 @@ module TF_gen(
     );
 	
 	//---------------
-	barrett_reduction #(.pre_computing_width(`pre_computing_width) , 
-                        .precompute(`precompute))
-    barrett_reduction_b8(
+	barrett_reduction barrett_reduction_b8(
         .a(TF_base_b8),
         .b(TF_const_b8),
         .modulus(modulus),
@@ -417,9 +401,7 @@ module TF_gen(
         .result(TF_base_b8_out)
     );
 	
-	barrett_reduction #(.pre_computing_width(`pre_computing_width) , 
-                        .precompute(`precompute))
-    barrett_reduction_b9(
+	barrett_reduction barrett_reduction_b9(
         .a(TF_base_b9),
         .b(TF_const_b9),
         .modulus(modulus),
@@ -429,9 +411,7 @@ module TF_gen(
         .result(TF_base_b9_out)
     );
 	
-	barrett_reduction #(.pre_computing_width(`pre_computing_width) , 
-                        .precompute(`precompute))
-    barrett_reduction_b10(
+	barrett_reduction barrett_reduction_b10(
         .a(TF_base_b10),
         .b(TF_const_b10),
         .modulus(modulus),
@@ -441,9 +421,7 @@ module TF_gen(
         .result(TF_base_b10_out)
     );
 	
-	barrett_reduction #(.pre_computing_width(`pre_computing_width) , 
-                        .precompute(`precompute))
-    barrett_reduction_b11(
+	barrett_reduction barrett_reduction_b11(
         .a(TF_base_b11),
         .b(TF_const_b11),
         .modulus(modulus),
@@ -454,9 +432,7 @@ module TF_gen(
     );
 	
 	
-	barrett_reduction #(.pre_computing_width(`pre_computing_width) , 
-                        .precompute(`precompute))
-    barrett_reduction_b12(
+	barrett_reduction barrett_reduction_b12(
         .a(TF_base_b12),
         .b(TF_const_b12),
         .modulus(modulus),
@@ -466,9 +442,7 @@ module TF_gen(
         .result(TF_base_b12_out)
     );
 	
-	barrett_reduction #(.pre_computing_width(`pre_computing_width) , 
-                        .precompute(`precompute))
-    barrett_reduction_b13(
+	barrett_reduction barrett_reduction_b13(
         .a(TF_base_b13),
         .b(TF_const_b13),
         .modulus(modulus),
@@ -478,9 +452,7 @@ module TF_gen(
         .result(TF_base_b13_out)
     );
 	
-	barrett_reduction #(.pre_computing_width(`pre_computing_width) , 
-                        .precompute(`precompute))
-    barrett_reduction_b14(
+	barrett_reduction barrett_reduction_b14(
         .a(TF_base_b14),
         .b(TF_const_b14),
         .modulus(modulus),
@@ -490,9 +462,7 @@ module TF_gen(
         .result(TF_base_b14_out)
     );
 	
-	barrett_reduction #(.pre_computing_width(`pre_computing_width) , 
-                        .precompute(`precompute))
-    barrett_reduction_b15(
+	barrett_reduction barrett_reduction_b15(
         .a(TF_base_b15),
         .b(TF_const_b15),
         .modulus(modulus),

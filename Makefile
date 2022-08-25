@@ -19,7 +19,7 @@ rtl_all: clean
 
 top_tb: | $(bld_dir)
 	cd $(bld_dir); \
-	irun $(root_dir)/$(sim_dir)/testbench/top_tb.sv \
+	xrun $(root_dir)/$(sim_dir)/testbench/top_tb.sv \
 	+incdir+$(root_dir)/$(src_dir)+$(root_dir)/$(inc_dir)+$(root_dir)/$(sim_dir)+$(root_dir)/$(mem_dir) \
 	-define CYCLE=$(CYCLE) \
 	-define MAX=$(MAX) \
@@ -100,7 +100,7 @@ syn_all: clean syn0 syn1 syn2 syn3
 
 top_tb_syn: | $(bld_dir)
 	cd $(bld_dir); \
-	irun $(root_dir)/$(sim_dir)/testbench/top_tb.sv \
+	xrun $(root_dir)/$(sim_dir)/testbench/top_tb.sv \
 	-sdf_file $(root_dir)/$(syn_dir)/top_syn.sdf \
 	+incdir+$(root_dir)/$(syn_dir)+$(root_dir)/$(inc_dir)+$(root_dir)/$(sim_dir)+$(root_dir)/$(mem_dir) \
 	+define+SYN \

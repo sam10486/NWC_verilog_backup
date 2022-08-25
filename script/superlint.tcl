@@ -5,12 +5,12 @@ config_rtlds -rule -enable -domain { LINT AUTO_FORMAL }
 config_rtlds -rule -disable -tag { CAS_IS_DFRC SIG_IS_DLCK SIG_NO_TGFL SIG_NO_TGRS SIG_NO_TGST FSM_NO_MTRN FSM_NO_TRRN }
 # vsd2018_constrain //
 config_rtlds -rule  -disable -category { NAMING AUTO_FORMAL_DEAD_CODE AUTO_FORMAL_SIGNALS AUTO_FORMAL_ARITHMETIC_OVERFLOW }
-config_rtlds -rule  -disable -tag { IDN_NR_SVKY ARY_MS_DRNG IDN_NR_AMKY IDN_NR_CKYW IDN_NR_SVKW ARY_NR_LBND VAR_NR_INDL INS_NR_PTEX INP_NO_USED OTP_NR_ASYA FLP_NR_MXCS OTP_UC_INST OTP_NR_UDRV REG_NR_TRRC INS_NR_INPR MOD_NS_GLGC } 
+config_rtlds -rule  -disable -tag {  ARY_MS_DRNG  IDN_NR_CKYW IDN_NR_SVKW ARY_NR_LBND  INS_NR_PTEX INP_NO_USED OTP_NR_ASYA FLP_NR_MXCS OTP_UC_INST OTP_NR_UDRV REG_NR_TRRC INS_NR_INPR MOD_NS_GLGC } 
 config_rtlds -rule  -disable -tag { REG_NR_RWRC }
 # vsd2018_constrain //
 
-analyze -sv +incdir+../include ../src/top.sv
-elaborate -bbox true -top top
+analyze -sv +incdir+../include ../src/w_R16_Mux_16_1_in.sv
+elaborate -bbox true -top w_R16_Mux_16_1_in
 
 # Setup clock and reset
 clock clk

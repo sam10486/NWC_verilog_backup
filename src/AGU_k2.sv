@@ -12,7 +12,7 @@ module AGU_k2 (
     output logic AGU_out_en_k2,
     output logic AGU_done_k2,
     
-    output logic [`D_width-1:0] l_k2
+    output logic [2:0] l_k2
 );
 
    
@@ -23,7 +23,7 @@ module AGU_k2 (
     logic [`D_width-1:0] BitRev_out_j;
     logic [`D_width-1:0] tmp1, tmp1_pip;
     logic [`D_width-1:0] m0_pip, m1_pip;
-    logic [`D_width-1:0] k;
+    logic [2:0] k;
     assign k = `k;
     logic [`D_width-1:0] j_upper_k2; 
     assign j_upper_k2 = (1 << (radix_k1 * k) );

@@ -15,21 +15,21 @@ module AGU_top_k2 (
 
     output logic AGU_done_out_k2,
     output logic BN_MA_out_en_k2,
-    output logic [`D_width-1:0] l_AGU_out_k2
+    output logic [2:0] l_AGU_out_k2
 );
 
     logic [`D_width-1:0] AGU_Order_0_k2;
     logic [`D_width-1:0] AGU_Order_1_k2;
     logic AGU_out_en_k2;
     logic AGU_done_k2;
-    logic [`D_width-1:0] AGU_l_out_k2;
+    logic [2:0] AGU_l_out_k2;
 
 
     logic [`D_width-1:0] AGU_Order_0_k2_pip0;
     logic [`D_width-1:0] AGU_Order_1_k2_pip0;
     logic AGU_out_en_k2_pip0;
     logic AGU_done_k2_pip0;
-    logic [`D_width-1:0] AGU_l_out_k2_pip0;
+    logic [2:0] AGU_l_out_k2_pip0;
 
    
 

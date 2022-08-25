@@ -24,7 +24,7 @@ module AGU(
     output logic [`D_width-1:0] Order_15,
     output logic AGU_out_en,
     output logic AGU_done,
-    output logic [`D_width-1:0] l
+    output logic [2:0] l
 );
 
     logic [`D_width-1:0] j, i;
