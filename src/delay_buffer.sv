@@ -76,41 +76,41 @@ module delay_buffer (
     output logic [1:0] ntt_done_pip_out
 );
 
-    logic [`MA_width-1:0] R16_MA0_idx_pip[0:12]    ;
-    logic [`MA_width-1:0] R16_MA1_idx_pip[0:12]    ;
-    logic [`MA_width-1:0] R16_MA2_idx_pip[0:12]    ;
-    logic [`MA_width-1:0] R16_MA3_idx_pip[0:12]    ;
-    logic [`MA_width-1:0] R16_MA4_idx_pip[0:12]    ;
-    logic [`MA_width-1:0] R16_MA5_idx_pip[0:12]    ;
-    logic [`MA_width-1:0] R16_MA6_idx_pip[0:12]    ;
-    logic [`MA_width-1:0] R16_MA7_idx_pip[0:12]    ;
-    logic [`MA_width-1:0] R16_MA8_idx_pip[0:12]    ;
-    logic [`MA_width-1:0] R16_MA9_idx_pip[0:12]    ;
-    logic [`MA_width-1:0] R16_MA10_idx_pip[0:12]   ;
-    logic [`MA_width-1:0] R16_MA11_idx_pip[0:12]   ;
-    logic [`MA_width-1:0] R16_MA12_idx_pip[0:12]   ;
-    logic [`MA_width-1:0] R16_MA13_idx_pip[0:12]   ;
-    logic [`MA_width-1:0] R16_MA14_idx_pip[0:12]   ;
-    logic [`MA_width-1:0] R16_MA15_idx_pip[0:12]   ;
+    logic [`MA_width-1:0] R16_MA0_idx_pip[0:24]    ;
+    logic [`MA_width-1:0] R16_MA1_idx_pip[0:24]    ;
+    logic [`MA_width-1:0] R16_MA2_idx_pip[0:24]    ;
+    logic [`MA_width-1:0] R16_MA3_idx_pip[0:24]    ;
+    logic [`MA_width-1:0] R16_MA4_idx_pip[0:24]    ;
+    logic [`MA_width-1:0] R16_MA5_idx_pip[0:24]    ;
+    logic [`MA_width-1:0] R16_MA6_idx_pip[0:24]    ;
+    logic [`MA_width-1:0] R16_MA7_idx_pip[0:24]    ;
+    logic [`MA_width-1:0] R16_MA8_idx_pip[0:24]    ;
+    logic [`MA_width-1:0] R16_MA9_idx_pip[0:24]    ;
+    logic [`MA_width-1:0] R16_MA10_idx_pip[0:24]   ;
+    logic [`MA_width-1:0] R16_MA11_idx_pip[0:24]   ;
+    logic [`MA_width-1:0] R16_MA12_idx_pip[0:24]   ;
+    logic [`MA_width-1:0] R16_MA13_idx_pip[0:24]   ;
+    logic [`MA_width-1:0] R16_MA14_idx_pip[0:24]   ;
+    logic [`MA_width-1:0] R16_MA15_idx_pip[0:24]   ;
 
-    logic [`BANK_width-1:0] R16_BN0_idx_pip[0:12]    ;
-    logic [`BANK_width-1:0] R16_BN1_idx_pip[0:12]    ;
-    logic [`BANK_width-1:0] R16_BN2_idx_pip[0:12]    ;
-    logic [`BANK_width-1:0] R16_BN3_idx_pip[0:12]    ;
-    logic [`BANK_width-1:0] R16_BN4_idx_pip[0:12]    ;
-    logic [`BANK_width-1:0] R16_BN5_idx_pip[0:12]    ;
-    logic [`BANK_width-1:0] R16_BN6_idx_pip[0:12]    ;
-    logic [`BANK_width-1:0] R16_BN7_idx_pip[0:12]    ;
-    logic [`BANK_width-1:0] R16_BN8_idx_pip[0:12]    ;
-    logic [`BANK_width-1:0] R16_BN9_idx_pip[0:12]    ;
-    logic [`BANK_width-1:0] R16_BN10_idx_pip[0:12]   ;
-    logic [`BANK_width-1:0] R16_BN11_idx_pip[0:12]   ;
-    logic [`BANK_width-1:0] R16_BN12_idx_pip[0:12]   ;
-    logic [`BANK_width-1:0] R16_BN13_idx_pip[0:12]   ;
-    logic [`BANK_width-1:0] R16_BN14_idx_pip[0:12]   ;
-    logic [`BANK_width-1:0] R16_BN15_idx_pip[0:12]   ;
+    logic [`BANK_width-1:0] R16_BN0_idx_pip[0:24]    ;
+    logic [`BANK_width-1:0] R16_BN1_idx_pip[0:24]    ;
+    logic [`BANK_width-1:0] R16_BN2_idx_pip[0:24]    ;
+    logic [`BANK_width-1:0] R16_BN3_idx_pip[0:24]    ;
+    logic [`BANK_width-1:0] R16_BN4_idx_pip[0:24]    ;
+    logic [`BANK_width-1:0] R16_BN5_idx_pip[0:24]    ;
+    logic [`BANK_width-1:0] R16_BN6_idx_pip[0:24]    ;
+    logic [`BANK_width-1:0] R16_BN7_idx_pip[0:24]    ;
+    logic [`BANK_width-1:0] R16_BN8_idx_pip[0:24]    ;
+    logic [`BANK_width-1:0] R16_BN9_idx_pip[0:24]    ;
+    logic [`BANK_width-1:0] R16_BN10_idx_pip[0:24]   ;
+    logic [`BANK_width-1:0] R16_BN11_idx_pip[0:24]   ;
+    logic [`BANK_width-1:0] R16_BN12_idx_pip[0:24]   ;
+    logic [`BANK_width-1:0] R16_BN13_idx_pip[0:24]   ;
+    logic [`BANK_width-1:0] R16_BN14_idx_pip[0:24]   ;
+    logic [`BANK_width-1:0] R16_BN15_idx_pip[0:24]   ;
 
-    logic [1:0] ntt_enable_pip [0:12];
+    logic [1:0] ntt_enable_pip [0:24];
 
     assign R16_MA0_idx_pip[0]   = R16_MA0_idx;
     assign R16_MA1_idx_pip[0]   = R16_MA1_idx;
@@ -151,7 +151,7 @@ module delay_buffer (
     integer i;
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
-            for (i = 0; i<=11 ; i=i+1) begin
+            for (i = 0; i<=19 ; i=i+1) begin
                 R16_MA0_idx_pip[i+1]    <= 'd0;
                 R16_MA1_idx_pip[i+1]    <= 'd0;
                 R16_MA2_idx_pip[i+1]    <= 'd0;
@@ -188,7 +188,7 @@ module delay_buffer (
             end
         end else begin
             if (LAST_STAGE) begin
-                for (i = 0; i<3; i=i+1) begin
+                for (i = 0; i<9; i=i+1) begin
                     R16_MA0_idx_pip[i+1]    <= R16_MA0_idx_pip[i];
                     R16_MA1_idx_pip[i+1]    <= R16_MA1_idx_pip[i];
                     R16_MA2_idx_pip[i+1]    <= R16_MA2_idx_pip[i];
@@ -226,7 +226,7 @@ module delay_buffer (
                     ntt_enable_pip[i+1]     <= ntt_enable_pip[i];
                 end
             end else begin
-                for (i = 0; i<12; i=i+1) begin
+                for (i = 0; i<24; i=i+1) begin
                     R16_MA0_idx_pip[i+1]    <= R16_MA0_idx_pip[i];
                     R16_MA1_idx_pip[i+1]    <= R16_MA1_idx_pip[i];
                     R16_MA2_idx_pip[i+1]    <= R16_MA2_idx_pip[i];
@@ -267,39 +267,39 @@ module delay_buffer (
         end
     end
 
-    assign R16_MA0_idx_pip_out  = (LAST_STAGE) ? R16_MA0_idx_pip   [3] : R16_MA0_idx_pip   [12];
-    assign R16_MA1_idx_pip_out  = (LAST_STAGE) ? R16_MA1_idx_pip   [3] : R16_MA1_idx_pip   [12];
-    assign R16_MA2_idx_pip_out  = (LAST_STAGE) ? R16_MA2_idx_pip   [3] : R16_MA2_idx_pip   [12];
-    assign R16_MA3_idx_pip_out  = (LAST_STAGE) ? R16_MA3_idx_pip   [3] : R16_MA3_idx_pip   [12];
-    assign R16_MA4_idx_pip_out  = (LAST_STAGE) ? R16_MA4_idx_pip   [3] : R16_MA4_idx_pip   [12];
-    assign R16_MA5_idx_pip_out  = (LAST_STAGE) ? R16_MA5_idx_pip   [3] : R16_MA5_idx_pip   [12];
-    assign R16_MA6_idx_pip_out  = (LAST_STAGE) ? R16_MA6_idx_pip   [3] : R16_MA6_idx_pip   [12];
-    assign R16_MA7_idx_pip_out  = (LAST_STAGE) ? R16_MA7_idx_pip   [3] : R16_MA7_idx_pip   [12];
-    assign R16_MA8_idx_pip_out  = (LAST_STAGE) ? R16_MA8_idx_pip   [3] : R16_MA8_idx_pip   [12];
-    assign R16_MA9_idx_pip_out  = (LAST_STAGE) ? R16_MA9_idx_pip   [3] : R16_MA9_idx_pip   [12];
-    assign R16_MA10_idx_pip_out = (LAST_STAGE) ? R16_MA10_idx_pip  [3] : R16_MA10_idx_pip  [12];
-    assign R16_MA11_idx_pip_out = (LAST_STAGE) ? R16_MA11_idx_pip  [3] : R16_MA11_idx_pip  [12];
-    assign R16_MA12_idx_pip_out = (LAST_STAGE) ? R16_MA12_idx_pip  [3] : R16_MA12_idx_pip  [12];
-    assign R16_MA13_idx_pip_out = (LAST_STAGE) ? R16_MA13_idx_pip  [3] : R16_MA13_idx_pip  [12];
-    assign R16_MA14_idx_pip_out = (LAST_STAGE) ? R16_MA14_idx_pip  [3] : R16_MA14_idx_pip  [12];
-    assign R16_MA15_idx_pip_out = (LAST_STAGE) ? R16_MA15_idx_pip  [3] : R16_MA15_idx_pip  [12];
+    assign R16_MA0_idx_pip_out  = (LAST_STAGE) ? R16_MA0_idx_pip   [9] : R16_MA0_idx_pip   [24];
+    assign R16_MA1_idx_pip_out  = (LAST_STAGE) ? R16_MA1_idx_pip   [9] : R16_MA1_idx_pip   [24];
+    assign R16_MA2_idx_pip_out  = (LAST_STAGE) ? R16_MA2_idx_pip   [9] : R16_MA2_idx_pip   [24];
+    assign R16_MA3_idx_pip_out  = (LAST_STAGE) ? R16_MA3_idx_pip   [9] : R16_MA3_idx_pip   [24];
+    assign R16_MA4_idx_pip_out  = (LAST_STAGE) ? R16_MA4_idx_pip   [9] : R16_MA4_idx_pip   [24];
+    assign R16_MA5_idx_pip_out  = (LAST_STAGE) ? R16_MA5_idx_pip   [9] : R16_MA5_idx_pip   [24];
+    assign R16_MA6_idx_pip_out  = (LAST_STAGE) ? R16_MA6_idx_pip   [9] : R16_MA6_idx_pip   [24];
+    assign R16_MA7_idx_pip_out  = (LAST_STAGE) ? R16_MA7_idx_pip   [9] : R16_MA7_idx_pip   [24];
+    assign R16_MA8_idx_pip_out  = (LAST_STAGE) ? R16_MA8_idx_pip   [9] : R16_MA8_idx_pip   [24];
+    assign R16_MA9_idx_pip_out  = (LAST_STAGE) ? R16_MA9_idx_pip   [9] : R16_MA9_idx_pip   [24];
+    assign R16_MA10_idx_pip_out = (LAST_STAGE) ? R16_MA10_idx_pip  [9] : R16_MA10_idx_pip  [24];
+    assign R16_MA11_idx_pip_out = (LAST_STAGE) ? R16_MA11_idx_pip  [9] : R16_MA11_idx_pip  [24];
+    assign R16_MA12_idx_pip_out = (LAST_STAGE) ? R16_MA12_idx_pip  [9] : R16_MA12_idx_pip  [24];
+    assign R16_MA13_idx_pip_out = (LAST_STAGE) ? R16_MA13_idx_pip  [9] : R16_MA13_idx_pip  [24];
+    assign R16_MA14_idx_pip_out = (LAST_STAGE) ? R16_MA14_idx_pip  [9] : R16_MA14_idx_pip  [24];
+    assign R16_MA15_idx_pip_out = (LAST_STAGE) ? R16_MA15_idx_pip  [9] : R16_MA15_idx_pip  [24];
 
-    assign R16_BN0_idx_pip_out  = (LAST_STAGE) ? R16_BN0_idx_pip   [3] : R16_BN0_idx_pip   [12];
-    assign R16_BN1_idx_pip_out  = (LAST_STAGE) ? R16_BN1_idx_pip   [3] : R16_BN1_idx_pip   [12];
-    assign R16_BN2_idx_pip_out  = (LAST_STAGE) ? R16_BN2_idx_pip   [3] : R16_BN2_idx_pip   [12];
-    assign R16_BN3_idx_pip_out  = (LAST_STAGE) ? R16_BN3_idx_pip   [3] : R16_BN3_idx_pip   [12];
-    assign R16_BN4_idx_pip_out  = (LAST_STAGE) ? R16_BN4_idx_pip   [3] : R16_BN4_idx_pip   [12];
-    assign R16_BN5_idx_pip_out  = (LAST_STAGE) ? R16_BN5_idx_pip   [3] : R16_BN5_idx_pip   [12];
-    assign R16_BN6_idx_pip_out  = (LAST_STAGE) ? R16_BN6_idx_pip   [3] : R16_BN6_idx_pip   [12];
-    assign R16_BN7_idx_pip_out  = (LAST_STAGE) ? R16_BN7_idx_pip   [3] : R16_BN7_idx_pip   [12];
-    assign R16_BN8_idx_pip_out  = (LAST_STAGE) ? R16_BN8_idx_pip   [3] : R16_BN8_idx_pip   [12];
-    assign R16_BN9_idx_pip_out  = (LAST_STAGE) ? R16_BN9_idx_pip   [3] : R16_BN9_idx_pip   [12];
-    assign R16_BN10_idx_pip_out = (LAST_STAGE) ? R16_BN10_idx_pip  [3] : R16_BN10_idx_pip  [12];
-    assign R16_BN11_idx_pip_out = (LAST_STAGE) ? R16_BN11_idx_pip  [3] : R16_BN11_idx_pip  [12];
-    assign R16_BN12_idx_pip_out = (LAST_STAGE) ? R16_BN12_idx_pip  [3] : R16_BN12_idx_pip  [12];
-    assign R16_BN13_idx_pip_out = (LAST_STAGE) ? R16_BN13_idx_pip  [3] : R16_BN13_idx_pip  [12];
-    assign R16_BN14_idx_pip_out = (LAST_STAGE) ? R16_BN14_idx_pip  [3] : R16_BN14_idx_pip  [12];
-    assign R16_BN15_idx_pip_out = (LAST_STAGE) ? R16_BN15_idx_pip  [3] : R16_BN15_idx_pip  [12];
+    assign R16_BN0_idx_pip_out  = (LAST_STAGE) ? R16_BN0_idx_pip   [9] : R16_BN0_idx_pip   [24];
+    assign R16_BN1_idx_pip_out  = (LAST_STAGE) ? R16_BN1_idx_pip   [9] : R16_BN1_idx_pip   [24];
+    assign R16_BN2_idx_pip_out  = (LAST_STAGE) ? R16_BN2_idx_pip   [9] : R16_BN2_idx_pip   [24];
+    assign R16_BN3_idx_pip_out  = (LAST_STAGE) ? R16_BN3_idx_pip   [9] : R16_BN3_idx_pip   [24];
+    assign R16_BN4_idx_pip_out  = (LAST_STAGE) ? R16_BN4_idx_pip   [9] : R16_BN4_idx_pip   [24];
+    assign R16_BN5_idx_pip_out  = (LAST_STAGE) ? R16_BN5_idx_pip   [9] : R16_BN5_idx_pip   [24];
+    assign R16_BN6_idx_pip_out  = (LAST_STAGE) ? R16_BN6_idx_pip   [9] : R16_BN6_idx_pip   [24];
+    assign R16_BN7_idx_pip_out  = (LAST_STAGE) ? R16_BN7_idx_pip   [9] : R16_BN7_idx_pip   [24];
+    assign R16_BN8_idx_pip_out  = (LAST_STAGE) ? R16_BN8_idx_pip   [9] : R16_BN8_idx_pip   [24];
+    assign R16_BN9_idx_pip_out  = (LAST_STAGE) ? R16_BN9_idx_pip   [9] : R16_BN9_idx_pip   [24];
+    assign R16_BN10_idx_pip_out = (LAST_STAGE) ? R16_BN10_idx_pip  [9] : R16_BN10_idx_pip  [24];
+    assign R16_BN11_idx_pip_out = (LAST_STAGE) ? R16_BN11_idx_pip  [9] : R16_BN11_idx_pip  [24];
+    assign R16_BN12_idx_pip_out = (LAST_STAGE) ? R16_BN12_idx_pip  [9] : R16_BN12_idx_pip  [24];
+    assign R16_BN13_idx_pip_out = (LAST_STAGE) ? R16_BN13_idx_pip  [9] : R16_BN13_idx_pip  [24];
+    assign R16_BN14_idx_pip_out = (LAST_STAGE) ? R16_BN14_idx_pip  [9] : R16_BN14_idx_pip  [24];
+    assign R16_BN15_idx_pip_out = (LAST_STAGE) ? R16_BN15_idx_pip  [9] : R16_BN15_idx_pip  [24];
 
-    assign ntt_done_pip_out      = (LAST_STAGE) ? ntt_enable_pip    [3] : ntt_enable_pip    [12];
+    assign ntt_done_pip_out      = (LAST_STAGE) ? ntt_enable_pip    [9] : ntt_enable_pip    [24];
 endmodule

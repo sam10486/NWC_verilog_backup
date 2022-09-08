@@ -7,8 +7,9 @@
 `else
 `include "top.sv"
 `include "SRAM_DP_512_rtl.v"
-`endif
 `timescale 1ns/10ps
+`endif
+
 
 `define CYCLE 10
 
@@ -28,7 +29,7 @@ module Testbench ();
     parameter MA = `MA;
     parameter BN = `BN;
 
-    logic [`D_width-1:0] TF_based_in [0:(k1_ite+2)*bank_num-1]; 
+    logic [`D_width-1:0] TF_based_in [0:6*bank_num-1]; 
     logic [`D_width-1:0] TF_const_in [0:bank_num-2]; 
     logic [`D_width-1:0] mem_data_in [0:`degree-1];
     logic [`D_width-1:0] mem_data_golden [0:`degree-1]; 
@@ -138,7 +139,6 @@ module Testbench ();
                 top.memory_wrapper.gen_sram[15].sram.mem[k] = mem_data_in[k*BN + 15];
             end
         `else
-            #`CYCLE;
             for (int k = 0; k<MA; k=k+1) begin
                 top.memory_wrapper.gen_sram_0__sram.mem[k]  = mem_data_in[k*BN + 0];
                 top.memory_wrapper.gen_sram_1__sram.mem[k]  = mem_data_in[k*BN + 1];
@@ -161,6 +161,9 @@ module Testbench ();
         `endif
     end
 
+    `ifdef SYN
+        initial $sdf_annotate("top_syn.sdf", top);
+    `endif
 
     initial begin
         $fsdbDumpfile("top_tb.fsdb");

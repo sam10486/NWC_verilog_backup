@@ -43,36 +43,40 @@ module Order_translate_k2 (
     logic [`D_width-1:0] Order0_tmp_out_stage0, Order0_tmp_out_stage1,  Order0_tmp_out_stage2;
     logic [`D_width-1:0] Order1_tmp_out_stage0, Order1_tmp_out_stage1,  Order1_tmp_out_stage2;
 
-    logic [`D_width-1:0] l_pip0, l_pip1, l_pip2;
+    logic [2:0] l_pip0, l_pip1, l_pip2;
+
+    parameter DW_sub_16 = `D_width-16;
+    parameter DW_sub_4 = `D_width-4;
+    parameter DW_sub_delta = `delta;
 
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
-            Order0_tmp0_pip0 <= 'd0;
-            Order0_tmp1_pip0 <= 'd0;
-            Order0_tmp2_pip0 <= 'd0;
-            Order0_tmp3_pip0 <= 'd0;
-            Order0_pip0 <=      'd0;
+            Order0_tmp0_pip0 <= `D_width'd0;
+            Order0_tmp1_pip0 <= `D_width'd0;
+            Order0_tmp2_pip0 <= `D_width'd0;
+            Order0_tmp3_pip0 <= `D_width'd0;
+            Order0_pip0 <=      `D_width'd0;
 
-            Order1_tmp0_pip0 <= 'd0;
-            Order1_tmp1_pip0 <= 'd0;
-            Order1_tmp2_pip0 <= 'd0;
-            Order1_tmp3_pip0 <= 'd0;
-            Order1_pip0 <=      'd0;
+            Order1_tmp0_pip0 <= `D_width'd0;
+            Order1_tmp1_pip0 <= `D_width'd0;
+            Order1_tmp2_pip0 <= `D_width'd0;
+            Order1_tmp3_pip0 <= `D_width'd0;
+            Order1_pip0 <=      `D_width'd0;
 
-            r_enable_k2_pip0 <= 'd0;
-            AGU_done_k2_pip0 <= 'd0;
+            r_enable_k2_pip0 <= 1'd0;
+            AGU_done_k2_pip0 <= 1'd0;
             l_pip0 <= 'd0;
         end else begin
-            Order0_tmp0_pip0 <= Order_0[3:0];
-            Order0_tmp1_pip0 <= Order_0[7:4];
-            Order0_tmp2_pip0 <= Order_0[11:8];
-            Order0_tmp3_pip0 <= Order_0[`degree_width-1:12];
+            Order0_tmp0_pip0 <= {{DW_sub_4{1'b0}}, Order_0[3:0]     };
+            Order0_tmp1_pip0 <= {{DW_sub_4{1'b0}}, Order_0[7:4]     };
+            Order0_tmp2_pip0 <= {{DW_sub_4{1'b0}}, Order_0[11:8]    };
+            Order0_tmp3_pip0 <= {{DW_sub_4{1'b0}}, Order_0[15:12]   };
             Order0_pip0 <=      Order_0;
 
-            Order1_tmp0_pip0 <= Order_1[3:0];
-            Order1_tmp1_pip0 <= Order_1[7:4];
-            Order1_tmp2_pip0 <= Order_1[11:8];
-            Order1_tmp3_pip0 <= Order_1[`degree_width-1:12];
+            Order1_tmp0_pip0 <= {{DW_sub_4{1'b0}}, Order_1[3:0]     };
+            Order1_tmp1_pip0 <= {{DW_sub_4{1'b0}}, Order_1[7:4]     };
+            Order1_tmp2_pip0 <= {{DW_sub_4{1'b0}}, Order_1[11:8]    };
+            Order1_tmp3_pip0 <= {{DW_sub_4{1'b0}}, Order_1[15:12]   };
             Order1_pip0 <=      Order_1;
 
             r_enable_k2_pip0 <= r_enable_k2;
@@ -97,30 +101,30 @@ module Order_translate_k2 (
 
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
-            Order0_tmp2_pip1        <= 'd0;
-            Order0_tmp3_pip1        <= 'd0;
-            Order0_pip1             <= 'd0;
-            Order0_tmp_out_pip0     <= 'd0;   
+            Order0_tmp2_pip1        <= `D_width'd0;
+            Order0_tmp3_pip1        <= `D_width'd0;
+            Order0_pip1             <= `D_width'd0;
+            Order0_tmp_out_pip0     <= `D_width'd0;   
 
-            Order1_tmp2_pip1        <= 'd0;
-            Order1_tmp3_pip1        <= 'd0;
-            Order1_pip1             <= 'd0;
-            Order1_tmp_out_pip0     <= 'd0;
+            Order1_tmp2_pip1        <= `D_width'd0;
+            Order1_tmp3_pip1        <= `D_width'd0;
+            Order1_pip1             <= `D_width'd0;
+            Order1_tmp_out_pip0     <= `D_width'd0;
 
-            r_enable_k2_pip1        <= 'd0;
-            AGU_done_k2_pip1        <= 'd0;
+            r_enable_k2_pip1        <= 1'd0;
+            AGU_done_k2_pip1        <= 1'd0;
 
             l_pip1 <= 'd0;
         end else begin
             Order0_tmp2_pip1        <= Order0_tmp2_pip0;
             Order0_tmp3_pip1        <= Order0_tmp3_pip0;
             Order0_pip1             <= Order0_pip0;
-            Order0_tmp_out_pip0     <= Order0_tmp_out_stage0[15:0];       
+            Order0_tmp_out_pip0     <= {{DW_sub_16{1'b0}}, Order0_tmp_out_stage0[15:0]};       
 
             Order1_tmp2_pip1        <= Order1_tmp2_pip0;
             Order1_tmp3_pip1        <= Order1_tmp3_pip0;
             Order1_pip1             <= Order1_pip0;
-            Order1_tmp_out_pip0     <= Order1_tmp_out_stage0[15:0];   
+            Order1_tmp_out_pip0     <= {{DW_sub_16{1'b0}}, Order1_tmp_out_stage0[15:0]};   
 
             r_enable_k2_pip1        <= r_enable_k2_pip0;
             AGU_done_k2_pip1        <= AGU_done_k2_pip0;
@@ -144,25 +148,25 @@ module Order_translate_k2 (
 
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
-            Order0_tmp3_pip2    <= 'd0;
-            Order0_pip2         <= 'd0;
-            Order0_tmp_out_pip1 <= 'd0;
+            Order0_tmp3_pip2    <= `D_width'd0;
+            Order0_pip2         <= `D_width'd0;
+            Order0_tmp_out_pip1 <= `D_width'd0;
 
-            Order1_tmp3_pip2    <= 'd0;
-            Order1_pip2         <= 'd0;
-            Order1_tmp_out_pip1 <= 'd0;
+            Order1_tmp3_pip2    <= `D_width'd0;
+            Order1_pip2         <= `D_width'd0;
+            Order1_tmp_out_pip1 <= `D_width'd0;
 
-            r_enable_k2_pip2 <= 'd0;
-            AGU_done_k2_pip2 <= 'd0;
+            r_enable_k2_pip2 <= 1'd0;
+            AGU_done_k2_pip2 <= 1'd0;
             l_pip2 <= 'd0;
         end else begin
             Order0_tmp3_pip2    <= Order0_tmp3_pip1;
             Order0_pip2         <= Order0_pip1 >> `delta;
-            Order0_tmp_out_pip1 <= Order0_tmp_out_stage1[15:0];
+            Order0_tmp_out_pip1 <= {{DW_sub_16{1'b0}}, Order0_tmp_out_stage1[15:0]};
 
             Order1_tmp3_pip2    <= Order1_tmp3_pip1;
             Order1_pip2         <= Order1_pip1 >> `delta;
-            Order1_tmp_out_pip1 <= Order1_tmp_out_stage1[15:0];
+            Order1_tmp_out_pip1 <= {{DW_sub_16{1'b0}}, Order1_tmp_out_stage1[15:0]};
 
             r_enable_k2_pip2    <= r_enable_k2_pip1;
             AGU_done_k2_pip2    <= AGU_done_k2_pip1;
@@ -186,35 +190,35 @@ module Order_translate_k2 (
 
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
-            MA0_idx_k2  <= 'd0;
-            BN0_idx_k2  <= 'd0;
+            MA0_idx_k2  <= {`MA_width{1'd0}};
+            BN0_idx_k2  <= {`BANK_width{1'd0}};
 
-            MA1_idx_k2  <= 'd0;
-            BN1_idx_k2  <= 'd0;
+            MA1_idx_k2  <= {`MA_width{1'd0}};
+            BN1_idx_k2  <= {`BANK_width{1'd0}};
 
-            AGU_done_out_k2 <= 'd0;
-            BN_MA_out_en_k2 <= 'd0;
+            AGU_done_out_k2 <= 1'd0;
+            BN_MA_out_en_k2 <= 1'd0;
             l_AGU_out_k2 <= 'd0;
         end else begin
             if (r_enable_k2_pip2) begin
-                MA0_idx_k2  <= Order0_pip2[`degree_width-1-`delta:0];
-                BN0_idx_k2  <= Order0_tmp_out_stage2[15:0];
+                MA0_idx_k2  <= Order0_pip2[`MA_width-1:0];
+                BN0_idx_k2  <= Order0_tmp_out_stage2[`BANK_width-1:0];
 
-                MA1_idx_k2  <= Order1_pip2[`degree_width-1-`delta:0];
-                BN1_idx_k2  <= Order1_tmp_out_stage2[15:0];
+                MA1_idx_k2  <= Order1_pip2[`MA_width-1:0];
+                BN1_idx_k2  <= Order1_tmp_out_stage2[`BANK_width-1:0];
 
                 AGU_done_out_k2 <= AGU_done_k2_pip2;
-                BN_MA_out_en_k2 <= 'd1;
+                BN_MA_out_en_k2 <= 1'd1;
                 l_AGU_out_k2 <= l_pip2;
             end else begin
-                MA0_idx_k2  <= 'd0;
-                BN0_idx_k2  <= 'd0;
+                MA0_idx_k2  <= {`MA_width{1'd0}};
+                BN0_idx_k2  <= {`BANK_width{1'd0}};
 
-                MA1_idx_k2  <= 'd0;
-                BN1_idx_k2  <= 'd0;
+                MA1_idx_k2  <= {`MA_width{1'd0}};
+                BN1_idx_k2  <= {`BANK_width{1'd0}};
 
-                AGU_done_out_k2 <= 'd0;
-                BN_MA_out_en_k2 <= 'd0;
+                AGU_done_out_k2 <= 1'd0;
+                BN_MA_out_en_k2 <= 1'd0;
                 l_AGU_out_k2 <= 'd0;
             end
         end

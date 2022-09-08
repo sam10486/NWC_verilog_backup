@@ -36,7 +36,7 @@ set_wire_load_mode segmented
 set_wire_load_model -name tsmc090_wl10 -library typical                                         
 #set_wire_load_model -name tsmc090_wl10 -library slow                                           
 #create_clock -period 16 -waveform {0 2.5} [get_ports clk]
-create_clock -period 40 [get_ports clk]
+create_clock -period 20 [get_ports clk]
 set_dont_touch_network [get_ports clk]                                                          
 set_ideal_network [get_ports clk]                                                             
 set_ideal_network [get_ports rst]                                                             
@@ -61,7 +61,7 @@ set_host_options -max_cores 4
 #replace_clock_gates                                                                            
    
     
-	compile                                                                                                                                                                               
+	compile                                                                                                                                                                             
 	#compile -inc -map_effort high                                                                  
 	#compile -map_effort medium                                                                     
 	#compile -incremental_mapping -map_effort high -area_effort high -boundary_optimization         

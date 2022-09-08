@@ -1,8 +1,7 @@
 `include "../include/define.svh"
 
 module barrett_reduction (
-    a,
-    b,
+    S_in,
     modulus,
     clk,
     rst,
@@ -22,13 +21,13 @@ module barrett_reduction (
     parameter DATA_MULT_PRE_WIDTH = DATA_FRI_RS_WIDTH + pre_computing_width;//23
     parameter precompute  = `precompute;
 
-    input [DATA_WIDTH-1:0] a;
-    input [DATA_WIDTH-1:0] b;
+    input [DOUBLE_DATA_WIDTH-1:0] S_in;
     input [DATA_WIDTH-1:0] modulus;
     input clk;
     input rst;
-    
+
     output logic [DATA_WIDTH-1:0] result;
+
 
     logic [DOUBLE_DATA_WIDTH-1:0] a_mul_b;//16
     logic [DATA_FRI_RS_WIDTH-1:0] a_mul_b_RS;//10
@@ -39,31 +38,34 @@ module barrett_reduction (
     logic [DATA_WIDTH:0] C_Minus_QM_1;
     logic [DATA_WIDTH-1:0]C_Minus_QM_MUX;
 
-    /*always_ff @( posedge clk or posedge rst ) begin
-        if (rst) begin
-            a_mul_b <= 'd0;
-        end else begin
-            a_mul_b <= a * b;
-        end
-    end*/
+    logic [DATA_MULT_PRE_WIDTH-1:0] af_pre_delay1;
+    logic [DOUBLE_DATA_WIDTH-1:0] S_in_delay1;
+    logic [`D_width-1:0] modulus_reg_delay1; 
+    
 
     always_comb begin
-        a_mul_b = a*b;
-        a_mul_b_RS = a_mul_b >> RS_FRI;
+        a_mul_b_RS = S_in >> RS_FRI;
         a_mul_b_RS_mul_precompute = a_mul_b_RS * precompute;
-        Q = a_mul_b_RS_mul_precompute >> RS_SEC;
-        QM = Q * modulus;
+        // pipeline
+        Q = af_pre_delay1 >> RS_SEC;
+        QM = Q * modulus_reg_delay1;
         //adder part
-        C_Minus_QM = a_mul_b - QM;
-        C_Minus_QM_1 = C_Minus_QM - modulus;
+        C_Minus_QM = S_in_delay1 - QM;
+        C_Minus_QM_1 = C_Minus_QM - modulus_reg_delay1;
         C_Minus_QM_MUX   = ((C_Minus_QM_1[DATA_WIDTH] == 1'b1)) ? C_Minus_QM : C_Minus_QM_1; 
     end
     
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
             result <= 'd0;
+            modulus_reg_delay1 <= 'd0;
+            af_pre_delay1 <= 'd0;
+            S_in_delay1 <= 'd0;
         end else begin
             result <= C_Minus_QM_MUX;
+            modulus_reg_delay1 <= modulus;
+            af_pre_delay1 <= a_mul_b_RS_mul_precompute;
+            S_in_delay1 <= S_in;
         end
     end
 endmodule

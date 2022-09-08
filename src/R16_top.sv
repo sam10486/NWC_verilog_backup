@@ -512,26 +512,103 @@ module R16_top(
         end
     end
 
+    //------delay----------
+    logic [`D_width-1:0] x0_pip_in_delay    [0:4] ;
+    logic [`D_width-1:0] x1_pip_in_delay    [0:4] ;
+    logic [`D_width-1:0] x2_pip_in_delay    [0:4] ;
+    logic [`D_width-1:0] x3_pip_in_delay    [0:4] ;
+    logic [`D_width-1:0] x4_pip_in_delay    [0:4] ;
+    logic [`D_width-1:0] x5_pip_in_delay    [0:4] ;
+    logic [`D_width-1:0] x6_pip_in_delay    [0:4] ;
+    logic [`D_width-1:0] x7_pip_in_delay    [0:4] ;
+    logic [`D_width-1:0] x8_pip_in_delay    [0:4] ;
+    logic [`D_width-1:0] x9_pip_in_delay    [0:4] ;
+    logic [`D_width-1:0] x10_pip_in_delay   [0:4] ;
+    logic [`D_width-1:0] x11_pip_in_delay   [0:4] ;
+    logic [`D_width-1:0] x12_pip_in_delay   [0:4] ;
+    logic [`D_width-1:0] x13_pip_in_delay   [0:4] ;
+    logic [`D_width-1:0] x14_pip_in_delay   [0:4] ;
+    logic [`D_width-1:0] x15_pip_in_delay   [0:4] ;
+
+   assign x0_pip_in_delay [0]   =   x0_pip_in   ;
+   assign x1_pip_in_delay [0]   =   x1_pip_in   ;
+   assign x2_pip_in_delay [0]   =   x2_pip_in   ;
+   assign x3_pip_in_delay [0]   =   x3_pip_in   ;
+   assign x4_pip_in_delay [0]   =   x4_pip_in   ;
+   assign x5_pip_in_delay [0]   =   x5_pip_in   ;
+   assign x6_pip_in_delay [0]   =   x6_pip_in   ;
+   assign x7_pip_in_delay [0]   =   x7_pip_in   ;
+   assign x8_pip_in_delay [0]   =   x8_pip_in   ;
+   assign x9_pip_in_delay [0]   =   x9_pip_in   ;
+   assign x10_pip_in_delay[0]   =   x10_pip_in  ;
+   assign x11_pip_in_delay[0]   =   x11_pip_in  ;
+   assign x12_pip_in_delay[0]   =   x12_pip_in  ;
+   assign x13_pip_in_delay[0]   =   x13_pip_in  ;
+   assign x14_pip_in_delay[0]   =   x14_pip_in  ;
+   assign x15_pip_in_delay[0]   =   x15_pip_in  ;
+    always_ff @( posedge clk or posedge rst ) begin
+        integer i;
+        if (rst) begin
+            for (i = 0; i<4 ; i=i+1) begin
+                x0_pip_in_delay [i+1]   <=   'd0;
+                x1_pip_in_delay [i+1]   <=   'd0;
+                x2_pip_in_delay [i+1]   <=   'd0;
+                x3_pip_in_delay [i+1]   <=   'd0;
+                x4_pip_in_delay [i+1]   <=   'd0;
+                x5_pip_in_delay [i+1]   <=   'd0;
+                x6_pip_in_delay [i+1]   <=   'd0;
+                x7_pip_in_delay [i+1]   <=   'd0;
+                x8_pip_in_delay [i+1]   <=   'd0;
+                x9_pip_in_delay [i+1]   <=   'd0;
+                x10_pip_in_delay[i+1]   <=   'd0;
+                x11_pip_in_delay[i+1]   <=   'd0;
+                x12_pip_in_delay[i+1]   <=   'd0;
+                x13_pip_in_delay[i+1]   <=   'd0;
+                x14_pip_in_delay[i+1]   <=   'd0;
+                x15_pip_in_delay[i+1]   <=   'd0;
+            end
+        end else begin
+            for (i = 0; i<4 ; i=i+1) begin
+                x0_pip_in_delay [i+1]   <=   x0_pip_in_delay [i];
+                x1_pip_in_delay [i+1]   <=   x1_pip_in_delay [i];
+                x2_pip_in_delay [i+1]   <=   x2_pip_in_delay [i];
+                x3_pip_in_delay [i+1]   <=   x3_pip_in_delay [i];
+                x4_pip_in_delay [i+1]   <=   x4_pip_in_delay [i];
+                x5_pip_in_delay [i+1]   <=   x5_pip_in_delay [i];
+                x6_pip_in_delay [i+1]   <=   x6_pip_in_delay [i];
+                x7_pip_in_delay [i+1]   <=   x7_pip_in_delay [i];
+                x8_pip_in_delay [i+1]   <=   x8_pip_in_delay [i];
+                x9_pip_in_delay [i+1]   <=   x9_pip_in_delay [i];
+                x10_pip_in_delay[i+1]   <=   x10_pip_in_delay[i];
+                x11_pip_in_delay[i+1]   <=   x11_pip_in_delay[i];
+                x12_pip_in_delay[i+1]   <=   x12_pip_in_delay[i];
+                x13_pip_in_delay[i+1]   <=   x13_pip_in_delay[i];
+                x14_pip_in_delay[i+1]   <=   x14_pip_in_delay[i];
+                x15_pip_in_delay[i+1]   <=   x15_pip_in_delay[i];
+            end
+        end
+    end
+
     R16_BU R16_BU(
         .LAST_STAGE(LAST_STAGE),
         .clk(clk),
         .rst(rst),
-        .x0 (x0_pip_in ),
-        .x1 (x1_pip_in ),
-        .x2 (x2_pip_in ),
-        .x3 (x3_pip_in ),
-        .x4 (x4_pip_in ),
-        .x5 (x5_pip_in ),
-        .x6 (x6_pip_in ),
-        .x7 (x7_pip_in ),
-        .x8 (x8_pip_in ),
-        .x9 (x9_pip_in ),
-        .x10(x10_pip_in),
-        .x11(x11_pip_in),
-        .x12(x12_pip_in),
-        .x13(x13_pip_in),
-        .x14(x14_pip_in),
-        .x15(x15_pip_in),
+        .x0 (x0_pip_in_delay [4]),
+        .x1 (x1_pip_in_delay [4]),
+        .x2 (x2_pip_in_delay [4]),
+        .x3 (x3_pip_in_delay [4]),
+        .x4 (x4_pip_in_delay [4]),
+        .x5 (x5_pip_in_delay [4]),
+        .x6 (x6_pip_in_delay [4]),
+        .x7 (x7_pip_in_delay [4]),
+        .x8 (x8_pip_in_delay [4]),
+        .x9 (x9_pip_in_delay [4]),
+        .x10(x10_pip_in_delay[4]),
+        .x11(x11_pip_in_delay[4]),
+        .x12(x12_pip_in_delay[4]),
+        .x13(x13_pip_in_delay[4]),
+        .x14(x14_pip_in_delay[4]),
+        .x15(x15_pip_in_delay[4]),
 
         .twiddle_0  (twiddle_0_pip_in ),
         .twiddle_1  (twiddle_1_pip_in ),

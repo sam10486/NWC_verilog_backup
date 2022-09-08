@@ -43,24 +43,24 @@ module TF_delay_buffer (
     
 );
 
-    logic [`D_width-1:0] TF0_pip[0:3]      ;
-    logic [`D_width-1:0] TF1_pip[0:3]      ;
-    logic [`D_width-1:0] TF2_pip[0:3]      ;
-    logic [`D_width-1:0] TF3_pip[0:3]      ;
-    logic [`D_width-1:0] TF4_pip[0:3]      ;
-    logic [`D_width-1:0] TF5_pip[0:3]      ;
-    logic [`D_width-1:0] TF6_pip[0:3]      ;
-    logic [`D_width-1:0] TF7_pip[0:3]      ;
-    logic [`D_width-1:0] TF8_pip[0:3]      ;
-    logic [`D_width-1:0] TF9_pip[0:3]      ;
-    logic [`D_width-1:0] TF10_pip[0:3]     ;
-    logic [`D_width-1:0] TF11_pip[0:3]     ;
-    logic [`D_width-1:0] TF12_pip[0:3]     ;
-    logic [`D_width-1:0] TF13_pip[0:3]     ;
-    logic [`D_width-1:0] TF14_pip[0:3]     ;
-    logic [`D_width-1:0] TF15_pip[0:3]     ;
+    logic [`D_width-1:0] TF0_pip[0:5]      ;
+    logic [`D_width-1:0] TF1_pip[0:5]      ;
+    logic [`D_width-1:0] TF2_pip[0:5]      ;
+    logic [`D_width-1:0] TF3_pip[0:5]      ;
+    logic [`D_width-1:0] TF4_pip[0:5]      ;
+    logic [`D_width-1:0] TF5_pip[0:5]      ;
+    logic [`D_width-1:0] TF6_pip[0:5]      ;
+    logic [`D_width-1:0] TF7_pip[0:5]      ;
+    logic [`D_width-1:0] TF8_pip[0:5]      ;
+    logic [`D_width-1:0] TF9_pip[0:5]      ;
+    logic [`D_width-1:0] TF10_pip[0:5]     ;
+    logic [`D_width-1:0] TF11_pip[0:5]     ;
+    logic [`D_width-1:0] TF12_pip[0:5]     ;
+    logic [`D_width-1:0] TF13_pip[0:5]     ;
+    logic [`D_width-1:0] TF14_pip[0:5]     ;
+    logic [`D_width-1:0] TF15_pip[0:5]     ;
 
-    logic [`D_width-1:0] modulus_pip[0:3]     ;
+    logic [`D_width-1:0] modulus_pip[0:5]     ;
 
 
     assign TF0_pip[0]   = TF0_in    ;
@@ -84,7 +84,7 @@ module TF_delay_buffer (
     integer i;
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
-            for (i = 0; i <= 2; i = i+1) begin
+            for (i = 0; i <= 4; i = i+1) begin
                 TF0_pip[i+1] <=     'd0;
                 TF1_pip[i+1] <=     'd0;
                 TF2_pip[i+1] <=     'd0;
@@ -105,7 +105,7 @@ module TF_delay_buffer (
                 modulus_pip[i+1] <=    'd0;
             end
         end else begin
-            for (i = 0; i<3 ; i = i+1 ) begin
+            for (i = 0; i<5 ; i = i+1 ) begin
                 TF0_pip[i+1] <=     TF0_pip[i] ;
                 TF1_pip[i+1] <=     TF1_pip[i] ;
                 TF2_pip[i+1] <=     TF2_pip[i] ;
@@ -128,22 +128,22 @@ module TF_delay_buffer (
         end
     end
 
-    assign TF0_pip_out   = TF0_pip [3]   ;
-    assign TF1_pip_out   = TF1_pip [3]   ;
-    assign TF2_pip_out   = TF2_pip [3]   ;
-    assign TF3_pip_out   = TF3_pip [3]   ;
-    assign TF4_pip_out   = TF4_pip [3]   ;
-    assign TF5_pip_out   = TF5_pip [3]   ;
-    assign TF6_pip_out   = TF6_pip [3]   ;
-    assign TF7_pip_out   = TF7_pip [3]   ;
-    assign TF8_pip_out   = TF8_pip [3]   ;
-    assign TF9_pip_out   = TF9_pip [3]   ;
-    assign TF10_pip_out  = TF10_pip[3]   ;
-    assign TF11_pip_out  = TF11_pip[3]   ;
-    assign TF12_pip_out  = TF12_pip[3]   ;
-    assign TF13_pip_out  = TF13_pip[3]   ;
-    assign TF14_pip_out  = TF14_pip[3]   ;
-    assign TF15_pip_out  = TF15_pip[3]   ;
+    assign TF0_pip_out   = TF0_pip [5]   ;
+    assign TF1_pip_out   = TF1_pip [5]   ;
+    assign TF2_pip_out   = TF2_pip [5]   ;
+    assign TF3_pip_out   = TF3_pip [5]   ;
+    assign TF4_pip_out   = TF4_pip [5]   ;
+    assign TF5_pip_out   = TF5_pip [5]   ;
+    assign TF6_pip_out   = TF6_pip [5]   ;
+    assign TF7_pip_out   = TF7_pip [5]   ;
+    assign TF8_pip_out   = TF8_pip [5]   ;
+    assign TF9_pip_out   = TF9_pip [5]   ;
+    assign TF10_pip_out  = TF10_pip[5]   ;
+    assign TF11_pip_out  = TF11_pip[5]   ;
+    assign TF12_pip_out  = TF12_pip[5]   ;
+    assign TF13_pip_out  = TF13_pip[5]   ;
+    assign TF14_pip_out  = TF14_pip[5]   ;
+    assign TF15_pip_out  = TF15_pip[5]   ;
 
-    assign modulus_pip_out  = modulus_pip[3]   ;
+    assign modulus_pip_out  = modulus_pip[5]   ;
 endmodule

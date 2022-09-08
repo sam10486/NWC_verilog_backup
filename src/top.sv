@@ -22,6 +22,8 @@ module top (
     logic ctr_TF_ren;
     logic ctr_TF_wen;
     logic [2:0] ctr_it_depth_cnt;
+    logic [`D_width-1:0] ctr_ite_sw_cnt;
+    logic [`D_width-1:0] ctr_ite_sw_cnt_ite3;
     logic ctr_AGU_enable;
     logic ctr_AGU_enable_k2;
     logic ctr_r_enable;
@@ -43,6 +45,8 @@ module top (
         .TF_ren         (ctr_TF_ren),
         .TF_wen         (ctr_TF_wen),
         .it_depth_cnt   (ctr_it_depth_cnt),
+        .ite_sw_cnt     (ctr_ite_sw_cnt),
+        .ite_sw_cnt_ite3(ctr_ite_sw_cnt_ite3),
         .AGU_enable     (ctr_AGU_enable),
         .AGU_enable_k2  (ctr_AGU_enable_k2),
         .r_enable       (ctr_r_enable),
@@ -57,38 +61,9 @@ module top (
     logic                TF_gen_TF_ren         ;
     logic                TF_gen_TF_wen         ;
     logic [2:0] TF_gen_it_depth_cnt;
-    logic [`D_width-1:0] TF_gen_TF_base_in0    ;
-    logic [`D_width-1:0] TF_gen_TF_base_in1    ;
-    logic [`D_width-1:0] TF_gen_TF_base_in2    ;
-    logic [`D_width-1:0] TF_gen_TF_base_in3    ;
-    logic [`D_width-1:0] TF_gen_TF_base_in4    ;
-    logic [`D_width-1:0] TF_gen_TF_base_in5    ;
-    logic [`D_width-1:0] TF_gen_TF_base_in6    ;
-    logic [`D_width-1:0] TF_gen_TF_base_in7    ;
-    logic [`D_width-1:0] TF_gen_TF_base_in8    ;
-    logic [`D_width-1:0] TF_gen_TF_base_in9    ;
-    logic [`D_width-1:0] TF_gen_TF_base_in10   ;
-    logic [`D_width-1:0] TF_gen_TF_base_in11   ;
-    logic [`D_width-1:0] TF_gen_TF_base_in12   ;
-    logic [`D_width-1:0] TF_gen_TF_base_in13   ;
-    logic [`D_width-1:0] TF_gen_TF_base_in14   ;
-
-    logic [`D_width-1:0] TF_gen_TF_const_in0   ;
-    logic [`D_width-1:0] TF_gen_TF_const_in1   ;
-    logic [`D_width-1:0] TF_gen_TF_const_in2   ;
-    logic [`D_width-1:0] TF_gen_TF_const_in3   ;
-    logic [`D_width-1:0] TF_gen_TF_const_in4   ;
-    logic [`D_width-1:0] TF_gen_TF_const_in5   ;
-    logic [`D_width-1:0] TF_gen_TF_const_in6   ;
-    logic [`D_width-1:0] TF_gen_TF_const_in7   ;
-    logic [`D_width-1:0] TF_gen_TF_const_in8   ;
-    logic [`D_width-1:0] TF_gen_TF_const_in9   ;
-    logic [`D_width-1:0] TF_gen_TF_const_in10  ;
-    logic [`D_width-1:0] TF_gen_TF_const_in11  ;
-    logic [`D_width-1:0] TF_gen_TF_const_in12  ;
-    logic [`D_width-1:0] TF_gen_TF_const_in13  ;
-
     logic [2:0] TF_l;
+    logic [`D_width-1:0] TF_ite_sw_cnt          ;
+    logic [`D_width-1:0] TF_ite_sw_cnt_ite3     ;
 
     //output
     logic [`D_width-1:0] TF_gen_TF_base_b1     ;
@@ -114,38 +89,10 @@ module top (
         .TF_ren         (TF_gen_TF_ren),
         .TF_wen         (TF_gen_TF_wen),
         .it_depth_cnt   (TF_gen_it_depth_cnt),
-        .TF_base_in0    (TF_gen_TF_base_in0 ),
-        .TF_base_in1    (TF_gen_TF_base_in1 ),
-        .TF_base_in2    (TF_gen_TF_base_in2 ),
-        .TF_base_in3    (TF_gen_TF_base_in3 ),
-        .TF_base_in4    (TF_gen_TF_base_in4 ),
-        .TF_base_in5    (TF_gen_TF_base_in5 ),
-        .TF_base_in6    (TF_gen_TF_base_in6 ),
-        .TF_base_in7    (TF_gen_TF_base_in7 ),
-        .TF_base_in8    (TF_gen_TF_base_in8 ),
-        .TF_base_in9    (TF_gen_TF_base_in9 ),
-        .TF_base_in10   (TF_gen_TF_base_in10),
-        .TF_base_in11   (TF_gen_TF_base_in11),
-        .TF_base_in12   (TF_gen_TF_base_in12),
-        .TF_base_in13   (TF_gen_TF_base_in13),
-        .TF_base_in14   (TF_gen_TF_base_in14),
-
-        .TF_const_in0   (TF_gen_TF_const_in0   ),
-        .TF_const_in1   (TF_gen_TF_const_in1   ),
-        .TF_const_in2   (TF_gen_TF_const_in2   ),
-        .TF_const_in3   (TF_gen_TF_const_in3   ),
-        .TF_const_in4   (TF_gen_TF_const_in4   ),
-        .TF_const_in5   (TF_gen_TF_const_in5   ),
-        .TF_const_in6   (TF_gen_TF_const_in6   ),
-        .TF_const_in7   (TF_gen_TF_const_in7   ),
-        .TF_const_in8   (TF_gen_TF_const_in8   ),
-        .TF_const_in9   (TF_gen_TF_const_in9   ),
-        .TF_const_in10  (TF_gen_TF_const_in10  ),
-        .TF_const_in11  (TF_gen_TF_const_in11  ),
-        .TF_const_in12  (TF_gen_TF_const_in12  ),
-        .TF_const_in13  (TF_gen_TF_const_in13  ),
         .modulus(modulus),
         .l(TF_l),
+        .ite_sw_cnt(TF_ite_sw_cnt),
+        .ite_sw_cnt_ite3(TF_ite_sw_cnt_ite3),
         //output
         .TF_base_b1 (TF_gen_TF_base_b1 ),
         .TF_base_b2 (TF_gen_TF_base_b2 ),
@@ -813,38 +760,9 @@ module top (
     assign TF_gen_TF_wen        = ctr_TF_wen        ;
     assign TF_gen_it_depth_cnt  = ctr_it_depth_cnt  ; 
 
-    assign TF_gen_TF_base_in0   = 'd0      ;
-    assign TF_gen_TF_base_in1   = 'd0      ;
-    assign TF_gen_TF_base_in2   = 'd0      ;
-    assign TF_gen_TF_base_in3   = 'd0      ;
-    assign TF_gen_TF_base_in4   = 'd0      ;
-    assign TF_gen_TF_base_in5   = 'd0      ;
-    assign TF_gen_TF_base_in6   = 'd0      ;
-    assign TF_gen_TF_base_in7   = 'd0      ;
-    assign TF_gen_TF_base_in8   = 'd0      ;
-    assign TF_gen_TF_base_in9   = 'd0      ;
-    assign TF_gen_TF_base_in10  = 'd0      ;
-    assign TF_gen_TF_base_in11  = 'd0      ;
-    assign TF_gen_TF_base_in12  = 'd0      ;
-    assign TF_gen_TF_base_in13  = 'd0      ;
-    assign TF_gen_TF_base_in14  = 'd0      ;
-    
-    assign TF_gen_TF_const_in0  = 'd0     ;
-    assign TF_gen_TF_const_in1  = 'd0     ;
-    assign TF_gen_TF_const_in2  = 'd0     ;
-    assign TF_gen_TF_const_in3  = 'd0     ;
-    assign TF_gen_TF_const_in4  = 'd0     ;
-    assign TF_gen_TF_const_in5  = 'd0     ;
-    assign TF_gen_TF_const_in6  = 'd0     ;
-    assign TF_gen_TF_const_in7  = 'd0     ;
-    assign TF_gen_TF_const_in8  = 'd0     ;
-    assign TF_gen_TF_const_in9  = 'd0     ;
-    assign TF_gen_TF_const_in10 = 'd0     ;
-    assign TF_gen_TF_const_in11 = 'd0     ;
-    assign TF_gen_TF_const_in12 = 'd0     ;
-    assign TF_gen_TF_const_in13 = 'd0     ;
-
     assign TF_l                 = AGU_l_AGU_out ;
+    assign TF_ite_sw_cnt        = ctr_ite_sw_cnt ;
+    assign TF_ite_sw_cnt_ite3   = ctr_ite_sw_cnt_ite3   ;
     
     //AGU_top
     //input 

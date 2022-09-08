@@ -81,97 +81,97 @@ module Order_translate(
     logic [`D_width-1:0] Order0_tmp2_pip1, Order0_tmp3_pip1;
     logic [`D_width-1:0] Order0_tmp3_pip2;
     logic [`D_width-1:0] Order0_tmp_out_pip0, Order0_tmp_out_pip1;
-    logic [`D_width-1:0] Order0_pip0, Order0_pip1, Order0_pip2, Order0_pip3;
+    logic [`D_width-1:0] Order0_pip0, Order0_pip1, Order0_pip2;
 
     logic [`D_width-1:0] Order1_tmp0_pip0, Order1_tmp1_pip0, Order1_tmp2_pip0, Order1_tmp3_pip0;
     logic [`D_width-1:0] Order1_tmp2_pip1, Order1_tmp3_pip1;
     logic [`D_width-1:0] Order1_tmp3_pip2;
     logic [`D_width-1:0] Order1_tmp_out_pip0, Order1_tmp_out_pip1;
-    logic [`D_width-1:0] Order1_pip0, Order1_pip1, Order1_pip2, Order1_pip3;
+    logic [`D_width-1:0] Order1_pip0, Order1_pip1, Order1_pip2;
 
     logic [`D_width-1:0] Order2_tmp0_pip0, Order2_tmp1_pip0, Order2_tmp2_pip0, Order2_tmp3_pip0;
     logic [`D_width-1:0] Order2_tmp2_pip1, Order2_tmp3_pip1;
     logic [`D_width-1:0] Order2_tmp3_pip2;
     logic [`D_width-1:0] Order2_tmp_out_pip0, Order2_tmp_out_pip1;
-    logic [`D_width-1:0] Order2_pip0, Order2_pip1, Order2_pip2, Order2_pip3;
+    logic [`D_width-1:0] Order2_pip0, Order2_pip1, Order2_pip2;
 
     logic [`D_width-1:0] Order3_tmp0_pip0, Order3_tmp1_pip0, Order3_tmp2_pip0, Order3_tmp3_pip0;
     logic [`D_width-1:0] Order3_tmp2_pip1, Order3_tmp3_pip1;
     logic [`D_width-1:0] Order3_tmp3_pip2;
     logic [`D_width-1:0] Order3_tmp_out_pip0, Order3_tmp_out_pip1;
-    logic [`D_width-1:0] Order3_pip0, Order3_pip1, Order3_pip2, Order3_pip3;
+    logic [`D_width-1:0] Order3_pip0, Order3_pip1, Order3_pip2;
 
     logic [`D_width-1:0] Order4_tmp0_pip0, Order4_tmp1_pip0, Order4_tmp2_pip0, Order4_tmp3_pip0;
     logic [`D_width-1:0] Order4_tmp2_pip1, Order4_tmp3_pip1;
     logic [`D_width-1:0] Order4_tmp3_pip2;
     logic [`D_width-1:0] Order4_tmp_out_pip0, Order4_tmp_out_pip1;
-    logic [`D_width-1:0] Order4_pip0, Order4_pip1, Order4_pip2, Order4_pip3;
+    logic [`D_width-1:0] Order4_pip0, Order4_pip1, Order4_pip2;
 
     logic [`D_width-1:0] Order5_tmp0_pip0, Order5_tmp1_pip0, Order5_tmp2_pip0, Order5_tmp3_pip0;
     logic [`D_width-1:0] Order5_tmp2_pip1, Order5_tmp3_pip1;
     logic [`D_width-1:0] Order5_tmp3_pip2;
     logic [`D_width-1:0] Order5_tmp_out_pip0, Order5_tmp_out_pip1;
-    logic [`D_width-1:0] Order5_pip0, Order5_pip1, Order5_pip2, Order5_pip3;
+    logic [`D_width-1:0] Order5_pip0, Order5_pip1, Order5_pip2;
 
     logic [`D_width-1:0] Order6_tmp0_pip0, Order6_tmp1_pip0, Order6_tmp2_pip0, Order6_tmp3_pip0;
     logic [`D_width-1:0] Order6_tmp2_pip1, Order6_tmp3_pip1;
     logic [`D_width-1:0] Order6_tmp3_pip2;
     logic [`D_width-1:0] Order6_tmp_out_pip0, Order6_tmp_out_pip1;
-    logic [`D_width-1:0] Order6_pip0, Order6_pip1, Order6_pip2, Order6_pip3;
+    logic [`D_width-1:0] Order6_pip0, Order6_pip1, Order6_pip2;
 
     logic [`D_width-1:0] Order7_tmp0_pip0, Order7_tmp1_pip0, Order7_tmp2_pip0, Order7_tmp3_pip0;
     logic [`D_width-1:0] Order7_tmp2_pip1, Order7_tmp3_pip1;
     logic [`D_width-1:0] Order7_tmp3_pip2;
     logic [`D_width-1:0] Order7_tmp_out_pip0, Order7_tmp_out_pip1;
-    logic [`D_width-1:0] Order7_pip0, Order7_pip1, Order7_pip2, Order7_pip3;
+    logic [`D_width-1:0] Order7_pip0, Order7_pip1, Order7_pip2;
 
     logic [`D_width-1:0] Order8_tmp0_pip0, Order8_tmp1_pip0, Order8_tmp2_pip0, Order8_tmp3_pip0;
     logic [`D_width-1:0] Order8_tmp2_pip1, Order8_tmp3_pip1;
     logic [`D_width-1:0] Order8_tmp3_pip2;
     logic [`D_width-1:0] Order8_tmp_out_pip0, Order8_tmp_out_pip1;
-    logic [`D_width-1:0] Order8_pip0, Order8_pip1, Order8_pip2, Order8_pip3;
+    logic [`D_width-1:0] Order8_pip0, Order8_pip1, Order8_pip2;
 
     logic [`D_width-1:0] Order9_tmp0_pip0, Order9_tmp1_pip0, Order9_tmp2_pip0, Order9_tmp3_pip0;
     logic [`D_width-1:0] Order9_tmp2_pip1, Order9_tmp3_pip1;
     logic [`D_width-1:0] Order9_tmp3_pip2;
     logic [`D_width-1:0] Order9_tmp_out_pip0, Order9_tmp_out_pip1;
-    logic [`D_width-1:0] Order9_pip0, Order9_pip1, Order9_pip2, Order9_pip3;
+    logic [`D_width-1:0] Order9_pip0, Order9_pip1, Order9_pip2;
 
     logic [`D_width-1:0] Order10_tmp0_pip0, Order10_tmp1_pip0, Order10_tmp2_pip0, Order10_tmp3_pip0;
     logic [`D_width-1:0] Order10_tmp2_pip1, Order10_tmp3_pip1;
     logic [`D_width-1:0] Order10_tmp3_pip2;
     logic [`D_width-1:0] Order10_tmp_out_pip0, Order10_tmp_out_pip1;
-    logic [`D_width-1:0] Order10_pip0, Order10_pip1, Order10_pip2, Order10_pip3;
+    logic [`D_width-1:0] Order10_pip0, Order10_pip1, Order10_pip2;
 
     logic [`D_width-1:0] Order11_tmp0_pip0, Order11_tmp1_pip0, Order11_tmp2_pip0, Order11_tmp3_pip0;
     logic [`D_width-1:0] Order11_tmp2_pip1, Order11_tmp3_pip1;
     logic [`D_width-1:0] Order11_tmp3_pip2;
     logic [`D_width-1:0] Order11_tmp_out_pip0, Order11_tmp_out_pip1;
-    logic [`D_width-1:0] Order11_pip0, Order11_pip1, Order11_pip2, Order11_pip3;
+    logic [`D_width-1:0] Order11_pip0, Order11_pip1, Order11_pip2;
 
     logic [`D_width-1:0] Order12_tmp0_pip0, Order12_tmp1_pip0, Order12_tmp2_pip0, Order12_tmp3_pip0;
     logic [`D_width-1:0] Order12_tmp2_pip1, Order12_tmp3_pip1;
     logic [`D_width-1:0] Order12_tmp3_pip2;
     logic [`D_width-1:0] Order12_tmp_out_pip0, Order12_tmp_out_pip1;
-    logic [`D_width-1:0] Order12_pip0, Order12_pip1, Order12_pip2, Order12_pip3;
+    logic [`D_width-1:0] Order12_pip0, Order12_pip1, Order12_pip2;
 
     logic [`D_width-1:0] Order13_tmp0_pip0, Order13_tmp1_pip0, Order13_tmp2_pip0, Order13_tmp3_pip0;
     logic [`D_width-1:0] Order13_tmp2_pip1, Order13_tmp3_pip1;
     logic [`D_width-1:0] Order13_tmp3_pip2;
     logic [`D_width-1:0] Order13_tmp_out_pip0, Order13_tmp_out_pip1;
-    logic [`D_width-1:0] Order13_pip0, Order13_pip1, Order13_pip2, Order13_pip3;
+    logic [`D_width-1:0] Order13_pip0, Order13_pip1, Order13_pip2;
 
     logic [`D_width-1:0] Order14_tmp0_pip0, Order14_tmp1_pip0, Order14_tmp2_pip0, Order14_tmp3_pip0;
     logic [`D_width-1:0] Order14_tmp2_pip1, Order14_tmp3_pip1;
     logic [`D_width-1:0] Order14_tmp3_pip2;
     logic [`D_width-1:0] Order14_tmp_out_pip0, Order14_tmp_out_pip1;
-    logic [`D_width-1:0] Order14_pip0, Order14_pip1, Order14_pip2, Order14_pip3;
+    logic [`D_width-1:0] Order14_pip0, Order14_pip1, Order14_pip2;
 
     logic [`D_width-1:0] Order15_tmp0_pip0, Order15_tmp1_pip0, Order15_tmp2_pip0, Order15_tmp3_pip0;
     logic [`D_width-1:0] Order15_tmp2_pip1, Order15_tmp3_pip1;
     logic [`D_width-1:0] Order15_tmp3_pip2;
     logic [`D_width-1:0] Order15_tmp_out_pip0, Order15_tmp_out_pip1;
-    logic [`D_width-1:0] Order15_pip0, Order15_pip1, Order15_pip2, Order15_pip3;
+    logic [`D_width-1:0] Order15_pip0, Order15_pip1, Order15_pip2;
 
     logic r_enable_pip0, r_enable_pip1, r_enable_pip2;
     logic AGU_done_pip0, AGU_done_pip1, AGU_done_pip2;
@@ -195,204 +195,207 @@ module Order_translate(
 
     parameter difference_width = `D_width - `degree_width;
 
+    parameter DW_sub_4 = `D_width-4;
+    parameter DW_sub_16 = `D_width-16;
+
     logic [2:0] l_pip0, l_pip1, l_pip2;
 
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
-            Order0_tmp0_pip0 <= 'd0;
-            Order0_tmp1_pip0 <= 'd0;
-            Order0_tmp2_pip0 <= 'd0;
-            Order0_tmp3_pip0 <= 'd0;
-            Order0_pip0 <= 'd0;
+            Order0_tmp0_pip0 <= `D_width'd0;
+            Order0_tmp1_pip0 <= `D_width'd0;
+            Order0_tmp2_pip0 <= `D_width'd0;
+            Order0_tmp3_pip0 <= `D_width'd0;
+            Order0_pip0 <= `D_width'd0;
 
-            Order1_tmp0_pip0 <= 'd0;
-            Order1_tmp1_pip0 <= 'd0;
-            Order1_tmp2_pip0 <= 'd0;
-            Order1_tmp3_pip0 <= 'd0;
-            Order1_pip0 <= 'd0;
+            Order1_tmp0_pip0 <= `D_width'd0;
+            Order1_tmp1_pip0 <= `D_width'd0;
+            Order1_tmp2_pip0 <= `D_width'd0;
+            Order1_tmp3_pip0 <= `D_width'd0;
+            Order1_pip0 <= `D_width'd0;
 
-            Order2_tmp0_pip0 <= 'd0;
-            Order2_tmp1_pip0 <= 'd0;
-            Order2_tmp2_pip0 <= 'd0;
-            Order2_tmp3_pip0 <= 'd0;
-            Order2_pip0 <= 'd0;
+            Order2_tmp0_pip0 <= `D_width'd0;
+            Order2_tmp1_pip0 <= `D_width'd0;
+            Order2_tmp2_pip0 <= `D_width'd0;
+            Order2_tmp3_pip0 <= `D_width'd0;
+            Order2_pip0 <= `D_width'd0;
 
-            Order3_tmp0_pip0 <= 'd0;
-            Order3_tmp1_pip0 <= 'd0;
-            Order3_tmp2_pip0 <= 'd0;
-            Order3_tmp3_pip0 <= 'd0;
-            Order3_pip0 <= 'd0;
+            Order3_tmp0_pip0 <= `D_width'd0;
+            Order3_tmp1_pip0 <= `D_width'd0;
+            Order3_tmp2_pip0 <= `D_width'd0;
+            Order3_tmp3_pip0 <= `D_width'd0;
+            Order3_pip0 <= `D_width'd0;
 
-            Order4_tmp0_pip0 <= 'd0;
-            Order4_tmp1_pip0 <= 'd0;
-            Order4_tmp2_pip0 <= 'd0;
-            Order4_tmp3_pip0 <= 'd0;
-            Order4_pip0 <= 'd0;
+            Order4_tmp0_pip0 <= `D_width'd0;
+            Order4_tmp1_pip0 <= `D_width'd0;
+            Order4_tmp2_pip0 <= `D_width'd0;
+            Order4_tmp3_pip0 <= `D_width'd0;
+            Order4_pip0 <= `D_width'd0;
 
-            Order5_tmp0_pip0 <= 'd0;
-            Order5_tmp1_pip0 <= 'd0;
-            Order5_tmp2_pip0 <= 'd0;
-            Order5_tmp3_pip0 <= 'd0;
-            Order5_pip0 <= 'd0;
+            Order5_tmp0_pip0 <= `D_width'd0;
+            Order5_tmp1_pip0 <= `D_width'd0;
+            Order5_tmp2_pip0 <= `D_width'd0;
+            Order5_tmp3_pip0 <= `D_width'd0;
+            Order5_pip0 <= `D_width'd0;
 
-            Order6_tmp0_pip0 <= 'd0;
-            Order6_tmp1_pip0 <= 'd0;
-            Order6_tmp2_pip0 <= 'd0;
-            Order6_tmp3_pip0 <= 'd0;
-            Order6_pip0 <= 'd0;
+            Order6_tmp0_pip0 <= `D_width'd0;
+            Order6_tmp1_pip0 <= `D_width'd0;
+            Order6_tmp2_pip0 <= `D_width'd0;
+            Order6_tmp3_pip0 <= `D_width'd0;
+            Order6_pip0 <= `D_width'd0;
 
-            Order7_tmp0_pip0 <= 'd0;
-            Order7_tmp1_pip0 <= 'd0;
-            Order7_tmp2_pip0 <= 'd0;
-            Order7_tmp3_pip0 <= 'd0;
-            Order7_pip0 <= 'd0;
+            Order7_tmp0_pip0 <= `D_width'd0;
+            Order7_tmp1_pip0 <= `D_width'd0;
+            Order7_tmp2_pip0 <= `D_width'd0;
+            Order7_tmp3_pip0 <= `D_width'd0;
+            Order7_pip0 <= `D_width'd0;
 
-            Order8_tmp0_pip0 <= 'd0;
-            Order8_tmp1_pip0 <= 'd0;
-            Order8_tmp2_pip0 <= 'd0;
-            Order8_tmp3_pip0 <= 'd0;
-            Order8_pip0 <= 'd0;
+            Order8_tmp0_pip0 <= `D_width'd0;
+            Order8_tmp1_pip0 <= `D_width'd0;
+            Order8_tmp2_pip0 <= `D_width'd0;
+            Order8_tmp3_pip0 <= `D_width'd0;
+            Order8_pip0 <= `D_width'd0;
 
-            Order9_tmp0_pip0 <= 'd0;
-            Order9_tmp1_pip0 <= 'd0;
-            Order9_tmp2_pip0 <= 'd0;
-            Order9_tmp3_pip0 <= 'd0;
-            Order9_pip0 <= 'd0;
+            Order9_tmp0_pip0 <= `D_width'd0;
+            Order9_tmp1_pip0 <= `D_width'd0;
+            Order9_tmp2_pip0 <= `D_width'd0;
+            Order9_tmp3_pip0 <= `D_width'd0;
+            Order9_pip0 <= `D_width'd0;
 
-            Order10_tmp0_pip0 <= 'd0;
-            Order10_tmp1_pip0 <= 'd0;
-            Order10_tmp2_pip0 <= 'd0;
-            Order10_tmp3_pip0 <= 'd0;
-            Order10_pip0 <= 'd0;
+            Order10_tmp0_pip0 <= `D_width'd0;
+            Order10_tmp1_pip0 <= `D_width'd0;
+            Order10_tmp2_pip0 <= `D_width'd0;
+            Order10_tmp3_pip0 <= `D_width'd0;
+            Order10_pip0 <= `D_width'd0;
 
-            Order11_tmp0_pip0 <= 'd0;
-            Order11_tmp1_pip0 <= 'd0;
-            Order11_tmp2_pip0 <= 'd0;
-            Order11_tmp3_pip0 <= 'd0;
-            Order11_pip0 <= 'd0;
+            Order11_tmp0_pip0 <= `D_width'd0;
+            Order11_tmp1_pip0 <= `D_width'd0;
+            Order11_tmp2_pip0 <= `D_width'd0;
+            Order11_tmp3_pip0 <= `D_width'd0;
+            Order11_pip0 <= `D_width'd0;
 
-            Order12_tmp0_pip0 <= 'd0;
-            Order12_tmp1_pip0 <= 'd0;
-            Order12_tmp2_pip0 <= 'd0;
-            Order12_tmp3_pip0 <= 'd0;
-            Order12_pip0 <= 'd0;
+            Order12_tmp0_pip0 <= `D_width'd0;
+            Order12_tmp1_pip0 <= `D_width'd0;
+            Order12_tmp2_pip0 <= `D_width'd0;
+            Order12_tmp3_pip0 <= `D_width'd0;
+            Order12_pip0 <= `D_width'd0;
 
-            Order13_tmp0_pip0 <= 'd0;
-            Order13_tmp1_pip0 <= 'd0;
-            Order13_tmp2_pip0 <= 'd0;
-            Order13_tmp3_pip0 <= 'd0;
-            Order13_pip0 <= 'd0;
+            Order13_tmp0_pip0 <= `D_width'd0;
+            Order13_tmp1_pip0 <= `D_width'd0;
+            Order13_tmp2_pip0 <= `D_width'd0;
+            Order13_tmp3_pip0 <= `D_width'd0;
+            Order13_pip0 <= `D_width'd0;
 
-            Order14_tmp0_pip0 <= 'd0;
-            Order14_tmp1_pip0 <= 'd0;
-            Order14_tmp2_pip0 <= 'd0;
-            Order14_tmp3_pip0 <= 'd0;
-            Order14_pip0 <= 'd0;
+            Order14_tmp0_pip0 <= `D_width'd0;
+            Order14_tmp1_pip0 <= `D_width'd0;
+            Order14_tmp2_pip0 <= `D_width'd0;
+            Order14_tmp3_pip0 <= `D_width'd0;
+            Order14_pip0 <= `D_width'd0;
 
-            Order15_tmp0_pip0 <= 'd0;
-            Order15_tmp1_pip0 <= 'd0;
-            Order15_tmp2_pip0 <= 'd0;
-            Order15_tmp3_pip0 <= 'd0;
-            Order15_pip0 <= 'd0;
+            Order15_tmp0_pip0 <= `D_width'd0;
+            Order15_tmp1_pip0 <= `D_width'd0;
+            Order15_tmp2_pip0 <= `D_width'd0;
+            Order15_tmp3_pip0 <= `D_width'd0;
+            Order15_pip0 <= `D_width'd0;
 
-            r_enable_pip0 <= 'd0;
-            AGU_done_pip0 <= 'd0;
+            r_enable_pip0 <= 1'd0;
+            AGU_done_pip0 <= 1'd0;
             l_pip0 <= 'd0;
         end else begin
-            Order0_tmp0_pip0 <= Order_0[3:0];
-            Order0_tmp1_pip0 <= Order_0[7:4];
-            Order0_tmp2_pip0 <= Order_0[11:8];
-            Order0_tmp3_pip0 <= Order_0[`degree_width-1:12];
+            Order0_tmp0_pip0 <= {{DW_sub_4{1'b0}}, Order_0[3:0]  };
+            Order0_tmp1_pip0 <= {{DW_sub_4{1'b0}}, Order_0[7:4]  };
+            Order0_tmp2_pip0 <= {{DW_sub_4{1'b0}}, Order_0[11:8] };
+            Order0_tmp3_pip0 <= {{DW_sub_4{1'b0}}, Order_0[15:12]};
             Order0_pip0 <= Order_0;
 
-            Order1_tmp0_pip0 <= Order_1[3:0];
-            Order1_tmp1_pip0 <= Order_1[7:4];
-            Order1_tmp2_pip0 <= Order_1[11:8];
-            Order1_tmp3_pip0 <= Order_1[`degree_width-1:12];
+            Order1_tmp0_pip0 <= {{DW_sub_4{1'b0}}, Order_1[3:0]       };
+            Order1_tmp1_pip0 <= {{DW_sub_4{1'b0}}, Order_1[7:4]       };
+            Order1_tmp2_pip0 <= {{DW_sub_4{1'b0}}, Order_1[11:8]      };
+            Order1_tmp3_pip0 <= {{DW_sub_4{1'b0}}, Order_1[15:12]     };
             Order1_pip0 <= Order_1;
 
-            Order2_tmp0_pip0 <= Order_2[3:0];
-            Order2_tmp1_pip0 <= Order_2[7:4];
-            Order2_tmp2_pip0 <= Order_2[11:8];
-            Order2_tmp3_pip0 <= Order_2[`degree_width-1:12];
+            Order2_tmp0_pip0 <= {{DW_sub_4{1'b0}}, Order_2[3:0]        };
+            Order2_tmp1_pip0 <= {{DW_sub_4{1'b0}}, Order_2[7:4]        };
+            Order2_tmp2_pip0 <= {{DW_sub_4{1'b0}}, Order_2[11:8]       };
+            Order2_tmp3_pip0 <= {{DW_sub_4{1'b0}}, Order_2[15:12]      };
             Order2_pip0 <= Order_2;
 
-            Order3_tmp0_pip0 <= Order_3[3:0];
-            Order3_tmp1_pip0 <= Order_3[7:4];
-            Order3_tmp2_pip0 <= Order_3[11:8];
-            Order3_tmp3_pip0 <= Order_3[`degree_width-1:12];
+            Order3_tmp0_pip0 <= {{DW_sub_4{1'b0}}, Order_3[3:0]        };
+            Order3_tmp1_pip0 <= {{DW_sub_4{1'b0}}, Order_3[7:4]        };
+            Order3_tmp2_pip0 <= {{DW_sub_4{1'b0}}, Order_3[11:8]       };
+            Order3_tmp3_pip0 <= {{DW_sub_4{1'b0}}, Order_3[15:12]      };
             Order3_pip0 <= Order_3;
 
-            Order4_tmp0_pip0 <= Order_4[3:0];
-            Order4_tmp1_pip0 <= Order_4[7:4];
-            Order4_tmp2_pip0 <= Order_4[11:8];
-            Order4_tmp3_pip0 <= Order_4[`degree_width-1:12];
+            Order4_tmp0_pip0 <= {{DW_sub_4{1'b0}}, Order_4[3:0]        };
+            Order4_tmp1_pip0 <= {{DW_sub_4{1'b0}}, Order_4[7:4]        };
+            Order4_tmp2_pip0 <= {{DW_sub_4{1'b0}}, Order_4[11:8]       };
+            Order4_tmp3_pip0 <= {{DW_sub_4{1'b0}}, Order_4[15:12]      };
             Order4_pip0 <= Order_4;
 
-            Order5_tmp0_pip0 <= Order_5[3:0];
-            Order5_tmp1_pip0 <= Order_5[7:4];
-            Order5_tmp2_pip0 <= Order_5[11:8];
-            Order5_tmp3_pip0 <= Order_5[`degree_width-1:12];
+            Order5_tmp0_pip0 <= {{DW_sub_4{1'b0}}, Order_5[3:0]        };
+            Order5_tmp1_pip0 <= {{DW_sub_4{1'b0}}, Order_5[7:4]        };
+            Order5_tmp2_pip0 <= {{DW_sub_4{1'b0}}, Order_5[11:8]       };
+            Order5_tmp3_pip0 <= {{DW_sub_4{1'b0}}, Order_5[15:12]      };
             Order5_pip0 <= Order_5;
 
-            Order6_tmp0_pip0 <= Order_6[3:0];
-            Order6_tmp1_pip0 <= Order_6[7:4];
-            Order6_tmp2_pip0 <= Order_6[11:8];
-            Order6_tmp3_pip0 <= Order_6[`degree_width-1:12];
+            Order6_tmp0_pip0 <= {{DW_sub_4{1'b0}}, Order_6[3:0]       };
+            Order6_tmp1_pip0 <= {{DW_sub_4{1'b0}}, Order_6[7:4]       };
+            Order6_tmp2_pip0 <= {{DW_sub_4{1'b0}}, Order_6[11:8]      };
+            Order6_tmp3_pip0 <= {{DW_sub_4{1'b0}}, Order_6[15:12]     };
             Order6_pip0 <= Order_6;
 
-            Order7_tmp0_pip0 <= Order_7[3:0];
-            Order7_tmp1_pip0 <= Order_7[7:4];
-            Order7_tmp2_pip0 <= Order_7[11:8];
-            Order7_tmp3_pip0 <= Order_7[`degree_width-1:12];
+            Order7_tmp0_pip0 <= {{DW_sub_4{1'b0}}, Order_7[3:0]        };
+            Order7_tmp1_pip0 <= {{DW_sub_4{1'b0}}, Order_7[7:4]        };
+            Order7_tmp2_pip0 <= {{DW_sub_4{1'b0}}, Order_7[11:8]       };
+            Order7_tmp3_pip0 <= {{DW_sub_4{1'b0}}, Order_7[15:12]      };
             Order7_pip0 <= Order_7;
 
-            Order8_tmp0_pip0 <= Order_8[3:0];
-            Order8_tmp1_pip0 <= Order_8[7:4];
-            Order8_tmp2_pip0 <= Order_8[11:8];
-            Order8_tmp3_pip0 <= Order_8[`degree_width-1:12];
+            Order8_tmp0_pip0 <= {{DW_sub_4{1'b0}}, Order_8[3:0]        };
+            Order8_tmp1_pip0 <= {{DW_sub_4{1'b0}}, Order_8[7:4]        };
+            Order8_tmp2_pip0 <= {{DW_sub_4{1'b0}}, Order_8[11:8]       };
+            Order8_tmp3_pip0 <= {{DW_sub_4{1'b0}}, Order_8[15:12]      };
             Order8_pip0 <= Order_8;
 
-            Order9_tmp0_pip0 <= Order_9[3:0];
-            Order9_tmp1_pip0 <= Order_9[7:4];
-            Order9_tmp2_pip0 <= Order_9[11:8];
-            Order9_tmp3_pip0 <= Order_9[`degree_width-1:12];
+            Order9_tmp0_pip0 <= {{DW_sub_4{1'b0}}, Order_9[3:0]        };
+            Order9_tmp1_pip0 <= {{DW_sub_4{1'b0}}, Order_9[7:4]        };
+            Order9_tmp2_pip0 <= {{DW_sub_4{1'b0}}, Order_9[11:8]       };
+            Order9_tmp3_pip0 <= {{DW_sub_4{1'b0}}, Order_9[15:12]      };
             Order9_pip0 <= Order_9;
 
-            Order10_tmp0_pip0 <= Order_10[3:0];
-            Order10_tmp1_pip0 <= Order_10[7:4];
-            Order10_tmp2_pip0 <= Order_10[11:8];
-            Order10_tmp3_pip0 <= Order_10[`degree_width-1:12];
+            Order10_tmp0_pip0 <= {{DW_sub_4{1'b0}}, Order_10[3:0]      };
+            Order10_tmp1_pip0 <= {{DW_sub_4{1'b0}}, Order_10[7:4]      };
+            Order10_tmp2_pip0 <= {{DW_sub_4{1'b0}}, Order_10[11:8]     };
+            Order10_tmp3_pip0 <= {{DW_sub_4{1'b0}}, Order_10[15:12]    };
             Order10_pip0 <= Order_10;
 
-            Order11_tmp0_pip0 <= Order_11[3:0];
-            Order11_tmp1_pip0 <= Order_11[7:4];
-            Order11_tmp2_pip0 <= Order_11[11:8];
-            Order11_tmp3_pip0 <= Order_11[`degree_width-1:12];
+            Order11_tmp0_pip0 <= {{DW_sub_4{1'b0}}, Order_11[3:0]      };
+            Order11_tmp1_pip0 <= {{DW_sub_4{1'b0}}, Order_11[7:4]      };
+            Order11_tmp2_pip0 <= {{DW_sub_4{1'b0}}, Order_11[11:8]     };
+            Order11_tmp3_pip0 <= {{DW_sub_4{1'b0}}, Order_11[15:12]    };
             Order11_pip0 <= Order_11;
 
-            Order12_tmp0_pip0 <= Order_12[3:0];
-            Order12_tmp1_pip0 <= Order_12[7:4];
-            Order12_tmp2_pip0 <= Order_12[11:8];
-            Order12_tmp3_pip0 <= Order_12[`degree_width-1:12];
+            Order12_tmp0_pip0 <= {{DW_sub_4{1'b0}}, Order_12[3:0]      };
+            Order12_tmp1_pip0 <= {{DW_sub_4{1'b0}}, Order_12[7:4]      };
+            Order12_tmp2_pip0 <= {{DW_sub_4{1'b0}}, Order_12[11:8]     };
+            Order12_tmp3_pip0 <= {{DW_sub_4{1'b0}}, Order_12[15:12]    };
             Order12_pip0 <= Order_12;
 
-            Order13_tmp0_pip0 <= Order_13[3:0];
-            Order13_tmp1_pip0 <= Order_13[7:4];
-            Order13_tmp2_pip0 <= Order_13[11:8];
-            Order13_tmp3_pip0 <= Order_13[`degree_width-1:12];
+            Order13_tmp0_pip0 <= {{DW_sub_4{1'b0}}, Order_13[3:0]      };
+            Order13_tmp1_pip0 <= {{DW_sub_4{1'b0}}, Order_13[7:4]      };
+            Order13_tmp2_pip0 <= {{DW_sub_4{1'b0}}, Order_13[11:8]     };
+            Order13_tmp3_pip0 <= {{DW_sub_4{1'b0}}, Order_13[15:12]    };
             Order13_pip0 <= Order_13;
 
-            Order14_tmp0_pip0 <= Order_14[3:0];
-            Order14_tmp1_pip0 <= Order_14[7:4];
-            Order14_tmp2_pip0 <= Order_14[11:8];
-            Order14_tmp3_pip0 <= Order_14[`degree_width-1:12];
+            Order14_tmp0_pip0 <= {{DW_sub_4{1'b0}}, Order_14[3:0]      };
+            Order14_tmp1_pip0 <= {{DW_sub_4{1'b0}}, Order_14[7:4]      };
+            Order14_tmp2_pip0 <= {{DW_sub_4{1'b0}}, Order_14[11:8]     };
+            Order14_tmp3_pip0 <= {{DW_sub_4{1'b0}}, Order_14[15:12]    };
             Order14_pip0 <= Order_14;
 
-            Order15_tmp0_pip0 <= Order_15[3:0];
-            Order15_tmp1_pip0 <= Order_15[7:4];
-            Order15_tmp2_pip0 <= Order_15[11:8];
-            Order15_tmp3_pip0 <= Order_15[`degree_width-1:12];
+            Order15_tmp0_pip0 <= {{DW_sub_4{1'b0}}, Order_15[3:0]      };
+            Order15_tmp1_pip0 <= {{DW_sub_4{1'b0}}, Order_15[7:4]      };
+            Order15_tmp2_pip0 <= {{DW_sub_4{1'b0}}, Order_15[11:8]     };
+            Order15_tmp3_pip0 <= {{DW_sub_4{1'b0}}, Order_15[15:12]    };
             Order15_pip0 <= Order_15;
 
             r_enable_pip0 <= r_enable;
@@ -515,170 +518,170 @@ module Order_translate(
 
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
-            Order0_tmp2_pip1 <= 'd0;
-            Order0_tmp3_pip1 <= 'd0;
-            Order0_pip1 <= 'd0;
-            Order0_tmp_out_pip0 <= 'd0;
+            Order0_tmp2_pip1 <= `D_width'd0;
+            Order0_tmp3_pip1 <= `D_width'd0;
+            Order0_pip1 <= `D_width'd0;
+            Order0_tmp_out_pip0 <= `D_width'd0;
 
-            Order1_tmp2_pip1 <= 'd0;
-            Order1_tmp3_pip1 <= 'd0;
-            Order1_pip1 <= 'd0;
-            Order1_tmp_out_pip0 <= 'd0;
+            Order1_tmp2_pip1 <= `D_width'd0;
+            Order1_tmp3_pip1 <= `D_width'd0;
+            Order1_pip1 <= `D_width'd0;
+            Order1_tmp_out_pip0 <= `D_width'd0;
 
-            Order2_tmp2_pip1 <= 'd0;
-            Order2_tmp3_pip1 <= 'd0;
-            Order2_pip1 <= 'd0;
-            Order2_tmp_out_pip0 <= 'd0;
+            Order2_tmp2_pip1 <= `D_width'd0;
+            Order2_tmp3_pip1 <= `D_width'd0;
+            Order2_pip1 <= `D_width'd0;
+            Order2_tmp_out_pip0 <= `D_width'd0;
 
-            Order3_tmp2_pip1 <= 'd0;
-            Order3_tmp3_pip1 <= 'd0;
-            Order3_pip1 <= 'd0;
-            Order3_tmp_out_pip0 <= 'd0;
+            Order3_tmp2_pip1 <= `D_width'd0;
+            Order3_tmp3_pip1 <= `D_width'd0;
+            Order3_pip1 <= `D_width'd0;
+            Order3_tmp_out_pip0 <= `D_width'd0;
 
-            Order4_tmp2_pip1 <= 'd0;
-            Order4_tmp3_pip1 <= 'd0;
-            Order4_pip1 <= 'd0;
-            Order4_tmp_out_pip0 <= 'd0;
+            Order4_tmp2_pip1 <= `D_width'd0;
+            Order4_tmp3_pip1 <= `D_width'd0;
+            Order4_pip1 <= `D_width'd0;
+            Order4_tmp_out_pip0 <= `D_width'd0;
 
-            Order5_tmp2_pip1 <= 'd0;
-            Order5_tmp3_pip1 <= 'd0;
-            Order5_pip1 <= 'd0;
-            Order5_tmp_out_pip0 <= 'd0;
+            Order5_tmp2_pip1 <= `D_width'd0;
+            Order5_tmp3_pip1 <= `D_width'd0;
+            Order5_pip1 <= `D_width'd0;
+            Order5_tmp_out_pip0 <= `D_width'd0;
 
-            Order6_tmp2_pip1 <= 'd0;
-            Order6_tmp3_pip1 <= 'd0;
-            Order6_pip1 <= 'd0;
-            Order6_tmp_out_pip0 <= 'd0;
+            Order6_tmp2_pip1 <= `D_width'd0;
+            Order6_tmp3_pip1 <= `D_width'd0;
+            Order6_pip1 <= `D_width'd0;
+            Order6_tmp_out_pip0 <= `D_width'd0;
 
-            Order7_tmp2_pip1 <= 'd0;
-            Order7_tmp3_pip1 <= 'd0;
-            Order7_pip1 <= 'd0;
-            Order7_tmp_out_pip0 <= 'd0;
+            Order7_tmp2_pip1 <= `D_width'd0;
+            Order7_tmp3_pip1 <= `D_width'd0;
+            Order7_pip1 <= `D_width'd0;
+            Order7_tmp_out_pip0 <= `D_width'd0;
 
-            Order8_tmp2_pip1 <= 'd0;
-            Order8_tmp3_pip1 <= 'd0;
-            Order8_pip1 <= 'd0;
-            Order8_tmp_out_pip0 <= 'd0;
+            Order8_tmp2_pip1 <= `D_width'd0;
+            Order8_tmp3_pip1 <= `D_width'd0;
+            Order8_pip1 <= `D_width'd0;
+            Order8_tmp_out_pip0 <= `D_width'd0;
 
-            Order9_tmp2_pip1 <= 'd0;
-            Order9_tmp3_pip1 <= 'd0;
-            Order9_pip1 <= 'd0;
-            Order9_tmp_out_pip0 <= 'd0;
+            Order9_tmp2_pip1 <= `D_width'd0;
+            Order9_tmp3_pip1 <= `D_width'd0;
+            Order9_pip1 <= `D_width'd0;
+            Order9_tmp_out_pip0 <= `D_width'd0;
 
-            Order10_tmp2_pip1 <= 'd0;
-            Order10_tmp3_pip1 <= 'd0;
-            Order10_pip1 <= 'd0;
-            Order10_tmp_out_pip0 <= 'd0;
+            Order10_tmp2_pip1 <= `D_width'd0;
+            Order10_tmp3_pip1 <= `D_width'd0;
+            Order10_pip1 <= `D_width'd0;
+            Order10_tmp_out_pip0 <= `D_width'd0;
 
-            Order11_tmp2_pip1 <= 'd0;
-            Order11_tmp3_pip1 <= 'd0;
-            Order11_pip1 <= 'd0;
-            Order11_tmp_out_pip0 <= 'd0;
+            Order11_tmp2_pip1 <= `D_width'd0;
+            Order11_tmp3_pip1 <= `D_width'd0;
+            Order11_pip1 <= `D_width'd0;
+            Order11_tmp_out_pip0 <= `D_width'd0;
 
-            Order12_tmp2_pip1 <= 'd0;
-            Order12_tmp3_pip1 <= 'd0;
-            Order12_pip1 <= 'd0;
-            Order12_tmp_out_pip0 <= 'd0;
+            Order12_tmp2_pip1 <= `D_width'd0;
+            Order12_tmp3_pip1 <= `D_width'd0;
+            Order12_pip1 <= `D_width'd0;
+            Order12_tmp_out_pip0 <= `D_width'd0;
 
-            Order13_tmp2_pip1 <= 'd0;
-            Order13_tmp3_pip1 <= 'd0;
-            Order13_pip1 <= 'd0;
-            Order13_tmp_out_pip0 <= 'd0;
+            Order13_tmp2_pip1 <= `D_width'd0;
+            Order13_tmp3_pip1 <= `D_width'd0;
+            Order13_pip1 <= `D_width'd0;
+            Order13_tmp_out_pip0 <= `D_width'd0;
 
-            Order14_tmp2_pip1 <= 'd0;
-            Order14_tmp3_pip1 <= 'd0;
-            Order14_pip1 <= 'd0;
-            Order14_tmp_out_pip0 <= 'd0;
+            Order14_tmp2_pip1 <= `D_width'd0;
+            Order14_tmp3_pip1 <= `D_width'd0;
+            Order14_pip1 <= `D_width'd0;
+            Order14_tmp_out_pip0 <= `D_width'd0;
 
-            Order15_tmp2_pip1 <= 'd0;
-            Order15_tmp3_pip1 <= 'd0;
-            Order15_pip1 <= 'd0;
-            Order15_tmp_out_pip0 <= 'd0;
+            Order15_tmp2_pip1 <= `D_width'd0;
+            Order15_tmp3_pip1 <= `D_width'd0;
+            Order15_pip1 <= `D_width'd0;
+            Order15_tmp_out_pip0 <= `D_width'd0;
 
-            r_enable_pip1 <= 'd0;
-            AGU_done_pip1 <= 'd0;
+            r_enable_pip1 <= 1'd0;
+            AGU_done_pip1 <= 1'd0;
 
             l_pip1 <= 'd0;
         end else begin
             Order0_tmp2_pip1 <= Order0_tmp2_pip0;
             Order0_tmp3_pip1 <= Order0_tmp3_pip0;
             Order0_pip1 <= Order0_pip0;
-            Order0_tmp_out_pip0 <= Order0_tmp_out_stage0[15:0];
+            Order0_tmp_out_pip0 <= {{DW_sub_16{1'b0}}, Order0_tmp_out_stage0[15:0]};
 
             Order1_tmp2_pip1 <= Order1_tmp2_pip0;
             Order1_tmp3_pip1 <= Order1_tmp3_pip0;
             Order1_pip1 <= Order1_pip0;
-            Order1_tmp_out_pip0 <= Order1_tmp_out_stage0[15:0];
+            Order1_tmp_out_pip0 <= {{DW_sub_16{1'b0}}, Order1_tmp_out_stage0[15:0]};
 
             Order2_tmp2_pip1 <= Order2_tmp2_pip0;
             Order2_tmp3_pip1 <= Order2_tmp3_pip0;
             Order2_pip1 <= Order2_pip0;
-            Order2_tmp_out_pip0 <= Order2_tmp_out_stage0[15:0];
+            Order2_tmp_out_pip0 <= {{DW_sub_16{1'b0}}, Order2_tmp_out_stage0[15:0]};
 
             Order3_tmp2_pip1 <= Order3_tmp2_pip0;
             Order3_tmp3_pip1 <= Order3_tmp3_pip0;
             Order3_pip1 <= Order3_pip0;
-            Order3_tmp_out_pip0 <= Order3_tmp_out_stage0[15:0];
+            Order3_tmp_out_pip0 <= {{DW_sub_16{1'b0}}, Order3_tmp_out_stage0[15:0]};
 
             Order4_tmp2_pip1 <= Order4_tmp2_pip0;
             Order4_tmp3_pip1 <= Order4_tmp3_pip0;
             Order4_pip1 <= Order4_pip0;
-            Order4_tmp_out_pip0 <= Order4_tmp_out_stage0[15:0];
+            Order4_tmp_out_pip0 <= {{DW_sub_16{1'b0}}, Order4_tmp_out_stage0[15:0]};
 
             Order5_tmp2_pip1 <= Order5_tmp2_pip0;
             Order5_tmp3_pip1 <= Order5_tmp3_pip0;
             Order5_pip1 <= Order5_pip0;
-            Order5_tmp_out_pip0 <= Order5_tmp_out_stage0[15:0];
+            Order5_tmp_out_pip0 <= {{DW_sub_16{1'b0}}, Order5_tmp_out_stage0[15:0]};
 
             Order6_tmp2_pip1 <= Order6_tmp2_pip0;
             Order6_tmp3_pip1 <= Order6_tmp3_pip0;
             Order6_pip1 <= Order6_pip0;
-            Order6_tmp_out_pip0 <= Order6_tmp_out_stage0[15:0];
+            Order6_tmp_out_pip0 <= {{DW_sub_16{1'b0}}, Order6_tmp_out_stage0[15:0]};
 
             Order7_tmp2_pip1 <= Order7_tmp2_pip0;
             Order7_tmp3_pip1 <= Order7_tmp3_pip0;
             Order7_pip1 <= Order7_pip0;
-            Order7_tmp_out_pip0 <= Order7_tmp_out_stage0[15:0];
+            Order7_tmp_out_pip0 <= {{DW_sub_16{1'b0}}, Order7_tmp_out_stage0[15:0]};
 
             Order8_tmp2_pip1 <= Order8_tmp2_pip0;
             Order8_tmp3_pip1 <= Order8_tmp3_pip0;
             Order8_pip1 <= Order8_pip0;
-            Order8_tmp_out_pip0 <= Order8_tmp_out_stage0[15:0];
+            Order8_tmp_out_pip0 <= {{DW_sub_16{1'b0}}, Order8_tmp_out_stage0[15:0]};
 
             Order9_tmp2_pip1 <= Order9_tmp2_pip0;
             Order9_tmp3_pip1 <= Order9_tmp3_pip0;
             Order9_pip1 <= Order9_pip0;
-            Order9_tmp_out_pip0 <= Order9_tmp_out_stage0[15:0];
+            Order9_tmp_out_pip0 <= {{DW_sub_16{1'b0}}, Order9_tmp_out_stage0[15:0]};
 
             Order10_tmp2_pip1 <= Order10_tmp2_pip0;
             Order10_tmp3_pip1 <= Order10_tmp3_pip0;
             Order10_pip1 <= Order10_pip0;
-            Order10_tmp_out_pip0 <= Order10_tmp_out_stage0[15:0];
+            Order10_tmp_out_pip0 <= {{DW_sub_16{1'b0}}, Order10_tmp_out_stage0[15:0]};
 
             Order11_tmp2_pip1 <= Order11_tmp2_pip0;
             Order11_tmp3_pip1 <= Order11_tmp3_pip0;
             Order11_pip1 <= Order11_pip0;
-            Order11_tmp_out_pip0 <= Order11_tmp_out_stage0[15:0];
+            Order11_tmp_out_pip0 <= {{DW_sub_16{1'b0}}, Order11_tmp_out_stage0[15:0]};
 
             Order12_tmp2_pip1 <= Order12_tmp2_pip0;
             Order12_tmp3_pip1 <= Order12_tmp3_pip0;
             Order12_pip1 <= Order12_pip0;
-            Order12_tmp_out_pip0 <= Order12_tmp_out_stage0[15:0];
+            Order12_tmp_out_pip0 <= {{DW_sub_16{1'b0}}, Order12_tmp_out_stage0[15:0]};
 
             Order13_tmp2_pip1 <= Order13_tmp2_pip0;
             Order13_tmp3_pip1 <= Order13_tmp3_pip0;
             Order13_pip1 <= Order13_pip0;
-            Order13_tmp_out_pip0 <= Order13_tmp_out_stage0[15:0];
+            Order13_tmp_out_pip0 <= {{DW_sub_16{1'b0}}, Order13_tmp_out_stage0[15:0]};
 
             Order14_tmp2_pip1 <= Order14_tmp2_pip0;
             Order14_tmp3_pip1 <= Order14_tmp3_pip0;
             Order14_pip1 <= Order14_pip0;
-            Order14_tmp_out_pip0 <= Order14_tmp_out_stage0[15:0];
+            Order14_tmp_out_pip0 <= {{DW_sub_16{1'b0}}, Order14_tmp_out_stage0[15:0]};
 
             Order15_tmp2_pip1 <= Order15_tmp2_pip0;
             Order15_tmp3_pip1 <= Order15_tmp3_pip0;
             Order15_pip1 <= Order15_pip0;
-            Order15_tmp_out_pip0 <= Order15_tmp_out_stage0[15:0];
+            Order15_tmp_out_pip0 <= {{DW_sub_16{1'b0}}, Order15_tmp_out_stage0[15:0]};
 
             r_enable_pip1 <= r_enable_pip0;
             AGU_done_pip1 <= AGU_done_pip0;
@@ -801,138 +804,138 @@ module Order_translate(
 
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
-            Order0_tmp3_pip2 <= 'd0;
-            Order0_pip2 <= 'd0;
-            Order0_tmp_out_pip1 <= 'd0;
+            Order0_tmp3_pip2 <= `D_width'd0;
+            Order0_pip2 <= `D_width'd0;
+            Order0_tmp_out_pip1 <= `D_width'd0;
 
-            Order1_tmp3_pip2 <= 'd0;
-            Order1_pip2 <= 'd0;
-            Order1_tmp_out_pip1 <= 'd0;
+            Order1_tmp3_pip2 <= `D_width'd0;
+            Order1_pip2 <= `D_width'd0;
+            Order1_tmp_out_pip1 <= `D_width'd0;
 
-            Order2_tmp3_pip2 <= 'd0;
-            Order2_pip2 <= 'd0;
-            Order2_tmp_out_pip1 <= 'd0;
+            Order2_tmp3_pip2 <= `D_width'd0;
+            Order2_pip2 <= `D_width'd0;
+            Order2_tmp_out_pip1 <= `D_width'd0;
 
-            Order3_tmp3_pip2 <= 'd0;
-            Order3_pip2 <= 'd0;
-            Order3_tmp_out_pip1 <= 'd0;
+            Order3_tmp3_pip2 <= `D_width'd0;
+            Order3_pip2 <= `D_width'd0;
+            Order3_tmp_out_pip1 <= `D_width'd0;
 
-            Order4_tmp3_pip2 <= 'd0;
-            Order4_pip2 <= 'd0;
-            Order4_tmp_out_pip1 <= 'd0;
+            Order4_tmp3_pip2 <= `D_width'd0;
+            Order4_pip2 <= `D_width'd0;
+            Order4_tmp_out_pip1 <= `D_width'd0;
 
-            Order5_tmp3_pip2 <= 'd0;
-            Order5_pip2 <= 'd0;
-            Order5_tmp_out_pip1 <= 'd0;
+            Order5_tmp3_pip2 <= `D_width'd0;
+            Order5_pip2 <= `D_width'd0;
+            Order5_tmp_out_pip1 <= `D_width'd0;
 
-            Order6_tmp3_pip2 <= 'd0;
-            Order6_pip2 <= 'd0;
-            Order6_tmp_out_pip1 <= 'd0;
+            Order6_tmp3_pip2 <= `D_width'd0;
+            Order6_pip2 <= `D_width'd0;
+            Order6_tmp_out_pip1 <= `D_width'd0;
 
-            Order7_tmp3_pip2 <= 'd0;
-            Order7_pip2 <= 'd0;
-            Order7_tmp_out_pip1 <= 'd0;
+            Order7_tmp3_pip2 <= `D_width'd0;
+            Order7_pip2 <= `D_width'd0;
+            Order7_tmp_out_pip1 <= `D_width'd0;
 
-            Order8_tmp3_pip2 <= 'd0;
-            Order8_pip2 <= 'd0;
-            Order8_tmp_out_pip1 <= 'd0;
+            Order8_tmp3_pip2 <= `D_width'd0;
+            Order8_pip2 <= `D_width'd0;
+            Order8_tmp_out_pip1 <= `D_width'd0;
 
-            Order9_tmp3_pip2 <= 'd0;
-            Order9_pip2 <= 'd0;
-            Order9_tmp_out_pip1 <= 'd0;
+            Order9_tmp3_pip2 <= `D_width'd0;
+            Order9_pip2 <= `D_width'd0;
+            Order9_tmp_out_pip1 <= `D_width'd0;
 
-            Order10_tmp3_pip2 <= 'd0;
-            Order10_pip2 <= 'd0;
-            Order10_tmp_out_pip1 <= 'd0;
+            Order10_tmp3_pip2 <= `D_width'd0;
+            Order10_pip2 <= `D_width'd0;
+            Order10_tmp_out_pip1 <= `D_width'd0;
 
-            Order11_tmp3_pip2 <= 'd0;
-            Order11_pip2 <= 'd0;
-            Order11_tmp_out_pip1 <= 'd0;
+            Order11_tmp3_pip2 <= `D_width'd0;
+            Order11_pip2 <= `D_width'd0;
+            Order11_tmp_out_pip1 <= `D_width'd0;
 
-            Order12_tmp3_pip2 <= 'd0;
-            Order12_pip2 <= 'd0;
-            Order12_tmp_out_pip1 <= 'd0;
+            Order12_tmp3_pip2 <= `D_width'd0;
+            Order12_pip2 <= `D_width'd0;
+            Order12_tmp_out_pip1 <= `D_width'd0;
 
-            Order13_tmp3_pip2 <= 'd0;
-            Order13_pip2 <= 'd0;
-            Order13_tmp_out_pip1 <= 'd0;
+            Order13_tmp3_pip2 <= `D_width'd0;
+            Order13_pip2 <= `D_width'd0;
+            Order13_tmp_out_pip1 <= `D_width'd0;
 
-            Order14_tmp3_pip2 <= 'd0;
-            Order14_pip2 <= 'd0;
-            Order14_tmp_out_pip1 <= 'd0;
+            Order14_tmp3_pip2 <= `D_width'd0;
+            Order14_pip2 <= `D_width'd0;
+            Order14_tmp_out_pip1 <= `D_width'd0;
 
-            Order15_tmp3_pip2 <= 'd0;
-            Order15_pip2 <= 'd0;
-            Order15_tmp_out_pip1 <= 'd0;
+            Order15_tmp3_pip2 <= `D_width'd0;
+            Order15_pip2 <= `D_width'd0;
+            Order15_tmp_out_pip1 <= `D_width'd0;
 
-            r_enable_pip2 <= 'd0;
-            AGU_done_pip2 <= 'd0;
+            r_enable_pip2 <= 1'd0;
+            AGU_done_pip2 <= 1'd0;
 
             l_pip2 <= 'd0;
         end else begin
             Order0_tmp3_pip2    <= Order0_tmp3_pip1;
             Order0_pip2         <= Order0_pip1 >> `delta;
-            Order0_tmp_out_pip1 <= Order0_tmp_out_stage1[15:0];
+            Order0_tmp_out_pip1 <= {{DW_sub_16{1'b0}}, Order0_tmp_out_stage1[15:0]};
 
             Order1_tmp3_pip2    <= Order1_tmp3_pip1;
             Order1_pip2         <= Order1_pip1 >> `delta;
-            Order1_tmp_out_pip1 <= Order1_tmp_out_stage1[15:0];
+            Order1_tmp_out_pip1 <= {{DW_sub_16{1'b0}}, Order1_tmp_out_stage1[15:0]};
 
             Order2_tmp3_pip2    <= Order2_tmp3_pip1;
             Order2_pip2         <= Order2_pip1 >> `delta;
-            Order2_tmp_out_pip1 <= Order2_tmp_out_stage1[15:0];
+            Order2_tmp_out_pip1 <= {{DW_sub_16{1'b0}}, Order2_tmp_out_stage1[15:0]};
 
             Order3_tmp3_pip2    <= Order3_tmp3_pip1;
             Order3_pip2         <= Order3_pip1 >> `delta;
-            Order3_tmp_out_pip1 <= Order3_tmp_out_stage1[15:0];
+            Order3_tmp_out_pip1 <= {{DW_sub_16{1'b0}}, Order3_tmp_out_stage1[15:0]};
 
             Order4_tmp3_pip2    <= Order4_tmp3_pip1;
             Order4_pip2         <= Order4_pip1 >> `delta;
-            Order4_tmp_out_pip1 <= Order4_tmp_out_stage1[15:0];
+            Order4_tmp_out_pip1 <= {{DW_sub_16{1'b0}}, Order4_tmp_out_stage1[15:0]};
 
             Order5_tmp3_pip2    <= Order5_tmp3_pip1;
             Order5_pip2         <= Order5_pip1 >> `delta;
-            Order5_tmp_out_pip1 <= Order5_tmp_out_stage1[15:0];
+            Order5_tmp_out_pip1 <= {{DW_sub_16{1'b0}}, Order5_tmp_out_stage1[15:0]};
 
             Order6_tmp3_pip2    <= Order6_tmp3_pip1;
             Order6_pip2         <= Order6_pip1 >> `delta;
-            Order6_tmp_out_pip1 <= Order6_tmp_out_stage1[15:0];
+            Order6_tmp_out_pip1 <= {{DW_sub_16{1'b0}}, Order6_tmp_out_stage1[15:0]};
 
             Order7_tmp3_pip2    <= Order7_tmp3_pip1;
             Order7_pip2         <= Order7_pip1 >> `delta;
-            Order7_tmp_out_pip1 <= Order7_tmp_out_stage1[15:0];
+            Order7_tmp_out_pip1 <= {{DW_sub_16{1'b0}}, Order7_tmp_out_stage1[15:0]};
 
             Order8_tmp3_pip2    <= Order8_tmp3_pip1;
             Order8_pip2         <= Order8_pip1 >> `delta;
-            Order8_tmp_out_pip1 <= Order8_tmp_out_stage1[15:0];
+            Order8_tmp_out_pip1 <= {{DW_sub_16{1'b0}}, Order8_tmp_out_stage1[15:0]};
 
             Order9_tmp3_pip2    <= Order9_tmp3_pip1;
             Order9_pip2         <= Order9_pip1 >> `delta;
-            Order9_tmp_out_pip1 <= Order9_tmp_out_stage1[15:0];
+            Order9_tmp_out_pip1 <= {{DW_sub_16{1'b0}}, Order9_tmp_out_stage1[15:0]};
 
             Order10_tmp3_pip2    <= Order10_tmp3_pip1;
             Order10_pip2         <= Order10_pip1 >> `delta;
-            Order10_tmp_out_pip1 <= Order10_tmp_out_stage1[15:0];
+            Order10_tmp_out_pip1 <= {{DW_sub_16{1'b0}}, Order10_tmp_out_stage1[15:0]};
 
             Order11_tmp3_pip2    <= Order11_tmp3_pip1;
             Order11_pip2         <= Order11_pip1 >> `delta;
-            Order11_tmp_out_pip1 <= Order11_tmp_out_stage1[15:0];
+            Order11_tmp_out_pip1 <= {{DW_sub_16{1'b0}}, Order11_tmp_out_stage1[15:0]};
 
             Order12_tmp3_pip2    <= Order12_tmp3_pip1;
             Order12_pip2         <= Order12_pip1 >> `delta;
-            Order12_tmp_out_pip1 <= Order12_tmp_out_stage1[15:0];
+            Order12_tmp_out_pip1 <= {{DW_sub_16{1'b0}}, Order12_tmp_out_stage1[15:0]};
 
             Order13_tmp3_pip2    <= Order13_tmp3_pip1;
             Order13_pip2         <= Order13_pip1 >> `delta;
-            Order13_tmp_out_pip1 <= Order13_tmp_out_stage1[15:0];
+            Order13_tmp_out_pip1 <= {{DW_sub_16{1'b0}}, Order13_tmp_out_stage1[15:0]};
 
             Order14_tmp3_pip2    <= Order14_tmp3_pip1;
             Order14_pip2         <= Order14_pip1 >> `delta;
-            Order14_tmp_out_pip1 <= Order14_tmp_out_stage1[15:0];
+            Order14_tmp_out_pip1 <= {{DW_sub_16{1'b0}}, Order14_tmp_out_stage1[15:0]};
 
             Order15_tmp3_pip2    <= Order15_tmp3_pip1;
             Order15_pip2         <= Order15_pip1 >> `delta;
-            Order15_tmp_out_pip1 <= Order15_tmp_out_stage1[15:0];
+            Order15_tmp_out_pip1 <= {{DW_sub_16{1'b0}}, Order15_tmp_out_stage1[15:0]};
 
             r_enable_pip2 <= r_enable_pip1;
             AGU_done_pip2 <= AGU_done_pip1;
@@ -1054,163 +1057,163 @@ module Order_translate(
 
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
-            MA0_idx <= 'd0;
-            BN0_idx <= 'd0;
+            MA0_idx <= {`MA_width{1'd0}};
+            BN0_idx <= {`BANK_width{1'd0}};
 
-            MA1_idx <= 'd0;
-            BN1_idx <= 'd0;
+            MA1_idx <= {`MA_width{1'd0}};
+            BN1_idx <= {`BANK_width{1'd0}};
 
-            MA2_idx <= 'd0;
-            BN2_idx <= 'd0;
+            MA2_idx <= {`MA_width{1'd0}};
+            BN2_idx <= {`BANK_width{1'd0}};
 
-            MA3_idx <= 'd0;
-            BN3_idx <= 'd0;
+            MA3_idx <= {`MA_width{1'd0}};
+            BN3_idx <= {`BANK_width{1'd0}};
 
-            MA4_idx <= 'd0;
-            BN4_idx <= 'd0;
+            MA4_idx <= {`MA_width{1'd0}};
+            BN4_idx <= {`BANK_width{1'd0}};
 
-            MA5_idx <= 'd0;
-            BN5_idx <= 'd0;
+            MA5_idx <= {`MA_width{1'd0}};
+            BN5_idx <= {`BANK_width{1'd0}};
 
-            MA6_idx <= 'd0;
-            BN6_idx <= 'd0;
+            MA6_idx <= {`MA_width{1'd0}};
+            BN6_idx <= {`BANK_width{1'd0}};
 
-            MA7_idx <= 'd0;
-            BN7_idx <= 'd0;
+            MA7_idx <= {`MA_width{1'd0}};
+            BN7_idx <= {`BANK_width{1'd0}};
 
-            MA8_idx <= 'd0;
-            BN8_idx <= 'd0;
+            MA8_idx <= {`MA_width{1'd0}};
+            BN8_idx <= {`BANK_width{1'd0}};
 
-            MA9_idx <= 'd0;
-            BN9_idx <= 'd0;
+            MA9_idx <= {`MA_width{1'd0}};
+            BN9_idx <= {`BANK_width{1'd0}};
 
-            MA10_idx <= 'd0;
-            BN10_idx <= 'd0;
+            MA10_idx <= {`MA_width{1'd0}};
+            BN10_idx <= {`BANK_width{1'd0}};
 
-            MA11_idx <= 'd0;
-            BN11_idx <= 'd0;
+            MA11_idx <= {`MA_width{1'd0}};
+            BN11_idx <= {`BANK_width{1'd0}};
 
-            MA12_idx <= 'd0;
-            BN12_idx <= 'd0;
+            MA12_idx <= {`MA_width{1'd0}};
+            BN12_idx <= {`BANK_width{1'd0}};
 
-            MA13_idx <= 'd0;
-            BN13_idx <= 'd0;
+            MA13_idx <= {`MA_width{1'd0}};
+            BN13_idx <= {`BANK_width{1'd0}};
 
-            MA14_idx <= 'd0;
-            BN14_idx <= 'd0;
+            MA14_idx <= {`MA_width{1'd0}};
+            BN14_idx <= {`BANK_width{1'd0}};
 
-            MA15_idx <= 'd0;
-            BN15_idx <= 'd0;
+            MA15_idx <= {`MA_width{1'd0}};
+            BN15_idx <= {`BANK_width{1'd0}};
 
-            AGU_done_out <= 'd0;
-            BN_MA_out_en <= 'd0;
+            AGU_done_out <= 1'd0;
+            BN_MA_out_en <= 1'd0;
 
             l_AGU_out <= 'd0;
         end else begin
             if (r_enable_pip2) begin
-                MA0_idx <= Order0_pip2[`degree_width-1-`delta:0];
-                BN0_idx <= Order0_tmp_out_stage2[15:0];
+                MA0_idx <= Order0_pip2[`MA_width-1:0];
+                BN0_idx <= Order0_tmp_out_stage2[`BANK_width-1:0];
 
-                MA1_idx <= Order1_pip2[`degree_width-1-`delta:0];
-                BN1_idx <= Order1_tmp_out_stage2[15:0];
+                MA1_idx <= Order1_pip2[`MA_width-1:0];
+                BN1_idx <= Order1_tmp_out_stage2[`BANK_width-1:0];
 
-                MA2_idx <= Order2_pip2[`degree_width-1-`delta:0];
-                BN2_idx <= Order2_tmp_out_stage2[15:0];
+                MA2_idx <= Order2_pip2[`MA_width-1:0];
+                BN2_idx <= Order2_tmp_out_stage2[`BANK_width-1:0];
 
-                MA3_idx <= Order3_pip2[`degree_width-1-`delta:0];
-                BN3_idx <= Order3_tmp_out_stage2[15:0];
+                MA3_idx <= Order3_pip2[`MA_width-1:0];
+                BN3_idx <= Order3_tmp_out_stage2[`BANK_width-1:0];
 
-                MA4_idx <= Order4_pip2[`degree_width-1-`delta:0];
-                BN4_idx <= Order4_tmp_out_stage2[15:0];
+                MA4_idx <= Order4_pip2[`MA_width-1:0];
+                BN4_idx <= Order4_tmp_out_stage2[`BANK_width-1:0];
 
-                MA5_idx <= Order5_pip2[`degree_width-1-`delta:0];
-                BN5_idx <= Order5_tmp_out_stage2[15:0];
+                MA5_idx <= Order5_pip2[`MA_width-1:0];
+                BN5_idx <= Order5_tmp_out_stage2[`BANK_width-1:0];
 
-                MA6_idx <= Order6_pip2[`degree_width-1-`delta:0];
-                BN6_idx <= Order6_tmp_out_stage2[15:0];
+                MA6_idx <= Order6_pip2[`MA_width-1:0];
+                BN6_idx <= Order6_tmp_out_stage2[`BANK_width-1:0];
 
-                MA7_idx <= Order7_pip2[`degree_width-1-`delta:0];
-                BN7_idx <= Order7_tmp_out_stage2[15:0];
+                MA7_idx <= Order7_pip2[`MA_width-1:0];
+                BN7_idx <= Order7_tmp_out_stage2[`BANK_width-1:0];
 
-                MA8_idx <= Order8_pip2[`degree_width-1-`delta:0];
-                BN8_idx <= Order8_tmp_out_stage2[15:0];
+                MA8_idx <= Order8_pip2[`MA_width-1:0];
+                BN8_idx <= Order8_tmp_out_stage2[`BANK_width-1:0];
 
-                MA9_idx <= Order9_pip2[`degree_width-1-`delta:0];
-                BN9_idx <= Order9_tmp_out_stage2[15:0];
+                MA9_idx <= Order9_pip2[`MA_width-1:0];
+                BN9_idx <= Order9_tmp_out_stage2[`BANK_width-1:0];
 
-                MA10_idx <= Order10_pip2[`degree_width-1-`delta:0];
-                BN10_idx <= Order10_tmp_out_stage2[15:0];
+                MA10_idx <= Order10_pip2[`MA_width-1:0];
+                BN10_idx <= Order10_tmp_out_stage2[`BANK_width-1:0];
 
-                MA11_idx <= Order11_pip2[`degree_width-1-`delta:0];
-                BN11_idx <= Order11_tmp_out_stage2[15:0];
+                MA11_idx <= Order11_pip2[`MA_width-1:0];
+                BN11_idx <= Order11_tmp_out_stage2[`BANK_width-1:0];
 
-                MA12_idx <= Order12_pip2[`degree_width-1-`delta:0];
-                BN12_idx <= Order12_tmp_out_stage2[15:0];
+                MA12_idx <= Order12_pip2[`MA_width-1:0];
+                BN12_idx <= Order12_tmp_out_stage2[`BANK_width-1:0];
 
-                MA13_idx <= Order13_pip2[`degree_width-1-`delta:0];
-                BN13_idx <= Order13_tmp_out_stage2[15:0];
+                MA13_idx <= Order13_pip2[`MA_width-1:0];
+                BN13_idx <= Order13_tmp_out_stage2[`BANK_width-1:0];
 
-                MA14_idx <= Order14_pip2[`degree_width-1-`delta:0];
-                BN14_idx <= Order14_tmp_out_stage2[15:0];
+                MA14_idx <= Order14_pip2[`MA_width-1:0];
+                BN14_idx <= Order14_tmp_out_stage2[`BANK_width-1:0];
 
-                MA15_idx <= Order15_pip2[`degree_width-1-`delta:0];
-                BN15_idx <= Order15_tmp_out_stage2[15:0];
+                MA15_idx <= Order15_pip2[`MA_width-1:0];
+                BN15_idx <= Order15_tmp_out_stage2[`BANK_width-1:0];
                 
                 AGU_done_out <= AGU_done_pip2;
-                BN_MA_out_en <= 'd1;
+                BN_MA_out_en <= 1'd1;
 
                 l_AGU_out <= l_pip2;
             end else begin
-                MA0_idx <= 'd0;
-                BN0_idx <= 'd0;
+                MA0_idx <= {`MA_width{1'd0}};
+                BN0_idx <= {`BANK_width{1'd0}};
 
-                MA1_idx <= 'd0;
-                BN1_idx <= 'd0;
+                MA1_idx <= {`MA_width{1'd0}};
+                BN1_idx <= {`BANK_width{1'd0}};
 
-                MA2_idx <= 'd0;
-                BN2_idx <= 'd0;
+                MA2_idx <= {`MA_width{1'd0}};
+                BN2_idx <= {`BANK_width{1'd0}};
 
-                MA3_idx <= 'd0;
-                BN3_idx <= 'd0;
+                MA3_idx <= {`MA_width{1'd0}};
+                BN3_idx <= {`BANK_width{1'd0}};
 
-                MA4_idx <= 'd0;
-                BN4_idx <= 'd0;
+                MA4_idx <= {`MA_width{1'd0}};
+                BN4_idx <= {`BANK_width{1'd0}};
 
-                MA5_idx <= 'd0;
-                BN5_idx <= 'd0;
+                MA5_idx <= {`MA_width{1'd0}};
+                BN5_idx <= {`BANK_width{1'd0}};
 
-                MA6_idx <= 'd0;
-                BN6_idx <= 'd0;
+                MA6_idx <= {`MA_width{1'd0}};
+                BN6_idx <= {`BANK_width{1'd0}};
 
-                MA7_idx <= 'd0;
-                BN7_idx <= 'd0;
+                MA7_idx <= {`MA_width{1'd0}};
+                BN7_idx <= {`BANK_width{1'd0}};
 
-                MA8_idx <= 'd0;
-                BN8_idx <= 'd0;
+                MA8_idx <= {`MA_width{1'd0}};
+                BN8_idx <= {`BANK_width{1'd0}};
 
-                MA9_idx <= 'd0;
-                BN9_idx <= 'd0;
+                MA9_idx <= {`MA_width{1'd0}};
+                BN9_idx <= {`BANK_width{1'd0}};
 
-                MA10_idx <= 'd0;
-                BN10_idx <= 'd0;
+                MA10_idx <= {`MA_width{1'd0}};
+                BN10_idx <= {`BANK_width{1'd0}};
 
-                MA11_idx <= 'd0;
-                BN11_idx <= 'd0;
+                MA11_idx <= {`MA_width{1'd0}};
+                BN11_idx <= {`BANK_width{1'd0}};
 
-                MA12_idx <= 'd0;
-                BN12_idx <= 'd0;
+                MA12_idx <= {`MA_width{1'd0}};
+                BN12_idx <= {`BANK_width{1'd0}};
 
-                MA13_idx <= 'd0;
-                BN13_idx <= 'd0;
+                MA13_idx <= {`MA_width{1'd0}};
+                BN13_idx <= {`BANK_width{1'd0}};
 
-                MA14_idx <= 'd0;
-                BN14_idx <= 'd0;
+                MA14_idx <= {`MA_width{1'd0}};
+                BN14_idx <= {`BANK_width{1'd0}};
 
-                MA15_idx <= 'd0;
-                BN15_idx <= 'd0;
+                MA15_idx <= {`MA_width{1'd0}};
+                BN15_idx <= {`BANK_width{1'd0}};
 
                 AGU_done_out <= AGU_done_pip2;
-                BN_MA_out_en <= 'd0;
+                BN_MA_out_en <= 1'd0;
 
                 l_AGU_out <= 'd0;
             end

@@ -14,7 +14,9 @@ module BitRev(
 
 
 
-    assign BitRev_width = `radix_k1 * l;
+    logic [2:0] radix_k1 ;
+    assign radix_k1= `radix_k1;
+    assign BitRev_width = radix_k1 * l;
 
     always_ff @(posedge clk or posedge rst) begin
         integer i;
@@ -29,11 +31,7 @@ module BitRev(
                         BitRev_out[BitRev_width - 'd1 - i] <= input_idx[i];
                     end
                 end
-            end else begin
-                for (i = 0; i<`D_width; i=i+1) begin
-					BitRev_out[i] <= 'd0;
-				end
-            end
+            end 
         end
     end
 
