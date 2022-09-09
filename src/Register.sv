@@ -57,8 +57,8 @@ module Register (
 );
 
 
-    parameter it_depth = 3;
-	parameter TF_bank = 15;
+    parameter it_depth = 8;
+	parameter TF_bank = 16;
 	parameter TF_const_bank = 16;
 
     logic [`D_width-1:0] TF_base_array[0:7][0:15];  //[0:3+2][0:15-1]
@@ -344,6 +344,13 @@ module Register (
                         Read_TF_const14    <= TF_const_array[0][idx15];
                     end
                 endcase
+            end else begin
+                integer i, j;
+                for(i = 0; i < 3; i = i + 1) begin
+					for(j = 0; j < 16; j = j + 1) begin
+						TF_const_array[i][j] <= TF_const_array[i][j];
+					end
+				end
             end
         end
     end

@@ -32,11 +32,12 @@ link
 uniquify                                            
 set_operating_conditions -max typical -max_library typical -min typical -min_library typical    
 #set_operating_conditions -max slow -max_library slow -min fast -min_library fast               
-set_wire_load_mode segmented                                                                    
-set_wire_load_model -name tsmc090_wl10 -library typical                                         
+set_wire_load_mode segmented                  
+# *                                                  
+set_wire_load_model -name tsmc090_wl10 -library typical                            
 #set_wire_load_model -name tsmc090_wl10 -library slow                                           
 #create_clock -period 16 -waveform {0 2.5} [get_ports clk]
-create_clock -period 20 [get_ports clk]
+create_clock -period 14 [get_ports clk]
 set_dont_touch_network [get_ports clk]                                                          
 set_ideal_network [get_ports clk]                                                             
 set_ideal_network [get_ports rst]                                                             
@@ -48,9 +49,10 @@ set_load [load_of typical/DFFX2/D] [all_outputs]
 #set_drive [drive_of slow/DFFX2/Q] [remove_from_collection [all_inputs] [get_ports {clk}]]      
 #set_load [load_of slow/DFFX2/D] [all_outputs]                                                  
 set_input_delay 0.2 -clock clk [remove_from_collection [all_inputs] [get_ports {clk}]]          
-set_output_delay 0.2 -max -clock clk [all_outputs]                                              
-set_fix_multiple_port_nets -all -buffer_constants  
-set_host_options -max_cores 4                                             
+set_output_delay 0.2 -max -clock clk [all_outputs]
+# *                                              
+set_fix_multiple_port_nets -all -buffer_constants 
+set_host_options -max_cores 8                                             
 #set_case_analysis 1 [get_ports rst]                                                          
 #set_max_area 0                                                                                 
                                                                                                 
@@ -61,21 +63,23 @@ set_host_options -max_cores 4
 #replace_clock_gates                                                                            
    
     
-	compile                                                                                                                                                                             
+	compile 
 	#compile -inc -map_effort high                                                                  
 	#compile -map_effort medium                                                                     
 	#compile -incremental_mapping -map_effort high -area_effort high -boundary_optimization         
 	#compile -incremental_mapping -map_effort high -area_effort high -boundary_optimization         
 	#compile -incremental_mapping -map_effort high -boundary_optimization                           
-	#compile_ultra -top -timing_high_effort_script -retime                                                        
+	#compile_ultra -top -timing_high_effort_script -retime     
+	#compile_ultra
 	#compile_ultra -area_high_effort_script -retime                                                         
 	#compile_ultra -no_autoungroup -timing_high_effort_script -retime                                     
 	#compile_ultra -no_autoungroup -area_high_effort_script                                          
     #compile_ultra -inc -retime 
 	#optimize_netlist -area 
 		
-                                                                                                
-remove_unconnected_ports -blast_buses [get_cells * -hier]                                       
+# **                                                               
+check_design > ../syn/design_check.rpt                                 
+remove_unconnected_ports -blast_buses [get_cells * -hier]                             
 change_names -rule verilog -hierarchy                                                           
 	#set bus_inference_style {%s[%d]}                                                               
 	#set bus_naming_style {%s[%d]}                                                                  

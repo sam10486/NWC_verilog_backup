@@ -10,8 +10,7 @@
 `timescale 1ns/10ps
 `endif
 
-
-`define CYCLE 10
+`define CYCLE 40
 
 module Testbench ();
 
@@ -29,7 +28,7 @@ module Testbench ();
     parameter MA = `MA;
     parameter BN = `BN;
 
-    logic [`D_width-1:0] TF_based_in [0:6*bank_num-1]; 
+    logic [`D_width-1:0] TF_based_in [0:(k1_ite+2)*bank_num-1]; 
     logic [`D_width-1:0] TF_const_in [0:bank_num-2]; 
     logic [`D_width-1:0] mem_data_in [0:`degree-1];
     logic [`D_width-1:0] mem_data_golden [0:`degree-1]; 
@@ -95,6 +94,7 @@ module Testbench ();
             $display("mem_out[0][0] = (%d)" , top.memory_wrapper.gen_sram[0].sram.mem[0]);
             $finish;
         `else
+			
             for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper.gen_sram_0__sram.mem[j]);
             for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper.gen_sram_1__sram.mem[j]);
             for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper.gen_sram_2__sram.mem[j]);
@@ -114,6 +114,28 @@ module Testbench ();
             $display("successful !\n");
             $display("mem_out[0][0] = (%d)" , top.memory_wrapper.gen_sram_0__sram.mem[0]);
             $finish;
+			
+			/*
+			for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper_gen_sram_0__sram.mem[j]);
+            for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper_gen_sram_1__sram.mem[j]);
+            for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper_gen_sram_2__sram.mem[j]);
+            for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper_gen_sram_3__sram.mem[j]);
+            for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper_gen_sram_4__sram.mem[j]);
+            for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper_gen_sram_5__sram.mem[j]);
+            for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper_gen_sram_6__sram.mem[j]);
+            for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper_gen_sram_7__sram.mem[j]);
+            for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper_gen_sram_8__sram.mem[j]);
+            for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper_gen_sram_9__sram.mem[j]);
+            for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper_gen_sram_10__sram.mem[j]);
+            for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper_gen_sram_11__sram.mem[j]);
+            for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper_gen_sram_12__sram.mem[j]);
+            for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper_gen_sram_13__sram.mem[j]);
+            for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper_gen_sram_14__sram.mem[j]);
+            for (j = 0; j < MA; j = j + 1) $fwrite(mem_out, "%d\n",  top.memory_wrapper_gen_sram_15__sram.mem[j]);
+            $display("successful !\n");
+            $display("mem_out[0][0] = (%d)" , top.memory_wrapper_gen_sram_0__sram.mem[0]);
+            $finish;
+			*/
         `endif
     end
 
@@ -139,6 +161,8 @@ module Testbench ();
                 top.memory_wrapper.gen_sram[15].sram.mem[k] = mem_data_in[k*BN + 15];
             end
         `else
+            #`CYCLE;
+			
             for (int k = 0; k<MA; k=k+1) begin
                 top.memory_wrapper.gen_sram_0__sram.mem[k]  = mem_data_in[k*BN + 0];
                 top.memory_wrapper.gen_sram_1__sram.mem[k]  = mem_data_in[k*BN + 1];
@@ -156,20 +180,42 @@ module Testbench ();
                 top.memory_wrapper.gen_sram_13__sram.mem[k] = mem_data_in[k*BN + 13];
                 top.memory_wrapper.gen_sram_14__sram.mem[k] = mem_data_in[k*BN + 14];
                 top.memory_wrapper.gen_sram_15__sram.mem[k] = mem_data_in[k*BN + 15];
-                $display("mem_out[0][0] = (%d)" , top.memory_wrapper.gen_sram_0__sram.mem[k]);
+                //$display("mem_out[0][0] = (%d)" , top.memory_wrapper.gen_sram_0__sram.mem[k]);
             end
+			/*
+			for (int k = 0; k<MA; k=k+1) begin
+                top.memory_wrapper_gen_sram_0__sram.mem[k]  = mem_data_in[k*BN + 0];
+                top.memory_wrapper_gen_sram_1__sram.mem[k]  = mem_data_in[k*BN + 1];
+                top.memory_wrapper_gen_sram_2__sram.mem[k]  = mem_data_in[k*BN + 2];
+                top.memory_wrapper_gen_sram_3__sram.mem[k]  = mem_data_in[k*BN + 3];
+                top.memory_wrapper_gen_sram_4__sram.mem[k]  = mem_data_in[k*BN + 4];
+                top.memory_wrapper_gen_sram_5__sram.mem[k]  = mem_data_in[k*BN + 5];
+                top.memory_wrapper_gen_sram_6__sram.mem[k]  = mem_data_in[k*BN + 6];
+                top.memory_wrapper_gen_sram_7__sram.mem[k]  = mem_data_in[k*BN + 7];
+                top.memory_wrapper_gen_sram_8__sram.mem[k]  = mem_data_in[k*BN + 8];
+                top.memory_wrapper_gen_sram_9__sram.mem[k]  = mem_data_in[k*BN + 9];
+                top.memory_wrapper_gen_sram_10__sram.mem[k] = mem_data_in[k*BN + 10];
+                top.memory_wrapper_gen_sram_11__sram.mem[k] = mem_data_in[k*BN + 11];
+                top.memory_wrapper_gen_sram_12__sram.mem[k] = mem_data_in[k*BN + 12];
+                top.memory_wrapper_gen_sram_13__sram.mem[k] = mem_data_in[k*BN + 13];
+                top.memory_wrapper_gen_sram_14__sram.mem[k] = mem_data_in[k*BN + 14];
+                top.memory_wrapper_gen_sram_15__sram.mem[k] = mem_data_in[k*BN + 15];
+                $display("mem_out[0][0] = (%d)" , top.memory_wrapper_gen_sram_0__sram.mem[k]);
+            end
+			*/
         `endif
     end
-
-    `ifdef SYN
+	
+	`ifdef SYN
         initial $sdf_annotate("top_syn.sdf", top);
     `endif
+	
 
     initial begin
-        $fsdbDumpfile("top_tb.fsdb");
-        $fsdbDumpvars;
+        /*$fsdbDumpfile("top_tb.fsdb");
+		$fsdbDumpvars;
         $fsdbDumpvars("+struct", "+mda", top);
-        $fsdbDumpvars("+struct", "+mda", Testbench);
+        $fsdbDumpvars("+struct", "+mda", Testbench);*/
 
         #(`CYCLE*`MAX)
         $finish;

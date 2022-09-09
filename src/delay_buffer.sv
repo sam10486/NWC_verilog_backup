@@ -151,7 +151,7 @@ module delay_buffer (
     integer i;
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
-            for (i = 0; i<=19 ; i=i+1) begin
+            for (i = 0; i<24 ; i=i+1) begin
                 R16_MA0_idx_pip[i+1]    <= 'd0;
                 R16_MA1_idx_pip[i+1]    <= 'd0;
                 R16_MA2_idx_pip[i+1]    <= 'd0;

@@ -1,7 +1,6 @@
 `include "barrett_reduction.sv"  
 `include "Mul.sv"  
 //`include "barrett_reduction.sv"
- `timescale 1ns/1ps  
 
  module MulMod(                                                                                  
    A_in,                                                                                         

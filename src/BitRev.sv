@@ -10,7 +10,7 @@ module BitRev(
     output logic [`D_width-1:0] BitRev_out
 );
 
-    logic [6:0] BitRev_width;
+    logic [5:0] BitRev_width;
 
 
 

@@ -167,23 +167,7 @@ module TF_top (
             idx15_pip_in    =   idx15   ;
         end
     end
-
-    /*
-    logic [1:0] TF_wen_delay[0:3];
-    assign TF_wen_delay[0] = TF_wen;
-    always_ff @( posedge clk or posedge rst ) begin
-        integer i;
-        if (rst) begin    
-            for (i = 0; i<3; i=i+1) begin
-                TF_wen_delay[i+1] <= 'd0;
-            end
-        end else begin
-            for (i = 0; i<3; i=i+1) begin
-                TF_wen_delay[i+1] <= TF_wen_delay[i];
-            end
-        end
-    end
-    */
+    
     logic TF_wen_delay_pip0, TF_wen_delay_pip1, TF_wen_delay_pip2;
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin

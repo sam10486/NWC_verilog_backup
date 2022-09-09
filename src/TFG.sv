@@ -108,15 +108,6 @@ module TFG (
     );
     //--------------
 
-    logic [`D_width-1:0] Mul_ans_delay;
-    always_ff @( posedge clk or posedge rst ) begin
-        if (rst) begin
-            Mul_ans_delay <= 'd0;
-        end else begin
-            Mul_ans_delay <= Mul_ans;
-        end
-    end
-
     always_comb begin
         result = Mul_A_in;
     end

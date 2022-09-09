@@ -9,8 +9,8 @@ config_rtlds -rule  -disable -tag {  ARY_MS_DRNG  IDN_NR_CKYW IDN_NR_SVKW ARY_NR
 config_rtlds -rule  -disable -tag { REG_NR_RWRC }
 # vsd2018_constrain //
 
-analyze -sv +incdir+../include ../src/w_R16_Mux_16_1_in.sv
-elaborate -bbox true -top w_R16_Mux_16_1_in
+analyze -sv +incdir+../include ../src/delay_buffer.sv
+elaborate -bbox true -top delay_buffer
 
 # Setup clock and reset
 clock clk
