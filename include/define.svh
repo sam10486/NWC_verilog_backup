@@ -12,7 +12,7 @@
 
 `define BN `Radix
 `define MA `degree/`BN
-`define BANK_width $clog2(`BN)
+`define BANK_width $clog2(`BN) + 1
 `define MA_width $clog2(`MA)
 `define delta $clog2(`Radix)                            //logr
 `define bank_idx_upper_bound  $clog2(`degree) / `delta  //logr^N
@@ -37,7 +37,7 @@
 `define ite_2 2
 `define ite_3 1
 `define BU_total 512
-`define BU_total_k2 4096
+`define BU_total_k2 1024
 
 //-------last iteration------
 `define Last_l 4

@@ -103,9 +103,9 @@ module TF_top (
     always_comb begin
         if (LAST_STAGE) begin
             TF_base_b1      =   TF_base_b1_pip_out  ;
-            TF_base_b2      =   'd0 ;
-            TF_base_b3      =   'd0 ;
-            TF_base_b4      =   'd0 ;
+            TF_base_b2      =   TF_base_b2_pip_out  ;
+            TF_base_b3      =   TF_base_b3_pip_out  ;
+            TF_base_b4      =   TF_base_b4_pip_out  ;
             TF_base_b5      =   'd0 ;
             TF_base_b6      =   'd0 ;
             TF_base_b7      =   'd0 ;

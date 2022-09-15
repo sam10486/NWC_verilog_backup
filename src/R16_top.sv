@@ -205,17 +205,17 @@ module R16_top(
     always_comb begin
         if (LAST_STAGE) begin
             x0_pip_in   =   x0   ; 
-            x1_pip_in   =   'd0  ; 
-            x2_pip_in   =   'd0  ; 
-            x3_pip_in   =   'd0  ; 
+            x1_pip_in   =   x2  ; 
+            x2_pip_in   =   x4  ; 
+            x3_pip_in   =   x6  ; 
             x4_pip_in   =   'd0  ; 
             x5_pip_in   =   'd0  ; 
             x6_pip_in   =   'd0  ; 
             x7_pip_in   =   'd0  ; 
             x8_pip_in   =   x1  ; 
-            x9_pip_in   =   'd0  ; 
-            x10_pip_in  =   'd0  ;
-            x11_pip_in  =   'd0  ;
+            x9_pip_in   =   x3  ; 
+            x10_pip_in  =   x5  ;
+            x11_pip_in  =   x7  ;
             x12_pip_in  =   'd0  ;
             x13_pip_in  =   'd0  ;
             x14_pip_in  =   'd0  ;
@@ -223,9 +223,9 @@ module R16_top(
 
             twiddle_0_pip_in    =   'd0   ;
             twiddle_1_pip_in    =   twiddle_1  ;
-            twiddle_2_pip_in    =   'd0  ;
-            twiddle_3_pip_in    =   'd0  ;
-            twiddle_4_pip_in    =   'd0  ;
+            twiddle_2_pip_in    =   twiddle_2  ;
+            twiddle_3_pip_in    =   twiddle_3  ;
+            twiddle_4_pip_in    =   twiddle_4  ;
             twiddle_5_pip_in    =   'd0  ;
             twiddle_6_pip_in    =   'd0  ;
             twiddle_7_pip_in    =   'd0  ;
@@ -241,39 +241,39 @@ module R16_top(
             modulus_pip_in      =   modulus ;
             ntt_enable_pip_in   =   ntt_enable  ;
 
-            R16_MA0_idx_pip_in  =   R16_MA0_idx ;
-            R16_MA1_idx_pip_in  =   R16_MA1_idx ;
-            R16_MA2_idx_pip_in  =   'd0;
-            R16_MA3_idx_pip_in  =   'd0;
-            R16_MA4_idx_pip_in  =   'd0;
-            R16_MA5_idx_pip_in  =   'd0;
-            R16_MA6_idx_pip_in  =   'd0;
-            R16_MA7_idx_pip_in  =   'd0;
-            R16_MA8_idx_pip_in  =   'd0;
-            R16_MA9_idx_pip_in  =   'd0;
-            R16_MA10_idx_pip_in =   'd0    ;
-            R16_MA11_idx_pip_in =   'd0    ;
-            R16_MA12_idx_pip_in =   'd0    ;
-            R16_MA13_idx_pip_in =   'd0    ;
-            R16_MA14_idx_pip_in =   'd0    ;
-            R16_MA15_idx_pip_in =   'd0    ;
+            R16_MA0_idx_pip_in  =   R16_MA0_idx     ;
+            R16_MA1_idx_pip_in  =   R16_MA1_idx     ;
+            R16_MA2_idx_pip_in  =   R16_MA2_idx     ;
+            R16_MA3_idx_pip_in  =   R16_MA3_idx     ;
+            R16_MA4_idx_pip_in  =   R16_MA4_idx     ;
+            R16_MA5_idx_pip_in  =   R16_MA5_idx     ;
+            R16_MA6_idx_pip_in  =   R16_MA6_idx     ;
+            R16_MA7_idx_pip_in  =   R16_MA7_idx     ;
+            R16_MA8_idx_pip_in  =   R16_MA8_idx     ;
+            R16_MA9_idx_pip_in  =   R16_MA9_idx     ;
+            R16_MA10_idx_pip_in =   R16_MA10_idx    ;
+            R16_MA11_idx_pip_in =   R16_MA11_idx    ;
+            R16_MA12_idx_pip_in =   R16_MA12_idx    ;
+            R16_MA13_idx_pip_in =   R16_MA13_idx    ;
+            R16_MA14_idx_pip_in =   R16_MA14_idx    ;
+            R16_MA15_idx_pip_in =   R16_MA15_idx    ;
 
-            R16_BN0_idx_pip_in  =   R16_BN0_idx ;  
-            R16_BN1_idx_pip_in  =   R16_BN1_idx ;  
-            R16_BN2_idx_pip_in  =   'd0;  
-            R16_BN3_idx_pip_in  =   'd0;  
-            R16_BN4_idx_pip_in  =   'd0;  
-            R16_BN5_idx_pip_in  =   'd0;  
-            R16_BN6_idx_pip_in  =   'd0;  
-            R16_BN7_idx_pip_in  =   'd0;  
-            R16_BN8_idx_pip_in  =   'd0;  
-            R16_BN9_idx_pip_in  =   'd0;  
-            R16_BN10_idx_pip_in =   'd0    ;
-            R16_BN11_idx_pip_in =   'd0    ;
-            R16_BN12_idx_pip_in =   'd0    ;
-            R16_BN13_idx_pip_in =   'd0    ;
-            R16_BN14_idx_pip_in =   'd0    ;
-            R16_BN15_idx_pip_in =   'd0    ;
+            R16_BN0_idx_pip_in  =   R16_BN0_idx ; 
+            R16_BN1_idx_pip_in  =   R16_BN1_idx ; 
+            R16_BN2_idx_pip_in  =   R16_BN2_idx ;
+            R16_BN3_idx_pip_in  =   R16_BN3_idx ;
+            R16_BN4_idx_pip_in  =   R16_BN4_idx ;
+            R16_BN5_idx_pip_in  =   R16_BN5_idx ;
+            R16_BN6_idx_pip_in  =   R16_BN6_idx ;
+            R16_BN7_idx_pip_in  =   R16_BN7_idx ;
+            R16_BN8_idx_pip_in  =   R16_BN8_idx ;
+            R16_BN9_idx_pip_in  =   R16_BN9_idx ;
+            R16_BN10_idx_pip_in =   R16_BN10_idx;
+            R16_BN11_idx_pip_in =   R16_BN11_idx;
+            R16_BN12_idx_pip_in =   R16_BN12_idx;
+            R16_BN13_idx_pip_in =   R16_BN13_idx;
+            R16_BN14_idx_pip_in =   R16_BN14_idx;
+            R16_BN15_idx_pip_in =   R16_BN15_idx;
         end else begin
             x0_pip_in   =   x0   ; 
             x1_pip_in   =   x1   ; 
@@ -402,16 +402,70 @@ module R16_top(
     logic [`BANK_width-1:0]    R16_BN14_idx_out_pip_out    ;
     logic [`BANK_width-1:0]    R16_BN15_idx_out_pip_out    ;
 
+    //-------------
+    logic cnt;
+    always_ff @( posedge clk or posedge rst ) begin
+        if (rst) begin
+            cnt <= 'd0;
+        end else begin
+            if (ntt_done) begin
+                cnt <= cnt + 'd1;
+            end else begin
+                cnt <= 'd0;
+            end
+        end
+    end
+
+    //--------------
+
     always_comb begin
         if (LAST_STAGE) begin
+            
+            if (!cnt) begin
+                y0  =  y0_pip_out  ;
+                y1  =  y1_pip_out  ;
+                y2  =  'd0;
+                y3  =  'd0;
+                y4  =  y2_pip_out  ;
+                y5  =  y3_pip_out  ;
+                y6  =  'd0;
+                y7  =  'd0;
+                y8  =  y4_pip_out  ;
+                y9  =  y5_pip_out  ;
+                y10 =  'd0;
+                y11 =  'd0;
+                y12 =  y6_pip_out  ;
+                y13 =  y7_pip_out  ;
+                y14 =  'd0;
+                y15 =  'd0;
+            end else begin
+                y0  =   'd0;
+                y1  =   'd0;
+                y2  =   y0_pip_out  ;
+                y3  =   y1_pip_out  ;
+                y4  =   'd0;
+                y5  =   'd0;
+                y6  =   y2_pip_out  ; 
+                y7  =   y3_pip_out  ; 
+                y8  =   'd0;
+                y9  =   'd0;
+                y10 =  y4_pip_out  ; 
+                y11 =  y5_pip_out  ; 
+                y12 =  'd0;
+                y13 =  'd0;
+                y14 =  y6_pip_out  ; 
+                y15 =  y7_pip_out  ; 
+            end
+            
+            /*
             y0  =   y0_pip_out  ;
             y1  =   y1_pip_out  ;
-            y2  =   'd0 ;
-            y3  =   'd0 ;
-            y4  =   'd0 ;
-            y5  =   'd0 ;
-            y6  =   'd0 ;
-            y7  =   'd0 ;
+            y2  =   y2_pip_out ;
+            y3  =   y3_pip_out ;
+            y4  =   y4_pip_out ;
+            y5  =   y5_pip_out ;
+            y6  =   y6_pip_out ;
+            y7  =   y7_pip_out ;
             y8  =   'd0 ;
             y9  =   'd0 ;
             y10 =   'd0 ;
@@ -420,42 +474,43 @@ module R16_top(
             y13 =   'd0 ;
             y14 =   'd0 ;
             y15 =   'd0 ;
-
+            */
             ntt_done    =   ntt_done_pip_out    ;
 
-            R16_MA0_idx_out     =   R16_MA0_idx_out_pip_out     ; 
-            R16_MA1_idx_out     =   R16_MA1_idx_out_pip_out     ; 
-            R16_MA2_idx_out     =   'd0   ; 
-            R16_MA3_idx_out     =   'd0   ; 
-            R16_MA4_idx_out     =   'd0   ; 
-            R16_MA5_idx_out     =   'd0   ; 
-            R16_MA6_idx_out     =   'd0   ; 
-            R16_MA7_idx_out     =   'd0   ; 
-            R16_MA8_idx_out     =   'd0   ; 
-            R16_MA9_idx_out     =   'd0   ; 
-            R16_MA10_idx_out    =   'd0   ; 
-            R16_MA11_idx_out    =   'd0   ; 
-            R16_MA12_idx_out    =   'd0   ; 
-            R16_MA13_idx_out    =   'd0   ; 
-            R16_MA14_idx_out    =   'd0   ; 
-            R16_MA15_idx_out    =   'd0   ;
+            R16_MA0_idx_out     =   R16_MA0_idx_out_pip_out     ;
+            R16_MA1_idx_out     =   R16_MA1_idx_out_pip_out     ;
+            R16_MA2_idx_out     =   R16_MA2_idx_out_pip_out     ;
+            R16_MA3_idx_out     =   R16_MA3_idx_out_pip_out     ;
+            R16_MA4_idx_out     =   R16_MA4_idx_out_pip_out     ;
+            R16_MA5_idx_out     =   R16_MA5_idx_out_pip_out     ;
+            R16_MA6_idx_out     =   R16_MA6_idx_out_pip_out     ;
+            R16_MA7_idx_out     =   R16_MA7_idx_out_pip_out     ;
+            R16_MA8_idx_out     =   R16_MA8_idx_out_pip_out     ;
+            R16_MA9_idx_out     =   R16_MA9_idx_out_pip_out     ;
+            R16_MA10_idx_out    =   R16_MA10_idx_out_pip_out    ;
+            R16_MA11_idx_out    =   R16_MA11_idx_out_pip_out    ;
+            R16_MA12_idx_out    =   R16_MA12_idx_out_pip_out    ;
+            R16_MA13_idx_out    =   R16_MA13_idx_out_pip_out    ;
+            R16_MA14_idx_out    =   R16_MA14_idx_out_pip_out    ;
+            R16_MA15_idx_out    =   R16_MA15_idx_out_pip_out    ;
 
             R16_BN0_idx_out     =   R16_BN0_idx_out_pip_out     ; 
             R16_BN1_idx_out     =   R16_BN1_idx_out_pip_out     ; 
-            R16_BN2_idx_out     =   'd0    ; 
-            R16_BN3_idx_out     =   'd0    ; 
-            R16_BN4_idx_out     =   'd0    ; 
-            R16_BN5_idx_out     =   'd0    ; 
-            R16_BN6_idx_out     =   'd0    ; 
-            R16_BN7_idx_out     =   'd0    ; 
-            R16_BN8_idx_out     =   'd0    ; 
-            R16_BN9_idx_out     =   'd0    ; 
-            R16_BN10_idx_out    =   'd0    ;
-            R16_BN11_idx_out    =   'd0    ;
-            R16_BN12_idx_out    =   'd0    ;
-            R16_BN13_idx_out    =   'd0    ;
-            R16_BN14_idx_out    =   'd0    ;
-            R16_BN15_idx_out    =   'd0    ; 
+            R16_BN2_idx_out     =   R16_BN2_idx_out_pip_out     ; 
+            R16_BN3_idx_out     =   R16_BN3_idx_out_pip_out     ; 
+            R16_BN4_idx_out     =   R16_BN4_idx_out_pip_out     ; 
+            R16_BN5_idx_out     =   R16_BN5_idx_out_pip_out     ; 
+            R16_BN6_idx_out     =   R16_BN6_idx_out_pip_out     ; 
+            R16_BN7_idx_out     =   R16_BN7_idx_out_pip_out     ; 
+            R16_BN8_idx_out     =   R16_BN8_idx_out_pip_out     ; 
+            R16_BN9_idx_out     =   R16_BN9_idx_out_pip_out     ; 
+            R16_BN10_idx_out    =   R16_BN10_idx_out_pip_out    ;
+            R16_BN11_idx_out    =   R16_BN11_idx_out_pip_out    ;
+            R16_BN12_idx_out    =   R16_BN12_idx_out_pip_out    ;
+            R16_BN13_idx_out    =   R16_BN13_idx_out_pip_out    ;
+            R16_BN14_idx_out    =   R16_BN14_idx_out_pip_out    ;
+            R16_BN15_idx_out    =   R16_BN15_idx_out_pip_out    ;
+            
         end else begin
             y0  =   y0_pip_out  ; 
             y1  =   y1_pip_out  ; 

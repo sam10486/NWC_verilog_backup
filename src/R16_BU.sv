@@ -435,11 +435,33 @@ module R16_BU (
     logic [`D_width-1:0] stage3_fft_a5, stage3_fft_b5;
     logic [`D_width-1:0] stage3_fft_a6, stage3_fft_b6;
     logic [`D_width-1:0] stage3_fft_a7, stage3_fft_b7;
+
+    //-----------------------
+    logic [`D_width-1:0] stage0_BU0_TF_mux;
+    logic [`D_width-1:0] stage0_BU1_TF_mux;
+    logic [`D_width-1:0] stage0_BU2_TF_mux;
+    logic [`D_width-1:0] stage0_BU3_TF_mux;
+    always_comb begin
+        if (LAST_STAGE) begin
+            stage0_BU0_TF_mux = twiddle_1;
+            stage0_BU1_TF_mux = twiddle_2;
+            stage0_BU2_TF_mux = twiddle_3;
+            stage0_BU3_TF_mux = twiddle_4;
+        end else begin
+            stage0_BU0_TF_mux = twiddle_1;
+            stage0_BU1_TF_mux = twiddle_1;
+            stage0_BU2_TF_mux = twiddle_1;
+            stage0_BU3_TF_mux = twiddle_1;
+        end
+    end
+
+    //-----------------------
+
     // ----------------stage 0------------------
     BU2_NWC stage0_BU0(
         .in1(x0),
         .in2(x8),
-        .twiddle(twiddle_1),
+        .twiddle(stage0_BU0_TF_mux),
         .modulus(modulus),
         .rst(rst),
         .clk(clk),
@@ -453,7 +475,7 @@ module R16_BU (
     BU2_NWC stage0_BU1(
         .in1(x1),
         .in2(x9),
-        .twiddle(twiddle_1),
+        .twiddle(stage0_BU1_TF_mux),
         .modulus(modulus),
         .rst(rst),
         .clk(clk),
@@ -467,7 +489,7 @@ module R16_BU (
     BU2_NWC stage0_BU2(
         .in1(x2),
         .in2(x10),
-        .twiddle(twiddle_1),
+        .twiddle(stage0_BU2_TF_mux),
         .modulus(modulus),
         .rst(rst),
         .clk(clk),
@@ -481,7 +503,7 @@ module R16_BU (
     BU2_NWC stage0_BU3(
         .in1(x3),
         .in2(x11),
-        .twiddle(twiddle_1),
+        .twiddle(stage0_BU3_TF_mux),
         .modulus(modulus),
         .rst(rst),
         .clk(clk),
@@ -1083,12 +1105,12 @@ module R16_BU (
         end else begin
             y0 <= (LAST_STAGE) ? stage0_fft_a0 : stage3_fft_a0; 
             y1 <= (LAST_STAGE) ? stage0_fft_b0 : stage3_fft_b0; 
-            y2 <= (LAST_STAGE) ? 'd0 : stage3_fft_a1; 
-            y3 <= (LAST_STAGE) ? 'd0 : stage3_fft_b1; 
-            y4 <= (LAST_STAGE) ? 'd0 : stage3_fft_a2; 
-            y5 <= (LAST_STAGE) ? 'd0 : stage3_fft_b2; 
-            y6 <= (LAST_STAGE) ? 'd0 : stage3_fft_a3; 
-            y7 <= (LAST_STAGE) ? 'd0 : stage3_fft_b3; 
+            y2 <= (LAST_STAGE) ? stage0_fft_a1 : stage3_fft_a1; 
+            y3 <= (LAST_STAGE) ? stage0_fft_b1 : stage3_fft_b1; 
+            y4 <= (LAST_STAGE) ? stage0_fft_a2 : stage3_fft_a2; 
+            y5 <= (LAST_STAGE) ? stage0_fft_b2 : stage3_fft_b2; 
+            y6 <= (LAST_STAGE) ? stage0_fft_a3 : stage3_fft_a3; 
+            y7 <= (LAST_STAGE) ? stage0_fft_b3 : stage3_fft_b3; 
 
             y8 <=  (LAST_STAGE) ? 'd0 : stage3_fft_a4;
             y9 <=  (LAST_STAGE) ? 'd0 : stage3_fft_b4; 

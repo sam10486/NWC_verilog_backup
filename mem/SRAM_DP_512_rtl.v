@@ -118,6 +118,8 @@
             end else begin
                 latched_DOA <= mem[AA];
             end
+        end else begin
+            latched_DOA <= 'd0;
         end
     end
 
@@ -131,6 +133,8 @@
             end else begin
                 latched_DOB <= mem[AB];
             end
+        end else begin
+            latched_DOB <= 'd0;
         end
     end
 

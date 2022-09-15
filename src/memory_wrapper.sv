@@ -171,7 +171,7 @@ module memory_wrapper (
 
     logic [`D_width-1:0] QA_out [0:BN-1];
     logic [`D_width-1:0] QA_out_sel [0:BN-1];
-    logic [3:0] sel_out [0:BN-1];
+    logic [4:0] sel_out [0:BN-1];
 
     assign CLKA = clk;
     assign CLKB = clk;
@@ -512,20 +512,20 @@ module memory_wrapper (
         if (LAST_STAGE) begin
             if      (R16_w_BN0_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd0;
             else if (R16_w_BN1_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd1;
-            else if (R16_w_BN2_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
-            else if (R16_w_BN3_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
-            else if (R16_w_BN4_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
-            else if (R16_w_BN5_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
-            else if (R16_w_BN6_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
-            else if (R16_w_BN7_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
-            else if (R16_w_BN8_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
-            else if (R16_w_BN9_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
-            else if (R16_w_BN10_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
-            else if (R16_w_BN11_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
-            else if (R16_w_BN12_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
-            else if (R16_w_BN13_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
-            else if (R16_w_BN14_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
-            else if (R16_w_BN15_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd16;
+            else if (R16_w_BN2_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd2;
+            else if (R16_w_BN3_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd3;
+            else if (R16_w_BN4_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd4;
+            else if (R16_w_BN5_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd5;
+            else if (R16_w_BN6_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd6;
+            else if (R16_w_BN7_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd7;
+            else if (R16_w_BN8_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd8;
+            else if (R16_w_BN9_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd9;
+            else if (R16_w_BN10_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd10;
+            else if (R16_w_BN11_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd11;
+            else if (R16_w_BN12_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd12;
+            else if (R16_w_BN13_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd13;
+            else if (R16_w_BN14_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd14;
+            else if (R16_w_BN15_idx   == 'd0)     R16_w_BN_idx_sel_in[0] = 'd15;
             else                                  R16_w_BN_idx_sel_in[0] = 'd16; // 16 is turn off
         end else begin
             if      (R16_w_BN0_idx    == 'd0)     R16_w_BN_idx_sel_in[0] = 'd0;
@@ -552,20 +552,20 @@ module memory_wrapper (
         if (LAST_STAGE) begin
             if      (R16_w_BN0_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd0;
             else if (R16_w_BN1_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd1;
-            else if (R16_w_BN2_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
-            else if (R16_w_BN3_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
-            else if (R16_w_BN4_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
-            else if (R16_w_BN5_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
-            else if (R16_w_BN6_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
-            else if (R16_w_BN7_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
-            else if (R16_w_BN8_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
-            else if (R16_w_BN9_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
-            else if (R16_w_BN10_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
-            else if (R16_w_BN11_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
-            else if (R16_w_BN12_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
-            else if (R16_w_BN13_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
-            else if (R16_w_BN14_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
-            else if (R16_w_BN15_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd16;
+            else if (R16_w_BN2_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd2;
+            else if (R16_w_BN3_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd3;
+            else if (R16_w_BN4_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd4;
+            else if (R16_w_BN5_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd5;
+            else if (R16_w_BN6_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd6;
+            else if (R16_w_BN7_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd7;
+            else if (R16_w_BN8_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd8;
+            else if (R16_w_BN9_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd9;
+            else if (R16_w_BN10_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd10;
+            else if (R16_w_BN11_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd11;
+            else if (R16_w_BN12_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd12;
+            else if (R16_w_BN13_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd13;
+            else if (R16_w_BN14_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd14;
+            else if (R16_w_BN15_idx   == 'd1)     R16_w_BN_idx_sel_in[1] = 'd15;
             else                                  R16_w_BN_idx_sel_in[1] = 'd16; // 16 is turn off
         end else begin
             if      (R16_w_BN0_idx    == 'd1)     R16_w_BN_idx_sel_in[1] = 'd0;
@@ -592,20 +592,20 @@ module memory_wrapper (
         if (LAST_STAGE) begin
             if      (R16_w_BN0_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd0;
             else if (R16_w_BN1_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd1;
-            else if (R16_w_BN2_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
-            else if (R16_w_BN3_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
-            else if (R16_w_BN4_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
-            else if (R16_w_BN5_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
-            else if (R16_w_BN6_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
-            else if (R16_w_BN7_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
-            else if (R16_w_BN8_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
-            else if (R16_w_BN9_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
-            else if (R16_w_BN10_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
-            else if (R16_w_BN11_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
-            else if (R16_w_BN12_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
-            else if (R16_w_BN13_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
-            else if (R16_w_BN14_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
-            else if (R16_w_BN15_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd16;
+            else if (R16_w_BN2_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd2;
+            else if (R16_w_BN3_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd3;
+            else if (R16_w_BN4_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd4;
+            else if (R16_w_BN5_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd5;
+            else if (R16_w_BN6_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd6;
+            else if (R16_w_BN7_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd7;
+            else if (R16_w_BN8_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd8;
+            else if (R16_w_BN9_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd9;
+            else if (R16_w_BN10_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd10;
+            else if (R16_w_BN11_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd11;
+            else if (R16_w_BN12_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd12;
+            else if (R16_w_BN13_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd13;
+            else if (R16_w_BN14_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd14;
+            else if (R16_w_BN15_idx   == 'd2)     R16_w_BN_idx_sel_in[2] = 'd15;
             else                                  R16_w_BN_idx_sel_in[2] = 'd16; // 16 is turn off
         end else begin
             if      (R16_w_BN0_idx    == 'd2)     R16_w_BN_idx_sel_in[2] = 'd0;
@@ -632,20 +632,20 @@ module memory_wrapper (
         if (LAST_STAGE) begin
             if      (R16_w_BN0_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd0;
             else if (R16_w_BN1_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd1;
-            else if (R16_w_BN2_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
-            else if (R16_w_BN3_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
-            else if (R16_w_BN4_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
-            else if (R16_w_BN5_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
-            else if (R16_w_BN6_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
-            else if (R16_w_BN7_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
-            else if (R16_w_BN8_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
-            else if (R16_w_BN9_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
-            else if (R16_w_BN10_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
-            else if (R16_w_BN11_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
-            else if (R16_w_BN12_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
-            else if (R16_w_BN13_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
-            else if (R16_w_BN14_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
-            else if (R16_w_BN15_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd16;
+            else if (R16_w_BN2_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd2;
+            else if (R16_w_BN3_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd3;
+            else if (R16_w_BN4_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd4;
+            else if (R16_w_BN5_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd5;
+            else if (R16_w_BN6_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd6;
+            else if (R16_w_BN7_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd7;
+            else if (R16_w_BN8_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd8;
+            else if (R16_w_BN9_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd9;
+            else if (R16_w_BN10_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd10;
+            else if (R16_w_BN11_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd11;
+            else if (R16_w_BN12_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd12;
+            else if (R16_w_BN13_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd13;
+            else if (R16_w_BN14_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd14;
+            else if (R16_w_BN15_idx   == 'd3)     R16_w_BN_idx_sel_in[3] = 'd15;
             else                                  R16_w_BN_idx_sel_in[3] = 'd16; // 16 is turn off
         end else begin
             if      (R16_w_BN0_idx    == 'd3)     R16_w_BN_idx_sel_in[3] = 'd0;
@@ -672,20 +672,20 @@ module memory_wrapper (
         if (LAST_STAGE) begin
             if      (R16_w_BN0_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd0;
             else if (R16_w_BN1_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd1;
-            else if (R16_w_BN2_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
-            else if (R16_w_BN3_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
-            else if (R16_w_BN4_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
-            else if (R16_w_BN5_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
-            else if (R16_w_BN6_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
-            else if (R16_w_BN7_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
-            else if (R16_w_BN8_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
-            else if (R16_w_BN9_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
-            else if (R16_w_BN10_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
-            else if (R16_w_BN11_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
-            else if (R16_w_BN12_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
-            else if (R16_w_BN13_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
-            else if (R16_w_BN14_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
-            else if (R16_w_BN15_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd16;
+            else if (R16_w_BN2_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd2;
+            else if (R16_w_BN3_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd3;
+            else if (R16_w_BN4_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd4;
+            else if (R16_w_BN5_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd5;
+            else if (R16_w_BN6_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd6;
+            else if (R16_w_BN7_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd7;
+            else if (R16_w_BN8_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd8;
+            else if (R16_w_BN9_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd9;
+            else if (R16_w_BN10_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd10;
+            else if (R16_w_BN11_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd11;
+            else if (R16_w_BN12_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd12;
+            else if (R16_w_BN13_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd13;
+            else if (R16_w_BN14_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd14;
+            else if (R16_w_BN15_idx   == 'd4)     R16_w_BN_idx_sel_in[4] = 'd15;
             else                                  R16_w_BN_idx_sel_in[4] = 'd16; // 16 is turn off
         end else begin
             if      (R16_w_BN0_idx    == 'd4)     R16_w_BN_idx_sel_in[4] = 'd0;
@@ -712,20 +712,20 @@ module memory_wrapper (
         if (LAST_STAGE) begin
             if      (R16_w_BN0_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd0;
             else if (R16_w_BN1_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd1;
-            else if (R16_w_BN2_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
-            else if (R16_w_BN3_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
-            else if (R16_w_BN4_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
-            else if (R16_w_BN5_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
-            else if (R16_w_BN6_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
-            else if (R16_w_BN7_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
-            else if (R16_w_BN8_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
-            else if (R16_w_BN9_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
-            else if (R16_w_BN10_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
-            else if (R16_w_BN11_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
-            else if (R16_w_BN12_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
-            else if (R16_w_BN13_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
-            else if (R16_w_BN14_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
-            else if (R16_w_BN15_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd16;
+            else if (R16_w_BN2_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd2;
+            else if (R16_w_BN3_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd3;
+            else if (R16_w_BN4_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd4;
+            else if (R16_w_BN5_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd5;
+            else if (R16_w_BN6_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd6;
+            else if (R16_w_BN7_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd7;
+            else if (R16_w_BN8_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd8;
+            else if (R16_w_BN9_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd9;
+            else if (R16_w_BN10_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd10;
+            else if (R16_w_BN11_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd11;
+            else if (R16_w_BN12_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd12;
+            else if (R16_w_BN13_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd13;
+            else if (R16_w_BN14_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd14;
+            else if (R16_w_BN15_idx   == 'd5)     R16_w_BN_idx_sel_in[5] = 'd15;
             else                                  R16_w_BN_idx_sel_in[5] = 'd16; // 16 is turn off
         end else begin
             if      (R16_w_BN0_idx    == 'd5)     R16_w_BN_idx_sel_in[5] = 'd0;
@@ -752,20 +752,20 @@ module memory_wrapper (
         if (LAST_STAGE) begin
             if      (R16_w_BN0_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd0;
             else if (R16_w_BN1_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd1;
-            else if (R16_w_BN2_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
-            else if (R16_w_BN3_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
-            else if (R16_w_BN4_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
-            else if (R16_w_BN5_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
-            else if (R16_w_BN6_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
-            else if (R16_w_BN7_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
-            else if (R16_w_BN8_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
-            else if (R16_w_BN9_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
-            else if (R16_w_BN10_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
-            else if (R16_w_BN11_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
-            else if (R16_w_BN12_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
-            else if (R16_w_BN13_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
-            else if (R16_w_BN14_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
-            else if (R16_w_BN15_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd16;
+            else if (R16_w_BN2_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd2;
+            else if (R16_w_BN3_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd3;
+            else if (R16_w_BN4_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd4;
+            else if (R16_w_BN5_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd5;
+            else if (R16_w_BN6_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd6;
+            else if (R16_w_BN7_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd7;
+            else if (R16_w_BN8_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd8;
+            else if (R16_w_BN9_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd9;
+            else if (R16_w_BN10_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd10;
+            else if (R16_w_BN11_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd11;
+            else if (R16_w_BN12_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd12;
+            else if (R16_w_BN13_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd13;
+            else if (R16_w_BN14_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd14;
+            else if (R16_w_BN15_idx   == 'd6)     R16_w_BN_idx_sel_in[6] = 'd15;
             else                                  R16_w_BN_idx_sel_in[6] = 'd16; // 16 is turn off
         end else begin
             if      (R16_w_BN0_idx    == 'd6)     R16_w_BN_idx_sel_in[6] = 'd0;
@@ -792,20 +792,20 @@ module memory_wrapper (
         if (LAST_STAGE) begin
             if      (R16_w_BN0_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd0;
             else if (R16_w_BN1_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd1;
-            else if (R16_w_BN2_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
-            else if (R16_w_BN3_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
-            else if (R16_w_BN4_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
-            else if (R16_w_BN5_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
-            else if (R16_w_BN6_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
-            else if (R16_w_BN7_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
-            else if (R16_w_BN8_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
-            else if (R16_w_BN9_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
-            else if (R16_w_BN10_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
-            else if (R16_w_BN11_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
-            else if (R16_w_BN12_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
-            else if (R16_w_BN13_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
-            else if (R16_w_BN14_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
-            else if (R16_w_BN15_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd16;
+            else if (R16_w_BN2_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd2;
+            else if (R16_w_BN3_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd3;
+            else if (R16_w_BN4_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd4;
+            else if (R16_w_BN5_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd5;
+            else if (R16_w_BN6_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd6;
+            else if (R16_w_BN7_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd7;
+            else if (R16_w_BN8_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd8;
+            else if (R16_w_BN9_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd9;
+            else if (R16_w_BN10_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd10;
+            else if (R16_w_BN11_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd11;
+            else if (R16_w_BN12_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd12;
+            else if (R16_w_BN13_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd13;
+            else if (R16_w_BN14_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd14;
+            else if (R16_w_BN15_idx   == 'd7)     R16_w_BN_idx_sel_in[7] = 'd15;
             else                                  R16_w_BN_idx_sel_in[7] = 'd16; // 16 is turn off
         end else begin
             if      (R16_w_BN0_idx    == 'd7)     R16_w_BN_idx_sel_in[7] = 'd0;
@@ -832,20 +832,20 @@ module memory_wrapper (
         if (LAST_STAGE) begin
             if      (R16_w_BN0_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd0;
             else if (R16_w_BN1_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd1;
-            else if (R16_w_BN2_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
-            else if (R16_w_BN3_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
-            else if (R16_w_BN4_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
-            else if (R16_w_BN5_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
-            else if (R16_w_BN6_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
-            else if (R16_w_BN7_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
-            else if (R16_w_BN8_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
-            else if (R16_w_BN9_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
-            else if (R16_w_BN10_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
-            else if (R16_w_BN11_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
-            else if (R16_w_BN12_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
-            else if (R16_w_BN13_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
-            else if (R16_w_BN14_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
-            else if (R16_w_BN15_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd16;
+            else if (R16_w_BN2_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd2;
+            else if (R16_w_BN3_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd3;
+            else if (R16_w_BN4_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd4;
+            else if (R16_w_BN5_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd5;
+            else if (R16_w_BN6_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd6;
+            else if (R16_w_BN7_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd7;
+            else if (R16_w_BN8_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd8;
+            else if (R16_w_BN9_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd9;
+            else if (R16_w_BN10_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd10;
+            else if (R16_w_BN11_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd11;
+            else if (R16_w_BN12_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd12;
+            else if (R16_w_BN13_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd13;
+            else if (R16_w_BN14_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd14;
+            else if (R16_w_BN15_idx   == 'd8)     R16_w_BN_idx_sel_in[8] = 'd15;
             else                                  R16_w_BN_idx_sel_in[8] = 'd16; // 16 is turn off
         end else begin
             if      (R16_w_BN0_idx    == 'd8)     R16_w_BN_idx_sel_in[8] = 'd0;
@@ -873,20 +873,20 @@ module memory_wrapper (
         if (LAST_STAGE) begin
             if      (R16_w_BN0_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd0;
             else if (R16_w_BN1_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd1;
-            else if (R16_w_BN2_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
-            else if (R16_w_BN3_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
-            else if (R16_w_BN4_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
-            else if (R16_w_BN5_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
-            else if (R16_w_BN6_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
-            else if (R16_w_BN7_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
-            else if (R16_w_BN8_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
-            else if (R16_w_BN9_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
-            else if (R16_w_BN10_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
-            else if (R16_w_BN11_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
-            else if (R16_w_BN12_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
-            else if (R16_w_BN13_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
-            else if (R16_w_BN14_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
-            else if (R16_w_BN15_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd16;
+            else if (R16_w_BN2_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd2;
+            else if (R16_w_BN3_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd3;
+            else if (R16_w_BN4_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd4;
+            else if (R16_w_BN5_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd5;
+            else if (R16_w_BN6_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd6;
+            else if (R16_w_BN7_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd7;
+            else if (R16_w_BN8_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd8;
+            else if (R16_w_BN9_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd9;
+            else if (R16_w_BN10_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd10;
+            else if (R16_w_BN11_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd11;
+            else if (R16_w_BN12_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd12;
+            else if (R16_w_BN13_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd13;
+            else if (R16_w_BN14_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd14;
+            else if (R16_w_BN15_idx   == 'd9)     R16_w_BN_idx_sel_in[9] = 'd15;
             else                                  R16_w_BN_idx_sel_in[9] = 'd16; // 16 is turn off
         end else begin
             if      (R16_w_BN0_idx    == 'd9)     R16_w_BN_idx_sel_in[9] = 'd0;
@@ -913,20 +913,20 @@ module memory_wrapper (
         if (LAST_STAGE) begin
             if      (R16_w_BN0_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd0;
             else if (R16_w_BN1_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd1;
-            else if (R16_w_BN2_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
-            else if (R16_w_BN3_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
-            else if (R16_w_BN4_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
-            else if (R16_w_BN5_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
-            else if (R16_w_BN6_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
-            else if (R16_w_BN7_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
-            else if (R16_w_BN8_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
-            else if (R16_w_BN9_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
-            else if (R16_w_BN10_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
-            else if (R16_w_BN11_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
-            else if (R16_w_BN12_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
-            else if (R16_w_BN13_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
-            else if (R16_w_BN14_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
-            else if (R16_w_BN15_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd16;
+            else if (R16_w_BN2_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd2;
+            else if (R16_w_BN3_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd3;
+            else if (R16_w_BN4_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd4;
+            else if (R16_w_BN5_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd5;
+            else if (R16_w_BN6_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd6;
+            else if (R16_w_BN7_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd7;
+            else if (R16_w_BN8_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd8;
+            else if (R16_w_BN9_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd9;
+            else if (R16_w_BN10_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd10;
+            else if (R16_w_BN11_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd11;
+            else if (R16_w_BN12_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd12;
+            else if (R16_w_BN13_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd13;
+            else if (R16_w_BN14_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd14;
+            else if (R16_w_BN15_idx   == 'd10)     R16_w_BN_idx_sel_in[10] = 'd15;
             else                                   R16_w_BN_idx_sel_in[10] = 'd16; // 16 is turn off
         end else begin
             if      (R16_w_BN0_idx    == 'd10)     R16_w_BN_idx_sel_in[10] = 'd0;
@@ -953,20 +953,20 @@ module memory_wrapper (
         if (LAST_STAGE) begin
             if      (R16_w_BN0_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd0;
             else if (R16_w_BN1_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd1;
-            else if (R16_w_BN2_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
-            else if (R16_w_BN3_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
-            else if (R16_w_BN4_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
-            else if (R16_w_BN5_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
-            else if (R16_w_BN6_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
-            else if (R16_w_BN7_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
-            else if (R16_w_BN8_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
-            else if (R16_w_BN9_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
-            else if (R16_w_BN10_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
-            else if (R16_w_BN11_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
-            else if (R16_w_BN12_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
-            else if (R16_w_BN13_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
-            else if (R16_w_BN14_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
-            else if (R16_w_BN15_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd16;
+            else if (R16_w_BN2_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd2;
+            else if (R16_w_BN3_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd3;
+            else if (R16_w_BN4_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd4;
+            else if (R16_w_BN5_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd5;
+            else if (R16_w_BN6_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd6;
+            else if (R16_w_BN7_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd7;
+            else if (R16_w_BN8_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd8;
+            else if (R16_w_BN9_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd9;
+            else if (R16_w_BN10_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd10;
+            else if (R16_w_BN11_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd11;
+            else if (R16_w_BN12_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd12;
+            else if (R16_w_BN13_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd13;
+            else if (R16_w_BN14_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd14;
+            else if (R16_w_BN15_idx   == 'd11)     R16_w_BN_idx_sel_in[11] = 'd15;
             else                                   R16_w_BN_idx_sel_in[11] = 'd16; // 16 is turn off
         end else begin
             if      (R16_w_BN0_idx    == 'd11)     R16_w_BN_idx_sel_in[11] = 'd0;
@@ -993,20 +993,20 @@ module memory_wrapper (
         if (LAST_STAGE) begin
             if      (R16_w_BN0_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd0;
             else if (R16_w_BN1_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd1;
-            else if (R16_w_BN2_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
-            else if (R16_w_BN3_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
-            else if (R16_w_BN4_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
-            else if (R16_w_BN5_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
-            else if (R16_w_BN6_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
-            else if (R16_w_BN7_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
-            else if (R16_w_BN8_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
-            else if (R16_w_BN9_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
-            else if (R16_w_BN10_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
-            else if (R16_w_BN11_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
-            else if (R16_w_BN12_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
-            else if (R16_w_BN13_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
-            else if (R16_w_BN14_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
-            else if (R16_w_BN15_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd16;
+            else if (R16_w_BN2_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd2;
+            else if (R16_w_BN3_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd3;
+            else if (R16_w_BN4_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd4;
+            else if (R16_w_BN5_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd5;
+            else if (R16_w_BN6_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd6;
+            else if (R16_w_BN7_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd7;
+            else if (R16_w_BN8_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd8;
+            else if (R16_w_BN9_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd9;
+            else if (R16_w_BN10_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd10;
+            else if (R16_w_BN11_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd11;
+            else if (R16_w_BN12_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd12;
+            else if (R16_w_BN13_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd13;
+            else if (R16_w_BN14_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd14;
+            else if (R16_w_BN15_idx   == 'd12)     R16_w_BN_idx_sel_in[12] = 'd15;
             else                                   R16_w_BN_idx_sel_in[12] = 'd16; // 16 is turn off
         end else begin
             if      (R16_w_BN0_idx    == 'd12)     R16_w_BN_idx_sel_in[12] = 'd0;
@@ -1033,20 +1033,20 @@ module memory_wrapper (
         if (LAST_STAGE) begin
             if      (R16_w_BN0_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd0;
             else if (R16_w_BN1_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd1;
-            else if (R16_w_BN2_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
-            else if (R16_w_BN3_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
-            else if (R16_w_BN4_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
-            else if (R16_w_BN5_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
-            else if (R16_w_BN6_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
-            else if (R16_w_BN7_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
-            else if (R16_w_BN8_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
-            else if (R16_w_BN9_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
-            else if (R16_w_BN10_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
-            else if (R16_w_BN11_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
-            else if (R16_w_BN12_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
-            else if (R16_w_BN13_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
-            else if (R16_w_BN14_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
-            else if (R16_w_BN15_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd16;
+            else if (R16_w_BN2_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd2;
+            else if (R16_w_BN3_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd3;
+            else if (R16_w_BN4_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd4;
+            else if (R16_w_BN5_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd5;
+            else if (R16_w_BN6_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd6;
+            else if (R16_w_BN7_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd7;
+            else if (R16_w_BN8_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd8;
+            else if (R16_w_BN9_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd9;
+            else if (R16_w_BN10_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd10;
+            else if (R16_w_BN11_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd11;
+            else if (R16_w_BN12_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd12;
+            else if (R16_w_BN13_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd13;
+            else if (R16_w_BN14_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd14;
+            else if (R16_w_BN15_idx   == 'd13)     R16_w_BN_idx_sel_in[13] = 'd15;
             else                                   R16_w_BN_idx_sel_in[13] = 'd16; // 16 is turn off
         end else begin
             if      (R16_w_BN0_idx    == 'd13)     R16_w_BN_idx_sel_in[13] = 'd0;
@@ -1073,20 +1073,20 @@ module memory_wrapper (
         if (LAST_STAGE) begin
             if      (R16_w_BN0_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd0;
             else if (R16_w_BN1_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd1;
-            else if (R16_w_BN2_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
-            else if (R16_w_BN3_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
-            else if (R16_w_BN4_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
-            else if (R16_w_BN5_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
-            else if (R16_w_BN6_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
-            else if (R16_w_BN7_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
-            else if (R16_w_BN8_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
-            else if (R16_w_BN9_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
-            else if (R16_w_BN10_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
-            else if (R16_w_BN11_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
-            else if (R16_w_BN12_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
-            else if (R16_w_BN13_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
-            else if (R16_w_BN14_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
-            else if (R16_w_BN15_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd16;
+            else if (R16_w_BN2_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd2;
+            else if (R16_w_BN3_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd3;
+            else if (R16_w_BN4_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd4;
+            else if (R16_w_BN5_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd5;
+            else if (R16_w_BN6_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd6;
+            else if (R16_w_BN7_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd7;
+            else if (R16_w_BN8_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd8;
+            else if (R16_w_BN9_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd9;
+            else if (R16_w_BN10_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd10;
+            else if (R16_w_BN11_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd11;
+            else if (R16_w_BN12_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd12;
+            else if (R16_w_BN13_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd13;
+            else if (R16_w_BN14_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd14;
+            else if (R16_w_BN15_idx   == 'd14)     R16_w_BN_idx_sel_in[14] = 'd15;
             else                                   R16_w_BN_idx_sel_in[14] = 'd16; // 16 is turn off
         end else begin
             if      (R16_w_BN0_idx    == 'd14)     R16_w_BN_idx_sel_in[14] = 'd0;
@@ -1113,20 +1113,20 @@ module memory_wrapper (
         if (LAST_STAGE) begin
             if      (R16_w_BN0_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd0;
             else if (R16_w_BN1_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd1;
-            else if (R16_w_BN2_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
-            else if (R16_w_BN3_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
-            else if (R16_w_BN4_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
-            else if (R16_w_BN5_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
-            else if (R16_w_BN6_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
-            else if (R16_w_BN7_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
-            else if (R16_w_BN8_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
-            else if (R16_w_BN9_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
-            else if (R16_w_BN10_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
-            else if (R16_w_BN11_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
-            else if (R16_w_BN12_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
-            else if (R16_w_BN13_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
-            else if (R16_w_BN14_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
-            else if (R16_w_BN15_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd16;
+            else if (R16_w_BN2_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd2;
+            else if (R16_w_BN3_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd3;
+            else if (R16_w_BN4_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd4;
+            else if (R16_w_BN5_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd5;
+            else if (R16_w_BN6_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd6;
+            else if (R16_w_BN7_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd7;
+            else if (R16_w_BN8_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd8;
+            else if (R16_w_BN9_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd9;
+            else if (R16_w_BN10_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd10;
+            else if (R16_w_BN11_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd11;
+            else if (R16_w_BN12_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd12;
+            else if (R16_w_BN13_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd13;
+            else if (R16_w_BN14_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd14;
+            else if (R16_w_BN15_idx   == 'd15)     R16_w_BN_idx_sel_in[15] = 'd15;
             else                                   R16_w_BN_idx_sel_in[15] = 'd16; // 16 is turn off
         end else begin
             if      (R16_w_BN0_idx    == 'd15)     R16_w_BN_idx_sel_in[15] = 'd0;
@@ -1271,7 +1271,7 @@ module memory_wrapper (
         end
     endgenerate
     
-    //-----------------------
+    //-----------------------  
     assign sel_out[0] = BN0_idx_out;
     assign sel_out[1] = BN1_idx_out;
     assign sel_out[2] = BN2_idx_out;
@@ -1288,7 +1288,7 @@ module memory_wrapper (
     assign sel_out[13] = BN13_idx_out;
     assign sel_out[14] = BN14_idx_out;
     assign sel_out[15] = BN15_idx_out;
-
+    
     generate
         for (i = 0; i < radix_16; i = i + 1) begin: Mux_16_1_out
             Mux_16_1_out Mux_16_1_out(
@@ -1392,25 +1392,62 @@ module memory_wrapper (
         end
     end
 
+    //-----------
+    logic  cnt;
+    always_ff @( posedge clk or posedge rst ) begin
+        if (rst) begin
+            cnt <= 'd0;
+        end else begin
+            if (LAST_STAGE && r_enable_out) begin
+                cnt <= cnt + 'd1;
+            end else begin
+                cnt <= 'd0;
+            end
+        end
+    end
+
+    //------------
+
     always_comb begin
         if (r_enable_out) begin
             if (LAST_STAGE) begin
-                memory_b0   =   QA_out_sel[0]   ;   
-                memory_b1   =   QA_out_sel[1]   ;   
-                memory_b2   =   'd0  ; 
-                memory_b3   =   'd0  ; 
-                memory_b4   =   'd0  ; 
-                memory_b5   =   'd0  ; 
-                memory_b6   =   'd0  ; 
-                memory_b7   =   'd0  ; 
-                memory_b8   =   'd0  ; 
-                memory_b9   =   'd0  ; 
-                memory_b10  =   'd0  ;
-                memory_b11  =   'd0  ;
-                memory_b12  =   'd0  ;
-                memory_b13  =   'd0  ;
-                memory_b14  =   'd0  ;
-                memory_b15  =   'd0  ;
+                
+                if (cnt) begin
+                    memory_b0   =   QA_out_sel[2]   ; 
+                    memory_b1   =   QA_out_sel[3]   ; 
+                    memory_b2   =   QA_out_sel[6]   ; 
+                    memory_b3   =   QA_out_sel[7]   ; 
+                    memory_b4   =   QA_out_sel[10]   ; 
+                    memory_b5   =   QA_out_sel[11]   ; 
+                    memory_b6   =   QA_out_sel[14]   ; 
+                    memory_b7   =   QA_out_sel[15]   ; 
+                    memory_b8   =   'd0   ; 
+                    memory_b9   =   'd0   ; 
+                    memory_b10  =   'd0  ;
+                    memory_b11  =   'd0  ;
+                    memory_b12  =   'd0  ;
+                    memory_b13  =   'd0  ;
+                    memory_b14  =   'd0  ;
+                    memory_b15  =   'd0  ;   
+                end else begin
+                    memory_b0   =   QA_out_sel[0]   ; 
+                    memory_b1   =   QA_out_sel[1]   ; 
+                    memory_b2   =   QA_out_sel[4]   ; 
+                    memory_b3   =   QA_out_sel[5]   ; 
+                    memory_b4   =   QA_out_sel[8]   ; 
+                    memory_b5   =   QA_out_sel[9]   ; 
+                    memory_b6   =   QA_out_sel[12]   ; 
+                    memory_b7   =   QA_out_sel[13]   ; 
+                    memory_b8   =   'd0   ; 
+                    memory_b9   =   'd0   ; 
+                    memory_b10  =   'd0  ;
+                    memory_b11  =   'd0  ;
+                    memory_b12  =   'd0  ;
+                    memory_b13  =   'd0  ;
+                    memory_b14  =   'd0  ;
+                    memory_b15  =   'd0  ;   
+                end
+
             end else begin
                 memory_b0   =   QA_out_sel[0]   ; 
                 memory_b1   =   QA_out_sel[1]   ; 
@@ -1427,8 +1464,26 @@ module memory_wrapper (
                 memory_b12  =   QA_out_sel[12]  ;
                 memory_b13  =   QA_out_sel[13]  ;
                 memory_b14  =   QA_out_sel[14]  ;
-                memory_b15  =   QA_out_sel[15]  ;
-            end
+                memory_b15  =   QA_out_sel[15]  ;   
+            end     
+            /*  
+            memory_b0   =   QA_out_sel[0]   ; 
+            memory_b1   =   QA_out_sel[1]   ; 
+            memory_b2   =   QA_out_sel[2]   ; 
+            memory_b3   =   QA_out_sel[3]   ; 
+            memory_b4   =   QA_out_sel[4]   ; 
+            memory_b5   =   QA_out_sel[5]   ; 
+            memory_b6   =   QA_out_sel[6]   ; 
+            memory_b7   =   QA_out_sel[7]   ; 
+            memory_b8   =   QA_out_sel[8]   ; 
+            memory_b9   =   QA_out_sel[9]   ; 
+            memory_b10  =   QA_out_sel[10]  ;
+            memory_b11  =   QA_out_sel[11]  ;
+            memory_b12  =   QA_out_sel[12]  ;
+            memory_b13  =   QA_out_sel[13]  ;
+            memory_b14  =   QA_out_sel[14]  ;
+            memory_b15  =   QA_out_sel[15]  ;   
+            */    
         end else begin
             memory_b0   =   'd0   ; 
             memory_b1   =   'd0   ; 
