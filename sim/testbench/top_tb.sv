@@ -212,11 +212,13 @@ module Testbench ();
 	
 
     initial begin
-        /*$fsdbDumpfile("top_tb.fsdb");
-		$fsdbDumpvars;
-        $fsdbDumpvars("+struct", "+mda", top);
-        $fsdbDumpvars("+struct", "+mda", Testbench);*/
-
+        `ifndef SYN
+            $fsdbDumpfile("top_tb.fsdb");
+            $fsdbDumpvars;
+            $fsdbDumpvars("+struct", "+mda", top);
+            $fsdbDumpvars("+struct", "+mda", Testbench);
+        `endif
+        
         #(`CYCLE*`MAX)
         $finish;
     end
