@@ -31,6 +31,26 @@ module AGU_k2 (
     output logic [`D_width-1:0] Order_0_k2_add7,
     output logic [`D_width-1:0] Order_1_k2_add7,
 
+    //--------------------
+    output logic [`D_width-1:0] Order_0_k2_cnt16        ,
+    output logic [`D_width-1:0] Order_1_k2_cnt16        ,
+    output logic [`D_width-1:0] Order_0_k2_cnt16_add1   ,
+    output logic [`D_width-1:0] Order_1_k2_cnt16_add1   ,
+    output logic [`D_width-1:0] Order_0_k2_cnt16_add2   ,
+    output logic [`D_width-1:0] Order_1_k2_cnt16_add2   ,
+    output logic [`D_width-1:0] Order_0_k2_cnt16_add3   ,
+    output logic [`D_width-1:0] Order_1_k2_cnt16_add3   ,
+    output logic [`D_width-1:0] Order_0_k2_cnt16_add4   ,
+    output logic [`D_width-1:0] Order_1_k2_cnt16_add4   ,
+    output logic [`D_width-1:0] Order_0_k2_cnt16_add5   ,
+    output logic [`D_width-1:0] Order_1_k2_cnt16_add5   ,
+    output logic [`D_width-1:0] Order_0_k2_cnt16_add6   ,
+    output logic [`D_width-1:0] Order_1_k2_cnt16_add6   ,
+    output logic [`D_width-1:0] Order_0_k2_cnt16_add7   ,
+    output logic [`D_width-1:0] Order_1_k2_cnt16_add7   ,
+
+    //--------------------
+
     output logic AGU_out_en_k2,
     output logic AGU_done_k2,
     
@@ -55,7 +75,7 @@ module AGU_k2 (
     assign l_k2 = `Last_l;
 
     //-----------
-    logic cnt;
+    logic  cnt;
     always_ff @( posedge clk or posedge rst ) begin
         if (rst) begin
             cnt <= 'd0;
@@ -67,6 +87,7 @@ module AGU_k2 (
             end
         end
     end
+    //--------------------
 
 
     always_ff @( posedge clk or posedge rst ) begin
@@ -75,9 +96,10 @@ module AGU_k2 (
             AGU_done_k2 <= 'd0;
         end else begin
             if (AGU_enable_k2) begin
+                
                 if (cnt == 'd1) begin
                     if (j < j_upper_k2) begin
-                        j <= j + 'd8;
+                        j <= j + 'd16;
                         AGU_done_k2 <= 'd0;
                     end else begin
                         j <= 'd0;
@@ -99,7 +121,6 @@ module AGU_k2 (
     assign j_add5 = j + 'd5;
     assign j_add6 = j + 'd6;
     assign j_add7 = j + 'd7;
-
 
     BitRev BitRev0(
         .input_idx(j),
@@ -223,6 +244,139 @@ module AGU_k2 (
         Order_0_k2_add7 = (BitRev_out_j_add7 * tmp1_pip) + m0_pip;
         Order_1_k2_add7 = (BitRev_out_j_add7 * tmp1_pip) + m1_pip;      
     end
+
+
+
+
+    //------------------------
+    logic [`D_width-1:0] j_cnt_16;
+    logic [`D_width-1:0] j_cnt_16_add1, j_cnt_16_add2, j_cnt_16_add3, j_cnt_16_add4,
+                         j_cnt_16_add5, j_cnt_16_add6, j_cnt_16_add7;
+    logic [`D_width-1:0] BitRev_out_j_cnt16, BitRev_out_j_cnt16_add1, BitRev_out_j_cnt16_add2, BitRev_out_j_cnt16_add3, BitRev_out_j_cnt16_add4,
+                         BitRev_out_j_cnt16_add5, BitRev_out_j_cnt16_add6, BitRev_out_j_cnt16_add7;
+    always_comb begin
+        if (AGU_enable_k2) begin
+            j_cnt_16 <= j + 'd8;
+        end else begin
+            j_cnt_16 <= 'd0;
+        end
+    end
+    
+    assign j_cnt_16_add1 = j_cnt_16 + 'd1;
+    assign j_cnt_16_add2 = j_cnt_16 + 'd2;
+    assign j_cnt_16_add3 = j_cnt_16 + 'd3;
+    assign j_cnt_16_add4 = j_cnt_16 + 'd4;
+    assign j_cnt_16_add5 = j_cnt_16 + 'd5;
+    assign j_cnt_16_add6 = j_cnt_16 + 'd6;
+    assign j_cnt_16_add7 = j_cnt_16 + 'd7;
+
+    BitRev BitRev_cnt_0(
+        .input_idx(j_cnt_16),
+        .BitRev_enable(AGU_enable_k2),
+        .l(k),
+        .clk(clk),
+        .rst(rst),
+
+        .BitRev_out(BitRev_out_j_cnt16)
+    );
+
+    BitRev BitRev_cnt_1(
+        .input_idx(j_cnt_16_add1),
+        .BitRev_enable(AGU_enable_k2),
+        .l(k),
+        .clk(clk),
+        .rst(rst),
+
+        .BitRev_out(BitRev_out_j_cnt16_add1)
+    );
+
+    BitRev BitRev_cnt_2(
+        .input_idx(j_cnt_16_add2),
+        .BitRev_enable(AGU_enable_k2),
+        .l(k),
+        .clk(clk),
+        .rst(rst),
+
+        .BitRev_out(BitRev_out_j_cnt16_add2)
+    );
+
+    BitRev BitRev_cnt_3(
+        .input_idx(j_cnt_16_add3),
+        .BitRev_enable(AGU_enable_k2),
+        .l(k),
+        .clk(clk),
+        .rst(rst),
+
+        .BitRev_out(BitRev_out_j_cnt16_add3)
+    );
+
+    BitRev BitRev_cnt_4(
+        .input_idx(j_cnt_16_add4),
+        .BitRev_enable(AGU_enable_k2),
+        .l(k),
+        .clk(clk),
+        .rst(rst),
+
+        .BitRev_out(BitRev_out_j_cnt16_add4)
+    );
+
+    BitRev BitRev_cnt_5(
+        .input_idx(j_cnt_16_add5),
+        .BitRev_enable(AGU_enable_k2),
+        .l(k),
+        .clk(clk),
+        .rst(rst),
+
+        .BitRev_out(BitRev_out_j_cnt16_add5)
+    );
+
+    BitRev BitRev_cnt_6(
+        .input_idx(j_cnt_16_add6),
+        .BitRev_enable(AGU_enable_k2),
+        .l(k),
+        .clk(clk),
+        .rst(rst),
+
+        .BitRev_out(BitRev_out_j_cnt16_add6)
+    );
+
+    BitRev BitRev_cnt_7(
+        .input_idx(j_cnt_16_add7),
+        .BitRev_enable(AGU_enable_k2),
+        .l(k),
+        .clk(clk),
+        .rst(rst),
+
+        .BitRev_out(BitRev_out_j_cnt16_add7)
+    );
+
+    always_comb begin
+        Order_0_k2_cnt16      = (BitRev_out_j_cnt16 * tmp1_pip) + m0_pip;
+        Order_1_k2_cnt16      = (BitRev_out_j_cnt16 * tmp1_pip) + m1_pip;
+
+        Order_0_k2_cnt16_add1 = (BitRev_out_j_cnt16_add1 * tmp1_pip) + m0_pip;
+        Order_1_k2_cnt16_add1 = (BitRev_out_j_cnt16_add1 * tmp1_pip) + m1_pip;
+        
+        Order_0_k2_cnt16_add2 = (BitRev_out_j_cnt16_add2 * tmp1_pip) + m0_pip;
+        Order_1_k2_cnt16_add2 = (BitRev_out_j_cnt16_add2 * tmp1_pip) + m1_pip;
+
+        Order_0_k2_cnt16_add3 = (BitRev_out_j_cnt16_add3 * tmp1_pip) + m0_pip;
+        Order_1_k2_cnt16_add3 = (BitRev_out_j_cnt16_add3 * tmp1_pip) + m1_pip;
+
+        Order_0_k2_cnt16_add4 = (BitRev_out_j_cnt16_add4 * tmp1_pip) + m0_pip;
+        Order_1_k2_cnt16_add4 = (BitRev_out_j_cnt16_add4 * tmp1_pip) + m1_pip;
+
+        Order_0_k2_cnt16_add5 = (BitRev_out_j_cnt16_add5 * tmp1_pip) + m0_pip;
+        Order_1_k2_cnt16_add5 = (BitRev_out_j_cnt16_add5 * tmp1_pip) + m1_pip;
+
+        Order_0_k2_cnt16_add6 = (BitRev_out_j_cnt16_add6 * tmp1_pip) + m0_pip;
+        Order_1_k2_cnt16_add6 = (BitRev_out_j_cnt16_add6 * tmp1_pip) + m1_pip;
+
+        Order_0_k2_cnt16_add7 = (BitRev_out_j_cnt16_add7 * tmp1_pip) + m0_pip;
+        Order_1_k2_cnt16_add7 = (BitRev_out_j_cnt16_add7 * tmp1_pip) + m1_pip;      
+    end
+    //--------------------------
+
 
 
 endmodule

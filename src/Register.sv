@@ -140,10 +140,10 @@ module Register (
             TF_base_array[4][1]     <=  `D_width'h78d13f9   ;
             TF_base_array[4][2]     <=  `D_width'h601e0c7   ;
             TF_base_array[4][3]     <=  `D_width'h7a7d12e   ;
-            TF_base_array[4][4]     <=  `D_width'h0         ;
-            TF_base_array[4][5]     <=  `D_width'h0         ;
-            TF_base_array[4][6]     <=  `D_width'h0         ;
-            TF_base_array[4][7]     <=  `D_width'h0         ;
+            TF_base_array[4][4]     <=  `D_width'h424e900   ; //---------next 4 BU tw
+            TF_base_array[4][5]     <=  `D_width'h949eab    ;
+            TF_base_array[4][6]     <=  `D_width'h74c8135   ;
+            TF_base_array[4][7]     <=  `D_width'h3f5d489   ;
             TF_base_array[4][8]     <=  `D_width'h0         ;
             TF_base_array[4][9]     <=  `D_width'h0         ;
             TF_base_array[4][10]    <=  `D_width'h0         ;
@@ -157,10 +157,10 @@ module Register (
             TF_base_array[5][1]     <=  `D_width'h7371c04   ;
             TF_base_array[5][2]     <=  `D_width'h12fe3eb   ;
             TF_base_array[5][3]     <=  `D_width'h80ac15b   ;
-            TF_base_array[5][4]     <=  `D_width'h0         ;
-            TF_base_array[5][5]     <=  `D_width'h0         ;
-            TF_base_array[5][6]     <=  `D_width'h0         ;
-            TF_base_array[5][7]     <=  `D_width'h0         ;
+            TF_base_array[5][4]     <=  `D_width'h191a640   ; //---------next 4 BU tw
+            TF_base_array[5][5]     <=  `D_width'h5699c7    ;
+            TF_base_array[5][6]     <=  `D_width'h41027c2   ;
+            TF_base_array[5][7]     <=  `D_width'h58a89d6   ;
             TF_base_array[5][8]     <=  `D_width'h0         ;
             TF_base_array[5][9]     <=  `D_width'h0         ;
             TF_base_array[5][10]    <=  `D_width'h0         ;
@@ -170,14 +170,14 @@ module Register (
             TF_base_array[5][14]    <=  `D_width'h0         ;
             TF_base_array[5][15]    <=  `D_width'h0         ;
 
-            TF_base_array[6][0]     <=  `D_width'h424e900   ;
-            TF_base_array[6][1]     <=  `D_width'h949eab    ;
-            TF_base_array[6][2]     <=  `D_width'h74c8135   ;
-            TF_base_array[6][3]     <=  `D_width'h3f5d489   ;
-            TF_base_array[6][4]     <=  `D_width'h0         ;
-            TF_base_array[6][5]     <=  `D_width'h0         ;
-            TF_base_array[6][6]     <=  `D_width'h0         ;
-            TF_base_array[6][7]     <=  `D_width'h0         ;
+            TF_base_array[6][0]     <=  `D_width'h15cd52a   ;
+            TF_base_array[6][1]     <=  `D_width'h85a4a14   ;
+            TF_base_array[6][2]     <=  `D_width'h4b8e9d7   ;
+            TF_base_array[6][3]     <=  `D_width'h46e3ecb   ;
+            TF_base_array[6][4]     <=  `D_width'h9b047f2   ;
+            TF_base_array[6][5]     <=  `D_width'h992e36e   ;
+            TF_base_array[6][6]     <=  `D_width'h1633351   ;
+            TF_base_array[6][7]     <=  `D_width'h53f3b77   ;
             TF_base_array[6][8]     <=  `D_width'h0         ;
             TF_base_array[6][9]     <=  `D_width'h0         ;
             TF_base_array[6][10]    <=  `D_width'h0         ;
@@ -187,14 +187,14 @@ module Register (
             TF_base_array[6][14]    <=  `D_width'h0         ;
             TF_base_array[6][15]    <=  `D_width'h0         ;
 
-            TF_base_array[7][0]     <=  `D_width'h191a640   ;
-            TF_base_array[7][1]     <=  `D_width'h5699c7    ;
-            TF_base_array[7][2]     <=  `D_width'h41027c2   ;
-            TF_base_array[7][3]     <=  `D_width'h58a89d6   ;
-            TF_base_array[7][4]     <=  `D_width'h0         ;
-            TF_base_array[7][5]     <=  `D_width'h0         ;
-            TF_base_array[7][6]     <=  `D_width'h0         ;
-            TF_base_array[7][7]     <=  `D_width'h0         ;
+            TF_base_array[7][0]     <=  `D_width'h69063fe   ;
+            TF_base_array[7][1]     <=  `D_width'h9217530   ;
+            TF_base_array[7][2]     <=  `D_width'h44c0ea6   ;
+            TF_base_array[7][3]     <=  `D_width'h7e9e270   ;
+            TF_base_array[7][4]     <=  `D_width'h8bdc8dd   ;
+            TF_base_array[7][5]     <=  `D_width'h820593a   ;
+            TF_base_array[7][6]     <=  `D_width'h56442f9   ;
+            TF_base_array[7][7]     <=  `D_width'h513b4a8   ;
             TF_base_array[7][8]     <=  `D_width'h0         ;
             TF_base_array[7][9]     <=  `D_width'h0         ;
             TF_base_array[7][10]    <=  `D_width'h0         ;
@@ -290,6 +290,7 @@ module Register (
             TF_const_array[2][14]  <=  `D_width'h0  ;
             TF_const_array[2][15]  <=  `D_width'h0  ;
             */
+            /*
             // a^16
             TF_const_array[2][0]   <=  `D_width'h808a836  ;
             TF_const_array[2][1]   <=  `D_width'h372a390  ;
@@ -301,6 +302,24 @@ module Register (
             TF_const_array[2][7]   <=  `D_width'h442e7e8  ; 
             TF_const_array[2][8]   <=  `D_width'h3e3a2b0  ;
             TF_const_array[2][9]   <=  `D_width'ha000000 ;
+            TF_const_array[2][10]  <=  `D_width'h1 ;
+            TF_const_array[2][11]  <=  `D_width'h1        ;
+            TF_const_array[2][12]  <=  `D_width'h1 ;
+            TF_const_array[2][13]  <=  `D_width'h1  ;
+            TF_const_array[2][14]  <=  `D_width'h0  ;
+            TF_const_array[2][15]  <=  `D_width'h0  ;
+            */
+            // a^32
+            TF_const_array[2][0]   <=  `D_width'h372a390  ;
+            TF_const_array[2][1]   <=  `D_width'h1905fdb  ;
+            TF_const_array[2][2]   <=  `D_width'h5a761  ;
+            TF_const_array[2][3]   <=  `D_width'h339af8f   ;
+            TF_const_array[2][4]   <=  `D_width'h108822e  ;
+            TF_const_array[2][5]   <=  `D_width'h6f76bcb  ;
+            TF_const_array[2][6]   <=  `D_width'h442e7e8  ;
+            TF_const_array[2][7]   <=  `D_width'h3e3a2b0  ; 
+            TF_const_array[2][8]   <=  `D_width'ha000000  ;
+            TF_const_array[2][9]   <=  `D_width'h1 ;
             TF_const_array[2][10]  <=  `D_width'h1 ;
             TF_const_array[2][11]  <=  `D_width'h1        ;
             TF_const_array[2][12]  <=  `D_width'h1 ;

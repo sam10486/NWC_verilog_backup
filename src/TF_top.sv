@@ -106,10 +106,10 @@ module TF_top (
             TF_base_b2      =   TF_base_b2_pip_out  ;
             TF_base_b3      =   TF_base_b3_pip_out  ;
             TF_base_b4      =   TF_base_b4_pip_out  ;
-            TF_base_b5      =   'd0 ;
-            TF_base_b6      =   'd0 ;
-            TF_base_b7      =   'd0 ;
-            TF_base_b8      =   'd0 ;
+            TF_base_b5      =   TF_base_b5_pip_out  ; //------next BU
+            TF_base_b6      =   TF_base_b6_pip_out  ;
+            TF_base_b7      =   TF_base_b7_pip_out  ;
+            TF_base_b8      =   TF_base_b8_pip_out  ;
             TF_base_b9      =   'd0 ;
             TF_base_b10     =   'd0 ;
             TF_base_b11     =   'd0 ;

@@ -1392,81 +1392,8 @@ module memory_wrapper (
         end
     end
 
-    //-----------
-    logic  cnt;
-    always_ff @( posedge clk or posedge rst ) begin
-        if (rst) begin
-            cnt <= 'd0;
-        end else begin
-            if (LAST_STAGE && r_enable_out) begin
-                cnt <= cnt + 'd1;
-            end else begin
-                cnt <= 'd0;
-            end
-        end
-    end
-
-    //------------
-
     always_comb begin
         if (r_enable_out) begin
-            if (LAST_STAGE) begin
-                
-                if (cnt) begin
-                    memory_b0   =   QA_out_sel[2]   ; 
-                    memory_b1   =   QA_out_sel[3]   ; 
-                    memory_b2   =   QA_out_sel[6]   ; 
-                    memory_b3   =   QA_out_sel[7]   ; 
-                    memory_b4   =   QA_out_sel[10]   ; 
-                    memory_b5   =   QA_out_sel[11]   ; 
-                    memory_b6   =   QA_out_sel[14]   ; 
-                    memory_b7   =   QA_out_sel[15]   ; 
-                    memory_b8   =   'd0   ; 
-                    memory_b9   =   'd0   ; 
-                    memory_b10  =   'd0  ;
-                    memory_b11  =   'd0  ;
-                    memory_b12  =   'd0  ;
-                    memory_b13  =   'd0  ;
-                    memory_b14  =   'd0  ;
-                    memory_b15  =   'd0  ;   
-                end else begin
-                    memory_b0   =   QA_out_sel[0]   ; 
-                    memory_b1   =   QA_out_sel[1]   ; 
-                    memory_b2   =   QA_out_sel[4]   ; 
-                    memory_b3   =   QA_out_sel[5]   ; 
-                    memory_b4   =   QA_out_sel[8]   ; 
-                    memory_b5   =   QA_out_sel[9]   ; 
-                    memory_b6   =   QA_out_sel[12]   ; 
-                    memory_b7   =   QA_out_sel[13]   ; 
-                    memory_b8   =   'd0   ; 
-                    memory_b9   =   'd0   ; 
-                    memory_b10  =   'd0  ;
-                    memory_b11  =   'd0  ;
-                    memory_b12  =   'd0  ;
-                    memory_b13  =   'd0  ;
-                    memory_b14  =   'd0  ;
-                    memory_b15  =   'd0  ;   
-                end
-
-            end else begin
-                memory_b0   =   QA_out_sel[0]   ; 
-                memory_b1   =   QA_out_sel[1]   ; 
-                memory_b2   =   QA_out_sel[2]   ; 
-                memory_b3   =   QA_out_sel[3]   ; 
-                memory_b4   =   QA_out_sel[4]   ; 
-                memory_b5   =   QA_out_sel[5]   ; 
-                memory_b6   =   QA_out_sel[6]   ; 
-                memory_b7   =   QA_out_sel[7]   ; 
-                memory_b8   =   QA_out_sel[8]   ; 
-                memory_b9   =   QA_out_sel[9]   ; 
-                memory_b10  =   QA_out_sel[10]  ;
-                memory_b11  =   QA_out_sel[11]  ;
-                memory_b12  =   QA_out_sel[12]  ;
-                memory_b13  =   QA_out_sel[13]  ;
-                memory_b14  =   QA_out_sel[14]  ;
-                memory_b15  =   QA_out_sel[15]  ;   
-            end     
-            /*  
             memory_b0   =   QA_out_sel[0]   ; 
             memory_b1   =   QA_out_sel[1]   ; 
             memory_b2   =   QA_out_sel[2]   ; 
@@ -1482,8 +1409,7 @@ module memory_wrapper (
             memory_b12  =   QA_out_sel[12]  ;
             memory_b13  =   QA_out_sel[13]  ;
             memory_b14  =   QA_out_sel[14]  ;
-            memory_b15  =   QA_out_sel[15]  ;   
-            */    
+            memory_b15  =   QA_out_sel[15]  ;     
         end else begin
             memory_b0   =   'd0   ; 
             memory_b1   =   'd0   ; 

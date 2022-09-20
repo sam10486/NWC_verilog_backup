@@ -208,28 +208,28 @@ module R16_top(
             x1_pip_in   =   x2  ; 
             x2_pip_in   =   x4  ; 
             x3_pip_in   =   x6  ; 
-            x4_pip_in   =   'd0  ; 
-            x5_pip_in   =   'd0  ; 
-            x6_pip_in   =   'd0  ; 
-            x7_pip_in   =   'd0  ; 
+            x4_pip_in   =   x8  ; 
+            x5_pip_in   =   x10  ; 
+            x6_pip_in   =   x12  ; 
+            x7_pip_in   =   x14  ; 
             x8_pip_in   =   x1  ; 
             x9_pip_in   =   x3  ; 
             x10_pip_in  =   x5  ;
             x11_pip_in  =   x7  ;
-            x12_pip_in  =   'd0  ;
-            x13_pip_in  =   'd0  ;
-            x14_pip_in  =   'd0  ;
-            x15_pip_in  =   'd0  ;
+            x12_pip_in  =   x9  ;
+            x13_pip_in  =   x11  ;
+            x14_pip_in  =   x13  ;
+            x15_pip_in  =   x15  ;
 
             twiddle_0_pip_in    =   'd0   ;
             twiddle_1_pip_in    =   twiddle_1  ;
             twiddle_2_pip_in    =   twiddle_2  ;
             twiddle_3_pip_in    =   twiddle_3  ;
             twiddle_4_pip_in    =   twiddle_4  ;
-            twiddle_5_pip_in    =   'd0  ;
-            twiddle_6_pip_in    =   'd0  ;
-            twiddle_7_pip_in    =   'd0  ;
-            twiddle_8_pip_in    =   'd0  ;
+            twiddle_5_pip_in    =   twiddle_5  ;    //-------next 4 BU---------
+            twiddle_6_pip_in    =   twiddle_6  ;
+            twiddle_7_pip_in    =   twiddle_7  ;
+            twiddle_8_pip_in    =   twiddle_8  ;
             twiddle_9_pip_in    =   'd0  ;
             twiddle_10_pip_in   =   'd0  ;
             twiddle_11_pip_in   =   'd0  ;
@@ -402,62 +402,8 @@ module R16_top(
     logic [`BANK_width-1:0]    R16_BN14_idx_out_pip_out    ;
     logic [`BANK_width-1:0]    R16_BN15_idx_out_pip_out    ;
 
-    //-------------
-    logic cnt;
-    always_ff @( posedge clk or posedge rst ) begin
-        if (rst) begin
-            cnt <= 'd0;
-        end else begin
-            if (ntt_done) begin
-                cnt <= cnt + 'd1;
-            end else begin
-                cnt <= 'd0;
-            end
-        end
-    end
-
-    //--------------
-
     always_comb begin
         if (LAST_STAGE) begin
-            
-            if (!cnt) begin
-                y0  =  y0_pip_out  ;
-                y1  =  y1_pip_out  ;
-                y2  =  'd0;
-                y3  =  'd0;
-                y4  =  y2_pip_out  ;
-                y5  =  y3_pip_out  ;
-                y6  =  'd0;
-                y7  =  'd0;
-                y8  =  y4_pip_out  ;
-                y9  =  y5_pip_out  ;
-                y10 =  'd0;
-                y11 =  'd0;
-                y12 =  y6_pip_out  ;
-                y13 =  y7_pip_out  ;
-                y14 =  'd0;
-                y15 =  'd0;
-            end else begin
-                y0  =   'd0;
-                y1  =   'd0;
-                y2  =   y0_pip_out  ;
-                y3  =   y1_pip_out  ;
-                y4  =   'd0;
-                y5  =   'd0;
-                y6  =   y2_pip_out  ; 
-                y7  =   y3_pip_out  ; 
-                y8  =   'd0;
-                y9  =   'd0;
-                y10 =  y4_pip_out  ; 
-                y11 =  y5_pip_out  ; 
-                y12 =  'd0;
-                y13 =  'd0;
-                y14 =  y6_pip_out  ; 
-                y15 =  y7_pip_out  ; 
-            end
-            
-            /*
             y0  =   y0_pip_out  ;
             y1  =   y1_pip_out  ;
             y2  =   y2_pip_out ;
@@ -466,15 +412,15 @@ module R16_top(
             y5  =   y5_pip_out ;
             y6  =   y6_pip_out ;
             y7  =   y7_pip_out ;
-            y8  =   'd0 ;
-            y9  =   'd0 ;
-            y10 =   'd0 ;
-            y11 =   'd0 ;
-            y12 =   'd0 ;
-            y13 =   'd0 ;
-            y14 =   'd0 ;
-            y15 =   'd0 ;
-            */
+            y8  =   y8_pip_out ;
+            y9  =   y9_pip_out ;
+            y10 =   y10_pip_out ;
+            y11 =   y11_pip_out ;
+            y12 =   y12_pip_out ;
+            y13 =   y13_pip_out ;
+            y14 =   y14_pip_out ;
+            y15 =   y15_pip_out ;
+            
             ntt_done    =   ntt_done_pip_out    ;
 
             R16_MA0_idx_out     =   R16_MA0_idx_out_pip_out     ;
@@ -585,22 +531,22 @@ module R16_top(
     logic [`D_width-1:0] x14_pip_in_delay   [0:4] ;
     logic [`D_width-1:0] x15_pip_in_delay   [0:4] ;
 
-   assign x0_pip_in_delay [0]   =   x0_pip_in   ;
-   assign x1_pip_in_delay [0]   =   x1_pip_in   ;
-   assign x2_pip_in_delay [0]   =   x2_pip_in   ;
-   assign x3_pip_in_delay [0]   =   x3_pip_in   ;
-   assign x4_pip_in_delay [0]   =   x4_pip_in   ;
-   assign x5_pip_in_delay [0]   =   x5_pip_in   ;
-   assign x6_pip_in_delay [0]   =   x6_pip_in   ;
-   assign x7_pip_in_delay [0]   =   x7_pip_in   ;
-   assign x8_pip_in_delay [0]   =   x8_pip_in   ;
-   assign x9_pip_in_delay [0]   =   x9_pip_in   ;
-   assign x10_pip_in_delay[0]   =   x10_pip_in  ;
-   assign x11_pip_in_delay[0]   =   x11_pip_in  ;
-   assign x12_pip_in_delay[0]   =   x12_pip_in  ;
-   assign x13_pip_in_delay[0]   =   x13_pip_in  ;
-   assign x14_pip_in_delay[0]   =   x14_pip_in  ;
-   assign x15_pip_in_delay[0]   =   x15_pip_in  ;
+    assign x0_pip_in_delay [0]   =   x0_pip_in   ;
+    assign x1_pip_in_delay [0]   =   x1_pip_in   ;
+    assign x2_pip_in_delay [0]   =   x2_pip_in   ;
+    assign x3_pip_in_delay [0]   =   x3_pip_in   ;
+    assign x4_pip_in_delay [0]   =   x4_pip_in   ;
+    assign x5_pip_in_delay [0]   =   x5_pip_in   ;
+    assign x6_pip_in_delay [0]   =   x6_pip_in   ;
+    assign x7_pip_in_delay [0]   =   x7_pip_in   ;
+    assign x8_pip_in_delay [0]   =   x8_pip_in   ;
+    assign x9_pip_in_delay [0]   =   x9_pip_in   ;
+    assign x10_pip_in_delay[0]   =   x10_pip_in  ;
+    assign x11_pip_in_delay[0]   =   x11_pip_in  ;
+    assign x12_pip_in_delay[0]   =   x12_pip_in  ;
+    assign x13_pip_in_delay[0]   =   x13_pip_in  ;
+    assign x14_pip_in_delay[0]   =   x14_pip_in  ;
+    assign x15_pip_in_delay[0]   =   x15_pip_in  ;
     always_ff @( posedge clk or posedge rst ) begin
         integer i;
         if (rst) begin

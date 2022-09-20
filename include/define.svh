@@ -37,7 +37,7 @@
 `define ite_2 2
 `define ite_3 1
 `define BU_total 512
-`define BU_total_k2 1024
+`define BU_total_k2 512
 
 //-------last iteration------
 `define Last_l 4

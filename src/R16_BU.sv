@@ -441,17 +441,29 @@ module R16_BU (
     logic [`D_width-1:0] stage0_BU1_TF_mux;
     logic [`D_width-1:0] stage0_BU2_TF_mux;
     logic [`D_width-1:0] stage0_BU3_TF_mux;
+    logic [`D_width-1:0] stage0_BU4_TF_mux; //-------next 4 BU----------
+    logic [`D_width-1:0] stage0_BU5_TF_mux;
+    logic [`D_width-1:0] stage0_BU6_TF_mux;
+    logic [`D_width-1:0] stage0_BU7_TF_mux;
     always_comb begin
         if (LAST_STAGE) begin
             stage0_BU0_TF_mux = twiddle_1;
             stage0_BU1_TF_mux = twiddle_2;
             stage0_BU2_TF_mux = twiddle_3;
             stage0_BU3_TF_mux = twiddle_4;
+            stage0_BU4_TF_mux = twiddle_5;
+            stage0_BU5_TF_mux = twiddle_6;
+            stage0_BU6_TF_mux = twiddle_7;
+            stage0_BU7_TF_mux = twiddle_8;
         end else begin
             stage0_BU0_TF_mux = twiddle_1;
             stage0_BU1_TF_mux = twiddle_1;
             stage0_BU2_TF_mux = twiddle_1;
             stage0_BU3_TF_mux = twiddle_1;
+            stage0_BU4_TF_mux = twiddle_1;
+            stage0_BU5_TF_mux = twiddle_1;
+            stage0_BU6_TF_mux = twiddle_1;
+            stage0_BU7_TF_mux = twiddle_1;
         end
     end
 
@@ -517,7 +529,7 @@ module R16_BU (
     BU2_NWC stage0_BU4(
         .in1(x4),
         .in2(x12),
-        .twiddle(twiddle_1),
+        .twiddle(stage0_BU4_TF_mux),
         .modulus(modulus),
         .rst(rst),
         .clk(clk),
@@ -531,7 +543,7 @@ module R16_BU (
     BU2_NWC stage0_BU5(
         .in1(x5),
         .in2(x13),
-        .twiddle(twiddle_1),
+        .twiddle(stage0_BU5_TF_mux),
         .modulus(modulus),
         .rst(rst),
         .clk(clk),
@@ -545,7 +557,7 @@ module R16_BU (
     BU2_NWC stage0_BU6(
         .in1(x6),
         .in2(x14),
-        .twiddle(twiddle_1),
+        .twiddle(stage0_BU6_TF_mux),
         .modulus(modulus),
         .rst(rst),
         .clk(clk),
@@ -559,7 +571,7 @@ module R16_BU (
     BU2_NWC stage0_BU7(
         .in1(x7),
         .in2(x15),
-        .twiddle(twiddle_1),
+        .twiddle(stage0_BU7_TF_mux),
         .modulus(modulus),
         .rst(rst),
         .clk(clk),
@@ -1112,14 +1124,14 @@ module R16_BU (
             y6 <= (LAST_STAGE) ? stage0_fft_a3 : stage3_fft_a3; 
             y7 <= (LAST_STAGE) ? stage0_fft_b3 : stage3_fft_b3; 
 
-            y8 <=  (LAST_STAGE) ? 'd0 : stage3_fft_a4;
-            y9 <=  (LAST_STAGE) ? 'd0 : stage3_fft_b4; 
-            y10 <= (LAST_STAGE) ? 'd0 : stage3_fft_a5;
-            y11 <= (LAST_STAGE) ? 'd0 : stage3_fft_b5;
-            y12 <= (LAST_STAGE) ? 'd0 : stage3_fft_a6;
-            y13 <= (LAST_STAGE) ? 'd0 : stage3_fft_b6;
-            y14 <= (LAST_STAGE) ? 'd0 : stage3_fft_a7;
-            y15 <= (LAST_STAGE) ? 'd0 : stage3_fft_b7;
+            y8 <=  (LAST_STAGE) ? stage0_fft_a4 : stage3_fft_a4;
+            y9 <=  (LAST_STAGE) ? stage0_fft_b4 : stage3_fft_b4; 
+            y10 <= (LAST_STAGE) ? stage0_fft_a5 : stage3_fft_a5;
+            y11 <= (LAST_STAGE) ? stage0_fft_b5 : stage3_fft_b5;
+            y12 <= (LAST_STAGE) ? stage0_fft_a6 : stage3_fft_a6;
+            y13 <= (LAST_STAGE) ? stage0_fft_b6 : stage3_fft_b6;
+            y14 <= (LAST_STAGE) ? stage0_fft_a7 : stage3_fft_a7;
+            y15 <= (LAST_STAGE) ? stage0_fft_b7 : stage3_fft_b7;
         end
     end
 
